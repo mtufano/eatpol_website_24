@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with Pre-signed URL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #cccccc;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #4CAF50;
+            width: 0%;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Upload System</h1>
+        
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" placeholder="Enter your user ID">
+        </div>
+        
+        <div class="form-group">
+            <label for="fileInput">Select File:</label>
+            <input type="file" id="fileInput">
+        </div>
+        
+        <button id="uploadButton">Get URL & Upload</button>
+        
+        <div id="statusMessage" class="status" style="display: none;"></div>
+        
+        <div class="progress-container" style="display: none;" id="progressContainer">
+            <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - REPLACE WITH YOUR API GATEWAY URL
+        const API_GATEWAY_URL = "'https://d91qd4my5h.execute-api.eu-west-3.amazonaws.com/FirstDeployment'";
+        
+        document.getElementById('uploadButton').addEventListener('click', async () => {
+            // Get user input
+            const userId = document.getElementById('userId').value.trim();
+            const fileInput = document.getElementById('fileInput');
+            const statusMessage = document.getElementById('statusMessage');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            
+            // Validate inputs
+            if (!userId) {
+                showStatus('Please enter a user ID', 'error');
+                return;
+            }
+            
+            if (!fileInput.files || fileInput.files.length === 0) {
+                showStatus('Please select a file to upload', 'error');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            
+            // Disable button during operation
+            const uploadButton = document.getElementById('uploadButton');
+            uploadButton.disabled = true;
+            uploadButton.textContent = 'Processing...';
+            
+            try {
+                // Call the Lambda function via API Gateway to get pre-signed URL
+                showStatus('Requesting upload URL...', 'info');
+                
+                const response = await fetch(`${API_GATEWAY_URL}?user_id=${encodeURIComponent(userId)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API returned error: ${response.status} ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                if (!data.url) {
+                    throw new Error('No pre-signed URL returned from API');
+                }
+                
+                // Show the pre-signed URL (for debugging - remove in production)
+                console.log('Pre-signed URL:', data.url);
+                
+                // Upload the file using the pre-signed URL
+                showStatus('Uploading file...', 'info');
+                progressContainer.style.display = 'block';
+                
+                // Create an XMLHttpRequest to track upload progress
+                const xhr = new XMLHttpRequest();
+                
+                // Set up progress tracking
+                xhr.upload.addEventListener('progress', (event) => {
+                    if (event.lengthComputable) {
+                        const percentComplete = Math.round((event.loaded / event.total) * 100);
+                        progressBar.style.width = percentComplete + '%';
+                        progressBar.textContent = percentComplete + '%';
+                    }
+                });
+                
+                // Set up completion handler
+                xhr.addEventListener('load', () => {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        showStatus('File uploaded successfully!', 'success');
+                    } else {
+                        showStatus(`Upload failed: ${xhr.status} ${xhr.statusText}`, 'error');
+                    }
+                    uploadButton.disabled = false;
+                    uploadButton.textContent = 'Get URL & Upload';
+                });
+                
+                // Set up error handler
+                xhr.addEventListener('error', () => {
+                    showStatus('Upload failed due to network error', 'error');
+                    uploadButton.disabled = false;
+                    uploadButton.textContent = 'Get URL & Upload';
+                });
+                
+                // Send the request
+                xhr.open('PUT', data.url, true);
+                xhr.setRequestHeader('Content-Type', file.type);
+                xhr.send(file);
+                
+            } catch (error) {
+                showStatus(`Error: ${error.message}`, 'error');
+                uploadButton.disabled = false;
+                uploadButton.textContent = 'Get URL & Upload';
+                progressContainer.style.display = 'none';
+            }
+        });
+        
+        function showStatus(message, type) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = message;
+            statusMessage.style.display = 'block';
+            
+            // Remove all classes
+            statusMessage.classList.remove('success', 'error', 'info');
+            
+            // Add the appropriate class based on message type
+            if (type === 'success') {
+                statusMessage.classList.add('success');
+            } else if (type === 'error') {
+                statusMessage.classList.add('error');
+            } else {
+                // Default styling for info
+                statusMessage.style.backgroundColor = '#d1ecf1';
+                statusMessage.style.color = '#0c5460';
+            }
+        }
+    </script>
+</body>
+</html>
