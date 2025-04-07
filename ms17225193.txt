@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "eatpol.com",
+  "Id": "346a3c04-80ee-4c27-bf99-0cc015120085"
+}
