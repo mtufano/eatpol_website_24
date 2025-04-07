@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eatpol - Research & Innovation</title>
+
+    <!-- Favicon links - Add these lines -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png"> <!-- For iOS devices -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png"> <!-- For modern browsers -->
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png"> <!-- For modern browsers -->
+        
+
+
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -184,8 +194,9 @@
         
         /* Hero Section */
         .hero {
-            padding: 8rem 0 5rem;
-            background: var(--gradient-primary);
+            padding: 12rem 0 5rem; /* Increased from 8rem to 12rem to push it down */
+            margin-top: 2rem; /* Additional margin to push further down */
+            background: linear-gradient(135deg, #1297e0, #00bf63); /* Simple gradient with bright blue and green */
             position: relative;
             overflow: hidden;
         }
@@ -546,6 +557,12 @@
             .form-grid {
                 grid-template-columns: 1fr;
             }
+                    /* Responsive adjustment for Hero */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 10rem 0 4rem; /* Slightly reduced padding on mobile but still pushed down */
+            }
+        }
         }
     </style>
 </head>
@@ -554,8 +571,7 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="logo">eat<span>pol</span></a>
-                <ul class="nav-menu">
+                <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img">                <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link active">Consumer Test</a></li>
                     <li class="nav-item"><a href="research.html" class="nav-link">Research</a></li>
                     <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
@@ -620,7 +636,7 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Contact Our Team</h2>
-            <form action="#" method="POST" class="contact-form">
+            <form action="https://formspree.io/f/xdkeppng" method="POST" class="contact-form">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="name" class="form-label">Name</label>
@@ -643,7 +659,16 @@
                         <textarea id="message" name="message" class="form-control" required></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                            <!-- Hidden fields for additional information (optional) -->
+            <input type="hidden" name="_subject" value="New inquiry from Eatpol website">
+            
+            <!-- Redirect after submission (optional) -->
+            <input type="hidden" name="_next" value="https://eatpol.com/thank_you.html">
+            
+            <!-- Honeypot to prevent spam (optional but recommended) -->
+            <input type="text" name="_gotcha" style="display:none">
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
         </div>
     </section>

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eatpol - Become a Food Tester</title>
+       <!-- Favicon links - Add these lines -->
+       <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+       <link rel="apple-touch-icon" href="img/apple-touch-icon.png"> <!-- For iOS devices -->
+       <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png"> <!-- For modern browsers -->
+       <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png"> <!-- For modern browsers -->
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -540,8 +546,7 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <img src="img/favicon-32x32.png" alt="Eatpol Logo" class="logo-img">
-                <ul class="nav-menu">
+                <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img">                <ul class="nav-menu">
                     <ul class="nav-menu">
                         <li class="nav-item"><a href="index.html" class="nav-link active">Consumer Test</a></li>
                         <li class="nav-item"><a href="research.html" class="nav-link">Research</a></li>
@@ -655,7 +660,7 @@
             <h2 class="section-title">Sign Up to Become a Tester</h2>
             
             <div class="form-container">
-                <form action="#" method="POST" class="tester-form">
+                <form action="https://formspree.io/f/xdkeppng" method="POST" class="contact-form">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="firstname" class="form-label">First Name*</label>
@@ -725,7 +730,14 @@
                             </label>
                         </div>
                     </div>
+                                        <!-- Hidden fields for additional information (optional) -->
+                    <input type="hidden" name="_subject" value="New inquiry from Eatpol website">
                     
+                    <!-- Redirect after submission (optional) -->
+                    <input type="hidden" name="_next" value="https://eatpol.com/thank_you.html">
+                    
+                    <!-- Honeypot to prevent spam (optional but recommended) -->
+                    <input type="text" name="_gotcha" style="display:none">
                     <button type="submit" class="btn btn-primary">Submit Application</button>
                 </form>
             </div>
