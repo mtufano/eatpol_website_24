@@ -610,8 +610,8 @@
             
             <div class="solution-section">
                 <h3>Our Approach</h3>
-                <p>At Eatpol, we’re transforming research with AI and computer vision 🤖 to automate the analysis process.</p>
-                <p>Our tool extracts bite, chew, and sip counts 🍽️, tracks eating and drinking duration 🥤, detects emotions 😊, and estimates heart rate ❤️—all from a single video. 
+                <p>At Eatpol, we’re transforming research with AI and computer vision to automate the analysis process.</p>
+                <p>Our tool extracts bite, chew, and sip counts, tracks eating and drinking duration, detects emotions, and estimates heart rate — all from a single video. 
                 No more manual coding—just faster, more reliable insights into how people eat in real-life settings.</p>
             </div>
         </div>
@@ -632,7 +632,8 @@
 </section>
 
 
-    <!-- Contact Section -->
+
+<!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Contact Our Team</h2>
@@ -651,27 +652,48 @@
                         <input type="text" id="organization" name="organization" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-control" required>
-                    </div>
-                    <div class="form-group">
                         <label for="message" class="form-label">Message</label>
                         <textarea id="message" name="message" class="form-control" required></textarea>
                     </div>
                 </div>
-                            <!-- Hidden fields for additional information (optional) -->
-            <input type="hidden" name="_subject" value="New inquiry from Eatpol website">
-            
-            <!-- Redirect after submission (optional) -->
-            <input type="hidden" name="_next" value="https://eatpol.com/thank_you.html">
-            
-            <!-- Honeypot to prevent spam (optional but recommended) -->
-            <input type="text" name="_gotcha" style="display:none">
 
-            <button type="submit" class="btn btn-primary">Send Message</button>
+                <h3 class="section-subtitle">Video Analysis Details</h3>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="video_count" class="form-label">Approximate Number of Videos for Analysis</label>
+                        <input type="number" id="video_count" name="video_count" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="video_duration" class="form-label">Average Duration of Each Video (in minutes)</label>
+                        <input type="number" id="video_duration" name="video_duration" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Aspects You Would Like to Measure (Select all that apply):</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="measurements" value="Bites"> Bites</label>
+                        <label><input type="checkbox" name="measurements" value="Chews"> Chews</label>
+                        <label><input type="checkbox" name="measurements" value="Sips"> Sips</label>
+                        <label><input type="checkbox" name="measurements" value="Emotions"> Emotions</label>
+                    </div>
+                </div>
+
+                <!-- Hidden fields for additional information (optional) -->
+                <input type="hidden" name="_subject" value="New inquiry from Eatpol website">
+                
+                <!-- Redirect after submission (optional) -->
+                <input type="hidden" name="_next" value="https://eatpol.com/thank_you.html">
+                
+                <!-- Honeypot to prevent spam (optional but recommended) -->
+                <input type="text" name="_gotcha" style="display:none">
+
+                <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="footer">
