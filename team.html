@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eatpol - Consumer Test with AI</title>
+    <title>Our Team - Eatpol</title>
+       <!-- Favicon links -->
+       <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+       <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -86,17 +93,6 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 191, 99, 0.2);
-            color: var(--white);
-        }
-        
-        .btn-secondary {
-            background: var(--white);
-            color: var(--bright-blue);
-            border: 2px solid var(--bright-blue);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--bright-blue);
             color: var(--white);
         }
         
@@ -203,8 +199,6 @@
         
         .hero-content {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
         
         .hero-title {
@@ -219,6 +213,9 @@
             margin-bottom: 2rem;
             color: var(--navy);
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* Content Sections */
@@ -245,162 +242,86 @@
             border-radius: 2px;
         }
         
-        /* Problem-Solution Section */
-        .problem-solution {
-            background-color: #f5f8fa;
-        }
-        
-        .card {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-        
-        .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .card-title i {
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            color: var(--bright-blue);
-        }
-        
-        /* Video Section */
-        .video-container {
-            position: relative;
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-        
-        .video-container video {
-            width: 100%;
-            display: block;
-        }
-        
-        /* Pricing Options */
-        .options-grid {
+        /* Team Grid */
+        .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
         
-        .option-card {
+        .team-card {
             background: var(--white);
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            text-align: center;
         }
         
-        .option-card:hover {
+        .team-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 24px rgba(17, 39, 82, 0.2);
         }
         
-        .option-header {
+        .team-photo {
+            width: 100%;
+            height: 250px;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--navy);
+        }
+        
+        .team-info {
             padding: 2rem;
-            background: var(--gradient-primary);
-            color: var(--white);
-            text-align: center;
         }
         
-        .option-header.featured {
-            background: var(--gradient-cta);
-        }
-        
-        .option-title {
+        .team-name {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: var(--white);
+            color: var(--dark-blue);
         }
         
-        .option-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        
-        .option-price span {
+        .team-role {
             font-size: 1rem;
-            font-weight: normal;
+            color: var(--bright-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
         
-        .option-body {
-            padding: 2rem;
-        }
-        
-        .option-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .option-features li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .option-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .option-features i {
-            color: var(--green);
-            margin-right: 0.5rem;
-        }
-        
-        /* Contact Form */
-        .contact-section {
-            background: var(--light-blue);
-            padding: 5rem 0;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        
-        .form-group {
+        .team-bio {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #666;
             margin-bottom: 1.5rem;
         }
         
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--navy);
-            font-weight: 500;
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
         }
         
-        .form-control {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--light-blue);
+            color: var(--dark-blue);
+            font-size: 1rem;
             transition: var(--transition);
         }
         
-        .form-control:focus {
-            outline: none;
-            border-color: var(--bright-blue);
-            box-shadow: 0 0 0 2px rgba(18, 151, 224, 0.2);
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .form-grid .form-group:last-child {
-            grid-column: 1 / -1;
+        .social-icon:hover {
+            background: var(--bright-blue);
+            color: var(--white);
+            transform: translateY(-2px);
         }
         
         /* Footer */
@@ -446,20 +367,15 @@
             margin-top: 1.5rem;
         }
         
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .footer-social .social-icon {
             background: rgba(255, 255, 255, 0.1);
             color: var(--white);
+            width: 40px;
+            height: 40px;
             font-size: 1.2rem;
-            transition: var(--transition);
         }
         
-        .social-icon:hover {
+        .footer-social .social-icon:hover {
             background: var(--bright-blue);
             transform: translateY(-2px);
         }
@@ -473,23 +389,6 @@
         }
         
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content {
-                flex-direction: column;
-            }
-            
-            .options-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-        
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
@@ -537,8 +436,9 @@
                 font-size: 2rem;
             }
             
-            .form-grid {
+            .team-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -548,11 +448,12 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="logo">eat<span>pol</span></a>
+                <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img">
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="consumer-test.html" class="nav-link active">Consumer Test</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Consumer Test</a></li>
                     <li class="nav-item"><a href="research.html" class="nav-link">Research</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link active">Team</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -564,119 +465,90 @@
         </div>
     </header>
 
-
-
-    <!-- Pricing Options Section -->
-    <section class="section" style="background-color: #f5f8fa;">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h2 class="section-title">Our Packages</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Choose the right consumer testing package for your product development needs. All packages include our core AI analysis technology and comprehensive reporting.</p>
-            
-            <div class="options-grid">
-                <div class="option-card">
-                    <div class="option-header">
-                        <h3 class="option-title">Basic</h3>
-                        <div class="option-price">$2,500<span>/month</span></div>
-                    </div>
-                    <div class="option-body">
-                        <ul class="option-features">
-                            <li><i class="fas fa-check"></i> Up to 50 test participants</li>
-                            <li><i class="fas fa-check"></i> Bite and chew analysis</li>
-                            <li><i class="fas fa-check"></i> Basic emotional response tracking</li>
-                            <li><i class="fas fa-check"></i> Standard reporting</li>
-                            <li><i class="fas fa-check"></i> Email support</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
-                    </div>
-                </div>
-                
-                <div class="option-card">
-                    <div class="option-header featured">
-                        <h3 class="option-title">Professional</h3>
-                        <div class="option-price">$5,000<span>/month</span></div>
-                    </div>
-                    <div class="option-body">
-                        <ul class="option-features">
-                            <li><i class="fas fa-check"></i> Up to 200 test participants</li>
-                            <li><i class="fas fa-check"></i> Advanced bite, chew, and sip analysis</li>
-                            <li><i class="fas fa-check"></i> Detailed emotional response tracking</li>
-                            <li><i class="fas fa-check"></i> Comparison against 3 competitor products</li>
-                            <li><i class="fas fa-check"></i> Advanced reporting with actionable insights</li>
-                            <li><i class="fas fa-check"></i> Priority email & phone support</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
-                    </div>
-                </div>
-                
-                <div class="option-card">
-                    <div class="option-header">
-                        <h3 class="option-title">Enterprise</h3>
-                        <div class="option-price">Custom<span> pricing</span></div>
-                    </div>
-                    <div class="option-body">
-                        <ul class="option-features">
-                            <li><i class="fas fa-check"></i> Unlimited test participants</li>
-                            <li><i class="fas fa-check"></i> Full-spectrum analysis suite</li>
-                            <li><i class="fas fa-check"></i> Heart rate & physiological monitoring</li>
-                            <li><i class="fas fa-check"></i> Unlimited competitor comparisons</li>
-                            <li><i class="fas fa-check"></i> Custom reporting dashboard</li>
-                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
-                            <li><i class="fas fa-check"></i> 24/7 priority support</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary" style="width: 100%;">Contact Us</a>
-                    </div>
-                </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Meet Our Team</h1>
+                <p class="hero-subtitle">The passionate innovators driving the future of food testing and sustainable nutrition.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- Team Section -->
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <form action="#" method="POST" class="contact-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
+            <h2 class="section-title">Our Experts</h2>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="tel" id="phone" name="phone" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="company" class="form-label">Company</label>
-                        <input type="text" id="company" name="company" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="package" class="form-label">Package of Interest</label>
-                        <select id="package" name="package" class="form-control">
-                            <option value="">Select a package</option>
-                            <option value="Basic">Basic</option>
-                            <option value="Professional">Professional</option>
-                            <option value="Enterprise">Enterprise</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget" class="form-label">Budget Range</label>
-                        <select id="budget" name="budget" class="form-control">
-                            <option value="">Select a budget range</option>
-                            <option value="$1,000-$5,000">$1,000-$5,000</option>
-                            <option value="$5,000-$10,000">$5,000-$10,000</option>
-                            <option value="$10,000+">$10,000+</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Sarah Johnson</h3>
+                        <p class="team-role">CEO & Co-Founder</p>
+                        <p class="team-bio">Food scientist with 15+ years experience in sustainable nutrition. PhD in Food Technology from Wageningen University. Previously led innovation at several food tech startups.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+
+                <!-- Team Member 2 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Marcus Rodriguez</h3>
+                        <p class="team-role">CTO & Co-Founder</p>
+                        <p class="team-bio">AI and machine learning expert specializing in computer vision and behavioral analysis. Former Google engineer with deep expertise in consumer data analytics and pattern recognition.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Emma Chen</h3>
+                        <p class="team-role">Head of Research</p>
+                        <p class="team-bio">Consumer behavior researcher with expertise in sensory analysis and food psychology. Published 50+ papers on eating behavior and consumer preferences in sustainable food products.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-graduation-cap"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">James Mitchell</h3>
+                        <p class="team-role">VP of Business Development</p>
+                        <p class="team-bio">Strategic partnerships and business growth specialist with 12+ years in food industry. Former executive at Unilever and Nestlé, driving innovation in sustainable food solutions.</p>
+                        <div class="team-social">
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -689,7 +561,6 @@
                     <p>Eatpol helps food companies create sustainable and delicious products through AI-driven consumer testing.</p>
                     <div class="footer-social">
                         <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -697,17 +568,18 @@
                 <div class="footer-col">
                     <h3 class="footer-heading">Quick Links</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html">Home</a></li>
-                        <li class="footer-link"><a href="consumer-test.html">Consumer Test</a></li>
+                        <li class="footer-link"><a href="index.html">Consumer Test</a></li>
                         <li class="footer-link"><a href="research.html">Research</a></li>
+                        <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
+                        <li class="footer-link"><a href="team.html">Team</a></li>
                         <li class="footer-link"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3 class="footer-heading">Contact Info</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Tech City</li>
-                        <li class="footer-link"><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Stippeneng 4, Wageningen, the Netherlands</li>
+                        <li class="footer-link"><i class="fas fa-phone"></i> +39 334 74 09 720</li>
                         <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
                     </ul>
                 </div>

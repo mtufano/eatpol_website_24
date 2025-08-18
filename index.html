@@ -1,975 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eatpol - Launch foods that people love</title>
-       <!-- Favicon links - Add these lines -->
-       <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-       <link rel="apple-touch-icon" href="img/apple-touch-icon.png"> <!-- For iOS devices -->
-       <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png"> <!-- For modern browsers -->
-       <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png"> <!-- For modern browsers -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eatpol – Cut product‑launch risk with real‑world consumer testing</title>
+  <!-- Favicons -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Base Styles */
-        :root {
-            --bright-blue: #1297e0;
-            --green: #00bf63;
-            --dark-blue: #1b48ab;
-            --medium-blue: #6990cd;
-            --light-blue: #b8daef;
-            --white: #ffffff;
-            --navy: #112752;
-            --gradient-primary: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
-            --gradient-secondary: linear-gradient(135deg, var(--medium-blue), var(--light-blue));
-            --gradient-cta: linear-gradient(135deg, var(--green), var(--bright-blue));
-            --shadow: 0 4px 16px rgba(17, 39, 82, 0.15);
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--dark-blue);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-        }
-        
-        a {
-            color: var(--bright-blue);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        a:hover {
-            color: var(--dark-blue);
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            font-weight: 500;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            outline: none;
-        }
-        
-        .btn-primary {
-            background: var(--gradient-cta);
-            color: var(--white);
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 191, 99, 0.2);
-            color: var(--white);
-        }
-        
-        .btn-secondary {
-            background: var(--white);
-            color: var(--bright-blue);
-            border: 2px solid var(--bright-blue);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--bright-blue);
-            color: var(--white);
-        }
-        
-        /* Header */
-        .header {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: var(--bright-blue);
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-item {
-            margin-left: 2rem;
-        }
-        
-        .nav-link {
-            color: var(--navy);
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 0.25rem;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--bright-blue);
-            transition: var(--transition);
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        .nav-link.active {
-            color: var(--bright-blue);
-        }
-        
-        /* Mobile Navigation */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            transition: var(--transition);
-            background-color: var(--navy);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 5rem;
-            background: var(--gradient-secondary);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('path-to-pattern.svg') repeat;
-            opacity: 0.1;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .hero-text {
-            flex: 1;
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--navy);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--navy);
-            opacity: 0.9;
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .hero-image {
-            flex: 1;
-            max-width: 500px;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        /* Content Sections */
-        .section {
-            padding: 5rem 0;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-cta);
-            border-radius: 2px;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(17, 39, 82, 0.2);
-        }
-        
-        .feature-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient-secondary);
-            margin-bottom: 1.5rem;
-            color: var(--navy);
-            font-size: 1.5rem;
-        }
-        
-        .feature-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Split Section */
-        .split-section {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        
-        .split-content,
-        .split-image {
-            flex: 1;
-        }
-        
-        .split-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .split-title {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Contact Form */
-        .contact-section {
-            background: var(--light-blue);
-            padding: 5rem 0;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--navy);
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--bright-blue);
-            box-shadow: 0 0 0 2px rgba(18, 151, 224, 0.2);
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .form-grid .form-group:last-child {
-            grid-column: 1 / -1;
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--navy);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-heading {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-link {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-link a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: var(--transition);
-        }
-        
-        .footer-link a:hover {
-            color: var(--bright-blue);
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            background: var(--bright-blue);
-            transform: translateY(-2px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-        /* Video-Text Split Layout - This uses unique class names to avoid conflicts */
-        .video-text-container {
-            display: flex;
-            flex-direction: row;
-            gap: 2rem;
-            align-items: flex-start;
-            margin-top: 2rem;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --bright-blue: #1297e0;
+      --green: #00bf63;
+      --dark-blue: #1b48ab;
+      --medium-blue: #6990cd;
+      --light-blue: #b8daef;
+      --white: #ffffff;
+      --navy: #112752;
+      --gradient-primary: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
+      --gradient-secondary: linear-gradient(135deg, var(--medium-blue), var(--light-blue));
+      --gradient-cta: linear-gradient(135deg, var(--green), var(--bright-blue));
+      --shadow: 0 4px 16px rgba(17, 39, 82, 0.15);
+      --transition: all 0.3s ease;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { color: var(--dark-blue); margin-bottom: 1rem; font-weight: 600; }
+    p { margin-bottom: 1.25rem; font-size: 1rem; }
+    a { color: var(--bright-blue); text-decoration: none; transition: var(--transition); }
+    a:hover { color: var(--dark-blue); }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn { display: inline-block; padding: 0.85rem 1.4rem; border-radius: 6px; font-weight: 600; text-align: center; cursor: pointer; transition: var(--transition); border: none; outline: none; }
+    .btn-primary { background: var(--gradient-cta); color: var(--white); box-shadow: var(--shadow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 191, 99, 0.2); color: var(--white); }
+    .btn-secondary { background: var(--white); color: var(--bright-blue); border: 2px solid var(--bright-blue); }
+    .btn-secondary:hover { background: var(--bright-blue); color: var(--white); }
+    /* Header */
+    .header { background: var(--white); box-shadow: var(--shadow); position: fixed; inset: 0 0 auto 0; z-index: 1000; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; }
+    .logo { display:flex; align-items:center; gap:.6rem; font-size: 1.1rem; font-weight: 600; color: var(--navy); }
+    .nav-menu { display: flex; list-style: none; }
+    .nav-item { margin-left: 1.5rem; }
+    .nav-link { color: var(--navy); font-weight: 600; position: relative; padding-bottom: 0.25rem; }
+    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--bright-blue); transition: var(--transition); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-cta { margin-left: 1rem; }
+    .hamburger { display: none; cursor: pointer; }
+    .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); }
 
-        .video-side {
-            flex: 1;
-            max-width: 50%;
-        }
+    /* Hero */
+    .hero { padding: 8.2rem 0 4.5rem; background: var(--gradient-secondary); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: url('img/pattern.svg') repeat; opacity: 0.08; }
+    .hero-content { position: relative; display: flex; align-items: center; gap: 2rem; }
+    .hero-text { flex: 1; }
+    .hero-title { font-size: 2.6rem; line-height: 1.15; margin-bottom: 1rem; color: var(--navy); }
+    .hero-subtitle { font-size: 1.15rem; color: var(--navy); opacity: 0.95; margin-bottom: 1.75rem; }
+    .hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+    .hero-image { flex: 1; max-width: 520px; }
+    .hero-image img, .hero-image video { width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); }
 
-        .video-side video {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
+    /* Sections */
+    .section { padding: 4.5rem 0; }
+    .section-title { font-size: 2.1rem; text-align: center; margin-bottom: 2.2rem; position: relative; }
+    .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--gradient-cta); border-radius: 2px; }
+    .muted { color: #5b6b8a; }
 
-        .text-side {
-            flex: 1;
-            max-width: 50%;
-        }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .feature-card { background: var(--white); border-radius: 10px; padding: 1.5rem; box-shadow: var(--shadow); transition: var(--transition); }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(17,39,82,.18); }
+    .feature-title { font-size: 1.2rem; margin-bottom: .5rem; }
 
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .video-text-container {
-                flex-direction: column;
-            }
-            
-            .video-side,
-            .text-side {
-                max-width: 100%;
-            }
-        }
+    .split { display: flex; align-items: center; gap: 3rem; }
+    .split > * { flex: 1; }
+    .split img, .split video { width:100%; border-radius: 10px; box-shadow: var(--shadow); }
 
-                /* Pricing Options */
-                .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .option-card {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .option-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(17, 39, 82, 0.2);
-        }
-        
-        .option-header {
-            padding: 2rem;
-            background: var(--gradient-primary);
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .option-header.featured {
-            background: var(--gradient-cta);
-        }
-        
-        .option-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-        
-        .option-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        
-        .option-price span {
-            font-size: 1rem;
-            font-weight: normal;
-        }
-        
-        .option-body {
-            padding: 2rem;
-        }
-        
-        .option-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .option-features li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .option-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .option-features i {
-            color: var(--green);
-            margin-right: 0.5rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content {
-                flex-direction: column;
-            }
-            
-            .hero-image {
-                order: -1;
-            }
-            
-            .split-section {
-                flex-direction: column;
-                gap: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-            
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                gap: 0;
-                flex-direction: column;
-                background-color: var(--white);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-                padding: 2rem 0;
-            }
-            
-            .nav-item {
-                margin: 1rem 0;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .hero {
-                padding-top: 6rem;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    /* Bands */
+    .band-dark { background:#0b1a3a; color:#fff; }
+    .band-dark .section-title { color:#fff; }
+
+    .option-header { position: relative; }
+    .ribbon {
+        position: absolute; top: 12px; right: -8px;
+        background: #ffb703; color:#0b1a3a; font-weight: 800;
+        padding: 6px 12px; transform: rotate(10deg);
+        border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,.12);
+        font-size: .85rem; letter-spacing:.3px;
+    }
+    .option-subtitle {
+        margin-top: .25rem; font-weight: 600; opacity: .95; line-height: 1.3;
+    }
+    .lead-magnet {
+        background:#ffffff; border:1px solid rgba(0,0,0,.06);
+        border-radius:10px; box-shadow: 0 6px 18px rgba(17,39,82,.08);
+        padding: 1.2rem 1.4rem; display:flex; gap:1rem; align-items:center; justify-content:space-between;
+        max-width: 980px; margin: 28px auto 0;
+    }
+    @media (max-width: 680px){ .lead-magnet { flex-direction:column; text-align:center; } }
+    /* Pricing */
+    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .option-card { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); display:flex; flex-direction:column; }
+    .option-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(17,39,82,.2); }
+    .option-header { padding: 1.6rem; background: var(--gradient-primary); color: #fff; text-align: center; }
+    .option-header.featured { background: var(--gradient-cta); }
+    .option-title { font-size: 1.3rem; margin-bottom: 0.4rem; color:#fff; }
+    .option-body { padding: 1.6rem; flex:1; display:flex; flex-direction:column; }
+    .option-features { list-style: none; margin-bottom: 1.2rem; }
+    .option-features li { padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .option-features li:last-child { border-bottom: none; }
+
+    /* FAQ */
+    details { background:#fff; border-radius:10px; padding:1rem 1.2rem; box-shadow: var(--shadow); }
+    details + details { margin-top: .9rem; }
+    summary { cursor:pointer; font-weight:700; color:var(--navy); }
+
+    /* Contact */
+    .contact-section { background: var(--light-blue); }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.2rem; }
+    .form-group { margin-bottom: .6rem; }
+    .form-label { display:block; margin-bottom:.35rem; color:var(--navy); font-weight:600; }
+    .form-control { width:100%; padding:.8rem 1rem; border:1px solid rgba(0,0,0,.12); border-radius:6px; transition: var(--transition); }
+    .form-control:focus { outline:none; border-color: var(--bright-blue); box-shadow: 0 0 0 2px rgba(18,151,224,.2); }
+    textarea.form-control { min-height: 120px; resize: vertical; }
+    .form-grid .form-group.full { grid-column: 1 / -1; }
+
+    /* Footer */
+    .footer { background: var(--navy); color: var(--white); padding: 3.2rem 0 2rem; }
+    .footer-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-heading { color:#fff; font-size:1.1rem; margin-bottom:1rem; }
+    .footer-links { list-style:none; }
+    .footer-link { margin-bottom:.7rem; color: rgba(255,255,255,.8); }
+    .footer-link a { color: inherit; }
+    .footer-bottom { text-align:center; padding-top:1.4rem; border-top:1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.7); font-size:.9rem; }
+
+    /* Fixed Consultation Banner */
+    .consultation-banner {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--gradient-cta);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      z-index: 1001;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      animation: slideInUp 0.8s ease forwards 2s;
+    }
+    
+    @keyframes slideInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .consultation-banner:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 191, 99, 0.3);
+      color: var(--white);
+    }
+    
+    .consultation-banner i {
+      margin-right: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px){
+      .hero { padding-top: 6.5rem; }
+      .hero-content { flex-direction: column; }
+      .split { flex-direction: column; gap: 1.5rem; }
+    }
+    @media (max-width: 768px){
+      .hamburger { display: block; }
+      .nav-menu { position: fixed; left: -100%; top: 70px; gap: 0; flex-direction: column; background-color: var(--white); width: 100%; text-align: center; transition: 0.3s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); padding: 1.4rem 0; }
+      .nav-item { margin: .6rem 0; }
+      .nav-menu.active { left: 0; }
+      .form-grid { grid-template-columns: 1fr; }
+      
+      .consultation-banner {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.9rem 1.3rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img">
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link active">Consumer Test</a></li>
-                    <li class="nav-item"><a href="research.html" class="nav-link">Research</a></li>
-                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">Launch foods that people love</h1>
-                    <p class="hero-subtitle">Eatpol helps food companies to test their products before launch 
-                     through our AI-driven consumer testing solution.</p>
-                    <div class="hero-cta">
-                        <a href="consumer-test.html" class="btn btn-primary">Explore Consumer Testing</a>
-                        <a href="research.html" class="btn btn-secondary">Research Solutions</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="img/girl1.png" alt="Eatpol AI Food Analysis" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Transforming Food Innovation</h2>
-            <div class="split-section">
-                <div class="split-content">
-                    <h3 class="split-title">🌱 Sustainable Food Solutions</h3>
-                    <p>Switching to sustainable proteins benefits animal welfare 🐮, the planet 🌍, and our health❤️. 
-                        Innovative food startups are embracing this change by creating plant- and insect-based products 
-                        that are both eco-friendly and delicious 😋!</p>
-                    <p>But here's the challenge: 80% of new food products fail at launch ❌ <br>
-                        Eatpol bridges this gap with AI-powered consumer testing 🤖, helping food companies understand exactly 
-                        how people eat their products in real life 🍽️—and how they compare to competitors in the market 📊.</p>
-                    <a href="consumer-test.html" class="btn btn-primary">Learn More</a>
-                </div>
-                <div class="split-image">
-                    <img src="img/logo6.png" alt="Sustainable Food Solutions" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section" style="background-color: #f5f8fa;">
-        <div class="container">
-            <h2 class="section-title">Why Choose Eatpol</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="feature-title">AI-Powered Analysis</h3>
-                    <p>Our AI, combined with traditional product questionnaires, tracks the entire consumer journey.
-                        It analyzes cooking, 
-                        eating, and reactions—capturing facial expressions, movement, eating behavior, and heart rate to provide 
-                        in-depth insights into how consumers interact with your product.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="feature-title">Real-time Metrics</h3>
-                    <p>Track consumer response in real-time with detailed metrics that provide actionable insights 
-                        for product development and optimization. Show investors clear evidence of how your food samples outperform competitors. </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3 class="feature-title">Privacy-Focused</h3>
-                    <p>Our technology ensures tester privacy while still collecting valuable data, creating a comfortable testing environment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<section class="section how-it-works">
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-        <h2 class="section-title">How It Works</h2>
-        
-        <!-- Full-width video -->
-        <div class="full-width-video">
-            <video autoplay loop muted width="100%">
-                <source src="videos/consumer_test_demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+      <nav class="nav">
+        <div class="logo">
+          <img src="img/logo_100x100.png" alt="Eatpol Logo" style="height:40px;width:auto;border-radius:6px;" />
+          Eatpol
         </div>
-        
-        <!-- Text content below video -->
-        <div class="text-content"> <br>
-            <h3 class="split-title">AI-Driven Consumer Testing</h3>
-            
-            <p>You prepare your food samples 🍱—we handle the rest. Eatpol ships them to testers along with a QR code 📦. Testers cook and eat while recording themselves 🎥, with privacy ensured via AI facial masking.</p>
-
-            <p>Our AI software analyzes how consumers interact with your samples in real-life settings 🏠. You'll receive a detailed report featuring:</p>
-            
-            <ul>
-              <li>📊 Traditional product questionnaire results (liking, taste, purchase intent, etc.)</li>
-              <li>😊 Emotion detection, ❤️ heart rate, and activity tracking</li>
-              <li>🍽️ Bite & chew counts per sample for insights on eating behavior</li>
-              <li>🔊 Audio feedback interpreted by AI to capture nuances beyond surveys</li>
-            </ul>
-            
-            <p>Get a complete picture of how consumers use, react to, eat, and prefer your samples—compared to the competition 🥇.</p>
-            
-            <a href="#contact" class="btn btn-primary">Get Started</a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li class="nav-item"><a href="#plan" class="nav-link">Your Plan</a></li>
+          <li class="nav-item"><a href="#pricing" class="nav-link">Packages</a></li>
+          <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="#privacy" class="nav-link">Privacy & Ethics</a></li>
+          <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
+        </ul>
+        <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </div>
+      </nav>
     </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">Test smarter, launch products people love</h1>
+          <p class="hero-subtitle">Cut product‑launch risk with real‑world consumer testing. Eatpol is your guide—AI‑powered tests reveal how people cook, eat, and react, so you launch foods people actually buy.</p>
+          <div class="hero-cta">
+            <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary">Schedule a free consultation</a>
+            <a href="#how-it-works" class="btn btn-secondary">See how testing works</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Swap to a short looping clip if available -->
+          <img src="img/girl1.png" alt="Eatpol AI Consumer Testing" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Stakes -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2 class="section-title">Why most launches miss</h2>
+          <p>Traditional central‑location tests miss the kitchen. That’s where decisions happen. Without in‑home behavior data, teams over‑index on stated opinions—and launches fail far too often. You shouldn’t bet your budget on guesswork.</p>
+        </div>
+        <div>
+          <img src="img/logo6.png" alt="In‑home testing context" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guide / Authority -->
+  <section class="section" id="guide">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2 class="section-title">Meet your guide</h2>
+          <p>We know the pressure on product leads—timelines shrink; decisions don’t. Our team blends sensory science and computer vision to turn real‑life eating into clear, quantitative signals you can act on.</p>
+          <div class="feature-grid" style="margin-top:1rem">
+            <div class="feature-card"><h3 class="feature-title">In‑home behavior, not lab guesses</h3><p>Computer vision captures bites, chews, sips, utensil use, and dwell time, while our app masks faces for privacy.</p></div>
+            <div class="feature-card"><h3 class="feature-title">Emotions & context, quantified</h3><p>Moment‑by‑moment emotions, audio interpretation, and activity signals tie reactions to specific prep and eating moments.</p></div>
+            <div class="feature-card"><h3 class="feature-title">Classic KPIs included</h3><p>Liking, acceptance, purchase intent, and competitor comparisons—together in one view.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works (detail) -->
+  <section class="section" id="how-it-works" style="background-color:#f5f8fa;">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <div class="split">
+        <div>
+          <p>You prepare your food samples—we handle the rest. Eatpol ships to testers with a QR code. Testers cook and eat while recording; privacy is ensured with automatic face masking.</p>
+          <ul class="muted" style="margin-top:.8rem;">
+            <li>Traditional product questionnaire results (liking, taste, purchase intent)</li>
+            <li>Emotion detection, activity tracking</li>
+            <li>Bite & chew counts for eating‑behavior insights</li>
+            <li>AI‑interpreted audio feedback for nuance beyond surveys</li>
+          </ul>
+          <div style="margin-top:1rem">
+            <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary">Schedule a free consultation</a>
+          </div>
+        </div>
+        <div>
+          <video autoplay loop muted playsinline>
+            <source src="videos/consumer_test_demo.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Simple 3‑step Plan -->
+  <section id="plan" class="section">
+    <div class="container">
+      <h2 class="section-title">Your 3‑step plan</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3 class="feature-title">1) Decide what to test</h3>
+          <p>Taste, packaging, branding, usage. We help you scope the right questions.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">2) Ship samples</h3>
+          <p>We recruit and coordinate in‑home testers. No special hardware required.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">3) See the truth</h3>
+          <p>Behavior + emotions + classic KPIs in a dashboard and report your team can act on.</p>
+        </div>
+      </div>
+  </section>
+
+
+
+  <!-- Avoid Failure band -->
+  <section class="section band-dark">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title" style="color:#fff;">Avoid costly misfires</h2>
+      <p>Find issues before you invest. Replace opinion wars with behavior evidence. Base launch decisions on real consumer data.</p>
+      <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary" style="margin-top:.6rem;">Schedule a free consultation</a>
+    </div>
+  </section>
+
+  <!-- Results / Success Strip -->
+  <section class="section" id="results">
+    <div class="container">
+      <h2 class="section-title">What success looks like</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><h3 class="feature-title">Faster decisions</h3><p>Cut time‑to‑decision by 30–50% with clear behavioral evidence.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Higher purchase intent</h3><p>Identify packaging and recipe tweaks that lift purchase intent.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Fewer launch surprises</h3><p>Reveal prep friction and usage errors before they reach stores.</p></div>
+      </div>
+    </div>
+  </section>
+
+<!-- Pricing -->
+<section class="section" id="pricing" style="background-color:#f5f8fa;">
+  <div class="container">
+    <h2 class="section-title">Packages</h2>
+    <p class="muted" style="text-align:center; max-width:800px; margin:0 auto 1.2rem;">
+      Choose the right study for your decision stage. All packages include our core AI analysis and a concise stakeholder report.
+    </p>
+
+    <div class="discount-banner" style="background-color:#1297e0; padding:12px; border-radius:8px; text-align:center; margin-bottom:24px; font-weight:700; color:#fff;">
+      Special Launch Offer: 70% OFF for the first 3 companies that sign up
+    </div>
+
+    <div class="options-grid">
+      <!-- Explore -->
+      <div class="option-card">
+        <div class="option-header">
+          <h3 class="option-title">Explore</h3>
+          <div class="option-subtitle">Validate early</div>
+          <div class="price-container" style="display:flex;flex-direction:column;gap:.2rem;align-items:center; margin-top:.6rem;">
+            <span class="regular-price" style="text-decoration:line-through; color:#e6e6e6;">€5,850</span>
+            <span class="discount-price" style="font-size:1.6rem; font-weight:800;">€1,755</span>
+            <span class="price-detail" style="opacity:.9;">50 participants</span>
+          </div>
+        </div>
+        <div class="option-body">
+          <ul class="option-features">
+            <li>50 test participants</li>
+            <li>Traditional questionnaires</li>
+            <li>Eating behavior analysis</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%">Choose Explore</a>
+        </div>
+      </div>
+
+      <!-- Decide (Most Popular) -->
+      <div class="option-card">
+        <div class="option-header featured">
+          <div class="ribbon" aria-label="Most popular">Most popular</div>
+          <h3 class="option-title">Decide</h3>
+          <div class="option-subtitle">Choose the winner</div>
+          <div class="price-container" style="display:flex;flex-direction:column;gap:.2rem;align-items:center; margin-top:.6rem;">
+            <span class="regular-price" style="text-decoration:line-through; color:#e6e6e6;">€11,700</span>
+            <span class="discount-price" style="font-size:1.6rem; font-weight:800;">€3,510</span>
+            <span class="price-detail" style="opacity:.9;">100 participants</span>
+          </div>
+        </div>
+        <div class="option-body">
+          <ul class="option-features">
+            <li>100 test participants</li>
+            <li>Traditional questionnaires</li>
+            <li>Eating behavior analysis</li>
+            <li>Emotional response tracking</li>
+            <li>Comparison vs. 1 competitor</li>
+            <li>AI-interpreted audio feedback</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%">Choose Decide</a>
+        </div>
+      </div>
+
+      <!-- Convince -->
+      <div class="option-card">
+        <div class="option-header">
+          <h3 class="option-title">Convince</h3>
+          <div class="option-subtitle">Build the case</div>
+          <div class="price-container" style="display:flex;flex-direction:column;gap:.2rem;align-items:center; margin-top:.6rem;">
+            <span class="regular-price" style="text-decoration:line-through; color:#e6e6e6;">€17,550</span>
+            <span class="discount-price" style="font-size:1.6rem; font-weight:800;">€5,265</span>
+            <span class="price-detail" style="opacity:.9;">150 participants</span>
+          </div>
+        </div>
+        <div class="option-body">
+          <ul class="option-features">
+            <li>150 test participants</li>
+            <li>Traditional questionnaires</li>
+            <li>Eating behavior analysis</li>
+            <li>Emotional response tracking</li>
+            <li>Multi-competitor comparisons</li>
+            <li>AI-interpreted audio feedback</li>
+            <li>Custom reporting dashboard</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%">Choose Convince</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead magnet -->
+    <div class="lead-magnet" role="complementary" aria-label="Find your best plan">
+      <div>
+        <strong>Not sure which plan fits?</strong><br>
+        Tell us about your product and goals — we’ll recommend the right package for your decision stage.
+      </div>
+      <a href="#contact" class="btn btn-primary">Schedule a free consultation</a>
+    </div>
+
+    <p style="text-align:center; margin-top: 16px; font-size: .95rem;" class="muted">
+      Regular pricing: €117 per participant. Need targeted audiences (e.g., flexitarians, parents, sports nutrition)?
+      <a href="#contact">Ask about recruiting</a>.
+    </p>
+  </div>
 </section>
 
-
-<!-- Pricing Options Section -->
-<section class="section" style="background-color: #f5f8fa;">
+  <!-- FAQ -->
+  <section class="section" id="faq">
     <div class="container">
-        <h2 class="section-title">Our Packages</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Choose the right consumer testing package for your product development needs. All packages include our core AI analysis technology and comprehensive reporting.</p>
-        
-        <div class="discount-banner" style="background-color: #1297e0; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 30px; font-weight: bold; color: #ffffff;">
-            🎉 Special Launch Offer: 70% OFF for the first 3 companies that sign up! 🎉
-        </div>
-        
-        <div class="options-grid">
-            <div class="option-card">
-                <div class="option-header">
-                    <h3 class="option-title">Start 🌱</h3>
-                    <div class="price-container">
-                        <span class="regular-price" style="text-decoration: line-through; color: #888;">€5,850</span>
-                        <span class="discount-price" style="font-size: 1.8rem; font-weight: bold; color: #00a651;">€1,755</span>
-                        <span class="price-detail">for 50 participants</span>
-                    </div>
-                </div>
-                <div class="option-body">
-                    <ul class="option-features">
-                        <li><i class="fas fa-check"></i> 50 test participants</li>
-                        <li><i class="fas fa-check"></i> Traditional product questionnaires</li>
-                        <li><i class="fas fa-check"></i> Advanced bite, chew, and sip analysis</li>
-                        <li><i class="fas fa-check"></i> Standard reporting</li>
-                        <li><i class="fas fa-check"></i> Email support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
-                </div>
-            </div>
-            
-            <div class="option-card">
-                <div class="option-header featured">
-                    <h3 class="option-title">Grow 📈</h3>
-                    <div class="price-container">
-                        <span class="regular-price" style="text-decoration: line-through; color: #888;">€11,700</span>
-                        <span class="discount-price" style="font-size: 1.8rem; font-weight: bold; color: #1297e0;">€3,510</span>
-                        <span class="price-detail">for 100 participants</span>
-                    </div>
-                </div>
-                <div class="option-body">
-                    <ul class="option-features">
-                        <li><i class="fas fa-check"></i> 100 test participants</li>
-                        <li><i class="fas fa-check"></i> Traditional product questionnaires</li>
-                        <li><i class="fas fa-check"></i> Advanced bite, chew, and sip analysis</li>
-                        <li><i class="fas fa-check"></i> Emotional response tracking</li>
-                        <li><i class="fas fa-check"></i> Comparison against 1 competitor product</li>
-                        <li><i class="fas fa-check"></i> AI-interpreted audio feedback</li>
-                        <li><i class="fas fa-check"></i> Priority email & phone support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
-                </div>
-            </div>
-            
-            <div class="option-card">
-                <div class="option-header">
-                    <h3 class="option-title">Scale 🚀</h3>
-                    <div class="price-container">
-                        <span class="regular-price" style="text-decoration: line-through; color: #888;">€17,550</span>
-                        <span class="discount-price" style="font-size: 1.8rem; font-weight: bold; color: #00a651;">€5,265</span>
-                        <span class="price-detail">for 150 participants</span>
-                    </div>
-                </div>
-                <div class="option-body">
-                    <ul class="option-features">
-                        <li><i class="fas fa-check"></i> 150 test participants</li>
-                        <li><i class="fas fa-check"></i> Traditional product questionnaires</li>
-                        <li><i class="fas fa-check"></i> Advanced bite, chew, and sip analysis</li>
-                        <li><i class="fas fa-check"></i> Emotional response tracking</li>
-                        <li><i class="fas fa-check"></i> Heart rate & physiological monitoring</li>
-                        <li><i class="fas fa-check"></i> Unlimited competitor comparisons</li>
-                        <li><i class="fas fa-check"></i> AI-interpreted audio feedback</li>
-                        <li><i class="fas fa-check"></i> Custom reporting dashboard</li>
-                        <li><i class="fas fa-check"></i> Direct access to our support team</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
-                </div>
-            </div>
-        </div>
-        
-        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">Prices shown are for our limited-time launch offer. Regular pricing: €117 per participant.</p>
+      <h2 class="section-title">FAQs</h2>
+      <details>
+        <summary>How is privacy handled?</summary>
+        <p>Faces are auto‑masked in videos; we store de‑identified signals only and comply with GDPR. A Data Processing Agreement (DPA) is available on request.</p>
+      </details>
+      <details>
+        <summary>Do we need special hardware?</summary>
+        <p>No—testers use their own phones. We provide simple setup guidance inside the app.</p>
+      </details>
+      <details>
+        <summary>How fast are results?</summary>
+        <p>Typical studies deliver a report within 7-10 days after the last test is performed. Timelines depend on audience and logistics.</p>
+      </details>
+      <details>
+        <summary>Can we compare against competitors?</summary>
+        <p>Yes—include one or multiple competitor SKUs. We report relative performance and key drivers.</p>
+      </details>
+      <details>
+        <summary>What if samples require cooking?</summary>
+        <p>We capture preparation steps to connect outcomes with real‑world usage and identify friction.</p>
+      </details>
     </div>
-</section>
+  </section>
 
-<!-- Contact Section with Formspree Integration -->
-<section id="contact" class="contact-section">
+  <!-- Privacy & Ethics -->
+  <section class="section" id="privacy" style="background-color:#f5f8fa;">
     <div class="container">
-        <h2 class="section-title">Contact Us</h2>
-        
-        <!-- The form action uses Formspree with your email address -->
-        <!-- You'll need to replace "FORM_ID" with your actual Formspree form ID after signing up -->
-        <form action="https://formspree.io/f/xdkeppng" method="POST" class="contact-form">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input type="tel" id="phone" name="phone" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="company" class="form-label">Company</label>
-                    <input type="text" id="company" name="company" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="package" class="form-label">Package of Interest</label>
-                    <select id="package" name="package" class="form-control">
-                        <option value="">Select a package</option>
-                        <option value="Basic">Start</option>
-                        <option value="Professional">Grow</option>
-                        <option value="Enterprise">Scale</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="budget" class="form-label">Budget Range</label>
-                    <select id="budget" name="budget" class="form-control">
-                        <option value="">Select a budget range</option>
-                        <option value="$1,000-$5,000">$1,000-$5,000</option>
-                        <option value="$5,000-$10,000">$5,000-$10,000</option>
-                        <option value="$10,000+">$10,000+</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea id="message" name="message" class="form-control" required></textarea>
-                </div>
-            </div>
-            
-            <!-- Hidden fields for additional information (optional) -->
-            <input type="hidden" name="_subject" value="New inquiry from Eatpol website">
-            
-            <!-- Redirect after submission (optional) -->
-            <input type="hidden" name="_next" value="https://eatpol.com/thank_you.html">
-            
-            <!-- Honeypot to prevent spam (optional but recommended) -->
-            <input type="text" name="_gotcha" style="display:none">
-            
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
+      <h2 class="section-title">Privacy & Ethics</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><h3 class="feature-title">Lawful basis</h3><p>Consent‑based data collection with clear purposes; opt‑out at any time.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Security</h3><p>Encrypted storage, strict access controls, and time‑bound retention policies.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Transparency</h3><p>Participants see what is collected, why, and how it’s used. Read our <a href="privacy.html">Privacy Policy</a>.</p></div>
+      </div>
     </div>
-</section>
+  </section>
 
+  <!-- Contact -->
+  <section id="contact" class="contact-section section">
+    <div class="container">
+      <h2 class="section-title">Schedule a free consultation</h2>
+      <p style="text-align:center;max-width:760px;margin:0 auto 1.2rem;">Tell us about your next launch. We'll reply within 1 business day.</p>
+      
+      <div style="text-align:center;margin-top:1.5rem;">
+        <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary">Schedule a free consultation</a>
+      </div>
+    </div>
+  </section>
 
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3 class="footer-heading">About Eatpol</h3>
-                    <p>Eatpol helps food companies create sustainable and delicious products through AI-driven consumer testing.</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3 class="footer-heading">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html">Consumer Test</a></li>
-                        <li class="footer-link"><a href="research.html">Research</a></li>
-                        <li class="footer-link"><a href="testers.html">Become a Tester</a>
-                        <li class="footer-link"><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3 class="footer-heading">Contact Info</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Stippeneng 4, Wageningen, the Netherlands</li>
-                        <li class="footer-link"><i class="fas fa-phone"></i> +39 334 74 09 720</li>
-                        <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Eatpol. All Rights Reserved.</p>
-            </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-heading">About Eatpol</h3>
+          <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. Our AI‑driven consumer testing technology helps food companies launch foods that people love.</p>
+          <div style="display:flex; gap:.6rem; margin-top: .8rem;">
+            <a href="https://www.tiktok.com/@eatpol_" class="footer-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-    </footer>
+        <div>
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#how-it-works">How It Works</a></li>
+            <li class="footer-link"><a href="#plan">Your Plan</a></li>
+            <li class="footer-link"><a href="#pricing">Packages</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-heading">Contact Info</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+            <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
+            <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Eatpol. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        // JavaScript for mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking on a nav link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
+  <!-- Fixed Consultation Banner -->
+  <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="consultation-banner" id="consultationBanner">
+    <i class="fas fa-calendar-alt"></i>Schedule a free consultation
+  </a>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function(){
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+      if(hamburger){
+        hamburger.addEventListener('click', function(){
+          const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+          this.setAttribute('aria-expanded', String(!expanded));
+          hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
         });
-    </script>
+      }
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+          hamburger.setAttribute('aria-expanded','false');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
