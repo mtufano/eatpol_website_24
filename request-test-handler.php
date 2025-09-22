@@ -96,6 +96,9 @@ try {
     // Log the submission
     error_log("Form submission successful: $firstName $lastName ($email) - Company: $company");
 
+    // Debug: Log that we're about to send response
+    error_log("About to send JSON response");
+
     // Success response
     ob_clean();
     echo json_encode([
