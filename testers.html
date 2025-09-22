@@ -1046,9 +1046,8 @@
                     <i class="fas fa-check-circle"></i> Registration successful! We'll contact you soon.
                 </div>
                 
-                <form id="testerForm" action="registration-handler.php" method="POST" class="contact-form">
-                    <!-- CSRF Token -->
-                    <input type="hidden" name="csrf_token" id="csrfToken" value="">
+                <form id="testerForm" name="tester-registration" method="POST" data-netlify="true" action="/?tester=success" class="contact-form">
+                    <!-- Netlify Forms - no CSRF token needed -->
                     
                     <!-- Program Selection -->
                     <h3 style="color: var(--dark-blue); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--light-blue);">Program Selection</h3>
@@ -1598,43 +1597,13 @@
             if (!isValid) {
                 return;
             }
-            
+
             // Show loading
             document.getElementById('loadingSpinner').style.display = 'block';
             document.getElementById('submitBtn').disabled = true;
-            
-            // Prepare form data
-            const formData = new FormData(this);
-            
-            // Submit form
-            fetch('registration-handler.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('loadingSpinner').style.display = 'none';
-                
-                if (data.success) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    this.reset();
-                    window.scrollTo(0, 0);
-                    
-                    // Redirect after 3 seconds
-                    setTimeout(() => {
-                        window.location.href = data.redirect || 'index.html';
-                    }, 3000);
-                } else {
-                    alert(data.message || 'Registration failed. Please try again.');
-                    document.getElementById('submitBtn').disabled = false;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('loadingSpinner').style.display = 'none';
-                document.getElementById('submitBtn').disabled = false;
-                alert('An error occurred. Please try again later.');
-            });
+
+            // Let Netlify Forms handle the submission
+            // The form will submit normally and redirect to index.html with success parameter
         });
         
         // Generate CSRF token
