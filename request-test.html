@@ -585,8 +585,8 @@
       const launchDateRadio = document.querySelector('input[name="Launch_Date"]:checked');
       if (launchDateRadio) formData.append('launchDate', launchDateRadio.value);
       
-      // Submit to working handler
-      fetch('request-test-handler.php', {
+      // Submit to debug handler
+      fetch('request-test-handler-debug.php', {
         method: 'POST',
         body: formData
       })
@@ -597,7 +597,7 @@
           if (data.redirect) {
             window.location.href = data.redirect;
           } else {
-            window.location.href = 'thank-you.html';
+            window.location.href = 'thank-you-new-inquiry.html';
           }
         } else {
           alert(data.message || 'Error submitting request. Please try again.');
