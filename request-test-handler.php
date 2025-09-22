@@ -20,7 +20,20 @@ if (session_status() === PHP_SESSION_NONE) {
 // Set JSON content type early
 header('Content-Type: application/json');
 
-// Only process POST requests
+// Handle both GET and POST for debugging
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    ob_clean();
+    echo json_encode([
+        'success' => true,
+        'message' => 'Handler is accessible',
+        'method' => 'GET',
+        'timestamp' => date('c')
+    ]);
+    ob_end_flush();
+    exit;
+}
+
+// Only process POST requests for form submission
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     ob_clean();

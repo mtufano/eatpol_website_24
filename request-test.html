@@ -312,7 +312,7 @@
       <p class="form-subtitle">Tell us about your product and testing needs. We'll get back to you within 3 business day.</p>
       
       <div class="form-card">
-        <form id="contactForm">
+        <form id="contactForm" name="free-test-request" method="POST" data-netlify="true" action="/thank-you-new-inquiry.html">
           <!-- Form will save data locally and send notification -->
           
           <!-- Personal Information -->
@@ -516,11 +516,10 @@
       }
     });
     
-    // Handle form submission
+    // Netlify Forms handles the submission automatically
+    // Just add some client-side validation
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get basic required fields
+      // Get basic required fields for validation
       const firstName = document.getElementById('firstName').value.trim();
       const lastName = document.getElementById('lastName').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -528,102 +527,44 @@
       const city = document.getElementById('city').value.trim();
       const country = document.getElementById('country').value.trim();
       const comments = document.getElementById('comments').value.trim();
-      
+
       // Basic validation
       if (!firstName || !lastName || !email || !company || !city || !country || !comments) {
         alert('Please fill in all required fields (marked with *)');
-        return;
+        e.preventDefault();
+        return false;
       }
-      
+
       // Validate email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         alert('Please enter a valid email address');
-        return;
+        e.preventDefault();
+        return false;
       }
-      
+
+      // Check at least one product type is selected
+      const productTypeChecked = document.querySelectorAll('input[name="Product_Type"]:checked').length > 0;
+      if (!productTypeChecked) {
+        alert('Please select at least one product type');
+        e.preventDefault();
+        return false;
+      }
+
+      // Check at least one test focus is selected
+      const testFocusChecked = document.querySelectorAll('input[name="Test_Focus"]:checked').length > 0;
+      if (!testFocusChecked) {
+        alert('Please select at least one test focus');
+        e.preventDefault();
+        return false;
+      }
+
       // Show loading state
       const submitBtn = document.querySelector('.submit-btn');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-      
-      // Prepare FormData (same format as working handler expects)
-      const formData = new FormData();
-      formData.append('firstName', firstName);
-      formData.append('lastName', lastName);
-      formData.append('email', email);
-      formData.append('company', company);
-      formData.append('city', city);
-      formData.append('country', country);
-      formData.append('comments', comments);
-      
-      // Collect product types
-      document.querySelectorAll('input[name="Product_Type"]:checked').forEach(checkbox => {
-        formData.append('productType[]', checkbox.value);
-      });
-      
-      // Collect test focus
-      document.querySelectorAll('input[name="Test_Focus"]:checked').forEach(checkbox => {
-        formData.append('testFocus[]', checkbox.value);
-      });
-      
-      // Add other field
-      const otherInput = document.getElementById('otherInput');
-      if (otherInput) formData.append('productTypeOther', otherInput.value.trim());
-      
-      // Add radio button selections
-      const participantsRadio = document.querySelector('input[name="Number_of_Participants"]:checked');
-      if (participantsRadio) formData.append('participants', participantsRadio.value);
-      
-      const consumerTargetRadio = document.querySelector('input[name="Consumer_Target"]:checked');
-      if (consumerTargetRadio) formData.append('consumerTarget', consumerTargetRadio.value);
-      
-      const segmentInput = document.getElementById('segmentInput');
-      if (segmentInput) formData.append('consumerTargetSpecific', segmentInput.value.trim());
-      
-      const launchDateRadio = document.querySelector('input[name="Launch_Date"]:checked');
-      if (launchDateRadio) formData.append('launchDate', launchDateRadio.value);
-      
-      // Submit to working handler
-      fetch('request-test-handler.php', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        console.log('Response status:', response.status);
-        console.log('Response headers:', response.headers);
-        return response.text().then(text => {
-          console.log('Raw response:', text);
-          try {
-            return JSON.parse(text);
-          } catch (e) {
-            console.error('JSON parse error:', e);
-            console.error('Response text:', text);
-            throw new Error('Invalid JSON response: ' + text.substring(0, 100));
-          }
-        });
-      })
-      .then(data => {
-        if (data.success) {
-          // Redirect to thank you page
-          if (data.redirect) {
-            window.location.href = data.redirect;
-          } else {
-            window.location.href = 'thank-you-new-inquiry.html';
-          }
-        } else {
-          alert(data.message || 'Error submitting request. Please try again.');
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again later.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      });
+
+      // Let Netlify handle the actual form submission
+      return true;
     });
   </script>
 </body>
