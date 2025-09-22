@@ -1031,8 +1031,59 @@
   </a>
 
   <script>
-    // Mobile menu toggle
+    // Check for success parameter and show thank you message
     document.addEventListener('DOMContentLoaded', function(){
+      // Check if form was successfully submitted
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        // Create success message
+        const successMessage = document.createElement('div');
+        successMessage.style.cssText = `
+          position: fixed;
+          top: 80px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(135deg, #00bf63, #1297e0);
+          color: white;
+          padding: 20px 40px;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 191, 99, 0.3);
+          z-index: 10000;
+          font-size: 18px;
+          font-weight: 500;
+          animation: slideDown 0.5s ease-out;
+        `;
+        successMessage.innerHTML = `
+          <div style="text-align: center;">
+            <div style="font-size: 24px; margin-bottom: 10px;">✓ Thank You!</div>
+            <div>Your request has been submitted successfully.</div>
+            <div style="font-size: 14px; margin-top: 5px; opacity: 0.9;">We'll contact you within 3 business days.</div>
+          </div>
+        `;
+        document.body.appendChild(successMessage);
+
+        // Add animation
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes slideDown {
+            from { opacity: 0; transform: translate(-50%, -20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+          }
+        `;
+        document.head.appendChild(style);
+
+        // Remove message after 8 seconds
+        setTimeout(() => {
+          successMessage.style.opacity = '0';
+          successMessage.style.transform = 'translate(-50%, -20px)';
+          setTimeout(() => successMessage.remove(), 500);
+        }, 8000);
+
+        // Clean URL without reload
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+    // Mobile menu toggle
       const hamburger = document.querySelector('.hamburger');
       const navMenu = document.querySelector('.nav-menu');
       if(hamburger){
