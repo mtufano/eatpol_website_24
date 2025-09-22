@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eatpol – Cut product‑launch risk with real‑world consumer testing</title>
+  <title>Eatpol | AI In-Home Consumer Testing for Food Product Launches</title>
+  <meta name="description" content="Eatpol helps food companies launch products people love with AI-driven, in-home consumer testing. Capture real-world behavior, emotions, and purchase intent before going to market." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://eatpol.com/" />
+
+
   <!-- Favicons -->
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -11,8 +16,52 @@
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/apple-inspired.css">
+  
+
+  <!-- Preconnects for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Eatpol | AI In-Home Consumer Testing for Food Product Launches">
+  <meta property="og:description" content="Launch food products people love with real-world, in-home consumer testing and AI insights.">
+  <meta property="og:url" content="https://eatpol.com/">
+  <meta property="og:image" content="https://eatpol.com/img/logo7.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eatpol | AI In-Home Consumer Testing for Food Product Launches">
+  <meta name="twitter:description" content="AI-driven, in-home consumer testing for faster, smarter food product launches.">
+  <meta name="theme-color" content="#1297e0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/apple-inspired.css">
+
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQCFR791TG"></script>
+  <script>
+    // Check for cookie consent before initializing
+    function initializeAnalytics() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BQCFR791TG', {
+        'anonymize_ip': true, // GDPR compliance
+        'cookie_expires': 63072000, // 2 years in seconds
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+    }
+    
+    // Check if user has already consented
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      initializeAnalytics();
+    }
+  </script>
+  
   <style>
     :root {
       --bright-blue: #1297e0;
@@ -29,19 +78,20 @@
       --transition: all 0.3s ease;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; overflow-x: hidden; }
+    body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--navy); background-color: #fbfbfd; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     h1, h2, h3, h4, h5, h6 { color: var(--dark-blue); margin-bottom: 1rem; font-weight: 600; }
-    p { margin-bottom: 1.25rem; font-size: 1rem; }
+    .gradient-text { background: linear-gradient(135deg, var(--bright-blue), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    p { margin-bottom: 1.25rem; font-size: 22px; line-height: 1.5; opacity: 0.9; }
     a { color: var(--bright-blue); text-decoration: none; transition: var(--transition); }
-    a:hover { color: var(--dark-blue); }
+    a:hover { color: var(--green); }
     .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    .btn { display: inline-block; padding: 0.85rem 1.4rem; border-radius: 6px; font-weight: 600; text-align: center; cursor: pointer; transition: var(--transition); border: none; outline: none; }
-    .btn-primary { background: var(--gradient-cta); color: var(--white); box-shadow: var(--shadow); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 191, 99, 0.2); color: var(--white); }
-    .btn-secondary { background: var(--white); color: var(--bright-blue); border: 2px solid var(--bright-blue); }
-    .btn-secondary:hover { background: var(--bright-blue); color: var(--white); }
+    .btn { display: inline-block; padding: 14px 32px; border-radius: 980px; font-weight: 500; text-align: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: none; outline: none; font-size: 17px; letter-spacing: -0.022em; }
+    .btn-primary { background: linear-gradient(135deg, var(--bright-blue), var(--green)); color: var(--white); box-shadow: 0 4px 12px rgba(18, 151, 224, 0.2); }
+    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0, 191, 99, 0.3); color: var(--white); }
+    .btn-secondary { background: transparent; color: var(--bright-blue); border: 2px solid var(--bright-blue); }
+    .btn-secondary:hover { background: linear-gradient(135deg, var(--bright-blue), var(--green)); color: var(--white); transform: scale(1.02); border-color: transparent; }
     /* Header */
-    .header { background: var(--white); box-shadow: var(--shadow); position: fixed; inset: 0 0 auto 0; z-index: 1000; }
+    .header { background: rgba(255, 255, 255, 0.9); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); box-shadow: 0 1px 0 0 rgba(17, 39, 82, 0.1); position: fixed; inset: 0 0 auto 0; z-index: 1000; }
     .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; }
     .logo { display:flex; align-items:center; gap:.6rem; font-size: 1.1rem; font-weight: 600; color: var(--navy); }
     .nav-menu { display: flex; list-style: none; }
@@ -54,26 +104,29 @@
     .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); }
 
     /* Hero */
-    .hero { padding: 8.2rem 0 4.5rem; background: var(--gradient-secondary); position: relative; overflow: hidden; }
+    .hero { padding: 8.2rem 0 4.5rem; background: linear-gradient(135deg, rgba(184, 218, 239, 0.3) 0%, rgba(0, 191, 99, 0.1) 100%); position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: url('img/pattern.svg') repeat; opacity: 0.08; }
     .hero-content { position: relative; display: flex; align-items: center; gap: 2rem; }
-    .hero-text { flex: 1; }
-    .hero-title { font-size: 2.6rem; line-height: 1.15; margin-bottom: 1rem; color: var(--navy); }
-    .hero-subtitle { font-size: 1.15rem; color: var(--navy); opacity: 0.95; margin-bottom: 1.75rem; }
-    .hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+    .hero-text { flex: 1; text-align: center; }
+    .hero-title { font-size: 72px; line-height: 1.05; font-weight: 900; letter-spacing: -0.01em; margin-bottom: 24px; background: linear-gradient(135deg, var(--dark-blue), var(--bright-blue), var(--green)); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 3s ease infinite, fadeInScale 1s ease-out; }
+    .hero-subtitle { font-size: 28px; line-height: 1.14286; font-weight: 400; letter-spacing: 0.007em; color: var(--navy); opacity: 0.85; margin-bottom: 32px; }
+    .hero-logo { margin: 30px 0; text-align: center; }
+    .hero-logo img { max-width: 300px; height: auto; animation: fadeIn 1s ease-out 0.5s backwards; }
+    .hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; justify-content: center; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .hero-image { flex: 1; max-width: 520px; }
     .hero-image img, .hero-image video { width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); }
 
     /* Sections */
     .section { padding: 4.5rem 0; }
-    .section-title { font-size: 2.1rem; text-align: center; margin-bottom: 2.2rem; position: relative; }
-    .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--gradient-cta); border-radius: 2px; }
+    .section-title { font-size: 40px; line-height: 1.1; font-weight: 600; letter-spacing: 0; text-align: center; margin-bottom: 2.2rem; position: relative; color: var(--dark-blue); }
+    .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(135deg, var(--bright-blue), var(--green)); border-radius: 2px; }
     .muted { color: #5b6b8a; }
 
     .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .feature-card { background: var(--white); border-radius: 10px; padding: 1.5rem; box-shadow: var(--shadow); transition: var(--transition); }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(17,39,82,.18); }
-    .feature-title { font-size: 1.2rem; margin-bottom: .5rem; }
+    .feature-card { background: white; border-radius: 18px; padding: 40px; box-shadow: 0 2px 8px rgba(17, 39, 82, 0.08); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); border: 1px solid rgba(184, 218, 239, 0.3); }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(18, 151, 224, 0.15); border-color: var(--light-blue); }
+    .feature-title { font-size: 28px; margin-bottom: 16px; font-weight: 600; }
 
     .split { display: flex; align-items: center; gap: 3rem; }
     .split > * { flex: 1; }
@@ -103,6 +156,15 @@
     @media (max-width: 680px){ .lead-magnet { flex-direction:column; text-align:center; } }
     /* Pricing */
     .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    
+    /* Pricing Grid - 2 Cards Layout */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
     .option-card { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); display:flex; flex-direction:column; }
     .option-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(17,39,82,.2); }
     .option-header { padding: 1.6rem; background: var(--gradient-primary); color: #fff; text-align: center; }
@@ -166,6 +228,47 @@
       }
     }
     
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    
+    .hero-title .word {
+      display: inline-block;
+      animation: bounceIn 0.6s ease-out;
+      animation-fill-mode: backwards;
+    }
+    .hero-title .word:nth-child(1) { animation-delay: 0.1s; }
+    .hero-title .word:nth-child(2) { animation-delay: 0.2s; }
+    .hero-title .word:nth-child(3) { animation-delay: 0.3s; }
+    .hero-title .word:nth-child(4) { animation-delay: 0.4s; }
+    
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+      }
+      60% {
+        transform: translateY(5px) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
     .consultation-banner:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(0, 191, 99, 0.3);
@@ -175,14 +278,263 @@
     .consultation-banner i {
       margin-right: 0.5rem;
     }
+    
+    /* Rotating Logo Section - Apple Style */
+    .rotating-logo-section {
+      padding: 40px 0 20px 0;
+      background: linear-gradient(180deg, #f5f5f7 0%, #fbfbfd 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .rotating-logo-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(18, 151, 224, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .rotating-logo {
+      width: 1000px;
+      height: 1000px;
+      max-width: 95vw;
+      max-height: 95vw;
+      filter: drop-shadow(0 8px 32px rgba(18, 151, 224, 0.15));
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      animation: logoFadeInScale 1.2s ease-out forwards;
+      animation-delay: 0.3s;
+      border-radius: 20px;
+      object-fit: contain;
+      /* Ensure video plays smoothly */
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+    }
+    
+    .rotating-logo:hover {
+      filter: drop-shadow(0 16px 48px rgba(0, 191, 99, 0.25));
+      transform: scale(1.02) translateY(-8px);
+    }
+    
+    @keyframes logoFadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Make labels non-interactive */
+    .loop-svg text {user-select: none; pointer-events: none; }
+    
+    /* Journey Title (same as hero) */
+    .journey-title {
+      font-size: 56px;
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin: 40px 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--dark-blue), var(--bright-blue), var(--green));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 3s ease infinite;
+    }
+    .journey-title .word {
+      display: inline-block;
+      animation: bounceIn 0.6s ease-out;
+      animation-fill-mode: backwards;
+    }
+    .journey-title .word:nth-child(1) { animation-delay: 0.1s; }
+    .journey-title .word:nth-child(2) { animation-delay: 0.15s; }
+    .journey-title .word:nth-child(3) { animation-delay: 0.2s; }
+    .journey-title .word:nth-child(4) { animation-delay: 0.25s; }
+    .journey-title .word:nth-child(5) { animation-delay: 0.3s; }
+    .journey-title .word:nth-child(6) { animation-delay: 0.35s; }
+    
+    /* Video Cards Grid - 2x2 Layout */
+    .video-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 24px;
+      margin: 40px auto;
+      max-width: 900px;
+    }
+    
+    /* Apple-style Video Cards */
+    .video-card {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+    }
+    
+    .video-card:hover {
+      transform: scale(1.03) translateY(-8px);
+      box-shadow: 0 12px 24px rgba(18, 151, 224, 0.15);
+    }
+    
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--light-blue), var(--medium-blue));
+    }
+    
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .video-card-content {
+      padding: 40px;
+    }
+    
+    .video-card-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--dark-blue);
+      margin-bottom: 16px;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    .video-card-description {
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--navy);
+      opacity: 0.9;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    /* Problem Section Styling */
+    .problem-title {
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    
+    .problem-description {
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--navy);
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 0;
+    }
+    
+    .sensory-booth-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .sensory-booth-image:hover {
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 12px 24px rgba(18, 151, 224, 0.15);
+    }
+    
+    /* Apple-style animations */
+    .apple-fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: appleAnimationFadeIn 0.8s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+    
+    .apple-slide-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: appleAnimationSlideUp 0.8s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+    
+    @keyframes appleAnimationFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes appleAnimationSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     /* Responsive */
+    @media (max-width: 1068px) {
+      .hero-title { font-size: 56px; }
+      .hero-subtitle { font-size: 24px; }
+      .section-title { font-size: 32px; }
+      .journey-title { font-size: 48px; }
+      .problem-title { font-size: 40px; }
+      .problem-description { font-size: 20px; }
+      p { font-size: 20px; }
+      .feature-title { font-size: 24px; }
+      .video-card-title { font-size: 24px; }
+      .video-card-description { font-size: 20px; }
+    }
     @media (max-width: 992px){
       .hero { padding-top: 6.5rem; }
       .hero-content { flex-direction: column; }
       .split { flex-direction: column; gap: 1.5rem; }
     }
     @media (max-width: 768px){
+      .hero-title { font-size: 40px; line-height: 1.1; }
+      .hero-subtitle { font-size: 19px; line-height: 1.21053; }
+      .section-title { font-size: 28px; }
+      .journey-title { font-size: 36px; }
+      .problem-title { font-size: 32px; }
+      .problem-description { font-size: 18px; }
+      .feature-card { padding: 24px; }
+      .rotating-logo { width: 600px; height: 600px; }
+      .rotating-logo-section { padding: 30px 0 15px 0; }
+      .seamless-loop { --size: 320px !important; }
+      .seamless-section { padding: 40px 0; }
+      .video-cards-grid { 
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;
+        gap: 16px; 
+        max-width: 100%;
+      }
+      .video-wrapper { height: 260px; }
+      .video-card-content { padding: 32px; }
+      .video-card-title { font-size: 24px; }
+      .video-card-description { font-size: 18px; }
+      p { font-size: 18px; }
+      .feature-title { font-size: 24px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
       .hamburger { display: block; }
       .nav-menu { position: fixed; left: -100%; top: 70px; gap: 0; flex-direction: column; background-color: var(--white); width: 100%; text-align: center; transition: 0.3s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); padding: 1.4rem 0; }
       .nav-item { margin: .6rem 0; }
@@ -194,6 +546,145 @@
         right: 15px;
         padding: 0.9rem 1.3rem;
         font-size: 0.9rem;
+      }
+    }
+    
+    /* Cookie Consent Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(27, 72, 171, 0.15), 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1.8rem 2rem;
+      z-index: 10000;
+      display: none;
+      animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 1px solid rgba(27, 72, 171, 0.08);
+      max-width: 1100px;
+      margin: 0 auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateX(-50%) translateY(100%); 
+      }
+      to { 
+        opacity: 1;
+        transform: translateX(-50%) translateY(0); 
+      }
+    }
+    .cookie-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .cookie-text {
+      flex: 1;
+      color: var(--navy);
+      font-family: 'Roboto', sans-serif;
+    }
+    .cookie-text strong {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark-blue);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .cookie-text p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #4a5568;
+      margin: 0;
+    }
+    .cookie-text a {
+      color: var(--bright-blue);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .cookie-text a:hover {
+      color: var(--dark-blue);
+      text-decoration: underline;
+    }
+    .cookie-icon {
+      font-size: 32px;
+      margin-right: 1rem;
+      opacity: 0.9;
+    }
+    .cookie-buttons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .cookie-btn {
+      padding: 0.75rem 1.8rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      white-space: nowrap;
+    }
+    .cookie-accept {
+      background: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
+      color: white;
+      box-shadow: 0 4px 15px rgba(18, 151, 224, 0.3);
+    }
+    .cookie-accept:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(18, 151, 224, 0.4);
+      background: linear-gradient(135deg, #0e7cc0, var(--dark-blue));
+    }
+    .cookie-decline {
+      background: transparent;
+      color: var(--medium-blue);
+      border: 2px solid var(--light-blue);
+    }
+    .cookie-decline:hover {
+      background: var(--light-blue);
+      color: var(--dark-blue);
+      border-color: var(--medium-blue);
+    }
+    @media (max-width: 768px) {
+      .cookie-banner {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 1.25rem;
+        border-radius: 16px;
+      }
+      .cookie-content {
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+      }
+      .cookie-text strong {
+        font-size: 16px;
+      }
+      .cookie-text p {
+        font-size: 14px;
+      }
+      .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .cookie-btn {
+        width: 100%;
+        padding: 0.9rem;
+      }
+      .cookie-icon {
+        display: none;
       }
     }
   </style>
@@ -208,7 +699,6 @@
           Eatpol
         </div>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
           <li class="nav-item"><a href="#plan" class="nav-link">Your Plan</a></li>
           <li class="nav-item"><a href="#pricing" class="nav-link">Packages</a></li>
           <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
@@ -227,31 +717,33 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="hero-title">Test smarter, launch products people love</h1>
-          <p class="hero-subtitle">Cut product‑launch risk with real‑world consumer testing. Eatpol is your guide—AI‑powered tests reveal how people cook, eat, and react, so you launch foods people actually buy.</p>
+          <h1 class="hero-title"><span class="word">Launch</span> <span class="word">products</span> <span class="word">people</span> <span class="word">love</span></h1>
+          <div class="hero-logo">
+            <img src="img/logo7.png" alt="Eatpol AI consumer testing brand mark" loading="lazy"/>
+          </div>
           <div class="hero-cta">
-            <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary">Schedule a free consultation</a>
-            <a href="#how-it-works" class="btn btn-secondary">See how testing works</a>
+            <a href="request-test.html" class="btn btn-primary">Request a free test</a>
+            <a href="#guide" class="btn btn-secondary">See how testing works</a>
           </div>
         </div>
-        <div class="hero-image">
-          <!-- Swap to a short looping clip if available -->
-          <img src="img/girl1.png" alt="Eatpol AI Consumer Testing" />
-        </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- Problem / Stakes -->
   <section class="section" id="problem">
     <div class="container">
       <div class="split">
-        <div>
-          <h2 class="section-title">Why most launches miss</h2>
-          <p>Traditional central‑location tests miss the kitchen. That’s where decisions happen. Without in‑home behavior data, teams over‑index on stated opinions—and launches fail far too often. You shouldn’t bet your budget on guesswork.</p>
+        <div class="problem-text apple-fade-in">
+          <h2 class="section-title problem-title">Why most product launches fail</h2>
+          <p class="problem-description">Most products are tested in sensory booths, artificial settings that ignore real-life use. 
+            In these environments, testers may give false feedback, get paid, and move on, without reflecting actual behavior. 
+            Why risk your product launch on feedback that never reflects how people use your product?</p>
         </div>
-        <div>
-          <img src="img/logo6.png" alt="In‑home testing context" />
+        <div class="problem-image apple-slide-up">
+          <img src="img/sensory_booth.png" alt="Traditional sensory testing booth contrasted with in-home testing" class="sensory-booth-image" />
         </div>
       </div>
     </div>
@@ -262,42 +754,70 @@
     <div class="container">
       <div class="split">
         <div>
-          <h2 class="section-title">Meet your guide</h2>
-          <p>We know the pressure on product leads—timelines shrink; decisions don’t. Our team blends sensory science and computer vision to turn real‑life eating into clear, quantitative signals you can act on.</p>
-          <div class="feature-grid" style="margin-top:1rem">
-            <div class="feature-card"><h3 class="feature-title">In‑home behavior, not lab guesses</h3><p>Computer vision captures bites, chews, sips, utensil use, and dwell time, while our app masks faces for privacy.</p></div>
-            <div class="feature-card"><h3 class="feature-title">Emotions & context, quantified</h3><p>Moment‑by‑moment emotions, audio interpretation, and activity signals tie reactions to specific prep and eating moments.</p></div>
-            <div class="feature-card"><h3 class="feature-title">Classic KPIs included</h3><p>Liking, acceptance, purchase intent, and competitor comparisons—together in one view.</p></div>
+          <h2 class="section-title">Our Method</h2>
+          <h1 class="journey-title"><span class="word">Track</span> <span class="word">the</span> <span class="word">in-home</span> <span class="word">full</span> <span class="word">consumer</span> <span class="word">journey</span></h1>
+          
+          <!-- Video Cards Grid -->
+          <div class="video-cards-grid">
+            <div class="video-card">
+              <div class="video-wrapper">
+                <video autoplay muted loop playsinline>
+                  <source src="videos/eatpol_demo_prep.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-card-content">
+                <h3 class="video-card-title">Preparation</h3>
+                <p class="video-card-description">Capture how consumers prepare your product at home</p>
+              </div>
+            </div>
+            
+            <div class="video-card">
+              <div class="video-wrapper">
+                <video autoplay muted loop playsinline>
+                  <source src="videos/eatpol_demo_cook.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-card-content">
+                <h3 class="video-card-title">Cooking</h3>
+                <p class="video-card-description">Track cooking methods and techniques in real kitchens</p>
+              </div>
+            </div>
+            
+            <div class="video-card">
+              <div class="video-wrapper">
+                <video autoplay muted loop playsinline>
+                  <source src="videos/eatpol_demo_eat.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-card-content">
+                <h3 class="video-card-title">Eating</h3>
+                <p class="video-card-description">Analyze emotions, consumption patterns, and food preferences</p>
+              </div>
+            </div>
+            
+            <div class="video-card">
+              <div class="video-wrapper">
+                <video autoplay muted loop playsinline>
+                  <source src="videos/eatpol_demo_store.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="video-card-content">
+                <h3 class="video-card-title">Storage</h3>
+                <p class="video-card-description">Understand how consumers store and preserve products</p>
+              </div>
+            </div>
+          </div>
+          
+          <h1 class="journey-title"><span class="word">Scalable,</span> <span class="word">quantitative,</span> <span class="word">relevant</span> <span class="word">data</span> <br><span class="word">for your</span> <span class="word"> successful product launch</span></h1>
+          
+          <div style="margin-top: 2rem; text-align: center;">
+            <a href="request-test.html" class="btn btn-primary">Request a free test</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works (detail) -->
-  <section class="section" id="how-it-works" style="background-color:#f5f8fa;">
-    <div class="container">
-      <h2 class="section-title">How it works</h2>
-      <div class="split">
-        <div>
-          <p>You prepare your food samples—we handle the rest. Eatpol ships to testers with a QR code. Testers cook and eat while recording; privacy is ensured with automatic face masking.</p>
-          <ul class="muted" style="margin-top:.8rem;">
-            <li>Traditional product questionnaire results (liking, taste, purchase intent)</li>
-            <li>Emotion detection, activity tracking</li>
-            <li>Bite & chew counts for eating‑behavior insights</li>
-            <li>AI‑interpreted audio feedback for nuance beyond surveys</li>
-          </ul>
-          <div style="margin-top:1rem">
-            <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary">Schedule a free consultation</a>
-          </div>
-        </div>
-        <div>
-          <video autoplay loop muted playsinline>
-            <source src="videos/consumer_test_demo.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    </div>
   </section>
   
   <!-- Simple 3‑step Plan -->
@@ -307,15 +827,15 @@
       <div class="feature-grid">
         <div class="feature-card">
           <h3 class="feature-title">1) Decide what to test</h3>
-          <p>Taste, packaging, branding, usage. We help you scope the right questions.</p>
+          <p>Taste, sensory, packaging, branding, usage. We prepare a test for you and add it to the Eatpol app.</p>
         </div>
         <div class="feature-card">
           <h3 class="feature-title">2) Ship samples</h3>
-          <p>We recruit and coordinate in‑home testers. No special hardware required.</p>
+          <p>We recruit and coordinate in‑home testers. Testers receive your samples, a username and password to log into the Eatpol mobile app and test your product.</p>
         </div>
         <div class="feature-card">
           <h3 class="feature-title">3) See the truth</h3>
-          <p>Behavior + emotions + classic KPIs in a dashboard and report your team can act on.</p>
+          <p>Audio and videos recorded from the testers are AI-interpreted so you can see how your samples performed in a real-life setting. All the results can be accessed via your dedicated dashboard.</p>
         </div>
       </div>
   </section>
@@ -326,19 +846,28 @@
   <section class="section band-dark">
     <div class="container" style="text-align:center;">
       <h2 class="section-title" style="color:#fff;">Avoid costly misfires</h2>
-      <p>Find issues before you invest. Replace opinion wars with behavior evidence. Base launch decisions on real consumer data.</p>
-      <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary" style="margin-top:.6rem;">Schedule a free consultation</a>
+      <p>Find issues before you invest. Replace opinion and assumption with consumer behavior evidence. Launch products people love.</p>
+      <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary" style="margin-top:.6rem;">Request a free test</a>
+    </div>
+  </section>
+
+
+
+  <!-- Rotating Logo Section -->
+  <section class="rotating-logo-section">
+    <div class="container">
+      <video src="videos/rotate_logo.mp4" alt="Eatpol AI consumer testing logo" class="rotating-logo" autoplay muted loop playsinline></video>
     </div>
   </section>
 
   <!-- Results / Success Strip -->
   <section class="section" id="results">
     <div class="container">
-      <h2 class="section-title">What success looks like</h2>
+      <h2 class="section-title">How success looks like</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3 class="feature-title">Faster decisions</h3><p>Cut time‑to‑decision by 30–50% with clear behavioral evidence.</p></div>
-        <div class="feature-card"><h3 class="feature-title">Higher purchase intent</h3><p>Identify packaging and recipe tweaks that lift purchase intent.</p></div>
-        <div class="feature-card"><h3 class="feature-title">Fewer launch surprises</h3><p>Reveal prep friction and usage errors before they reach stores.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Faster and better decisions</h3><p>Cut time‑to‑decision with clear behaviorals evidence.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Higher purchase intent</h3><p>Identify tweaks that lift purchase intent. Sharpen your message to the customer.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Fewer surprises</h3><p>Reveal product issues and usage errors before they reach stores.</p></div>
       </div>
     </div>
   </section>
@@ -347,33 +876,32 @@
 <section class="section" id="pricing" style="background-color:#f5f8fa;">
   <div class="container">
     <h2 class="section-title">Packages</h2>
-    <p class="muted" style="text-align:center; max-width:800px; margin:0 auto 1.2rem;">
-      Choose the right study for your decision stage. All packages include our core AI analysis and a concise stakeholder report.
+    <p style="text-align:center; max-width:800px; margin:0 auto 2rem; font-size: 24px; color: var(--green); font-weight: 600;">
+      🎉 First 5 tests are FREE!
     </p>
 
-    <div class="discount-banner" style="background-color:#1297e0; padding:12px; border-radius:8px; text-align:center; margin-bottom:24px; font-weight:700; color:#fff;">
-      Special Launch Offer: 70% OFF for the first 3 companies that sign up
-    </div>
 
-    <div class="options-grid">
+
+    <div class="pricing-grid">
       <!-- Explore -->
       <div class="option-card">
         <div class="option-header">
-          <h3 class="option-title">Explore</h3>
-          <div class="option-subtitle">Validate early</div>
+          <h3 class="option-title">Fifty</h3>
           <div class="price-container" style="display:flex;flex-direction:column;gap:.2rem;align-items:center; margin-top:.6rem;">
-            <span class="regular-price" style="text-decoration:line-through; color:#e6e6e6;">€5,850</span>
-            <span class="discount-price" style="font-size:1.6rem; font-weight:800;">€1,755</span>
-            <span class="price-detail" style="opacity:.9;">50 participants</span>
+            <span class="price-detail" style="opacity:.9; font-size: 18px;">50 participants</span>
           </div>
         </div>
         <div class="option-body">
           <ul class="option-features">
             <li>50 test participants</li>
-            <li>Traditional questionnaires</li>
+            <li>A test designed for your needs</li>
+            <li>AI-interpreted audio feedback</li>
             <li>Eating behavior analysis</li>
+            <li>Emotional response tracking</li>
+            <li>Single-competitor comparisons</li>
+            <li>PDF report with results</li>
           </ul>
-          <a href="#contact" class="btn btn-primary" style="width:100%">Choose Explore</a>
+          <a href="#contact" class="btn btn-primary" style="width:100%">Choose Fifty</a>
         </div>
       </div>
 
@@ -381,67 +909,25 @@
       <div class="option-card">
         <div class="option-header featured">
           <div class="ribbon" aria-label="Most popular">Most popular</div>
-          <h3 class="option-title">Decide</h3>
-          <div class="option-subtitle">Choose the winner</div>
+          <h3 class="option-title">One hundred</h3>
           <div class="price-container" style="display:flex;flex-direction:column;gap:.2rem;align-items:center; margin-top:.6rem;">
-            <span class="regular-price" style="text-decoration:line-through; color:#e6e6e6;">€11,700</span>
-            <span class="discount-price" style="font-size:1.6rem; font-weight:800;">€3,510</span>
-            <span class="price-detail" style="opacity:.9;">100 participants</span>
+            <span class="price-detail" style="opacity:.9; font-size: 18px;">100 participants</span>
           </div>
         </div>
         <div class="option-body">
           <ul class="option-features">
             <li>100 test participants</li>
-            <li>Traditional questionnaires</li>
-            <li>Eating behavior analysis</li>
-            <li>Emotional response tracking</li>
-            <li>Comparison vs. 1 competitor</li>
+            <li>A test designed for your needs</li>
             <li>AI-interpreted audio feedback</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary" style="width:100%">Choose Decide</a>
-        </div>
-      </div>
-
-      <!-- Convince -->
-      <div class="option-card">
-        <div class="option-header">
-          <h3 class="option-title">Convince</h3>
-          <div class="option-subtitle">Build the case</div>
-          <div class="price-container" style="display:flex;flex-direction:column;gap:.2rem;align-items:center; margin-top:.6rem;">
-            <span class="regular-price" style="text-decoration:line-through; color:#e6e6e6;">€17,550</span>
-            <span class="discount-price" style="font-size:1.6rem; font-weight:800;">€5,265</span>
-            <span class="price-detail" style="opacity:.9;">150 participants</span>
-          </div>
-        </div>
-        <div class="option-body">
-          <ul class="option-features">
-            <li>150 test participants</li>
-            <li>Traditional questionnaires</li>
             <li>Eating behavior analysis</li>
             <li>Emotional response tracking</li>
             <li>Multi-competitor comparisons</li>
-            <li>AI-interpreted audio feedback</li>
+
             <li>Custom reporting dashboard</li>
           </ul>
-          <a href="#contact" class="btn btn-primary" style="width:100%">Choose Convince</a>
+          <a href="#contact" class="btn btn-primary" style="width:100%">Choose One hundred</a>
         </div>
       </div>
-    </div>
-
-    <!-- Lead magnet -->
-    <div class="lead-magnet" role="complementary" aria-label="Find your best plan">
-      <div>
-        <strong>Not sure which plan fits?</strong><br>
-        Tell us about your product and goals — we’ll recommend the right package for your decision stage.
-      </div>
-      <a href="#contact" class="btn btn-primary">Schedule a free consultation</a>
-    </div>
-
-    <p style="text-align:center; margin-top: 16px; font-size: .95rem;" class="muted">
-      Regular pricing: €117 per participant. Need targeted audiences (e.g., flexitarians, parents, sports nutrition)?
-      <a href="#contact">Ask about recruiting</a>.
-    </p>
-  </div>
 </section>
 
   <!-- FAQ -->
@@ -478,7 +964,7 @@
       <div class="feature-grid">
         <div class="feature-card"><h3 class="feature-title">Lawful basis</h3><p>Consent‑based data collection with clear purposes; opt‑out at any time.</p></div>
         <div class="feature-card"><h3 class="feature-title">Security</h3><p>Encrypted storage, strict access controls, and time‑bound retention policies.</p></div>
-        <div class="feature-card"><h3 class="feature-title">Transparency</h3><p>Participants see what is collected, why, and how it’s used. Read our <a href="privacy.html">Privacy Policy</a>.</p></div>
+        <div class="feature-card"><h3 class="feature-title">Transparency</h3><p>Participants see what is collected, why, and how it’s used. Read our <a href="privacy_policy.html">Privacy Policy</a>.</p></div>
       </div>
     </div>
   </section>
@@ -486,11 +972,11 @@
   <!-- Contact -->
   <section id="contact" class="contact-section section">
     <div class="container">
-      <h2 class="section-title">Schedule a free consultation</h2>
-      <p style="text-align:center;max-width:760px;margin:0 auto 1.2rem;">Tell us about your next launch. We'll reply within 1 business day.</p>
+      <h2 class="section-title">Request a free test</h2>
+      <p style="text-align:center;max-width:760px;margin:0 auto 1.2rem;">Tell us about your next launch. We'll reply within 3 business day.</p>
       
       <div style="text-align:center;margin-top:1.5rem;">
-        <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="btn btn-primary">Schedule a free consultation</a>
+        <a href="request-test.html" class="btn btn-primary">Request a free test</a>
       </div>
     </div>
   </section>
@@ -501,17 +987,18 @@
       <div class="footer-grid">
         <div>
           <h3 class="footer-heading">About Eatpol</h3>
-          <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. Our AI‑driven consumer testing technology helps food companies launch foods that people love.</p>
+          <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. Our AI‑driven consumer testing technology helps food companies launch products people love. <br> KvK: 98066269</p>
           <div style="display:flex; gap:.6rem; margin-top: .8rem;">
-            <a href="https://www.tiktok.com/@eatpol_" class="footer-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
             <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@eatpol_" class="footer-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@eatpol" class="footer-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/people/Eatpol/61579980764718/" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
         </div>
         <div>
           <h3 class="footer-heading">Quick Links</h3>
           <ul class="footer-links">
-            <li class="footer-link"><a href="#how-it-works">How It Works</a></li>
             <li class="footer-link"><a href="#plan">Your Plan</a></li>
             <li class="footer-link"><a href="#pricing">Packages</a></li>
           </ul>
@@ -524,6 +1011,13 @@
             <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
           </ul>
         </div>
+        <div>
+          <h3 class="footer-heading">Legal</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-bottom">
         <p>© 2025 Eatpol. All Rights Reserved.</p>
@@ -532,8 +1026,8 @@
   </footer>
 
   <!-- Fixed Consultation Banner -->
-  <a href="https://calendly.com/mtufano-eatpol/free-consultation-eatpol-test" class="consultation-banner" id="consultationBanner">
-    <i class="fas fa-calendar-alt"></i>Schedule a free consultation
+  <a href="request-test.html" class="consultation-banner" id="consultationBanner">
+    <i class="fas fa-calendar-alt"></i>Request a free test
   </a>
 
   <script>
@@ -556,6 +1050,112 @@
           hamburger.setAttribute('aria-expanded','false');
         });
       });
+    });
+
+    // Initialize Seamless Loop
+    function initSeamlessLoop() {
+      const seamlessLoop = document.querySelector('.seamless-loop');
+      if (!seamlessLoop) return;
+      
+      const svg = seamlessLoop.querySelector('svg');
+      const paths = svg.querySelectorAll('.arc');
+      const dots = svg.querySelector('#rotDots');
+      const forward = svg.querySelector('.arc-forward');
+      const backward = svg.querySelector('.arc-backward');
+
+      // Speed control for rotating dots
+      const speed = Math.max(0.25, Math.min(4, parseFloat(seamlessLoop.dataset.speed) || 1));
+      const duration = 12 / speed; // seconds
+      if (dots) {
+        dots.style.setProperty('animation-duration', duration + 's');
+      }
+    }
+    
+    // Initialize on DOM load
+    initSeamlessLoop();
+    
+    // Initialize rotating logo video
+    const rotatingLogo = document.querySelector('.rotating-logo');
+    if (rotatingLogo && rotatingLogo.tagName === 'VIDEO') {
+      // Ensure video plays
+      rotatingLogo.addEventListener('loadeddata', function() {
+        this.play().catch(e => console.log('Video autoplay prevented:', e));
+      });
+      
+      // Handle video errors
+      rotatingLogo.addEventListener('error', function() {
+        console.warn('Video failed to load, falling back to static image');
+        // Could add fallback logic here if needed
+      });
+      
+      // Optimize video performance
+      rotatingLogo.addEventListener('canplaythrough', function() {
+        this.style.opacity = '1';
+      });
+    }
+  </script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <strong>🍪 We value your privacy</strong>
+        <p>We use cookies and Google Analytics to understand how you use our site and improve your experience. This includes personalizing content and analyzing traffic. 
+        <a href="privacy_policy.html">Learn more in our Privacy Policy</a></p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+        <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept Cookies</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Consent JavaScript -->
+  <script>
+    // Cookie consent functions
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieBanner').style.display = 'none';
+      
+      // Initialize Google Analytics
+      if (typeof initializeAnalytics === 'function') {
+        initializeAnalytics();
+      }
+      
+      // Track consent event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'consent_granted', {
+          'analytics_storage': 'granted'
+        });
+      }
+    }
+    
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('cookieBanner').style.display = 'none';
+      
+      // Disable Google Analytics
+      window['ga-disable-G-XXXXXXXXXX'] = true;
+      
+      // Track consent denial
+      if (typeof gtag !== 'undefined') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'denied'
+        });
+      }
+    }
+    
+    // Check cookie consent on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const consent = localStorage.getItem('cookieConsent');
+      
+      if (!consent) {
+        // Show banner if no consent decision
+        document.getElementById('cookieBanner').style.display = 'block';
+      } else if (consent === 'declined') {
+        // Ensure analytics is disabled if previously declined
+        window['ga-disable-G-XXXXXXXXXX'] = true;
+      }
     });
   </script>
 </body>

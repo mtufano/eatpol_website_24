@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You - Eatpol</title>
+  <!-- Favicons -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    :root {
+      --bright-blue: #1297e0;
+      --green: #00bf63;
+      --dark-blue: #1b48ab;
+      --medium-blue: #6990cd;
+      --light-blue: #b8daef;
+      --white: #ffffff;
+      --navy: #112752;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      line-height: 1.6; 
+      color: var(--navy); 
+      background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--green), var(--bright-blue));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+      animation: checkmarkScale 0.5s ease-out 0.3s both;
+    }
+    
+    .success-icon i {
+      color: white;
+      font-size: 32px;
+    }
+    
+    @keyframes checkmarkScale {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .thank-you-title {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--dark-blue), var(--bright-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+    
+    .thank-you-subtitle {
+      font-size: 24px;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+    
+    .thank-you-message {
+      font-size: 18px;
+      color: var(--navy);
+      opacity: 0.8;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      animation: fadeInUp 0.6s ease-out 0.5s both;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      border-radius: 980px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: none;
+      outline: none;
+      font-size: 18px;
+      text-decoration: none;
+      min-width: 200px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(18, 151, 224, 0.2);
+    }
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 191, 99, 0.3);
+      color: var(--white);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--bright-blue);
+      border: 2px solid var(--bright-blue);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--bright-blue);
+      color: var(--white);
+      transform: scale(1.02);
+    }
+    
+    .next-steps {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      margin-top: 40px;
+      text-align: left;
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+    }
+    
+    .next-steps h3 {
+      color: var(--dark-blue);
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .step:last-child {
+      margin-bottom: 0;
+    }
+    
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .step-title {
+      font-weight: 600;
+      color: var(--dark-blue);
+      margin-bottom: 5px;
+    }
+    
+    .step-description {
+      color: var(--navy);
+      opacity: 0.8;
+      font-size: 16px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .thank-you-title {
+        font-size: 36px;
+      }
+      
+      .thank-you-subtitle {
+        font-size: 20px;
+      }
+      
+      .next-steps {
+        padding: 20px;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon">
+      <i class="fas fa-check"></i>
+    </div>
+    
+    <h1 class="thank-you-title">Thank You!</h1>
+    <h2 class="thank-you-subtitle">Your request has been submitted successfully</h2>
+    
+    <p class="thank-you-message">
+      We've received your free test request and our team will review your information. 
+      You'll hear back from us within 3 business day with next steps and any questions we might have.
+    </p>
+    
+    <div class="action-buttons">
+      <a href="index.html" class="btn btn-primary">
+        <i class="fas fa-home" style="margin-right: 8px;"></i>
+        Return to Home
+      </a>
+      <a href="request-test.html" class="btn btn-secondary">
+        Submit Another Request
+      </a>
+    </div>
+    
+    <div class="next-steps">
+      <h3>What happens next?</h3>
+      
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <div class="step-title">Review & Contact</div>
+          <div class="step-description">Our team reviews your request and contacts you within 3 business day</div>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <div class="step-title">Test Design</div>
+          <div class="step-description">We design a customized test plan based on your specific needs and goals</div>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <div class="step-title">Testing & Results</div>
+          <div class="step-description">We conduct the test with real consumers and deliver actionable insights</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

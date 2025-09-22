@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.apple.com)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(dir)",
+      "Bash(dir:*)",
+      "Read(//c/xampp/htdocs/**)",
+      "Bash(sed:*)",
+      "Bash(mysql:*)",
+      "Read(//c/xampp/mysql/bin/**)",
+      "Bash(php:*)",
+      "Read(//c/xampp/apache/logs/**)",
+      "Read(//c/xampp/php/**)",
+      "Bash(curl:*)",
+      "Bash(\"C:\\xampp\\php\\php.exe\" quick-test.php)",
+      "Bash(\"C:\\xampp\\php\\php.exe\":*)",
+      "Bash(del debug-form-test.php debug-tester-form.php)",
+      "Bash(del quick-test.php)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

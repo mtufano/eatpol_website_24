@@ -1,1 +1,75 @@
+# SECURITY: Environment variables (contains sensitive passwords/keys)
+.env
+.env.local
+.env.production
+
+# SECURITY: Configuration files with credentials
+config.php
+local-config.php
+
+# Log files (may contain sensitive data)
+logs/
+*.log
+email-test.log
+
+# Test and debug files (may contain sensitive test data)
+test-*.php
+debug-*.php
+quick-test.php
+setup-*.php
+check-*.php
+create-admin-user.php
+change-admin-password.php
+create-database-structure.php
+fix-*.php
+
+# Database files and backups
+*.sql.backup
+*.sqlite
+*.db
+database-schema*.sql
+create-*.sql
+
+# Email logs and temporary files
+email-logs/
+temp-emails/
+
+# Temporary files
+*.tmp
+*~
+*.bak
+*.backup
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.sublime-*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# XAMPP specific
+xampp/
+htdocs/
+
+# Node modules (if any)
+node_modules/
+npm-debug.log*
+
+# Composer (if any)
+vendor/
+composer.lock
+
+# Any file ending in -local.php (for local overrides)
+*-local.php
+
+# Old files to keep out of git
 index_derp.html
+
+/dashboard
+bitnami.css
+db-config-old.php
+SECURITY-CHECKLIST.md
