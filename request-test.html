@@ -585,8 +585,8 @@
       const launchDateRadio = document.querySelector('input[name="Launch_Date"]:checked');
       if (launchDateRadio) formData.append('launchDate', launchDateRadio.value);
       
-      // Submit to debug handler
-      fetch('request-test-handler-debug.php', {
+      // Submit to working handler
+      fetch('request-test-handler.php', {
         method: 'POST',
         body: formData
       })
