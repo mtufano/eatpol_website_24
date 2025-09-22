@@ -91,45 +91,7 @@ try {
         // Continue anyway - don't fail the form submission
     }
 
-    // Try to save to database (but don't fail if database isn't available)
-    try {
-        // Only try database if we can connect
-        if (extension_loaded('pdo_mysql')) {
-            // Simple database connection without complex includes
-            $dbHost = 'localhost';
-            $dbName = 'eatpol_testers';
-            $dbUser = 'root';
-            $dbPass = '';
-
-            $pdo = new PDO(
-                "mysql:host=$dbHost;dbname=$dbName;charset=utf8mb4",
-                $dbUser,
-                $dbPass,
-                [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-            );
-
-            // Simple insert without encryption
-            $stmt = $pdo->prepare("
-                INSERT INTO business_requests (
-                    first_name, last_name, email, company, city, country,
-                    product_types, product_type_other, test_focus, participants,
-                    consumer_target, consumer_target_specific, launch_date, comments,
-                    created_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
-            ");
-
-            $stmt->execute([
-                $firstName, $lastName, $email, $company, $city, $country,
-                json_encode($productTypes), $productTypeOther, json_encode($testFocus),
-                $participants, $consumerTarget, $consumerTargetSpecific, $launchDate, $comments
-            ]);
-
-            error_log("Business inquiry saved to database: $firstName $lastName ($email) - Company: $company");
-        }
-    } catch (Exception $dbError) {
-        error_log("Database save failed: " . $dbError->getMessage());
-        // Continue anyway - don't fail the form submission
-    }
+    // Database storage removed - email notification is sufficient
 
     // Log the submission
     error_log("Form submission successful: $firstName $lastName ($email) - Company: $company");
