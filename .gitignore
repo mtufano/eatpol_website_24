@@ -73,3 +73,11 @@ index_derp.html
 bitnami.css
 db-config-old.php
 SECURITY-CHECKLIST.md
+
+setup-*.php
+test-*.php
+debug-*.php
+check-*.php
+database-schema*.sql
+create-*.sql
+
