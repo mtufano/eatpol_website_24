@@ -115,7 +115,7 @@
     .hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; justify-content: center; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .hero-image { flex: 1; max-width: 520px; }
-    .hero-image img, .hero-image video { width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); }
+    .hero-image img, .hero-image video { width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); object-fit: contain; }
 
     /* Sections */
     .section { padding: 4.5rem 0; }
@@ -130,7 +130,7 @@
 
     .split { display: flex; align-items: center; gap: 3rem; }
     .split > * { flex: 1; }
-    .split img, .split video { width:100%; border-radius: 10px; box-shadow: var(--shadow); }
+    .split img, .split video { width:100%; border-radius: 10px; box-shadow: var(--shadow); object-fit: contain; }
 
     /* Bands */
     .band-dark { background:#0b1a3a; color:#fff; }
@@ -300,10 +300,10 @@
     }
     
     .rotating-logo {
-      width: 1000px;
-      height: 1000px;
-      max-width: 95vw;
-      max-height: 95vw;
+      width: 800px;
+      height: 800px;
+      max-width: 85vw;
+      max-height: 85vw;
       filter: drop-shadow(0 8px 32px rgba(18, 151, 224, 0.15));
       transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       opacity: 0;
@@ -391,15 +391,21 @@
     .video-wrapper {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 350px;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--light-blue), var(--medium-blue));
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    
+
     .video-wrapper video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      background-color: #ffffff;
     }
     
     .video-card-content {
@@ -509,6 +515,7 @@
       .hero { padding-top: 6.5rem; }
       .hero-content { flex-direction: column; }
       .split { flex-direction: column; gap: 1.5rem; }
+      .split img, .split video { object-fit: contain; }
     }
     @media (max-width: 768px){
       .hero-title { font-size: 40px; line-height: 1.1; }
@@ -518,7 +525,7 @@
       .problem-title { font-size: 32px; }
       .problem-description { font-size: 18px; }
       .feature-card { padding: 24px; }
-      .rotating-logo { width: 600px; height: 600px; }
+      .rotating-logo { width: 500px; height: 500px; }
       .rotating-logo-section { padding: 30px 0 15px 0; }
       .seamless-loop { --size: 320px !important; }
       .seamless-section { padding: 40px 0; }
@@ -528,7 +535,7 @@
         gap: 16px; 
         max-width: 100%;
       }
-      .video-wrapper { height: 260px; }
+      .video-wrapper { height: 300px; }
       .video-card-content { padding: 32px; }
       .video-card-title { font-size: 24px; }
       .video-card-description { font-size: 18px; }
@@ -762,7 +769,7 @@
             <div class="video-card">
               <div class="video-wrapper">
                 <video autoplay muted loop playsinline>
-                  <source src="videos/eatpol_demo_prep.mp4" type="video/mp4">
+                  <source src="videos/website_preparation.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -801,7 +808,7 @@
             <div class="video-card">
               <div class="video-wrapper">
                 <video autoplay muted loop playsinline>
-                  <source src="videos/eatpol_demo_store.mp4" type="video/mp4">
+                  <source src="videos/website_storage.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -856,7 +863,9 @@
   <!-- Rotating Logo Section -->
   <section class="rotating-logo-section">
     <div class="container">
-      <video src="videos/rotate_logo.mp4" alt="Eatpol AI consumer testing logo" class="rotating-logo" autoplay muted loop playsinline></video>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <video src="videos/rotate_logo.mp4" alt="Eatpol AI consumer testing logo" class="rotating-logo" autoplay muted loop playsinline></video>
+      </div>
     </div>
   </section>
 
