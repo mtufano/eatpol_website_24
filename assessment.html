@@ -493,7 +493,7 @@
             <div style="background: white; border-radius: 16px; padding: 20px; border-left: 4px solid #1297e0;">
                 <p style="color: #666; font-size: 14px;">
                     <strong style="color: #1a1a1a;">Created by Eatpol</strong><br>
-                    Wageningen University spin-off • Based on 500+ in-home tests • Validated methodology
+                    Wageningen University spin-off •
                 </p>
             </div>
         </div>
@@ -1041,11 +1041,14 @@
                     </div>
             `;
 
+            // Calculate failure probability (inverse of score)
+            const failureProbability = 100 - score;
+
             // Dynamic content based on score
             if (riskLevel === 'high') {
                 resultsHTML += `
                     <span class="risk-badge risk-high">HIGH RISK</span>
-                    <h2 class="results-title">Your product faces a 72% failure probability</h2>
+                    <h2 class="results-title">Your product faces a ${failureProbability}% failure probability</h2>
                     <p style="color: #666; max-width: 600px; margin: 0 auto;">Before you invest further, let's identify exactly where your product breaks down in real-world conditions.</p>
                 </div>
 
@@ -1348,7 +1351,7 @@
 
             try {
                 // Send assessment data to PHP handler (same system as demo requests)
-                const response = await fetch('assessment-handler-new.php', {
+                const response = await fetch('assessment.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1361,8 +1364,8 @@
                 if (result.success) {
                     console.log('Assessment data sent successfully:', result);
 
-                    // Redirect to Outlook booking page
-                    window.location.href = 'https://outlook.office.com/bookwithme/user/ab81d952d6e84312b5ff3cfb7b17fa40@eatpol.com?anonymous&ep=signature&ismsaljsauthenabled';
+                    // Redirect to Calendly booking page
+                    window.location.href = 'https://calendly.com/jromberg-eatpol/30min';
                 } else {
                     console.error('Server error:', result.message);
                     alert('Your assessment was completed, but there was an issue submitting it. Please email us directly at info@eatpol.com with your information.');
