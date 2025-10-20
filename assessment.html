@@ -544,8 +544,21 @@
         
         <!-- Results Section -->
         <div id="resultsSection" class="results-container"></div>
+
+        <!-- Hidden Netlify Form for Assessment Submission -->
+        <form name="product-assessment" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+            <input type="text" name="First_Name" />
+            <input type="email" name="Email" />
+            <input type="text" name="Company" />
+            <input type="tel" name="Phone" />
+            <input type="number" name="Score" />
+            <input type="text" name="Risk_Level" />
+            <input type="text" name="Plant_Based" />
+            <input type="text" name="Recommended_Package" />
+            <textarea name="Assessment_Data"></textarea>
+        </form>
     </div>
-    
+
     <script>
         // Assessment data structure
         const assessmentData = {
@@ -1337,37 +1350,123 @@
             const isPlantBased = assessmentData.answers.q11 &&
                                 assessmentData.answers.q11.some(answer => answer.value === 'plantbased');
 
-            const assessmentResult = {
-                contact: assessmentData.contact,
-                score: score,
-                riskLevel: riskLevel,
-                isPlantBased: isPlantBased,
-                answers: assessmentData.answers,
-                timestamp: new Date().toISOString()
+            // Determine recommended package
+            let recommendedPackage = 'Custom Package';
+            if (riskLevel === 'high') {
+                recommendedPackage = isPlantBased ? 'Foundation Package (DOMUS + TEXTURA)' : 'Foundation Package (DOMUS + VOX)';
+            } else if (riskLevel === 'moderate') {
+                recommendedPackage = isPlantBased ? 'Optimization Package (TEXTURA + VOX)' : 'Optimization Package (VOX + TEXTURA)';
+            } else if (riskLevel === 'low') {
+                recommendedPackage = 'Competitive Edge Package (Full Suite)';
+            } else if (riskLevel === 'ready') {
+                recommendedPackage = 'Strategic Partnership (Custom Models)';
+            }
+
+            // Prepare form data for Netlify Forms
+            const formData = new FormData();
+            formData.append('form-name', 'product-assessment');
+            formData.append('First_Name', assessmentData.contact.firstName);
+            formData.append('Email', assessmentData.contact.email);
+            formData.append('Company', assessmentData.contact.company);
+            formData.append('Phone', assessmentData.contact.phone || '');
+            formData.append('Score', score + '%');
+            formData.append('Risk_Level', riskLevel.toUpperCase());
+            formData.append('Plant_Based', isPlantBased ? 'YES' : 'NO');
+            formData.append('Recommended_Package', recommendedPackage);
+
+            // Format all assessment data as readable text
+            let assessmentText = `ASSESSMENT COMPLETED: ${new Date().toLocaleString()}\n\n`;
+            assessmentText += `CONTACT INFORMATION:\n`;
+            assessmentText += `Name: ${assessmentData.contact.firstName}\n`;
+            assessmentText += `Email: ${assessmentData.contact.email}\n`;
+            assessmentText += `Company: ${assessmentData.contact.company}\n`;
+            if (assessmentData.contact.phone) assessmentText += `Phone: ${assessmentData.contact.phone}\n`;
+            assessmentText += `\nASSESSMENT RESULTS:\n`;
+            assessmentText += `Overall Score: ${score}%\n`;
+            assessmentText += `Risk Level: ${riskLevel.toUpperCase()}\n`;
+            assessmentText += `Plant-Based Product: ${isPlantBased ? 'YES' : 'NO'}\n`;
+            assessmentText += `Recommended Package: ${recommendedPackage}\n`;
+            assessmentText += `\nBEST PRACTICE QUESTIONS (Scored):\n`;
+
+            const questionTitles = {
+                q1: 'Real home environment testing',
+                q2: 'Complete consumer journey capture',
+                q3: 'Sample size (30+ households)',
+                q4: 'AI/video analysis for non-verbal feedback',
+                q5: 'Texture acceptance measurement',
+                q6: 'Packaging usability testing',
+                q7: 'Emotional response capture',
+                q8: 'Multiple iterations before launch',
+                q9: 'Competitor benchmarking',
+                q10: 'Speed of insights (< 2 weeks)'
             };
 
+            for (let i = 1; i <= 10; i++) {
+                const qId = `q${i}`;
+                const answer = assessmentData.answers[qId];
+                if (answer) {
+                    assessmentText += `${questionTitles[qId]}: ${answer.value} (${answer.points}/10 pts)\n`;
+                }
+            }
+
+            assessmentText += `\nQUALIFYING QUESTIONS:\n`;
+
+            // Q11: Product types
+            if (assessmentData.answers.q11) {
+                assessmentText += `Product Types:\n`;
+                assessmentData.answers.q11.forEach(item => {
+                    assessmentText += `  - ${item.text}\n`;
+                });
+            }
+
+            // Q12: Primary challenge
+            if (assessmentData.answers.q12) {
+                assessmentText += `Primary Challenge (90 days): ${assessmentData.answers.q12.value}\n`;
+            }
+
+            // Q13: Success obstacles
+            if (assessmentData.answers.q13) {
+                assessmentText += `Success Obstacles:\n`;
+                assessmentData.answers.q13.forEach(item => {
+                    assessmentText += `  - ${item.text}\n`;
+                });
+            }
+
+            // Q14: Interested solutions
+            if (assessmentData.answers.q14) {
+                assessmentText += `Interested Solutions:\n`;
+                assessmentData.answers.q14.forEach(item => {
+                    assessmentText += `  - ${item.text}\n`;
+                });
+            }
+
+            // Q15: Testing concerns
+            if (assessmentData.answers.q15) {
+                assessmentText += `Testing Concerns:\n`;
+                assessmentData.answers.q15.forEach(item => {
+                    assessmentText += `  - ${item.text}\n`;
+                });
+            }
+
+            formData.append('Assessment_Data', assessmentText);
+
             // Log to console for debugging
-            console.log('Assessment Complete - Sending to server:', assessmentResult);
+            console.log('Assessment Complete - Submitting to Netlify Forms');
 
             try {
-                // Send assessment data to PHP handler (same system as demo requests)
-                const response = await fetch('assessment.php', {
+                // Submit to Netlify Forms
+                const response = await fetch('/', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(assessmentResult)
+                    body: formData
                 });
 
-                const result = await response.json();
-
-                if (result.success) {
-                    console.log('Assessment data sent successfully:', result);
+                if (response.ok) {
+                    console.log('Assessment data submitted successfully to Netlify');
 
                     // Redirect to Calendly booking page
                     window.location.href = 'https://calendly.com/jromberg-eatpol/30min';
                 } else {
-                    console.error('Server error:', result.message);
+                    console.error('Netlify Forms submission failed:', response.status);
                     alert('Your assessment was completed, but there was an issue submitting it. Please email us directly at info@eatpol.com with your information.');
                 }
             } catch (error) {
