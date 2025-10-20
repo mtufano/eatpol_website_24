@@ -533,10 +533,10 @@
       .rotating-logo-section { padding: 30px 0 15px 0; }
       .seamless-loop { --size: 320px !important; }
       .seamless-section { padding: 40px 0; }
-      .video-cards-grid { 
-        grid-template-columns: 1fr; 
+      .video-cards-grid {
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
-        gap: 16px; 
+        gap: 16px;
         max-width: 100%;
       }
       .video-wrapper { height: 300px; }
@@ -546,12 +546,30 @@
       p { font-size: 18px; }
       .feature-title { font-size: 24px; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
-      .hamburger { display: block; }
-      .nav-menu { position: fixed; left: -100%; top: 70px; gap: 0; flex-direction: column; background-color: var(--white); width: 100%; text-align: center; transition: 0.3s; box-shadow: 0 10px 15px rgba(0,0,0,0.1); padding: 1.4rem 0; z-index: 9999; }
-      .nav-item { margin: .6rem 0; }
-      .nav-menu.active { left: 0; }
+
+      /* Hide hamburger and replace with simple links */
+      .hamburger { display: none !important; }
+      .nav-menu {
+        display: flex !important;
+        position: static !important;
+        flex-direction: row !important;
+        gap: 1rem !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: none !important;
+      }
+      .nav-item {
+        margin: 0 !important;
+      }
+      .nav-item:nth-child(1), .nav-item:nth-child(3), .nav-item:nth-child(4) {
+        display: none; /* Hide "Your Plan", "FAQ", and "Privacy & Ethics" */
+      }
+      .nav-link {
+        font-size: 14px;
+        padding: 0.5rem 0;
+      }
       .form-grid { grid-template-columns: 1fr; }
-      
+
       .consultation-banner {
         bottom: 15px;
         right: 15px;
@@ -673,6 +691,20 @@
         right: 10px;
         padding: 1.25rem;
         border-radius: 16px;
+        left: 50%;
+        right: auto;
+        max-width: calc(100% - 20px);
+        transform: translateX(-50%);
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateX(-50%) translateY(100%);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
       }
       .cookie-content {
         flex-direction: column;
@@ -710,7 +742,7 @@
           Eatpol
         </a>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="#plan" class="nav-link">Your Plan</a></li>
+          <li class="nav-item"><a href="#guide" class="nav-link">Our method</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
           <li class="nav-item"><a href="#privacy" class="nav-link">Privacy & Ethics</a></li>
