@@ -55,6 +55,9 @@
     .nav-link:hover::after, .nav-link.active::after { width: 100%; }
     .hamburger { display: none; cursor: pointer; }
     .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     /* Blog Hero */
     .blog-hero { padding: 8.2rem 0 4.5rem; background: linear-gradient(135deg, rgba(184, 218, 239, 0.3) 0%, rgba(0, 191, 99, 0.1) 100%); position: relative; overflow: hidden; text-align: center; }
@@ -182,16 +185,16 @@
 
       <!-- Featured Article -->
       <div class="featured-article">
-        <img src="img/blog1.png" alt="AI reshaping food innovation" class="featured-image" />
+        <img src="img/blog2.png" alt="EU plant-based naming debate" class="featured-image" />
         <div class="featured-content">
           <span class="featured-badge">Featured</span>
-          <h2 class="featured-title">How AI Is Reshaping Food Innovation — And Why Consumer Testing Must Catch Up</h2>
-          <p class="featured-excerpt">AI is redefining how food companies innovate — from flavour creation to personalised experiences. Discover why measuring real consumer behavior is the missing piece in the AI-driven food revolution.</p>
+          <h2 class="featured-title">The EU Debate on Plant-Based Naming: What It Means for the Future of Food</h2>
+          <p class="featured-excerpt">The European Parliament has voted in favour of restricting names like "burger" and "sausage" to meat-only products. Explore what this means for innovation, consumer choice, and the future of sustainable food.</p>
           <div class="article-meta">
-            <span class="article-date"><i class="far fa-calendar"></i> October 16, 2025</span>
-            <span class="article-category">Technology</span>
+            <span class="article-date"><i class="far fa-calendar"></i> October 20, 2025</span>
+            <span class="article-category">Policy</span>
           </div>
-          <a href="#article-4" class="read-more" onclick="expandArticle(event, 'article-4')">Read full article <i class="fas fa-arrow-right"></i></a>
+          <a href="#article-5" class="read-more" onclick="expandArticle(event, 'article-5')">Read full article <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -247,6 +250,50 @@
             <div class="article-footer">
               <span class="article-author"><i class="fas fa-user-circle"></i> Eatpol Research Team</span>
               <a href="#" class="read-more" onclick="expandArticle(event, 'article-4')">Read more <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 5 - EU Plant-Based Naming Debate -->
+        <div class="article-card" id="article-5">
+          <img src="img/blog2.png" alt="EU plant-based naming debate" class="article-image" />
+          <div class="article-content">
+            <div class="article-meta">
+              <span class="article-date"><i class="far fa-calendar"></i> October 20, 2025</span>
+              <span class="article-category">Policy</span>
+            </div>
+            <h3 class="article-title">The EU Debate on Plant-Based Naming: What It Means for the Future of Food</h3>
+            <p class="article-excerpt">The European Parliament has voted in favour of restricting names like "burger" and "sausage" to meat-only products. Explore what this means for innovation, consumer choice, and the future of sustainable food.</p>
+            <div class="article-full">
+              <p>The conversation around what we call plant-based products is heating up again in Europe. On 8 October 2025, the European Parliament voted in favour of a proposal that could restrict the use of names such as burger, sausage, and steak exclusively for products that contain meat.</p>
+
+              <p>If the proposal becomes law, companies producing plant-based or cultivated alternatives would no longer be allowed to use these familiar names, even when their labels clearly indicate that the product is made from plants. This move follows a similar precedent set in 2017, when the European Court of Justice ruled that terms like "milk" and "cheese" could only be used for animal-derived dairy products. Although the current amendment has not yet become law, it has sparked a debate across Europe regarding language, consumer understanding, and fairness in food innovation.</p>
+
+              <h4 style="color: var(--dark-blue); margin-top: 24px; margin-bottom: 12px;">Why This Debate Matters</h4>
+              <p>Supporters of the proposed restrictions argue that they prevent consumer confusion and protect traditional food categories. However, many industry experts and advocacy groups see it differently. They argue that consumers are already well-informed about what "plant-based" means and that familiar names, such as veggie burger or plant-based sausage, actually help consumers make sense of these new foods.</p>
+
+              <p>Critics also note that such restrictions could slow down the growth of sustainable alternatives at a time when Europe is investing heavily in food system transformation. The plant-based sector plays a crucial role in reducing environmental impact and enhancing dietary health outcomes, yet it continues to face policy and regulatory challenges.</p>
+
+              <h4 style="color: var(--dark-blue); margin-top: 24px; margin-bottom: 12px;">Connecting This to Innovation and Sensory Testing</h4>
+              <p>At Eatpol, this conversation goes right to the heart of what we do. Our work focuses on helping companies understand how consumers experience and perceive their products — whether traditional or plant-based.</p>
+
+              <p>Through our Chewy Models, we are developing data-driven methods for companies to assess the texture, mouthfeel, and acceptance of plant-based products in a more human-centred manner. These models simulate real consumer responses to various sensory cues, enabling teams to make informed decisions about formulation and positioning.</p>
+
+              <p>With debates like this one shaping the regulatory and marketing environment for plant-based foods, the need for precise human insight has never been greater. How consumers experience a plant-based "burger" goes far beyond the label. It's about taste, texture, and connection — the things that truly determine whether people embrace new food innovations.</p>
+
+              <p>As the discussion on naming continues, the focus should stay on what matters most: helping people make sustainable choices they genuinely enjoy. And that's precisely what we're working toward at Eatpol.</p>
+
+              <p style="margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); font-size: 14px; opacity: 0.8;"><strong>References:</strong><br>
+              • European Parliament vote on plant-based naming, <a href="https://www.reuters.com/business/eu-lawmakers-push-ban-term-veggie-burger-2025-10-08/" target="_blank" style="color: var(--bright-blue);">Reuters (2025)</a><br>
+              • <a href="https://www.theguardian.com/world/2025/oct/08/veggie-burgers-off-menu-meps-vote-ban-plant-based-food-terms" target="_blank" style="color: var(--bright-blue);">The Guardian (2025)</a><br>
+              • <a href="https://www.theverge.com/news/798146/lab-grown-meat-cultivated-plant-based-burger-sausage-steak-eu-ban" target="_blank" style="color: var(--bright-blue);">The Verge (2025)</a><br>
+              • European Court of Justice ruling on dairy names, 2017: TofuTown GmbH (Case C-422/16)</p>
+
+              <p style="margin-top: 24px;"><strong>Want to understand how consumers truly experience your plant-based products?</strong> <a href="request-test.html" style="color: var(--bright-blue); font-weight: 600;">Request a Demo</a> and discover insights beyond the label.</p>
+            </div>
+            <div class="article-footer">
+              <span class="article-author"><i class="fas fa-user-circle"></i> Eatpol Research Team</span>
+              <a href="#" class="read-more" onclick="expandArticle(event, 'article-5')">Read more <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>

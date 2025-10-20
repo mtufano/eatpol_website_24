@@ -103,6 +103,9 @@
     .nav-cta { margin-left: 1rem; }
     .hamburger { display: none; cursor: pointer; }
     .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     /* Hero */
     .hero { padding: 8.2rem 0 4.5rem; background: linear-gradient(135deg, rgba(184, 218, 239, 0.3) 0%, rgba(0, 191, 99, 0.1) 100%); position: relative; overflow: hidden; }
