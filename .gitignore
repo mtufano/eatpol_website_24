@@ -81,3 +81,4 @@ check-*.php
 database-schema*.sql
 create-*.sql
 
+img/bug.png
