@@ -1,0 +1,32 @@
+# Netlify configuration file
+
+[build]
+  publish = "."
+
+# Form notifications
+[[plugins]]
+  package = "@netlify/plugin-forms"
+
+# Configure form notifications to send to info@eatpol.com
+[build.environment]
+  NETLIFY_EMAILS_PROVIDER = "netlify"
+
+# Redirect rules
+[[redirects]]
+  from = "/data-deletion"
+  to = "/data-deletion.html"
+  status = 200
+
+[[redirects]]
+  from = "/deletion-thank-you"
+  to = "/deletion-thank-you.html"
+  status = 200
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"

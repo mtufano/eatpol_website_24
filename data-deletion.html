@@ -336,7 +336,7 @@
             <h2 class="form-title">Submit Your Data Deletion Request</h2>
             <p class="form-subtitle">Please provide the information below to help us process your request. All fields marked with * are required.</p>
 
-            <form name="data-deletion-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form name="data-deletion-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/deletion-thank-you.html">
                 <!-- Honeypot field for spam prevention -->
                 <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="data-deletion-request" />
@@ -410,11 +410,22 @@
         </div>
     </div>
 
-    <script>
-        // Form validation and submission
-        document.querySelector('form[name="data-deletion-request"]').addEventListener('submit', async function(e) {
-            e.preventDefault(); // Always prevent default to handle manually
+    <!-- Hidden form for Netlify form detection -->
+    <form name="data-deletion-request-static" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="Full_Name" />
+        <input type="email" name="Email" />
+        <input type="tel" name="Phone" />
+        <input type="text" name="Study_Details" />
+        <input type="checkbox" name="Delete_Videos" />
+        <input type="checkbox" name="Delete_Audio" />
+        <input type="checkbox" name="Delete_Personal" />
+        <input type="checkbox" name="Delete_All" />
+        <textarea name="Additional_Info"></textarea>
+    </form>
 
+    <script>
+        // Form validation
+        document.querySelector('form[name="data-deletion-request"]').addEventListener('submit', function(e) {
             let isValid = true;
 
             // Validate full name
@@ -451,82 +462,12 @@
             }
 
             if (!isValid) {
-                return;
+                e.preventDefault();
+                return false;
             }
 
-            // If validation passes, prepare and submit data
-            const phone = document.getElementById('phone').value.trim();
-            const studyDetails = document.getElementById('studyDetails').value.trim();
-            const additionalInfo = document.getElementById('additionalInfo').value.trim();
-
-            // Get selected data types to delete
-            const deleteVideos = document.getElementById('deleteVideos').checked;
-            const deleteAudio = document.getElementById('deleteAudio').checked;
-            const deletePersonal = document.getElementById('deletePersonal').checked;
-            const deleteAll = document.getElementById('deleteAll').checked;
-
-            // Prepare form data for Netlify Forms
-            const formData = new FormData();
-            formData.append('form-name', 'data-deletion-request');
-            formData.append('Full_Name', fullName);
-            formData.append('Email', email);
-            formData.append('Phone', phone || 'Not provided');
-            formData.append('Study_Details', studyDetails || 'Not provided');
-
-            // Build data types string
-            let dataTypes = [];
-            if (deleteAll) {
-                dataTypes.push('ALL DATA');
-            } else {
-                if (deleteVideos) dataTypes.push('Video recordings');
-                if (deleteAudio) dataTypes.push('Voice recordings');
-                if (deletePersonal) dataTypes.push('Personal information');
-            }
-            formData.append('Data_Types_To_Delete', dataTypes.join(', '));
-            formData.append('Additional_Info', additionalInfo || 'None');
-
-            // Format complete request as readable text
-            let requestText = `DATA DELETION REQUEST\n`;
-            requestText += `Submitted: ${new Date().toLocaleString()}\n\n`;
-            requestText += `PARTICIPANT INFORMATION:\n`;
-            requestText += `Name: ${fullName}\n`;
-            requestText += `Email: ${email}\n`;
-            requestText += `Phone: ${phone || 'Not provided'}\n`;
-            requestText += `Study/Project: ${studyDetails || 'Not specified'}\n\n`;
-            requestText += `DATA TO DELETE:\n`;
-            if (deleteAll) {
-                requestText += `- ALL DATA (Complete deletion requested)\n`;
-            } else {
-                if (deleteVideos) requestText += `- Video recordings of interviews and product usage\n`;
-                if (deleteAudio) requestText += `- Voice recordings\n`;
-                if (deletePersonal) requestText += `- Personal information (name, email, address, phone)\n`;
-            }
-            requestText += `\nADDITIONAL INFORMATION:\n${additionalInfo || 'None provided'}\n`;
-            requestText += `\n--- END OF REQUEST ---\n`;
-
-            formData.append('Request_Details', requestText);
-
-            console.log('Data Deletion Request - Submitting to Netlify Forms');
-
-            try {
-                // Submit to Netlify Forms
-                const response = await fetch('/', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    console.log('Data deletion request submitted successfully to Netlify');
-                    // Redirect to success page
-                    window.location.href = '/?deletion-success=true';
-                } else {
-                    console.error('Netlify Forms submission failed:', response.status);
-                    alert('There was an issue submitting your request. Please email us directly at info@eatpol.com with your deletion request.');
-                }
-            } catch (error) {
-                console.error('Network error:', error);
-                alert('There was a connection error. Please email us directly at info@eatpol.com with your deletion request.');
-            }
+            // If validation passes, let Netlify handle the form submission naturally
+            return true;
         });
 
         // Handle "Delete All" checkbox logic
@@ -541,55 +482,6 @@
                 otherCheckboxes.forEach(cb => {
                     cb.disabled = false;
                 });
-            }
-        });
-
-        // Check on page load if URL has success parameter
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('deletion-success') === 'true') {
-                // Show success message
-                const successMessage = document.createElement('div');
-                successMessage.style.cssText = `
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: white;
-                    padding: 40px;
-                    border-radius: 20px;
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-                    z-index: 10000;
-                    max-width: 500px;
-                    width: 90%;
-                    text-align: center;
-                `;
-                successMessage.innerHTML = `
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #00bf63, #1297e0); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; color: white; font-size: 32px;">✓</div>
-                    <h2 style="font-size: 28px; font-weight: 700; color: #1b48ab; margin-bottom: 16px;">Request Submitted</h2>
-                    <p style="font-size: 16px; color: #666; margin-bottom: 30px; line-height: 1.6;">
-                        Thank you for submitting your data deletion request. We will process your request within 30 days and send you a confirmation email once completed.
-                    </p>
-                    <button onclick="window.location.href='index.html'" style="padding: 14px 28px; background: linear-gradient(135deg, #1297e0, #00bf63); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">Return to Home</button>
-                `;
-
-                // Create backdrop
-                const backdrop = document.createElement('div');
-                backdrop.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.5);
-                    z-index: 9999;
-                `;
-
-                document.body.appendChild(backdrop);
-                document.body.appendChild(successMessage);
-
-                // Clean URL
-                window.history.replaceState({}, document.title, window.location.pathname);
             }
         });
     </script>

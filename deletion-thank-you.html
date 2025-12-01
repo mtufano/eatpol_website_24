@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Submitted - Eatpol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Favicon links -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <style>
+        /* Base Styles */
+        :root {
+            --bright-blue: #1297e0;
+            --green: #00bf63;
+            --dark-blue: #1b48ab;
+            --medium-blue: #6990cd;
+            --light-blue: #b8daef;
+            --white: #ffffff;
+            --navy: #112752;
+            --gradient-primary: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
+            --gradient-secondary: linear-gradient(135deg, var(--medium-blue), var(--light-blue));
+            --gradient-cta: linear-gradient(135deg, var(--green), var(--bright-blue));
+            --shadow: 0 4px 16px rgba(17, 39, 82, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: var(--bright-blue);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--dark-blue);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 980px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            outline: none;
+            font-size: 17px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(18, 151, 224, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 191, 99, 0.3);
+            color: var(--white);
+        }
+
+        /* Thank You Content */
+        .thank-you-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(184, 218, 239, 0.3) 0%, rgba(0, 191, 99, 0.1) 100%);
+            position: relative;
+        }
+
+        .thank-you-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(17, 39, 82, 0.12);
+            padding: 60px 40px;
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .check-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--green), var(--bright-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out 0.3s backwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .check-icon {
+            font-size: 50px;
+            color: var(--white);
+        }
+
+        .thank-you-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .thank-you-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            font-weight: 700;
+        }
+
+        .thank-you-message {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid var(--bright-blue);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .info-box li {
+            padding: 8px 0;
+            color: #1565c0;
+            font-size: 16px;
+        }
+
+        .info-box li:before {
+            content: "✓ ";
+            color: var(--green);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .contact-info {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: var(--bright-blue);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 40px 30px;
+            }
+
+            .thank-you-title {
+                font-size: 32px;
+            }
+
+            .thank-you-message {
+                font-size: 18px;
+            }
+
+            .check-icon-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+
+            .check-icon {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Thank You Section -->
+    <section class="thank-you-section">
+        <div class="thank-you-card">
+            <div class="check-icon-wrapper">
+                <i class="fas fa-check check-icon"></i>
+            </div>
+
+            <img src="img/logo7.png" alt="Eatpol Logo" class="thank-you-logo">
+
+            <h1 class="thank-you-title">Request Submitted</h1>
+
+            <p class="thank-you-message">
+                Thank you for submitting your data deletion request. We take your privacy seriously and will process your request in accordance with GDPR regulations.
+            </p>
+
+            <div class="info-box">
+                <h3>What happens next?</h3>
+                <ul>
+                    <li>You will receive a confirmation email shortly</li>
+                    <li>We will process your request within 30 days</li>
+                    <li>Once completed, you'll receive a final confirmation email</li>
+                    <li>All requested data will be permanently deleted from our systems</li>
+                </ul>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>Need to contact us?</strong></p>
+                <p>Email: <a href="mailto:info@eatpol.com">info@eatpol.com</a></p>
+                <p>Phone: +31 (0) 611 61 22 01</p>
+            </div>
+
+            <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
