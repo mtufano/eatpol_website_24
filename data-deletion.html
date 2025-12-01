@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion Request | Eatpol</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1297e0, #00bf63);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .info-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .info-section p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .data-list {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .data-list h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #1297e0;
+            font-weight: 600;
+        }
+
+        .data-category {
+            margin-bottom: 20px;
+        }
+
+        .data-category h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .data-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .data-category li {
+            padding: 6px 0;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .data-category li:before {
+            content: "• ";
+            color: #1297e0;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .form-title {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #1297e0;
+        }
+
+        .input-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: #f5f5f7;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            flex: 1;
+            cursor: pointer;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1297e0, #00bf63);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(18, 151, 224, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .error-message {
+            color: #c62828;
+            font-size: 14px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1297e0;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            color: #1565c0;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #1297e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #00bf63;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .form-card, .info-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <div class="header">
+            <h1>Data Deletion Request</h1>
+            <p>Request deletion of your personal data from Eatpol</p>
+        </div>
+
+        <div class="info-section">
+            <h2>About This Service</h2>
+            <p>This service is exclusively for participants who were recruited through our partner organizations to participate in consumer behavior research studies and have provided informed consent to be recorded during interviews or product usage sessions.</p>
+            <p>Data collected through these studies are shared with our research clients through secure access to our Domus platform for analysis and research purposes.</p>
+            <p><strong>You have the right to request deletion of your data at any time.</strong></p>
+        </div>
+
+        <div class="info-section">
+            <h2>What Data We Collect</h2>
+            <p>As part of our research platform and mobile application, we may collect the following types of data:</p>
+
+            <div class="data-list">
+                <div class="data-category">
+                    <h4>Personal Information</h4>
+                    <ul>
+                        <li>Name</li>
+                        <li>Email address</li>
+                        <li>Residential address</li>
+                        <li>Phone number (optional)</li>
+                    </ul>
+                </div>
+
+                <div class="data-category">
+                    <h4>Research Data</h4>
+                    <ul>
+                        <li>Video recordings of product usage and interviews</li>
+                        <li>Voice recordings during research sessions</li>
+                        <li>Photos and videos you submit</li>
+                        <li>Email communications</li>
+                    </ul>
+                </div>
+
+                <div class="data-category">
+                    <h4>Usage & Analytics</h4>
+                    <ul>
+                        <li>App interactions and behavior patterns</li>
+                        <li>Device identifiers (optional)</li>
+                        <li>Approximate location data</li>
+                        <li>Crash logs and diagnostics</li>
+                    </ul>
+                </div>
+
+                <div class="data-category">
+                    <h4>Financial Information (Optional)</h4>
+                    <ul>
+                        <li>Payment information for participant compensation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Data Security:</strong> All data is encrypted in transit and stored securely in compliance with GDPR regulations. For more information, please refer to our <a href="privacy_policy.html" style="color: #1565c0; text-decoration: underline;">Privacy Policy</a>.</p>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h2 class="form-title">Submit Your Data Deletion Request</h2>
+            <p class="form-subtitle">Please provide the information below to help us process your request. All fields marked with * are required.</p>
+
+            <form name="data-deletion-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <!-- Honeypot field for spam prevention -->
+                <input type="hidden" name="bot-field" />
+                <input type="hidden" name="form-name" value="data-deletion-request" />
+
+                <div class="input-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="Full_Name" required>
+                    <span class="error-message" id="nameError">Please enter your full name</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="Email" required>
+                    <span class="error-message" id="emailError">Please enter a valid email address</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="Phone">
+                </div>
+
+                <div class="input-group">
+                    <label for="studyDetails">Study or Project Name (if known)</label>
+                    <input type="text" id="studyDetails" name="Study_Details" placeholder="e.g., Product Testing Study 2024">
+                </div>
+
+                <div class="checkbox-group">
+                    <label style="display: block; margin-bottom: 12px; font-weight: 600; color: #333;">What data would you like to delete? *</label>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="deleteVideos" name="Delete_Videos" value="yes">
+                        <label for="deleteVideos">Video recordings of interviews and product usage</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="deleteAudio" name="Delete_Audio" value="yes">
+                        <label for="deleteAudio">Voice recordings</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="deletePersonal" name="Delete_Personal" value="yes">
+                        <label for="deletePersonal">Personal information (name, email, address, phone)</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="deleteAll" name="Delete_All" value="yes">
+                        <label for="deleteAll"><strong>Delete all data associated with my participation</strong></label>
+                    </div>
+
+                    <span class="error-message" id="checkboxError">Please select at least one data type to delete</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="additionalInfo">Additional Information or Comments (Optional)</label>
+                    <textarea id="additionalInfo" name="Additional_Info" placeholder="Please provide any additional details that may help us locate and process your data deletion request..."></textarea>
+                </div>
+
+                <div class="info-box">
+                    <p><strong>Processing Time:</strong> We will process your request within 30 days as required by GDPR. You will receive a confirmation email once your data has been deleted.</p>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Deletion Request</button>
+            </form>
+        </div>
+
+        <div class="info-section">
+            <h2>Need Help?</h2>
+            <p>If you have questions about this process or need assistance, please contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:info@eatpol.com" style="color: #1297e0;">info@eatpol.com</a></p>
+            <p><strong>Phone:</strong> +31 (0) 611 61 22 01</p>
+        </div>
+    </div>
+
+    <script>
+        // Form validation and submission
+        document.querySelector('form[name="data-deletion-request"]').addEventListener('submit', async function(e) {
+            e.preventDefault(); // Always prevent default to handle manually
+
+            let isValid = true;
+
+            // Validate full name
+            const fullName = document.getElementById('fullName').value.trim();
+            const nameError = document.getElementById('nameError');
+            if (!fullName) {
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            // Validate at least one checkbox is selected
+            const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
+            const checkboxError = document.getElementById('checkboxError');
+            const isAnyChecked = Array.from(checkboxes).some(cb => cb.checked);
+
+            if (!isAnyChecked) {
+                checkboxError.style.display = 'block';
+                isValid = false;
+            } else {
+                checkboxError.style.display = 'none';
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            // If validation passes, prepare and submit data
+            const phone = document.getElementById('phone').value.trim();
+            const studyDetails = document.getElementById('studyDetails').value.trim();
+            const additionalInfo = document.getElementById('additionalInfo').value.trim();
+
+            // Get selected data types to delete
+            const deleteVideos = document.getElementById('deleteVideos').checked;
+            const deleteAudio = document.getElementById('deleteAudio').checked;
+            const deletePersonal = document.getElementById('deletePersonal').checked;
+            const deleteAll = document.getElementById('deleteAll').checked;
+
+            // Prepare form data for Netlify Forms
+            const formData = new FormData();
+            formData.append('form-name', 'data-deletion-request');
+            formData.append('Full_Name', fullName);
+            formData.append('Email', email);
+            formData.append('Phone', phone || 'Not provided');
+            formData.append('Study_Details', studyDetails || 'Not provided');
+
+            // Build data types string
+            let dataTypes = [];
+            if (deleteAll) {
+                dataTypes.push('ALL DATA');
+            } else {
+                if (deleteVideos) dataTypes.push('Video recordings');
+                if (deleteAudio) dataTypes.push('Voice recordings');
+                if (deletePersonal) dataTypes.push('Personal information');
+            }
+            formData.append('Data_Types_To_Delete', dataTypes.join(', '));
+            formData.append('Additional_Info', additionalInfo || 'None');
+
+            // Format complete request as readable text
+            let requestText = `DATA DELETION REQUEST\n`;
+            requestText += `Submitted: ${new Date().toLocaleString()}\n\n`;
+            requestText += `PARTICIPANT INFORMATION:\n`;
+            requestText += `Name: ${fullName}\n`;
+            requestText += `Email: ${email}\n`;
+            requestText += `Phone: ${phone || 'Not provided'}\n`;
+            requestText += `Study/Project: ${studyDetails || 'Not specified'}\n\n`;
+            requestText += `DATA TO DELETE:\n`;
+            if (deleteAll) {
+                requestText += `- ALL DATA (Complete deletion requested)\n`;
+            } else {
+                if (deleteVideos) requestText += `- Video recordings of interviews and product usage\n`;
+                if (deleteAudio) requestText += `- Voice recordings\n`;
+                if (deletePersonal) requestText += `- Personal information (name, email, address, phone)\n`;
+            }
+            requestText += `\nADDITIONAL INFORMATION:\n${additionalInfo || 'None provided'}\n`;
+            requestText += `\n--- END OF REQUEST ---\n`;
+
+            formData.append('Request_Details', requestText);
+
+            console.log('Data Deletion Request - Submitting to Netlify Forms');
+
+            try {
+                // Submit to Netlify Forms
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    console.log('Data deletion request submitted successfully to Netlify');
+                    // Redirect to success page
+                    window.location.href = '/?deletion-success=true';
+                } else {
+                    console.error('Netlify Forms submission failed:', response.status);
+                    alert('There was an issue submitting your request. Please email us directly at info@eatpol.com with your deletion request.');
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                alert('There was a connection error. Please email us directly at info@eatpol.com with your deletion request.');
+            }
+        });
+
+        // Handle "Delete All" checkbox logic
+        document.getElementById('deleteAll').addEventListener('change', function() {
+            const otherCheckboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]:not(#deleteAll)');
+            if (this.checked) {
+                otherCheckboxes.forEach(cb => {
+                    cb.checked = false;
+                    cb.disabled = true;
+                });
+            } else {
+                otherCheckboxes.forEach(cb => {
+                    cb.disabled = false;
+                });
+            }
+        });
+
+        // Check on page load if URL has success parameter
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('deletion-success') === 'true') {
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    padding: 40px;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+                    z-index: 10000;
+                    max-width: 500px;
+                    width: 90%;
+                    text-align: center;
+                `;
+                successMessage.innerHTML = `
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #00bf63, #1297e0); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; color: white; font-size: 32px;">✓</div>
+                    <h2 style="font-size: 28px; font-weight: 700; color: #1b48ab; margin-bottom: 16px;">Request Submitted</h2>
+                    <p style="font-size: 16px; color: #666; margin-bottom: 30px; line-height: 1.6;">
+                        Thank you for submitting your data deletion request. We will process your request within 30 days and send you a confirmation email once completed.
+                    </p>
+                    <button onclick="window.location.href='index.html'" style="padding: 14px 28px; background: linear-gradient(135deg, #1297e0, #00bf63); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">Return to Home</button>
+                `;
+
+                // Create backdrop
+                const backdrop = document.createElement('div');
+                backdrop.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 9999;
+                `;
+
+                document.body.appendChild(backdrop);
+                document.body.appendChild(successMessage);
+
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>
