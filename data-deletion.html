@@ -336,7 +336,7 @@
             <h2 class="form-title">Submit Your Data Deletion Request</h2>
             <p class="form-subtitle">Please provide the information below to help us process your request. All fields marked with * are required.</p>
 
-            <form name="data-deletion-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/deletion-thank-you.html">
+            <form name="data-deletion-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="deletion-thank-you.html">
                 <!-- Honeypot field for spam prevention -->
                 <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="data-deletion-request" />
@@ -356,6 +356,11 @@
                 <div class="input-group">
                     <label for="phone">Phone Number (Optional)</label>
                     <input type="tel" id="phone" name="Phone">
+                </div>
+
+                <div class="input-group">
+                    <label for="userId">User ID (if known)</label>
+                    <input type="text" id="userId" name="User_ID" placeholder="e.g., USR123456">
                 </div>
 
                 <div class="input-group">
@@ -415,6 +420,7 @@
         <input type="text" name="Full_Name" />
         <input type="email" name="Email" />
         <input type="tel" name="Phone" />
+        <input type="text" name="User_ID" />
         <input type="text" name="Study_Details" />
         <input type="checkbox" name="Delete_Videos" />
         <input type="checkbox" name="Delete_Audio" />
