@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python -c \"\nwith open(''index.html'', ''r'', encoding=''utf-8'') as f:\n    lines = f.readlines()\n\n# Define sections\nmarket_start = 1381  # Line 1382 (0-indexed)\nmarket_end = 1448    # Line 1448 (0-indexed, inclusive)\ninsert_position = 1332  # After line 1332 (before line 1334)\n\n# Extract the market section\nmarket_section = lines[market_start:market_end]\n\n# Remove the market section from its current position\nnew_lines = lines[:market_start] + lines[market_end:]\n\n# Insert the market section at the new position\nfinal_lines = new_lines[:insert_position] + market_section + new_lines[insert_position:]\n\n# Write the updated content\nwith open(''index.html'', ''w'', encoding=''utf-8'') as f:\n    f.writelines(final_lines)\n\nprint(''Market section successfully moved!'')\nprint(f''Moved {len(market_section)} lines from position {market_start+1} to position {insert_position+1}'')\n\")"
+      "Bash(npm install)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix Netlify build error by removing non-existent plugin\n\nRemoved the @netlify/plugin-forms plugin reference from netlify.toml\nsince this package doesn''t exist in npm. Netlify Forms work natively\nwithout any plugin when using the data-netlify=\"true\" attribute in\nHTML forms.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
