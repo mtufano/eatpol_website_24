@@ -433,7 +433,151 @@
       font-family: 'Roboto', sans-serif;
     }
     
-    /* Problem Section Styling */
+    /* Enhanced Problem Section Styling */
+    .problem-section {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fbfd 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .problem-text {
+      text-align: left;
+      position: relative;
+    }
+
+    .problem-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .problem-text p {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--navy);
+      opacity: 0.9;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .problem-text p:hover {
+      border-left-color: var(--bright-blue);
+      padding-left: 1.5rem;
+    }
+
+    .problem-text p strong {
+      color: var(--dark-blue);
+      font-weight: 700;
+    }
+
+    .problem-text p:last-child {
+      border-left: 3px solid var(--bright-blue);
+      padding-left: 1.5rem;
+      font-weight: 500;
+      background: linear-gradient(90deg, rgba(18, 151, 224, 0.05), transparent);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+
+    .problem-visual {
+      position: relative;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .problem-image-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 280px;
+      width: 100%;
+    }
+
+    .failure-tag {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: tagPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes tagPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(255, 107, 107, 0.5);
+      }
+    }
+
+    .problem-visual img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(17, 39, 82, 0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 3px solid white;
+    }
+
+    .problem-visual img:hover {
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 12px 32px rgba(255, 107, 107, 0.25);
+      border-color: rgba(255, 107, 107, 0.3);
+    }
+
+    /* Animated entrance for problem section */
+    .problem-text,
+    .problem-visual {
+      opacity: 0;
+      animation: slideInUp 0.6s ease forwards;
+    }
+
+    .problem-text {
+      animation-delay: 0.1s;
+    }
+
+    .problem-visual {
+      animation-delay: 0.3s;
+    }
+
     .problem-title {
       font-size: 48px;
       line-height: 1.1;
@@ -442,7 +586,7 @@
       margin-bottom: 24px;
       text-align: left;
     }
-    
+
     .problem-description {
       font-size: 22px;
       line-height: 1.5;
@@ -451,7 +595,7 @@
       opacity: 0.9;
       margin-bottom: 0;
     }
-    
+
     .sensory-booth-image {
       width: 100%;
       max-width: 400px;
@@ -460,7 +604,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    
+
     .sensory-booth-image:hover {
       transform: scale(1.02) translateY(-4px);
       box-shadow: 0 12px 24px rgba(18, 151, 224, 0.15);
@@ -503,6 +647,585 @@
       }
     }
 
+    /* Market Section Styles - New Circular Graph Animation */
+    :root {
+      /* Additional gradient for market section text */
+      --gradient-text: linear-gradient(135deg, var(--dark-blue) 0%, var(--bright-blue) 50%, var(--green) 100%);
+
+      /* Additional shadows */
+      --shadow-md: 0 8px 24px rgba(17, 39, 82, 0.12);
+      --radius-lg: 24px;
+    }
+
+    /* --- Section Layout --- */
+    .market-section {
+      padding: 5rem 0;
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.03);
+      overflow: visible;
+    }
+
+    .market-stat-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: visible;
+    }
+
+    /* The colorful strip on the left */
+    .market-stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--gradient-text);
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      overflow: visible;
+    }
+
+    /* --- Typography (The 85% Text) --- */
+    .text-gradient {
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% auto;
+      animation: gradientMove 5s ease infinite;
+      font-size: 3rem;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .big-stat {
+      font-size: 8rem;
+      font-weight: 900;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .market-stat-subheading {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      color: var(--navy);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .market-description {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #4a5568;
+      margin-bottom: 1.5rem;
+    }
+
+    .market-cta-text {
+      font-weight: 700;
+      color: var(--dark-blue);
+      font-size: 1.35rem;
+      line-height: 1.5;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--green);
+      padding-left: 1.5rem;
+    }
+
+    /* --- Circular Graph Animation --- */
+    .cycle-container {
+      position: relative;
+      width: 450px;
+      height: 450px;
+      margin: 0 auto;
+      padding: 80px;
+    }
+
+    /* The spinning dashed ring */
+    .cycle-circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 3px dashed rgba(18, 151, 224, 0.3);
+      animation: spin 20s linear infinite;
+    }
+
+    /* The floating bubbles (Test, Iterate, etc) */
+    .cycle-item {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      z-index: 2;
+    }
+
+    .cycle-item i {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      color: var(--bright-blue);
+    }
+
+    /* Positioning the bubbles */
+    .pos-1 { top: -60px; left: 50%; transform: translateX(-50%); }
+    .pos-2 { top: 50%; right: -60px; transform: translateY(-50%); }
+    .pos-3 { bottom: -60px; left: 50%; transform: translateX(-50%); }
+    .pos-4 { top: 50%; left: -60px; transform: translateY(-50%); }
+
+    /* The Center Circle (Brand Loyalty) */
+    .center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      box-shadow: 0 0 40px rgba(18, 151, 224, 0.4);
+      z-index: 1;
+      text-align: center;
+    }
+
+    /* --- Animations --- */
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* --- Responsive Layout for Market Section --- */
+    @media (max-width: 868px) {
+      .market-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      .cycle-container {
+        width: 350px;
+        height: 350px;
+        margin-top: 1rem;
+      }
+      .cycle-item {
+        width: 90px;
+        height: 90px;
+        font-size: 0.9rem;
+      }
+      .cycle-item i {
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+      }
+      .pos-1 { top: -45px; }
+      .pos-2 { right: -45px; }
+      .pos-3 { bottom: -45px; }
+      .pos-4 { left: -45px; }
+      .center-logo {
+        width: 140px;
+        height: 140px;
+        font-size: 1.2rem;
+      }
+      .big-stat {
+        font-size: 5rem;
+      }
+      .text-gradient {
+        font-size: 2rem;
+      }
+      .market-stat-subheading {
+        font-size: 1.4rem;
+      }
+      .market-description {
+        font-size: 1.1rem;
+      }
+      .market-cta-text {
+        font-size: 1.15rem;
+      }
+    }
+
+    /* Enhanced Interactive 3-Step Plan Section */
+    .plan-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 300px;
+      background: radial-gradient(ellipse at top, rgba(18, 151, 224, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .step-card {
+      position: relative;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(17, 39, 82, 0.08);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 2px solid transparent;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--bright-blue), var(--green));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .step-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .step-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(18, 151, 224, 0.2);
+      border-color: rgba(18, 151, 224, 0.2);
+    }
+
+    .step-icon {
+      width: 80px;
+      height: 80px;
+      margin: 1rem auto 1.5rem;
+      background: linear-gradient(135deg, rgba(18, 151, 224, 0.1), rgba(0, 191, 99, 0.1));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      transition: all 0.4s ease;
+    }
+
+    .step-card:hover .step-icon {
+      transform: scale(1.15) rotate(-5deg);
+      background: linear-gradient(135deg, rgba(18, 151, 224, 0.2), rgba(0, 191, 99, 0.2));
+    }
+
+    .step-title-enhanced {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover .step-title-enhanced {
+      color: var(--bright-blue);
+      transform: translateX(5px);
+    }
+
+    /* Staggered animation for cards */
+    .step-card {
+      opacity: 0;
+      animation: slideInUp 0.6s ease forwards;
+    }
+
+    .step-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .step-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .step-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Enhanced Success Section */
+    .success-enhanced {
+      background: linear-gradient(135deg, #f8fbfd 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .success-card-enhanced {
+      position: relative;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(17, 39, 82, 0.08);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 2px solid transparent;
+      overflow: hidden;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .success-card-enhanced::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(18, 151, 224, 0.05), rgba(0, 191, 99, 0.05));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .success-card-enhanced:hover::after {
+      opacity: 1;
+    }
+
+    .success-card-enhanced:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(18, 151, 224, 0.2);
+      border-color: var(--bright-blue);
+    }
+
+    .success-icon-badge {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 42px;
+      box-shadow: 0 10px 30px rgba(18, 151, 224, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .success-icon-badge::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      opacity: 0.2;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    .success-card-enhanced:hover .success-icon-badge {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 15px 40px rgba(0, 191, 99, 0.4);
+    }
+
+    .success-metric {
+      font-size: 48px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 1rem 0 0.5rem;
+      line-height: 1;
+    }
+
+    .success-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--medium-blue);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* Staggered animation for success cards */
+    .success-card-enhanced {
+      opacity: 0;
+      animation: slideInUp 0.6s ease forwards;
+    }
+
+    .success-card-enhanced:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .success-card-enhanced:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .success-card-enhanced:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    /* Enhanced Privacy & Ethics Section */
+    .privacy-section {
+      background: linear-gradient(135deg, #f5f8fa 0%, #e8f2f7 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .privacy-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(18, 151, 224, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .privacy-card {
+      position: relative;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(17, 39, 82, 0.08);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 2px solid transparent;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0;
+      animation: slideInUp 0.6s ease forwards;
+    }
+
+    .privacy-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(18, 151, 224, 0.03), rgba(0, 191, 99, 0.03));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .privacy-card:hover::after {
+      opacity: 1;
+    }
+
+    .privacy-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(18, 151, 224, 0.15);
+      border-color: var(--bright-blue);
+    }
+
+    .privacy-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 36px;
+      box-shadow: 0 8px 24px rgba(18, 151, 224, 0.25);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .privacy-icon::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      opacity: 0.15;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .privacy-card:hover .privacy-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 32px rgba(0, 191, 99, 0.35);
+    }
+
+    .privacy-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .privacy-card:hover .privacy-title {
+      color: var(--bright-blue);
+    }
+
+    .privacy-description {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--navy);
+      opacity: 0.85;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .privacy-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .privacy-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .privacy-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
     /* Responsive */
     @media (max-width: 1068px) {
       .hero-title { font-size: 56px; }
@@ -511,6 +1234,17 @@
       .journey-title { font-size: 48px; }
       .problem-title { font-size: 40px; }
       .problem-description { font-size: 20px; }
+      .problem-text h2 { font-size: 2.2rem; }
+      .problem-text p {
+        font-size: 18px;
+        padding-left: 0.8rem;
+      }
+      .problem-text p:last-child {
+        padding: 0.8rem 1rem;
+      }
+      .problem-image-wrapper {
+        max-width: 320px;
+      }
       p { font-size: 20px; }
       .feature-title { font-size: 24px; }
       .video-card-title { font-size: 24px; }
@@ -521,6 +1255,24 @@
       .hero-content { flex-direction: column; }
       .split { flex-direction: column; gap: 1.5rem; }
       .split img, .split video { object-fit: contain; }
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .problem-text {
+        text-align: center;
+      }
+      .problem-text p {
+        border-left: none;
+        padding-left: 0;
+      }
+      .problem-text p:last-child {
+        padding: 1rem;
+        text-align: center;
+      }
+      .problem-image-wrapper {
+        max-width: 100%;
+      }
     }
     @media (max-width: 768px){
       .hero-title { font-size: 40px; line-height: 1.1; }
@@ -529,6 +1281,24 @@
       .journey-title { font-size: 36px; }
       .problem-title { font-size: 32px; }
       .problem-description { font-size: 18px; }
+      .problem-text h2 { font-size: 1.8rem; }
+      .problem-text p {
+        font-size: 17px;
+        border-left: none;
+        padding-left: 0;
+      }
+      .problem-text p:last-child {
+        padding: 0.8rem;
+      }
+      .failure-tag {
+        font-size: 11px;
+        padding: 6px 14px;
+        top: -10px;
+        right: -10px;
+      }
+      .problem-image-wrapper {
+        max-width: 240px;
+      }
       .feature-card { padding: 24px; }
       .rotating-logo { width: 500px; height: 500px; }
       .rotating-logo-section { padding: 30px 0 15px 0; }
@@ -547,6 +1317,50 @@
       p { font-size: 18px; }
       .feature-title { font-size: 24px; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
+
+      /* Optimize animations for mobile performance */
+      .step-card:nth-child(1),
+      .step-card:nth-child(2),
+      .step-card:nth-child(3) {
+        animation-duration: 0.6s;
+      }
+
+      .success-card-enhanced:nth-child(1),
+      .success-card-enhanced:nth-child(2),
+      .success-card-enhanced:nth-child(3) {
+        animation-duration: 0.6s;
+      }
+
+      .step-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+      }
+
+      .step-title-enhanced {
+        font-size: 22px;
+      }
+
+      /* Privacy section mobile adjustments */
+      .privacy-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+      }
+
+      .privacy-title {
+        font-size: 22px;
+      }
+
+      .privacy-description {
+        font-size: 16px;
+      }
+
+      .privacy-card.animate-in:nth-child(1),
+      .privacy-card.animate-in:nth-child(2),
+      .privacy-card.animate-in:nth-child(3) {
+        animation-duration: 0.6s;
+      }
 
       /* Hide hamburger and replace with simple links */
       .hamburger { display: none !important; }
@@ -776,18 +1590,27 @@
   </section>
 
 
-  <!-- Problem / Stakes -->
-  <section class="section" id="problem">
+  <!-- Problem Section (Enhanced) -->
+  <section class="section problem-section" id="problem" style="padding: 3.5rem 0;">
     <div class="container">
-      <div class="split">
-        <div class="problem-text apple-fade-in">
-          <h2 class="section-title problem-title">Why most product launches fail</h2>
-          <p class="problem-description">Most products are tested in sensory booths, artificial settings that ignore real-life use. 
-            In these environments, testers may give false feedback, get paid, and move on, without reflecting actual behavior. 
-            Why risk your product launch on feedback that never reflects how people use your product?</p>
+      <div class="problem-grid">
+        <div class="problem-text">
+          <h2>Why most product launches fail</h2>
+          <p>
+            The old way is broken. Products are tested in <strong>sensory booths</strong>—sterile, artificial settings that ignore real life.
+          </p>
+          <p>
+            In these booths, testers aren't cooking dinner for their family; they are "evaluating." They give rational feedback, take their payment, and leave.
+          </p>
+          <p>
+            Real food choices happen in chaos, in kitchens, with emotions. If you aren't testing there, you aren't really testing.
+          </p>
         </div>
-        <div class="problem-image apple-slide-up">
-          <img src="img/sensory_booth.png" alt="Traditional sensory testing booth contrasted with in-home testing" class="sensory-booth-image" />
+        <div class="problem-visual">
+          <div class="problem-image-wrapper">
+            <div class="failure-tag">The Old Way</div>
+            <img src="img/sensory_booth.png" alt="Sterile Sensory Booth" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Sensory+Booth+Environment'">
+          </div>
         </div>
       </div>
     </div>
@@ -856,7 +1679,7 @@
             </div>
           </div>
 
-          <h1 class="journey-title"><span class="word">Scalable,</span> <span class="word">quantitative,</span> <span class="word">relevant</span> <span class="word">data</span> <br><span class="word">for your</span> <span class="word"> successful product launch</span></h1>
+          <h1 class="journey-title"> <span class="word">Insights</span> <span class="word">for your</span><br> <span class="word"> successful product launch</span></h1>
           
           <div style="margin-top: 2rem; text-align: center;">
             <a href="assessment.html" class="btn btn-primary">Free Assessment Test</a>
@@ -864,22 +1687,33 @@
         </div>
   </section>
   
-<!-- Simple 3‑step Plan -->
-<section id="plan" class="section">
+<!-- Enhanced Interactive 3‑step Plan -->
+<section id="plan" class="section plan-section">
   <div class="container">
-    <h2 class="section-title">Your 3‑step plan</h2>
+    <h2 class="section-title">Your 3‑step plan to certainty</h2>
     <div class="feature-grid">
-      <div class="feature-card">
-        <h3 class="feature-title">1) Understand purchase decisions</h3>
-        <p>We conduct qualitative interviews at point-of-sale to uncover purchase drivers, decision dynamics, and shelf visibility. This pre-purchase insight shapes what we test in homes.</p>
+      <div class="feature-card step-card">
+        <div class="step-icon">
+          <i class="fas fa-lightbulb" style="color: var(--bright-blue);"></i>
+        </div>
+        <h3 class="feature-title step-title-enhanced">Understand the 'Why'</h3>
+        <p>We analyze purchase drivers at the point of sale. Why did they pick you off the shelf? What do they think about your brand?</p>
       </div>
-      <div class="feature-card">
-        <h3 class="feature-title">2) Test with real homes</h3>
-        <p>Participants record their complete consumption journey—from package opening to storage. Our AI analyzes expressions, voice, and behaviors to reveal what traditional surveys miss.</p>
+
+      <div class="feature-card step-card">
+        <div class="step-icon">
+          <i class="fas fa-home" style="color: var(--green);"></i>
+        </div>
+        <h3 class="feature-title step-title-enhanced">Test in Real Homes</h3>
+        <p>Participants record their full experience. Our AI analyzes voice, expression, and context to reveal friction points traditional surveys miss.</p>
       </div>
-      <div class="feature-card">
-        <h3 class="feature-title">3) Get prioritized fixes fast</h3>
-        <p>Receive clear, ranked recommendations in 5-10 business days. Our approach, validated by Wageningen University, lets you test 10-15 iterations vs competitors' 1-2.</p>
+
+      <div class="feature-card step-card">
+        <div class="step-icon">
+          <i class="fas fa-bolt" style="color: var(--dark-blue);"></i>
+        </div>
+        <h3 class="feature-title step-title-enhanced">Get prioritized fixes fast</h3>
+        <p>Receive clear insights and recommendations in 7 business days. Iterate 10x faster than competitors using old methods. Launch with confidence.</p>
       </div>
     </div>
   </div>
@@ -898,24 +1732,105 @@
 
 
 
-  <!-- Rotating Logo Section -->
+  <!-- Rotating Logo Section
   <section class="rotating-logo-section">
     <div class="container">
       <div style="display: flex; justify-content: center; align-items: center;">
         <video src="videos/rotate_logo.mp4" alt="Eatpol AI consumer testing logo" class="rotating-logo" autoplay muted loop playsinline></video>
       </div>
     </div>
+  </section> -->
+  <!-- NEW SECTION: Market Reality (Replaces Rotating Logo) -->
+  <section class="market-section reveal">
+    <div class="container">
+      <div class="market-stat-card">
+        <div class="market-grid">
+          
+          <!-- New Text Content -->
+          <div style="text-align: left;">
+            <h2 class="text-gradient" style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 0.5rem;">
+              From losing market shares <br>to brand loyalty.
+            </h2>
+            
+            <div class="big-stat">85%</div>
+            <h3 style="margin-bottom: 1.5rem; color: var(--navy); font-size: 1.25rem;">of product launches fail within 2 years.</h3>
+            
+            <p style="font-size: 1.05rem; color: #4a5568;">
+              Why risk your launch budget on feedback that doesn't reflect reality? At Eatpol, we don't just give you data; we bring <strong>real consumer feedback</strong> from your target customer's kitchen directly to your dashboard.
+            </p>
+            
+            <p style="font-weight: 600; color: var(--dark-blue); font-size: 1.1rem; margin-top: 1rem; border-left: 4px solid var(--green); padding-left: 1rem;">
+              Stop gambling. Iterate based on actual behavior, refine your product, and secure your spot in the 15% that succeed.
+            </p>
+          </div>
+          
+          <!-- Circular Graph Animation (Replaces the old Rotating Logo) -->
+          <div style="text-align: center;">
+            <div class="cycle-container">
+              <!-- Rotating Dotted Line -->
+              <div class="cycle-circle"></div>
+              
+              <!-- Center Core -->
+              <div class="center-logo">
+                Brand<br>Loyalty<br><span style="font-size:0.8rem; font-weight:400; opacity:0.9">(The 15%)</span>
+              </div>
+              
+              <!-- Orbital Items -->
+              <div class="cycle-item pos-1">
+                <i class="fas fa-flask"></i>
+                <span>Test</span>
+              </div>
+              <div class="cycle-item pos-2">
+                <i class="fas fa-sync-alt"></i>
+                <span>Iterate</span>
+              </div>
+              <div class="cycle-item pos-3">
+                <i class="fas fa-rocket"></i>
+                <span>Launch</span>
+              </div>
+              <div class="cycle-item pos-4">
+                <i class="fas fa-heart"></i>
+                <span>Love</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
   </section>
 
-
-  <!-- Results / Success Strip -->
-  <section class="section" id="results">
+  <!-- Enhanced Results / Success Section -->
+  <section class="section success-enhanced" id="results">
     <div class="container">
       <h2 class="section-title">How success looks like</h2>
       <div class="feature-grid">
-        <div class="feature-card"><h3 class="feature-title">Faster and better decisions</h3><p>Cut time‑to‑decision with clear behaviorals evidence.</p></div>
-        <div class="feature-card"><h3 class="feature-title">Higher purchase intent</h3><p>Identify tweaks that lift purchase intent. Sharpen your message to the customer.</p></div>
-        <div class="feature-card"><h3 class="feature-title">Fewer surprises</h3><p>Reveal product issues and usage errors before they reach stores.</p></div>
+        <div class="feature-card success-card-enhanced">
+          <div class="success-icon-badge">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <div class="success-label">Speed & Quality</div>
+          <h3 class="feature-title">Faster decisions</h3>
+          <p style="margin-bottom: 0;">Cut time‑to‑decision with clear behavioral evidence.</p>
+        </div>
+
+        <div class="feature-card success-card-enhanced">
+          <div class="success-icon-badge">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="success-label">Purchase Intent</div>
+          <h3 class="feature-title">Higher conversion</h3>
+          <p style="margin-bottom: 0;">Identify tweaks that lift purchase intent. Sharpen your message to the customer.</p>
+        </div>
+
+        <div class="feature-card success-card-enhanced">
+          <div class="success-icon-badge">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="success-label">Risk Reduction</div>
+          <h3 class="feature-title">Fewer surprises</h3>
+          <p style="margin-bottom: 0;">Reveal product issues and usage errors before they reach stores.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -949,13 +1864,36 @@
   </section>
 
   <!-- Privacy & Ethics -->
-  <section class="section" id="privacy" style="background-color:#f5f8fa;">
+  <section class="section privacy-section" id="privacy">
     <div class="container">
       <h2 class="section-title">Privacy & Ethics</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 19px; color: var(--navy); opacity: 0.9;">
+        Your trust is our foundation. We handle data with the highest standards of privacy, security, and transparency.
+      </p>
       <div class="feature-grid">
-        <div class="feature-card"><h3 class="feature-title">Lawful basis</h3><p>Consent‑based data collection with clear purposes; opt‑out at any time.</p></div>
-        <div class="feature-card"><h3 class="feature-title">Security</h3><p>Encrypted storage, strict access controls, and time‑bound retention policies.</p></div>
-        <div class="feature-card"><h3 class="feature-title">Transparency</h3><p>Participants see what is collected, why, and how it’s used. Read our <a href="privacy_policy.html">Privacy Policy</a>.</p></div>
+        <div class="feature-card privacy-card">
+          <div class="privacy-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3 class="privacy-title">Lawful basis</h3>
+          <p class="privacy-description">Consent‑based data collection with clear purposes; opt‑out at any time.</p>
+        </div>
+
+        <div class="feature-card privacy-card">
+          <div class="privacy-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3 class="privacy-title">Security</h3>
+          <p class="privacy-description">Encrypted storage, strict access controls, and time‑bound retention policies.</p>
+        </div>
+
+        <div class="feature-card privacy-card">
+          <div class="privacy-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3 class="privacy-title">Transparency</h3>
+          <p class="privacy-description">Participants see what is collected, why, and how it's used. Read our <a href="privacy_policy.html" style="color: var(--bright-blue); font-weight: 600;">Privacy Policy</a>.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -978,7 +1916,7 @@
       <div class="footer-grid">
         <div>
           <h3 class="footer-heading">About Eatpol</h3>
-          <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. Our AI‑driven consumer testing technology helps food companies launch products people love. <br> KvK: 98066269</p>
+          <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
           <div style="display:flex; gap:.6rem; margin-top: .8rem;">
             <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
