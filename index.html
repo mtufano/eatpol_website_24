@@ -255,6 +255,9 @@
       animation: bounceIn 0.6s ease-out;
       animation-fill-mode: backwards;
     }
+    .hero-title .word-nowrap {
+      white-space: nowrap;
+    }
     .hero-title .word:nth-child(1) { animation-delay: 0.1s; }
     .hero-title .word:nth-child(2) { animation-delay: 0.2s; }
     .hero-title .word:nth-child(3) { animation-delay: 0.3s; }
@@ -662,7 +665,7 @@
       padding: 5rem 0;
       background: var(--white);
       border-top: 1px solid rgba(0,0,0,0.03);
-      overflow: visible;
+      overflow: hidden;
     }
 
     .market-stat-card {
@@ -672,7 +675,7 @@
       padding: 3rem;
       box-shadow: var(--shadow-md);
       position: relative;
-      overflow: visible;
+      overflow: hidden;
     }
 
     /* The colorful strip on the left */
@@ -743,28 +746,44 @@
     }
 
     /* --- Circular Graph Animation --- */
+    .cycle-wrapper {
+      text-align: center;
+      overflow: hidden;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
     .cycle-container {
       position: relative;
-      width: 450px;
-      height: 450px;
+      width: 500px;
+      height: 500px;
       margin: 0 auto;
-      padding: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* The spinning dashed ring */
     .cycle-circle {
       position: absolute;
-      inset: 0;
+      width: 280px;
+      height: 280px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       border-radius: 50%;
       border: 3px dashed rgba(18, 151, 224, 0.3);
-      animation: spin 20s linear infinite;
+      animation: spinStable 20s linear infinite;
     }
 
     /* The floating bubbles (Test, Iterate, etc) */
     .cycle-item {
       position: absolute;
-      width: 120px;
-      height: 120px;
+      width: 95px;
+      height: 95px;
       background: white;
       border-radius: 50%;
       display: flex;
@@ -772,23 +791,23 @@
       align-items: center;
       justify-content: center;
       box-shadow: var(--shadow-md);
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--navy);
       z-index: 2;
     }
 
     .cycle-item i {
-      font-size: 2.2rem;
-      margin-bottom: 8px;
+      font-size: 1.7rem;
+      margin-bottom: 5px;
       color: var(--bright-blue);
     }
 
-    /* Positioning the bubbles */
-    .pos-1 { top: -60px; left: 50%; transform: translateX(-50%); }
-    .pos-2 { top: 50%; right: -60px; transform: translateY(-50%); }
-    .pos-3 { bottom: -60px; left: 50%; transform: translateX(-50%); }
-    .pos-4 { top: 50%; left: -60px; transform: translateY(-50%); }
+    /* Positioning the bubbles - wider spread */
+    .pos-1 { top: 85px; left: 50%; transform: translateX(-50%); } /* Test - top */
+    .pos-2 { top: 50%; right: 38px; transform: translateY(-50%); } /* Iterate - right (even wider) */
+    .pos-3 { bottom: 85px; left: 50%; transform: translateX(-50%); } /* Launch - bottom */
+    .pos-4 { top: 50%; left: 38px; transform: translateY(-50%); } /* Love - left (even wider) */
 
     /* The Center Circle (Brand Loyalty) */
     .center-logo {
@@ -814,8 +833,9 @@
     }
 
     /* --- Animations --- */
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
+    @keyframes spinStable {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
     @keyframes gradientMove {
@@ -831,28 +851,39 @@
         gap: 2rem;
         text-align: center;
       }
+      .market-section {
+        overflow: hidden;
+      }
+      .cycle-wrapper {
+        padding: 0 10px;
+      }
       .cycle-container {
-        width: 350px;
-        height: 350px;
+        width: 320px;
+        height: 320px;
         margin-top: 1rem;
       }
+      .cycle-circle {
+        width: 200px;
+        height: 200px;
+      }
       .cycle-item {
-        width: 90px;
-        height: 90px;
-        font-size: 0.9rem;
+        width: 70px;
+        height: 70px;
+        font-size: 0.7rem;
       }
       .cycle-item i {
-        font-size: 1.8rem;
-        margin-bottom: 6px;
+        font-size: 1.3rem;
+        margin-bottom: 3px;
       }
-      .pos-1 { top: -45px; }
-      .pos-2 { right: -45px; }
-      .pos-3 { bottom: -45px; }
-      .pos-4 { left: -45px; }
+      /* Position items - wider on tablet */
+      .pos-1 { top: 65px; }
+      .pos-2 { right: 35px; } /* Iterate - even wider spread */
+      .pos-3 { bottom: 65px; }
+      .pos-4 { left: 35px; } /* Love - even wider spread */
       .center-logo {
-        width: 140px;
-        height: 140px;
-        font-size: 1.2rem;
+        width: 100px;
+        height: 100px;
+        font-size: 0.85rem;
       }
       .big-stat {
         font-size: 5rem;
@@ -868,6 +899,48 @@
       }
       .market-cta-text {
         font-size: 1.15rem;
+      }
+    }
+
+    /* Extra small screens (phones) */
+    @media (max-width: 480px) {
+      .hero-title { font-size: 28px; }
+      .hero-title .word-nowrap { font-size: 28px; }
+      .cycle-wrapper {
+        padding: 0 5px;
+      }
+      .cycle-container {
+        width: 260px;
+        height: 260px;
+      }
+      .cycle-circle {
+        width: 160px;
+        height: 160px;
+      }
+      .cycle-item {
+        width: 60px;
+        height: 60px;
+        font-size: 0.6rem;
+      }
+      .cycle-item i {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+      }
+      /* Position items - wider on mobile */
+      .pos-1 { top: 55px; }
+      .pos-2 { right: 28px; } /* Iterate - even wider spread */
+      .pos-3 { bottom: 55px; }
+      .pos-4 { left: 28px; } /* Love - even wider spread */
+      .center-logo {
+        width: 80px;
+        height: 80px;
+        font-size: 0.65rem;
+      }
+      .big-stat {
+        font-size: 4rem;
+      }
+      .market-stat-card {
+        padding: 1.5rem;
       }
     }
 
@@ -1275,7 +1348,8 @@
       }
     }
     @media (max-width: 768px){
-      .hero-title { font-size: 40px; line-height: 1.1; }
+      .hero-title { font-size: 32px; line-height: 1.15; }
+      .hero-title .word-nowrap { font-size: 32px; }
       .hero-subtitle { font-size: 19px; line-height: 1.21053; }
       .section-title { font-size: 28px; }
       .journey-title { font-size: 36px; }
@@ -1561,7 +1635,7 @@
           <li class="nav-item"><a href="#plan" class="nav-link">Your plan</a></li>
           <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="#privacy" class="nav-link">Privacy & Ethics</a></li>
+          <li class="nav-item"><a href="team.html" class="nav-link">About us</a></li>
         </ul>
         <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
           <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -1725,7 +1799,7 @@
   <section class="section band-dark">
     <div class="container" style="text-align:center;">
       <h2 class="section-title" style="color:#fff;">Avoid costly misfires</h2>
-      <p>Find issues before you invest. Replace opinion and assumption with consumer behavior evidence. Launch products people love.</p>
+      <p>Find issues before you invest. Replace opinion and assumption with consumer behavior evidence. Launch&nbsp;products&nbsp;people&nbsp;love.</p>
       <a href="assessment.html" class="btn btn-primary" style="margin-top:.6rem;">Free Assessment Test</a>
     </div>
   </section>
@@ -1765,16 +1839,16 @@
           </div>
           
           <!-- Circular Graph Animation (Replaces the old Rotating Logo) -->
-          <div style="text-align: center;">
+          <div class="cycle-wrapper">
             <div class="cycle-container">
               <!-- Rotating Dotted Line -->
               <div class="cycle-circle"></div>
-              
+
               <!-- Center Core -->
               <div class="center-logo">
                 Brand<br>Loyalty<br><span style="font-size:0.8rem; font-weight:400; opacity:0.9">(The 15%)</span>
               </div>
-              
+
               <!-- Orbital Items -->
               <div class="cycle-item pos-1">
                 <i class="fas fa-flask"></i>
