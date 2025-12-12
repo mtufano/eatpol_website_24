@@ -861,32 +861,32 @@
         padding: 0 10px;
       }
       .cycle-container {
-        width: 400px;  /* Increased from 320px */
-        height: 400px; /* Increased from 320px */
+        width: 460px;  /* Increased by 15% from 400px */
+        height: 460px; /* Increased by 15% from 400px */
         margin-top: 1rem;
       }
       .cycle-circle {
-        width: 250px;  /* Increased from 200px (maintaining proportion) */
-        height: 250px; /* Increased from 200px (maintaining proportion) */
+        width: 288px;  /* Increased by 15% from 250px */
+        height: 288px; /* Increased by 15% from 250px */
       }
       .cycle-item {
-        width: 88px;   /* Increased from 70px (maintaining proportion) */
-        height: 88px;  /* Increased from 70px (maintaining proportion) */
-        font-size: 0.8rem; /* Slightly increased */
+        width: 101px;  /* Increased by 15% from 88px */
+        height: 101px; /* Increased by 15% from 88px */
+        font-size: 0.85rem;
       }
       .cycle-item i {
-        font-size: 1.5rem; /* Increased from 1.3rem */
+        font-size: 1.65rem; /* Increased by 15% from 1.5rem */
         margin-bottom: 4px;
       }
       /* Position items - adjusted for larger circle */
-      .pos-1 { top: 62px; } /* Test - adjusted for larger size */
-      .pos-2 { right: 44px; } /* Iterate - adjusted for larger size */
-      .pos-3 { bottom: 62px; } /* Launch - adjusted for larger size */
-      .pos-4 { left: 44px; } /* Love - adjusted for larger size */
+      .pos-1 { top: 70px; } /* Test - adjusted for 15% larger size */
+      .pos-2 { right: 50px; } /* Iterate - adjusted for 15% larger size */
+      .pos-3 { bottom: 70px; } /* Launch - adjusted for 15% larger size */
+      .pos-4 { left: 50px; } /* Love - adjusted for 15% larger size */
       .center-logo {
-        width: 125px;  /* Increased from 100px (maintaining proportion) */
-        height: 125px; /* Increased from 100px (maintaining proportion) */
-        font-size: 1rem; /* Slightly increased */
+        width: 144px;  /* Increased by 15% from 125px */
+        height: 144px; /* Increased by 15% from 125px */
+        font-size: 1.1rem;
       }
       .big-stat {
         font-size: 5rem;
@@ -913,31 +913,31 @@
         padding: 0 5px;
       }
       .cycle-container {
-        width: 340px;  /* Increased from 260px */
-        height: 340px; /* Increased from 260px */
+        width: 391px;  /* Increased by 15% from 340px */
+        height: 391px; /* Increased by 15% from 340px */
       }
       .cycle-circle {
-        width: 210px;  /* Increased from 160px (maintaining proportion) */
-        height: 210px; /* Increased from 160px (maintaining proportion) */
+        width: 242px;  /* Increased by 15% from 210px */
+        height: 242px; /* Increased by 15% from 210px */
       }
       .cycle-item {
-        width: 75px;   /* Increased from 60px (maintaining proportion) */
-        height: 75px;  /* Increased from 60px (maintaining proportion) */
-        font-size: 0.7rem; /* Slightly increased font */
+        width: 86px;   /* Increased by 15% from 75px */
+        height: 86px;  /* Increased by 15% from 75px */
+        font-size: 0.75rem;
       }
       .cycle-item i {
-        font-size: 1.4rem; /* Increased from 1.1rem */
+        font-size: 1.55rem; /* Increased by 15% from 1.4rem */
         margin-bottom: 3px;
       }
-      /* Position items - adjusted for larger circle */
-      .pos-1 { top: 45px; } /* Test - adjusted for larger size */
-      .pos-2 { right: 36px; } /* Iterate - adjusted for larger size */
-      .pos-3 { bottom: 45px; } /* Launch - adjusted for larger size */
-      .pos-4 { left: 36px; } /* Love - adjusted for larger size */
+      /* Position items - adjusted for 15% larger circle */
+      .pos-1 { top: 52px; } /* Test - adjusted for 15% larger size */
+      .pos-2 { right: 41px; } /* Iterate - adjusted for 15% larger size */
+      .pos-3 { bottom: 52px; } /* Launch - adjusted for 15% larger size */
+      .pos-4 { left: 41px; } /* Love - adjusted for 15% larger size */
       .center-logo {
-        width: 105px;  /* Increased from 80px (maintaining proportion) */
-        height: 105px; /* Increased from 80px (maintaining proportion) */
-        font-size: 0.8rem; /* Slightly increased font */
+        width: 121px;  /* Increased by 15% from 105px */
+        height: 121px; /* Increased by 15% from 105px */
+        font-size: 0.9rem;
       }
       .big-stat {
         font-size: 4rem;
@@ -1142,6 +1142,12 @@
     .success-card-enhanced:hover .success-icon-badge {
       transform: scale(1.1) rotate(5deg);
       box-shadow: 0 15px 40px rgba(0, 191, 99, 0.4);
+      animation: bounceIcon 0.6s ease;
+    }
+
+    @keyframes bounceIcon {
+      0%, 100% { transform: scale(1.1) rotate(5deg); }
+      50% { transform: scale(1.2) rotate(-5deg); }
     }
 
     .success-metric {
@@ -1153,6 +1159,12 @@
       background-clip: text;
       margin: 1rem 0 0.5rem;
       line-height: 1;
+      transition: all 0.3s ease;
+    }
+
+    .success-card-enhanced:hover .success-metric {
+      transform: scale(1.1);
+      filter: brightness(1.2);
     }
 
     .success-label {
@@ -1162,6 +1174,12 @@
       color: var(--medium-blue);
       font-weight: 600;
       margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .success-card-enhanced:hover .success-label {
+      color: var(--bright-blue);
+      letter-spacing: 1.5px;
     }
 
     /* Staggered animation for success cards */
@@ -1232,8 +1250,8 @@
     }
 
     .privacy-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(18, 151, 224, 0.15);
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(18, 151, 224, 0.2);
       border-color: var(--bright-blue);
     }
 
@@ -1264,8 +1282,16 @@
     }
 
     .privacy-card:hover .privacy-icon {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 12px 32px rgba(0, 191, 99, 0.35);
+      transform: scale(1.15) rotate(360deg);
+      box-shadow: 0 15px 40px rgba(0, 191, 99, 0.4);
+      animation: wiggle 0.5s ease;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: scale(1.15) rotate(0deg); }
+      25% { transform: scale(1.2) rotate(-10deg); }
+      50% { transform: scale(1.15) rotate(10deg); }
+      75% { transform: scale(1.2) rotate(-5deg); }
     }
 
     .privacy-title {
@@ -1279,6 +1305,8 @@
 
     .privacy-card:hover .privacy-title {
       color: var(--bright-blue);
+      transform: scale(1.05);
+      text-shadow: 0 2px 8px rgba(18, 151, 224, 0.2);
     }
 
     .privacy-description {
@@ -1288,6 +1316,12 @@
       opacity: 0.85;
       text-align: center;
       margin-bottom: 0;
+      transition: all 0.3s ease;
+    }
+
+    .privacy-card:hover .privacy-description {
+      opacity: 1;
+      transform: translateY(-2px);
     }
 
     .privacy-card:nth-child(1) {
@@ -1356,23 +1390,29 @@
         z-index: 1001;
       }
       .nav-menu {
-        display: none;
+        display: none !important;
         position: fixed;
         top: 70px;
         right: 0;
         left: 0;
-        flex-direction: column;
+        flex-direction: column !important;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         padding: 1.5rem;
         box-shadow: 0 4px 16px rgba(17, 39, 82, 0.15);
-        gap: 0;
+        gap: 0 !important;
         z-index: 1000;
         border-bottom: 1px solid rgba(17, 39, 82, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
       }
       .nav-menu.active {
         display: flex !important;
+        max-height: 500px;
+        opacity: 1;
       }
       .nav-item {
         margin: 0 !important;
@@ -1386,6 +1426,9 @@
         padding: 1rem 0.5rem;
         display: block;
         width: 100%;
+      }
+      .nav-link::after {
+        display: none;
       }
     }
     @media (max-width: 768px){
