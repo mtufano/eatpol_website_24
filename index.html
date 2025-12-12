@@ -1387,40 +1387,51 @@
       /* Simple mobile menu - always visible, wraps to second line if needed */
       .hamburger {
         display: none !important;
+        visibility: hidden !important;
       }
       .nav {
         flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        gap: 0.5rem !important;
       }
       .logo {
         flex-shrink: 0;
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
       }
       .nav-menu {
         display: flex !important;
+        visibility: visible !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
-        gap: 0.3rem !important;
+        gap: 0.4rem !important;
         padding: 0 !important;
-        margin: 0.5rem 0 0 0 !important;
+        margin: 0 !important;
         width: 100% !important;
-        justify-content: center;
+        justify-content: flex-start !important;
+        order: 2;
       }
       .nav-item {
         margin: 0 !important;
         flex-shrink: 0;
+        display: block !important;
       }
       .nav-link {
         font-size: 13px !important;
-        padding: 0.4rem 0.6rem !important;
-        display: block;
+        padding: 0.5rem 0.8rem !important;
+        display: inline-block !important;
         white-space: nowrap;
-        background: rgba(18, 151, 224, 0.08);
-        border-radius: 6px;
+        background: rgba(18, 151, 224, 0.1);
+        border-radius: 8px;
+        color: var(--navy) !important;
       }
       .nav-link::after {
         display: none !important;
       }
-      .nav-link:hover {
-        background: rgba(18, 151, 224, 0.15);
+      .nav-link:hover,
+      .nav-link:active {
+        background: rgba(18, 151, 224, 0.2) !important;
+        color: var(--bright-blue) !important;
       }
     }
     @media (max-width: 768px){
