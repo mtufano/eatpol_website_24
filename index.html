@@ -861,32 +861,32 @@
         padding: 0 10px;
       }
       .cycle-container {
-        width: 320px;
-        height: 320px;
+        width: 400px;  /* Increased from 320px */
+        height: 400px; /* Increased from 320px */
         margin-top: 1rem;
       }
       .cycle-circle {
-        width: 200px;
-        height: 200px;
+        width: 250px;  /* Increased from 200px (maintaining proportion) */
+        height: 250px; /* Increased from 200px (maintaining proportion) */
       }
       .cycle-item {
-        width: 70px;
-        height: 70px;
-        font-size: 0.7rem;
+        width: 88px;   /* Increased from 70px (maintaining proportion) */
+        height: 88px;  /* Increased from 70px (maintaining proportion) */
+        font-size: 0.8rem; /* Slightly increased */
       }
       .cycle-item i {
-        font-size: 1.3rem;
-        margin-bottom: 3px;
+        font-size: 1.5rem; /* Increased from 1.3rem */
+        margin-bottom: 4px;
       }
-      /* Position items - wider on tablet */
-      .pos-1 { top: 50px; } /* Test - adjusted to avoid covering center */
-      .pos-2 { right: 35px; } /* Iterate - even wider spread */
-      .pos-3 { bottom: 50px; } /* Launch - adjusted to avoid covering center */
-      .pos-4 { left: 35px; } /* Love - even wider spread */
+      /* Position items - adjusted for larger circle */
+      .pos-1 { top: 62px; } /* Test - adjusted for larger size */
+      .pos-2 { right: 44px; } /* Iterate - adjusted for larger size */
+      .pos-3 { bottom: 62px; } /* Launch - adjusted for larger size */
+      .pos-4 { left: 44px; } /* Love - adjusted for larger size */
       .center-logo {
-        width: 100px;
-        height: 100px;
-        font-size: 0.85rem;
+        width: 125px;  /* Increased from 100px (maintaining proportion) */
+        height: 125px; /* Increased from 100px (maintaining proportion) */
+        font-size: 1rem; /* Slightly increased */
       }
       .big-stat {
         font-size: 5rem;
@@ -913,31 +913,31 @@
         padding: 0 5px;
       }
       .cycle-container {
-        width: 260px;
-        height: 260px;
+        width: 340px;  /* Increased from 260px */
+        height: 340px; /* Increased from 260px */
       }
       .cycle-circle {
-        width: 160px;
-        height: 160px;
+        width: 210px;  /* Increased from 160px (maintaining proportion) */
+        height: 210px; /* Increased from 160px (maintaining proportion) */
       }
       .cycle-item {
-        width: 60px;
-        height: 60px;
-        font-size: 0.6rem;
+        width: 75px;   /* Increased from 60px (maintaining proportion) */
+        height: 75px;  /* Increased from 60px (maintaining proportion) */
+        font-size: 0.7rem; /* Slightly increased font */
       }
       .cycle-item i {
-        font-size: 1.1rem;
-        margin-bottom: 2px;
+        font-size: 1.4rem; /* Increased from 1.1rem */
+        margin-bottom: 3px;
       }
-      /* Position items - wider on mobile */
-      .pos-1 { top: 35px; } /* Test - moved higher to avoid covering center */
-      .pos-2 { right: 28px; } /* Iterate - even wider spread */
-      .pos-3 { bottom: 35px; } /* Launch - moved lower to avoid covering center */
-      .pos-4 { left: 28px; } /* Love - even wider spread */
+      /* Position items - adjusted for larger circle */
+      .pos-1 { top: 45px; } /* Test - adjusted for larger size */
+      .pos-2 { right: 36px; } /* Iterate - adjusted for larger size */
+      .pos-3 { bottom: 45px; } /* Launch - adjusted for larger size */
+      .pos-4 { left: 36px; } /* Love - adjusted for larger size */
       .center-logo {
-        width: 80px;
-        height: 80px;
-        font-size: 0.65rem;
+        width: 105px;  /* Increased from 80px (maintaining proportion) */
+        height: 105px; /* Increased from 80px (maintaining proportion) */
+        font-size: 0.8rem; /* Slightly increased font */
       }
       .big-stat {
         font-size: 4rem;
@@ -1349,6 +1349,44 @@
       .problem-image-wrapper {
         max-width: 100%;
       }
+
+      /* Show hamburger menu on tablet and below */
+      .hamburger {
+        display: block !important;
+        z-index: 1001;
+      }
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1.5rem;
+        box-shadow: 0 4px 16px rgba(17, 39, 82, 0.15);
+        gap: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(17, 39, 82, 0.1);
+      }
+      .nav-menu.active {
+        display: flex !important;
+      }
+      .nav-item {
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(17, 39, 82, 0.08);
+      }
+      .nav-item:last-child {
+        border-bottom: none;
+      }
+      .nav-link {
+        font-size: 16px;
+        padding: 1rem 0.5rem;
+        display: block;
+        width: 100%;
+      }
     }
     @media (max-width: 768px){
       .hero-title { font-size: 32px; line-height: 1.15; }
@@ -1439,43 +1477,6 @@
         animation-duration: 0.6s;
       }
 
-      /* Mobile hamburger menu */
-      .hamburger {
-        display: block !important;
-        z-index: 1001;
-      }
-      .nav-menu {
-        display: none;
-        position: fixed;
-        top: 70px;
-        right: 0;
-        left: 0;
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        padding: 1.5rem;
-        box-shadow: 0 4px 16px rgba(17, 39, 82, 0.15);
-        gap: 0;
-        z-index: 1000;
-        border-bottom: 1px solid rgba(17, 39, 82, 0.1);
-      }
-      .nav-menu.active {
-        display: flex !important;
-      }
-      .nav-item {
-        margin: 0 !important;
-        border-bottom: 1px solid rgba(17, 39, 82, 0.08);
-      }
-      .nav-item:last-child {
-        border-bottom: none;
-      }
-      .nav-link {
-        font-size: 16px;
-        padding: 1rem 0.5rem;
-        display: block;
-        width: 100%;
-      }
       .form-grid { grid-template-columns: 1fr; }
 
       .consultation-banner {

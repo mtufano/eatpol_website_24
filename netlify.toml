@@ -8,6 +8,20 @@
   NETLIFY_EMAILS_PROVIDER = "netlify"
 
 # Redirect rules
+
+# Redirect www to non-www (canonical domain)
+[[redirects]]
+  from = "https://www.eatpol.com/*"
+  to = "https://eatpol.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.eatpol.com/*"
+  to = "https://eatpol.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/data-deletion"
   to = "/data-deletion.html"
