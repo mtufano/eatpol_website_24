@@ -599,6 +599,27 @@
             transform: scale(1.02);
         }
 
+        /* Vox Button */
+        .vox-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .vox-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 191, 99, 0.3);
+        }
+
         /* Privacy Card */
         .privacy-card {
             background: white;
@@ -1196,8 +1217,8 @@
                 <div class="workflow-step">
                     <div class="workflow-num">4</div>
                     <div class="workflow-content">
-                        <h4>Complete final interview</h4>
-                        <p>A short Vox interview to wrap up the study</p>
+                        <h4>Complete Vox interview</h4>
+                        <p>A short voice interview at vox.eatpol.com to wrap up the study</p>
                     </div>
                 </div>
             </div>
@@ -1407,8 +1428,11 @@
         </div>
 
         <div class="final-step-card">
-            <h3>Final Step: Vox Interview <span class="coming-soon-badge">Coming Soon</span></h3>
-            <p>After sending your videos, you'll complete a short interview. We'll send you the link via email.</p>
+            <h3>Final Step: Vox Interview</h3>
+            <p>After sending all your videos, complete a short voice interview to share your overall thoughts.</p>
+            <a href="https://vox.eatpol.com" target="_blank" rel="noopener" class="vox-btn">
+                <i class="fas fa-microphone"></i> Start Vox Interview
+            </a>
         </div>
     </div>
 
@@ -1423,8 +1447,8 @@
                 <form id="registrationForm">
                     <div class="form-group">
                         <label for="studyToken">Study Token *</label>
-                        <input type="text" id="studyToken" name="studyToken" placeholder="e.g., DOMUS-2024-001" required>
-                        <div class="form-hint">You received this token in your invitation</div>
+                        <input type="text" id="studyToken" name="studyToken" placeholder="e.g., BSAL" required>
+                        <div class="form-hint">You received this token via email</div>
                     </div>
                     <div class="form-group">
                         <label for="participantName">Your Name *</label>
