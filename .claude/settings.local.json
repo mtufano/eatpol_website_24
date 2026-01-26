@@ -5,7 +5,8 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nFix Netlify build error by removing non-existent plugin\n\nRemoved the @netlify/plugin-forms plugin reference from netlify.toml\nsince this package doesn''t exist in npm. Netlify Forms work natively\nwithout any plugin when using the data-netlify=\"true\" attribute in\nHTML forms.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git push:*)",
-      "Bash(python -m http.server:*)"
+      "Bash(python -m http.server:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []

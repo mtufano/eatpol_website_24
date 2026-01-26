@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recording Instructions | Domus Study | Eatpol</title>
+    <meta name="description" content="Recording instructions for the Domus study participants.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicons -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/apple-inspired.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .instruction-hero {
+            padding: 7rem 1rem 2rem;
+            background: linear-gradient(135deg, #f8fbfd 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .instruction-hero .hero-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+
+        .instruction-hero .hero-subtitle {
+            font-size: 1rem;
+            color: var(--navy);
+            opacity: 0.75;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Pilot Banner */
+        .pilot-banner {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 1px solid #ffb74d;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 0 1rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .pilot-banner i {
+            color: #f57c00;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pilot-banner p {
+            font-size: 0.9rem;
+            color: #e65100;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .pilot-banner strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: #bf360c;
+        }
+
+        /* Sections */
+        .section {
+            padding: 2rem 1rem;
+        }
+
+        .section-alt {
+            background: var(--apple-bg-secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Goal Card */
+        .goal-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(17, 39, 82, 0.08);
+            border-left: 4px solid var(--green);
+        }
+
+        .goal-card h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .goal-card p {
+            font-size: 0.95rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Steps Overview */
+        .steps-overview {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .step-pill {
+            background: white;
+            border: 2px solid var(--apple-border);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--apple-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .step-pill.active {
+            border-color: var(--bright-blue);
+            background: rgba(18, 151, 224, 0.08);
+            color: var(--bright-blue);
+        }
+
+        .step-pill .num {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--apple-border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .step-pill.active .num {
+            background: var(--bright-blue);
+        }
+
+        /* Recording Cards */
+        .recording-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .recording-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(17, 39, 82, 0.08);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .recording-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .recording-card .icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .recording-card .icon i {
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .recording-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .recording-card h3 span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--apple-text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .recording-card p {
+            font-size: 0.9rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.5;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .recording-card ul {
+            margin: 0;
+            padding-left: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.6;
+        }
+
+        .recording-card ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(17, 39, 82, 0.06);
+            text-align: center;
+        }
+
+        .tip-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(18, 151, 224, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bright-blue);
+            font-size: 0.9rem;
+            margin: 0 auto 0.5rem;
+        }
+
+        .tip-card p {
+            font-size: 0.8rem;
+            color: var(--navy);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .tip-card strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Important Note */
+        .important-note {
+            padding: 1.25rem;
+            background: rgba(0, 191, 99, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 191, 99, 0.2);
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .important-note p {
+            font-size: 0.9rem;
+            color: var(--navy);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .important-note strong {
+            color: var(--green);
+        }
+
+        /* Products Overview */
+        .products-overview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(17, 39, 82, 0.08);
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-first {
+            border: 3px solid var(--bright-blue);
+        }
+
+        .product-second {
+            border: 3px solid var(--green);
+        }
+
+        .product-order {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .product-first .product-order {
+            color: white;
+            background: var(--bright-blue);
+        }
+
+        .product-second .product-order {
+            color: white;
+            background: var(--green);
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-videos {
+            font-size: 0.85rem;
+            color: var(--apple-text-secondary);
+        }
+
+        .product-arrow {
+            color: var(--apple-text-muted);
+            font-size: 1.5rem;
+            padding: 0.25rem 0;
+        }
+
+        .products-total {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-top: 1.25rem;
+            font-weight: 600;
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(17, 39, 82, 0.06);
+        }
+
+        @media (min-width: 500px) {
+            .products-overview {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+            }
+
+            .product-arrow {
+                transform: rotate(-90deg);
+            }
+        }
+
+        /* Product Checklist */
+        .product-checklist {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(17, 39, 82, 0.08);
+            margin-bottom: 1rem;
+        }
+
+        .product-checklist-header {
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .checklist-product-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .checklist-header-text {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .product-first-header {
+            background: linear-gradient(135deg, rgba(18, 151, 224, 0.1) 0%, rgba(18, 151, 224, 0.05) 100%);
+            border-bottom: 2px solid var(--bright-blue);
+        }
+
+        .product-second-header {
+            background: linear-gradient(135deg, rgba(0, 191, 99, 0.1) 0%, rgba(0, 191, 99, 0.05) 100%);
+            border-bottom: 2px solid var(--green);
+        }
+
+        .product-number {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 0.2rem;
+        }
+
+        .product-first-header .product-number {
+            background: var(--bright-blue);
+            color: white;
+        }
+
+        .product-second-header .product-number {
+            background: var(--green);
+            color: white;
+        }
+
+        .product-checklist-header h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .product-status {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--apple-text-secondary);
+            background: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        .checklist-items {
+            padding: 0.5rem 1.25rem 1rem;
+        }
+
+        .send-checklist {
+            background: white;
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 12px rgba(17, 39, 82, 0.08);
+            margin-bottom: 1rem;
+        }
+
+        .send-checklist h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 1rem 0;
+            text-align: center;
+        }
+
+        /* How It Works */
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .workflow-step {
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            box-shadow: 0 2px 8px rgba(17, 39, 82, 0.06);
+        }
+
+        .workflow-num {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .workflow-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .workflow-content p {
+            font-size: 0.85rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* WhatsApp Card */
+        .whatsapp-card {
+            background: #dcf8c6;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 1.5rem;
+            border: 2px solid #25d366;
+        }
+
+        .whatsapp-card i {
+            font-size: 2.5rem;
+            color: #25d366;
+            margin-bottom: 0.75rem;
+        }
+
+        .whatsapp-card h3 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .whatsapp-card .phone {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #128c7e;
+            margin-bottom: 0.75rem;
+        }
+
+        .whatsapp-card p {
+            font-size: 0.85rem;
+            color: var(--apple-text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25d366;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128c7e;
+            transform: scale(1.02);
+        }
+
+        /* Privacy Card */
+        .privacy-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(17, 39, 82, 0.08);
+            border-left: 4px solid var(--bright-blue);
+        }
+
+        .privacy-card h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .privacy-card h2 i {
+            color: var(--bright-blue);
+        }
+
+        .privacy-card p {
+            font-size: 0.9rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-card a {
+            color: var(--bright-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--apple-bg-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .consent-checkbox input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 0;
+            accent-color: var(--bright-blue);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .consent-checkbox label {
+            font-size: 0.9rem;
+            color: var(--navy);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .btn-continue {
+            display: block;
+            width: 100%;
+            margin-top: 1.25rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .btn-continue.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn-continue.active:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 191, 99, 0.3);
+        }
+
+        /* Registration Modal/Form */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlideUp 0.3s ease;
+        }
+
+        @keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem 1.5rem 0;
+            text-align: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            font-size: 0.9rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.5;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            font-size: 1rem;
+            border: 2px solid var(--apple-border);
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--bright-blue);
+            box-shadow: 0 0 0 3px rgba(18, 151, 224, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--apple-text-muted);
+        }
+
+        .form-hint {
+            font-size: 0.75rem;
+            color: var(--apple-text-muted);
+            margin-top: 0.3rem;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 191, 99, 0.3);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Success Screen */
+        .success-screen {
+            display: none;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .success-screen.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--green), var(--bright-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .success-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .success-screen h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .success-screen p {
+            font-size: 0.95rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-screen .participant-info {
+            background: var(--apple-bg-secondary);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .success-screen .participant-info p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        .success-screen .participant-info strong {
+            color: var(--navy);
+        }
+
+        /* Checklist */
+        .checklist {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            box-shadow: 0 2px 12px rgba(17, 39, 82, 0.08);
+        }
+
+        .checklist h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--apple-border);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-item label {
+            font-size: 0.9rem;
+            color: var(--navy);
+            line-height: 1.4;
+        }
+
+        .checklist-item label strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .checklist-item label span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--apple-text-secondary);
+            margin-top: 0;
+            line-height: 1.45;
+        }
+
+        /* Tips Reminder */
+        .tips-reminder {
+            background: rgba(0, 191, 99, 0.08);
+            border: 1px solid rgba(0, 191, 99, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .tips-reminder h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--green);
+            margin: 0 0 0.75rem 0;
+            text-align: center;
+        }
+
+        .tips-reminder ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tips-reminder li {
+            font-size: 0.85rem;
+            color: var(--navy);
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .tips-reminder li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .tips-reminder li strong {
+            color: var(--navy);
+        }
+
+        /* Final Step Card */
+        .final-step-card {
+            background: linear-gradient(135deg, rgba(18, 151, 224, 0.08) 0%, rgba(0, 191, 99, 0.08) 100%);
+            border: 2px solid var(--bright-blue);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .final-step-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .final-step-card p {
+            font-size: 0.9rem;
+            color: var(--apple-text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--bright-blue);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 10px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0.25rem 0;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        /* Hide content sections after registration */
+        .instructions-content.hidden {
+            display: none;
+        }
+
+        /* Desktop enhancements */
+        @media (min-width: 768px) {
+            .instruction-hero {
+                padding: 10rem 2rem 3rem;
+            }
+
+            .instruction-hero .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .pilot-banner {
+                max-width: 700px;
+                margin: 0 auto 2rem;
+            }
+
+            .goal-card,
+            .privacy-card,
+            .recording-card {
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .recording-cards {
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .tips-grid {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .workflow-steps {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .whatsapp-card {
+                max-width: 500px;
+                margin: 1.5rem auto 0;
+            }
+
+            .important-note {
+                max-width: 600px;
+                margin: 1.5rem auto 0;
+            }
+
+            .success-screen {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="img/logo7.png" alt="Eatpol" height="32">
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Instructions Content (hidden after registration) -->
+    <div class="instructions-content" id="instructionsContent">
+        <!-- Hero Section -->
+        <section class="instruction-hero">
+            <div class="container">
+                <h1 class="hero-title">Domus Study</h1>
+                <p class="hero-subtitle">Record your natural product experience at home</p>
+            </div>
+        </section>
+
+        <!-- Pilot Banner -->
+        <div class="pilot-banner">
+            <i class="fas fa-flask"></i>
+            <p>
+                <strong>Pilot Phase</strong>
+                Our mobile app is still in development. For now, you'll record videos with your phone camera and send them via WhatsApp. Thank you for your patience!
+            </p>
+        </div>
+
+        <!-- Goal Section -->
+        <section class="section">
+            <div class="goal-card">
+                <h2>What We're Looking For</h2>
+                <p>We want to see how you naturally use these products in everyday life. There are no right or wrong answers. Show us how you prepare, eat, and store each product as you normally would. Share your honest thoughts out loud as you go.</p>
+            </div>
+        </section>
+
+        <!-- Products Overview -->
+        <section class="section section-alt">
+            <h2 class="section-title">Your 2 Products</h2>
+            <div class="products-overview">
+                <div class="product-card product-first">
+                    <img src="img/coleslaw aziatisch.png" alt="Aziatische Coleslaw" class="product-image">
+                    <div class="product-order">Start with</div>
+                    <div class="product-name">Aziatische Coleslaw</div>
+                    <div class="product-videos">3 videos</div>
+                </div>
+                <div class="product-arrow"><i class="fas fa-arrow-down"></i></div>
+                <div class="product-card product-second">
+                    <img src="img/redslaw aziatisch.png" alt="Aziatische Redslaw" class="product-image">
+                    <div class="product-order">Then</div>
+                    <div class="product-name">Aziatische Redslaw</div>
+                    <div class="product-videos">3 videos</div>
+                </div>
+            </div>
+            <p class="products-total">Total: 6 videos (3 per product)</p>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section">
+            <h2 class="section-title">How This Works</h2>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="workflow-num">1</div>
+                    <div class="workflow-content">
+                        <h4>Register below</h4>
+                        <p>Enter your study token, name, and email to get started</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-num">2</div>
+                    <div class="workflow-content">
+                        <h4>Test Product 1: Aziatische Coleslaw</h4>
+                        <p>Record 3 videos (opening, eating, storing) and send via WhatsApp</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-num">3</div>
+                    <div class="workflow-content">
+                        <h4>Test Product 2: Aziatische Redslaw</h4>
+                        <p>Record 3 videos (opening, eating, storing) and send via WhatsApp</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-num">4</div>
+                    <div class="workflow-content">
+                        <h4>Complete final interview</h4>
+                        <p>A short Vox interview to wrap up the study</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recording Moments -->
+        <section class="section section-alt">
+            <h2 class="section-title">For Each Product: 3 Videos</h2>
+            <div class="recording-cards">
+                <div class="recording-card">
+                    <div class="recording-card-header">
+                        <div class="icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h3>Video 1: Opening<span>When you first open the package</span></h3>
+                    </div>
+                    <ul>
+                        <li>Show how easy or difficult it is to open</li>
+                        <li>Share your first impressions (look, smell)</li>
+                        <li>Note anything surprising</li>
+                    </ul>
+                </div>
+
+                <div class="recording-card">
+                    <div class="recording-card-header">
+                        <div class="icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Video 2: Eating<span>When you prepare and taste it</span></h3>
+                    </div>
+                    <ul>
+                        <li>Show how you prepare or serve it</li>
+                        <li>Describe the taste and texture</li>
+                        <li>Share what you like or dislike</li>
+                    </ul>
+                </div>
+
+                <div class="recording-card">
+                    <div class="recording-card-header">
+                        <div class="icon">
+                            <i class="fas fa-door-closed"></i>
+                        </div>
+                        <h3>Video 3: Storing<span>When you store what's left</span></h3>
+                    </div>
+                    <ul>
+                        <li>Show where and how you store it</li>
+                        <li>Note if packaging reseals easily</li>
+                        <li>Mention any storage concerns</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="section section-alt">
+            <h2 class="section-title">Recording Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-sun"></i></div>
+                    <p><strong>Good light</strong>Natural or bright room</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <p><strong>Prop phone</strong>Use a stand if possible</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-comment"></i></div>
+                    <p><strong>Think aloud</strong>Tell us what you notice</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-hand-paper"></i></div>
+                    <p><strong>Show hands</strong>Keep product visible</p>
+                </div>
+            </div>
+
+            <div class="important-note">
+                <p><strong>Be yourself.</strong> Use the product as if no one was watching. We want your real experience, not a performance.</p>
+            </div>
+        </section>
+
+        <!-- Privacy & Consent -->
+        <section class="section">
+            <div class="privacy-card">
+                <h2><i class="fas fa-shield-alt"></i> Privacy Note</h2>
+                <p>Your recordings are used solely for research and handled according to our <a href="privacy_policy.html" target="_blank">privacy policy</a>. Your data is confidential and secure.</p>
+                <div class="consent-checkbox">
+                    <input type="checkbox" id="consent" name="consent">
+                    <label for="consent">I have read the privacy policy and agree to participate in this study.</label>
+                </div>
+                <button type="button" class="btn-continue" id="continueBtn">Continue to Registration</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Success Screen (shown after registration) -->
+    <div class="success-screen" id="successScreen">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <h2>You're Registered!</h2>
+        <p>Keep this page open or bookmark it. You can come back anytime to check the steps.</p>
+
+        <div class="participant-info" id="participantInfo">
+            <!-- Filled dynamically -->
+        </div>
+
+        <!-- Product 1 Checklist -->
+        <div class="product-checklist">
+            <div class="product-checklist-header product-first-header">
+                <img src="img/coleslaw aziatisch.png" alt="Coleslaw" class="checklist-product-image">
+                <div class="checklist-header-text">
+                    <span class="product-number">Product 1</span>
+                    <h3>Aziatische Coleslaw</h3>
+                </div>
+                <span class="product-status" id="product1Status">0/3 videos</span>
+            </div>
+            <div class="checklist-items">
+                <div class="checklist-item">
+                    <input type="checkbox" id="p1check1">
+                    <label for="p1check1">
+                        <strong>Opening</strong>
+                        <span>Show how you open it. Is it easy or tricky? First impressions of look and smell.</span>
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="p1check2">
+                    <label for="p1check2">
+                        <strong>Preparing & eating</strong>
+                        <span>Show how you prepare/serve it. Describe taste and texture. What do you like or dislike?</span>
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="p1check3">
+                    <label for="p1check3">
+                        <strong>Storing</strong>
+                        <span>Show where and how you store it. Does it reseal well? Any freshness concerns?</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 Checklist -->
+        <div class="product-checklist">
+            <div class="product-checklist-header product-second-header">
+                <img src="img/redslaw aziatisch.png" alt="Redslaw" class="checklist-product-image">
+                <div class="checklist-header-text">
+                    <span class="product-number">Product 2</span>
+                    <h3>Aziatische Redslaw</h3>
+                </div>
+                <span class="product-status" id="product2Status">0/3 videos</span>
+            </div>
+            <div class="checklist-items">
+                <div class="checklist-item">
+                    <input type="checkbox" id="p2check1">
+                    <label for="p2check1">
+                        <strong>Opening</strong>
+                        <span>Show how you open it. Is it easy or tricky? First impressions of look and smell.</span>
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="p2check2">
+                    <label for="p2check2">
+                        <strong>Preparing & eating</strong>
+                        <span>Show how you prepare/serve it. Describe taste and texture. What do you like or dislike?</span>
+                    </label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="p2check3">
+                    <label for="p2check3">
+                        <strong>Storing</strong>
+                        <span>Show where and how you store it. Does it reseal well? Any freshness concerns?</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Send Videos Checklist -->
+        <div class="checklist send-checklist">
+            <h3>Send Your Videos</h3>
+            <div class="checklist-item">
+                <input type="checkbox" id="checkSent">
+                <label for="checkSent">
+                    <strong>Sent all 6 videos via WhatsApp</strong>
+                    <span>Send videos for both products. Include your study token and product name in each message.</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="tips-reminder">
+            <h4>Remember</h4>
+            <ul>
+                <li><strong>Be natural</strong> - Use the product as you normally would at home</li>
+                <li><strong>Think aloud</strong> - Tell us what you're noticing, feeling, thinking</li>
+                <li><strong>Show the product</strong> - Keep it visible in frame along with your hands</li>
+                <li><strong>Good lighting</strong> - Record in a well-lit area so we can see clearly</li>
+            </ul>
+        </div>
+
+        <div class="whatsapp-card">
+            <i class="fab fa-whatsapp"></i>
+            <h3>Send Videos To</h3>
+            <div class="phone">+31 611 61 22 01</div>
+            <p>Include your <strong>study token</strong> and <strong>product name</strong> (Coleslaw or Redslaw) in each message so we can match your videos.</p>
+            <a href="https://wa.me/31611612201" target="_blank" rel="noopener" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Open WhatsApp
+            </a>
+        </div>
+
+        <div class="final-step-card">
+            <h3>Final Step: Vox Interview <span class="coming-soon-badge">Coming Soon</span></h3>
+            <p>After sending your videos, you'll complete a short interview. We'll send you the link via email.</p>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal-overlay" id="registrationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Register for Study</h2>
+                <p>Enter your details to get started</p>
+            </div>
+            <div class="modal-body">
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="studyToken">Study Token *</label>
+                        <input type="text" id="studyToken" name="studyToken" placeholder="e.g., DOMUS-2024-001" required>
+                        <div class="form-hint">You received this token in your invitation</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="participantName">Your Name *</label>
+                        <input type="text" id="participantName" name="participantName" placeholder="Full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="participantEmail">Email Address *</label>
+                        <input type="email" id="participantEmail" name="participantEmail" placeholder="your@email.com" required>
+                        <div class="form-hint">We'll send study updates here</div>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">Start Study</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Eatpol</strong></p>
+            <p>AI-powered consumer testing</p>
+            <p><a href="privacy_policy.html">Privacy Policy</a> | <a href="mailto:info@eatpol.com">info@eatpol.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Elements
+        const consentCheckbox = document.getElementById('consent');
+        const continueBtn = document.getElementById('continueBtn');
+        const registrationModal = document.getElementById('registrationModal');
+        const registrationForm = document.getElementById('registrationForm');
+        const instructionsContent = document.getElementById('instructionsContent');
+        const successScreen = document.getElementById('successScreen');
+        const participantInfo = document.getElementById('participantInfo');
+
+        // Check for existing registration
+        const savedRegistration = localStorage.getItem('domusRegistration');
+        if (savedRegistration) {
+            const data = JSON.parse(savedRegistration);
+            showSuccessScreen(data);
+        }
+
+        // Consent checkbox
+        consentCheckbox.addEventListener('change', () => {
+            continueBtn.classList.toggle('active', consentCheckbox.checked);
+        });
+
+        // Continue button opens modal
+        continueBtn.addEventListener('click', () => {
+            if (consentCheckbox.checked) {
+                registrationModal.classList.add('active');
+            }
+        });
+
+        // Close modal on outside click
+        registrationModal.addEventListener('click', (e) => {
+            if (e.target === registrationModal) {
+                registrationModal.classList.remove('active');
+            }
+        });
+
+        // Form submission
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Registering...';
+
+            const formData = {
+                studyToken: document.getElementById('studyToken').value.trim(),
+                name: document.getElementById('participantName').value.trim(),
+                email: document.getElementById('participantEmail').value.trim(),
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Send email notification via EmailJS or similar service
+                // For now, we'll use a mailto fallback and FormSubmit
+                const emailBody = `
+New Domus Study Registration
+
+Study Token: ${formData.studyToken}
+Participant Name: ${formData.name}
+Email: ${formData.email}
+Registered: ${new Date().toLocaleString()}
+                `.trim();
+
+                // Try to send via FormSubmit (free email service)
+                const response = await fetch('https://formsubmit.co/ajax/info@eatpol.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: `Domus Study Registration: ${formData.name} (${formData.studyToken})`,
+                        name: formData.name,
+                        email: formData.email,
+                        study_token: formData.studyToken,
+                        message: `Participant ${formData.name} with study token ${formData.studyToken} has registered for the Domus study.`,
+                        _template: 'table'
+                    })
+                });
+
+                // Save to localStorage regardless of email success
+                localStorage.setItem('domusRegistration', JSON.stringify(formData));
+
+                // Show success screen
+                showSuccessScreen(formData);
+
+            } catch (error) {
+                console.error('Registration error:', error);
+                // Still save locally and show success
+                localStorage.setItem('domusRegistration', JSON.stringify(formData));
+                showSuccessScreen(formData);
+            }
+        });
+
+        function showSuccessScreen(data) {
+            instructionsContent.classList.add('hidden');
+            registrationModal.classList.remove('active');
+            successScreen.classList.add('active');
+
+            participantInfo.innerHTML = `
+                <p><strong>Name:</strong> ${data.name}</p>
+                <p><strong>Study Token:</strong> ${data.studyToken}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+            `;
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Save checklist progress
+        const product1Checkboxes = ['p1check1', 'p1check2', 'p1check3'];
+        const product2Checkboxes = ['p2check1', 'p2check2', 'p2check3'];
+        const allCheckboxes = [...product1Checkboxes, ...product2Checkboxes, 'checkSent'];
+
+        // Update product status display
+        function updateProductStatus() {
+            const p1Count = product1Checkboxes.filter(id => {
+                const el = document.getElementById(id);
+                return el && el.checked;
+            }).length;
+            const p2Count = product2Checkboxes.filter(id => {
+                const el = document.getElementById(id);
+                return el && el.checked;
+            }).length;
+
+            const p1Status = document.getElementById('product1Status');
+            const p2Status = document.getElementById('product2Status');
+
+            if (p1Status) {
+                p1Status.textContent = `${p1Count}/3 videos`;
+                p1Status.style.background = p1Count === 3 ? 'var(--green)' : '';
+                p1Status.style.color = p1Count === 3 ? 'white' : '';
+            }
+            if (p2Status) {
+                p2Status.textContent = `${p2Count}/3 videos`;
+                p2Status.style.background = p2Count === 3 ? 'var(--green)' : '';
+                p2Status.style.color = p2Count === 3 ? 'white' : '';
+            }
+        }
+
+        // Load saved progress
+        allCheckboxes.forEach(id => {
+            const saved = localStorage.getItem(`domus_${id}`);
+            const el = document.getElementById(id);
+            if (saved === 'true' && el) {
+                el.checked = true;
+            }
+        });
+
+        // Update status on page load
+        updateProductStatus();
+
+        // Save on change and update status
+        allCheckboxes.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', (e) => {
+                    localStorage.setItem(`domus_${id}`, e.target.checked);
+                    updateProductStatus();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
