@@ -308,6 +308,84 @@
             }
         }
 
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(17, 39, 82, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bright-blue), var(--green));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(18, 151, 224, 0.15);
+        }
+
+        .value-card:hover::before {
+            opacity: 1;
+        }
+
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(18, 151, 224, 0.1), rgba(76, 175, 80, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: var(--bright-blue);
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .value-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
         /* Section spacing utilities */
         .section-bio {
             padding-top: 3rem;
@@ -320,7 +398,7 @@
 
         /* Hero adjustments for team page */
         .hero {
-            padding: 10rem 0 6rem;
+            padding: 10rem 0 2rem;
             background: linear-gradient(135deg, #f8fbfd 0%, #ffffff 100%);
         }
 
@@ -401,33 +479,46 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Meet Our Team</h1>
-                <p class="hero-subtitle">The passionate innovators driving the future of product testing</p>
+                <h1 class="hero-title">About Us</h1>
             </div>
         </div>
     </section>
 
-    <!-- Company Bio Section -->
-<section class="section section-bio">
-    <div class="container">
-        <div class="company-bio">
-            <h2>Our Story</h2>
-            <p>
-                Michele, a Ph.D. in <strong>AI and computer vision</strong> from <strong>Wageningen University</strong>, developed software to measure eating behavior from video—tracking bites and chews, under Guido Camps' supervision.
-            </p>
-            <p>
-                Partnering with <strong>Wageningen Impact Catalyst</strong>, the technology evolved to tackle a major industry problem: 85% of food product launches fail, costing billions.
-            </p>
-            <p>
-                In fall 2025, <strong>Jakob</strong> and <strong>Simbiat</strong> joined the team, bringing Eatpol to market as a consumer testing service that delivers real-world insights straight from people’s kitchens.
-            </p>
-            <p>
-                Based in <strong>Wageningen, the Netherlands</strong>, Eatpol helps leading food brands understand their consumers better and launch products people  love.
-            </p>
-        </div>
-    </div>
-</section>
+    <!-- Values Section -->
+    <section class="section">
+        <div class="container">
+            <div class="team-section-divider">
+                <h2>Our Values</h2>
+                <p>The principles that guide everything we do</p>
+            </div>
 
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>People First</h3>
+                    <p>We prioritize the wellbeing and happiness of our employees and the satisfaction of our clients, believing meaningful impact starts with people who are healthy, motivated, and fulfilled.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We seek truth and accuracy, communicate openly, and act with transparency. We hold ourselves accountable and earn trust by being reliable and honest in everything we do.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Ambitious Ownership & Excellence</h3>
+                    <p>We act proactively and take full responsibility for outcomes, pursuing bold goals with high standards and a continuous drive to improve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Co-Founders Section -->
     <section class="section">
@@ -462,7 +553,7 @@
                     <div class="team-info">
                         <h3 class="team-name">Simbiat Oladoja, MSc</h3>
                         <p class="team-role">Co-Founder <br> Marketing and Consumer Insights</p>
-                        <p class="team-bio">Simbiat is a food scientist, nutritionist, and consumer behavior expert with advanced degrees from Maastricht University and the University of Edinburgh. She leads Eatpol's strategy, turning scientific insights into practical, sustainable, and healthier food solutions.</p>
+                        <p class="team-bio">Simbiat is a food scientist, nutritionist, and consumer behavior expert with advanced degrees from Maastricht University and the University of Edinburgh. She leads Eatpol’s strategy, turning scientific insights into practical, sustainable, and healthier food solutions.</p>
                         <div class="team-social">
                             <a href="https://www.linkedin.com/in/simbiatoladoja/" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                             <a href="mailto:soladoja@eatpol.com" class="social-icon"><i class="fas fa-envelope"></i></a>
@@ -488,7 +579,6 @@
             </div>
         </div>
     </section>
-
     <!-- Advisory Board Section -->
     <section class="section advisory-section">
         <div class="container">
@@ -543,6 +633,28 @@
             </div>
         </div>
     </section>
+    <!-- Company Bio Section -->
+    <section class="section section-bio">
+        <div class="container">
+            <div class="company-bio">
+                <h2>Our Story</h2>
+                <p>
+                    Michele, a Ph.D. in <strong>AI and computer vision</strong> from <strong>Wageningen University</strong>, developed software to measure eating behavior from video—tracking bites and chews, under Guido Camps’ supervision.
+                </p>
+                <p>
+                    Partnering with <strong>Wageningen Impact Catalyst</strong>, the technology evolved to tackle a major industry problem: 85% of food product launches fail, costing billions.
+                </p>
+                <p>
+                    In fall 2025, <strong>Jakob</strong> and <strong>Simbiat</strong> joined the team, bringing Eatpol to market as a consumer testing service that delivers real-world insights straight from people’s kitchens.
+                </p>
+                <p>
+                    Based in <strong>Wageningen, the Netherlands</strong>, Eatpol helps leading food brands understand their consumers better and launch products people love.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Call to Action Section -->
     <section class="section section-cta">
