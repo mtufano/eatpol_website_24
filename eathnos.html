@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EATθNOS | Eatpol - The Food Innovation Community</title>
+  <meta name="description" content="EATθNOS is Eatpol's community forum where food innovators share tips, ask questions, and learn from each other about product development, marketing, consumer testing, and more." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    :root {
+      /* Brand colors */
+      --bright-blue: #1297e0;
+      --green: #00bf63;
+      --dark-blue: #1b48ab;
+      --medium-blue: #6990cd;
+      --light-blue: #b8daef;
+      --white: #ffffff;
+      --navy: #112752;
+
+      /* Extended palette */
+      --cream: #f6f9fc;
+      --warm-dark: #112752;
+      --sand: #eaf2fa;
+      --stone: #b8cde0;
+      --warm-border: rgba(17, 39, 82, 0.07);
+      --warm-shadow-sm: 0 1px 3px rgba(17, 39, 82, 0.04), 0 1px 2px rgba(17, 39, 82, 0.06);
+      --warm-shadow: 0 4px 16px rgba(17, 39, 82, 0.08), 0 1px 3px rgba(17, 39, 82, 0.04);
+      --warm-shadow-lg: 0 20px 60px rgba(17, 39, 82, 0.15), 0 4px 16px rgba(17, 39, 82, 0.06);
+
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
+      --gradient-cta: linear-gradient(135deg, var(--bright-blue), var(--green));
+
+      /* Category colors — brand only */
+      --cat-product-dev: #1297e0;
+      --cat-marketing: #00bf63;
+      --cat-consumer-testing: #1b48ab;
+      --cat-packaging: #112752;
+      --cat-regulatory: #6990cd;
+      --cat-general: #b8daef;
+
+      /* Tokens */
+      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-fast: all 0.15s ease;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --radius-pill: 980px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.6;
+      color: var(--warm-dark);
+      background-color: var(--cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Subtle diagonal grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(17, 39, 82, 0.025) 1px, transparent 0);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Fraunces', serif;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    p { margin-bottom: 1.25rem; font-size: 17px; line-height: 1.7; color: var(--warm-dark); opacity: 0.85; }
+    a { color: var(--bright-blue); text-decoration: none; transition: var(--transition); -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    a:hover { color: var(--green); }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      outline: none;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(18, 151, 224, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--green), var(--bright-blue));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .btn-primary span, .btn-primary i { position: relative; z-index: 1; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 191, 99, 0.3); color: var(--white); }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary:active { transform: translateY(0) scale(0.98); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--bright-blue);
+      border: 2px solid rgba(18, 151, 224, 0.3);
+    }
+    .btn-secondary:hover {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    /* ========================================
+       HEADER
+       ======================================== */
+    .header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(17, 39, 82, 0.06);
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .logo:hover { color: var(--bright-blue); }
+    .nav-menu { display: flex; list-style: none; }
+    .nav-item { margin-left: 1.5rem; }
+    .nav-link {
+      color: var(--warm-dark);
+      font-weight: 500;
+      font-size: 15px;
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--bright-blue);
+      transition: var(--transition);
+      border-radius: 1px;
+    }
+    .nav-link:hover { color: var(--bright-blue); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link.active { color: var(--navy); font-weight: 600; }
+    .hamburger { display: none; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; padding: 10px; margin: -10px; }
+    .bar { display: block; width: 22px; height: 2px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); border-radius: 2px; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ========================================
+       HERO — Dark Cinematic
+       ======================================== */
+    .lp-hero {
+      padding: 6.5rem 0 3rem;
+      background: linear-gradient(165deg, var(--navy) 0%, var(--dark-blue) 50%, var(--navy) 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Animated gradient orbs */
+    .lp-hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(18, 151, 224, 0.15) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+    .lp-hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 191, 99, 0.1) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      animation: orbFloat 10s ease-in-out infinite reverse;
+    }
+
+    /* Hex grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L52 17.5 L52 42.5 L30 55 L8 42.5 L8 17.5 Z' fill='none' stroke='rgba(184,218,239,0.04)' stroke-width='0.5'/%3E%3C/svg%3E");
+      background-size: 60px 52px;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    /* Noise texture */
+    .hero-noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* Bottom fade to body color */
+    .hero-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--cream), transparent);
+      pointer-events: none;
+    }
+
+    .lp-hero-content { position: relative; z-index: 2; }
+
+    .lp-hero-logo {
+      display: block;
+      max-width: 640px;
+      height: auto;
+      margin: 0 auto 12px;
+      animation: fadeInDown 0.6s ease both;
+      filter: drop-shadow(0 4px 24px rgba(18, 151, 224, 0.2));
+    }
+
+    .lp-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      background: rgba(18, 151, 224, 0.12);
+      border: 1px solid rgba(18, 151, 224, 0.2);
+      color: var(--light-blue);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: fadeInDown 0.7s ease both;
+      animation-delay: 0.1s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .lp-hero-badge i { color: var(--green); }
+
+    .lp-hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: 72px;
+      line-height: 1.0;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      margin-bottom: 14px;
+      color: var(--white);
+      animation: fadeInUp 0.7s ease both;
+      animation-delay: 0.15s;
+    }
+    .lp-hero-title .accent {
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lp-hero-subtitle {
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 28px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.7s ease both;
+      animation-delay: 0.25s;
+    }
+
+    .lp-hero .btn {
+      animation: fadeInUp 0.7s ease both;
+      animation-delay: 0.35s;
+      padding: 16px 36px;
+      font-size: 16px;
+    }
+
+    .lp-hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 2rem;
+      animation: fadeInUp 0.7s ease both;
+      animation-delay: 0.45s;
+    }
+
+    .lp-stat {
+      text-align: center;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .lp-stat:first-child { border-radius: 16px 0 0 16px; }
+    .lp-stat:last-child { border-radius: 0 16px 16px 0; }
+    .lp-stat:not(:last-child) { border-right: none; }
+
+    .lp-stat-number {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .lp-stat-label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+    }
+
+    /* ========================================
+       ANIMATIONS
+       ======================================== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes cardReveal {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 15px) scale(0.95); }
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.96) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       FILTER BAR
+       ======================================== */
+    .filter-bar {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(17, 39, 82, 0.05);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 52px;
+      z-index: 100;
+    }
+    .filter-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .category-filters { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .cat-pill {
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      background: rgba(17, 39, 82, 0.04);
+      color: var(--warm-dark);
+      transition: var(--transition);
+      opacity: 0.65;
+    }
+    .cat-pill:hover { opacity: 1; background: rgba(18, 151, 224, 0.08); color: var(--bright-blue); }
+    .cat-pill.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: transparent;
+      opacity: 1;
+      box-shadow: 0 2px 8px rgba(17, 39, 82, 0.2);
+    }
+    .sort-tabs { display: flex; gap: 0.25rem; background: rgba(17, 39, 82, 0.04); border-radius: var(--radius-sm); padding: 3px; }
+    .sort-tab {
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--warm-dark);
+      transition: var(--transition);
+      opacity: 0.5;
+      font-family: 'Outfit', sans-serif;
+    }
+    .sort-tab:hover { opacity: 0.8; }
+    .sort-tab.active { background: var(--white); box-shadow: 0 1px 4px rgba(0,0,0,0.06); opacity: 1; }
+
+    /* ========================================
+       FEED LAYOUT
+       ======================================== */
+    .feed-layout { display: flex; gap: 2.5rem; padding: 2rem 0 5rem; align-items: flex-start; }
+    .feed-main { flex: 1; max-width: 780px; margin: 0 auto; }
+    .feed-sidebar { width: 300px; flex-shrink: 0; position: sticky; top: 120px; }
+
+    /* ========================================
+       POST CARDS — Editorial style
+       ======================================== */
+    .post-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--warm-shadow-sm);
+      transition: var(--transition);
+      border: 1px solid var(--warm-border);
+      border-left: 3.5px solid var(--stone);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      opacity: 0;
+      animation: cardReveal 0.5s ease both;
+    }
+    .post-card:nth-child(1) { animation-delay: 0.05s; }
+    .post-card:nth-child(2) { animation-delay: 0.1s; }
+    .post-card:nth-child(3) { animation-delay: 0.15s; }
+    .post-card:nth-child(4) { animation-delay: 0.2s; }
+    .post-card:nth-child(5) { animation-delay: 0.25s; }
+    .post-card:nth-child(6) { animation-delay: 0.3s; }
+    .post-card:nth-child(7) { animation-delay: 0.35s; }
+    .post-card:nth-child(8) { animation-delay: 0.4s; }
+
+    /* Category-colored left borders */
+    .post-card[data-category="product-dev"] { border-left-color: var(--cat-product-dev); }
+    .post-card[data-category="marketing"] { border-left-color: var(--cat-marketing); }
+    .post-card[data-category="consumer-testing"] { border-left-color: var(--cat-consumer-testing); }
+    .post-card[data-category="packaging"] { border-left-color: var(--cat-packaging); }
+    .post-card[data-category="regulatory"] { border-left-color: var(--cat-regulatory); }
+    .post-card[data-category="general"] { border-left-color: var(--cat-general); }
+
+    .post-card:hover {
+      box-shadow: var(--warm-shadow);
+      border-color: rgba(17, 39, 82, 0.1);
+      transform: translateY(-2px);
+    }
+    .post-card-inner { display: flex; }
+    .post-vote {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px;
+      gap: 2px;
+      min-width: 54px;
+    }
+    .vote-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: var(--stone);
+      font-size: 13px;
+    }
+    .vote-btn:hover { background: rgba(18, 151, 224, 0.08); color: var(--bright-blue); }
+    .vote-btn.upvoted { color: var(--bright-blue); background: rgba(18, 151, 224, 0.1); }
+    .vote-count {
+      font-family: 'Fraunces', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .post-body { flex: 1; padding: 20px 24px 20px 12px; cursor: pointer; }
+    .post-category {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .cat-product-dev { background: rgba(18, 151, 224, 0.1); color: var(--cat-product-dev); }
+    .cat-marketing { background: rgba(0, 191, 99, 0.1); color: var(--cat-marketing); }
+    .cat-consumer-testing { background: rgba(27, 72, 171, 0.1); color: var(--cat-consumer-testing); }
+    .cat-packaging { background: rgba(17, 39, 82, 0.08); color: var(--cat-packaging); }
+    .cat-regulatory { background: rgba(105, 144, 205, 0.12); color: var(--cat-regulatory); }
+    .cat-general { background: rgba(184, 218, 239, 0.2); color: var(--navy); }
+
+    .post-title {
+      font-family: 'Fraunces', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      transition: color 0.25s ease;
+    }
+    .post-card:hover .post-title { color: var(--bright-blue); }
+    .post-preview {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--warm-dark);
+      opacity: 0.55;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .post-meta { display: flex; align-items: center; gap: 1rem; font-size: 12.5px; color: var(--warm-dark); opacity: 0.4; font-weight: 500; }
+    .post-meta-item { display: flex; align-items: center; gap: 0.3rem; }
+    .post-meta-item i { font-size: 11px; }
+    .post-author-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bright-blue), var(--green));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: white;
+      font-weight: 700;
+    }
+    .post-author-avatar.anonymous { background: linear-gradient(135deg, var(--medium-blue), var(--light-blue)); }
+
+    /* Expanded Post */
+    .post-expanded { display: none; padding: 0 24px 24px 72px; border-top: 1px solid var(--warm-border); }
+    .post-expanded.show { display: block; }
+    .post-full-text { font-size: 16px; line-height: 1.85; color: var(--warm-dark); padding: 24px 0; opacity: 0.8; }
+
+    /* Comment Input */
+    .comment-input-wrap {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding: 16px;
+      background: rgba(17, 39, 82, 0.025);
+      border-radius: 12px;
+      border: 1px solid rgba(17, 39, 82, 0.05);
+    }
+    .comment-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      color: var(--warm-dark);
+      outline: none;
+      resize: none;
+      min-height: 40px;
+    }
+    .comment-input::placeholder { color: var(--warm-dark); opacity: 0.3; }
+    .comment-submit {
+      align-self: flex-end;
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: var(--navy);
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .comment-submit:hover { background: var(--bright-blue); transform: translateY(-1px); }
+
+    /* Comments */
+    .comments-section { margin-top: 0.5rem; }
+    .comments-header {
+      font-family: 'Fraunces', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .comment { position: relative; margin-bottom: 4px; }
+    .comment-thread { margin-left: 20px; padding-left: 16px; border-left: 2px solid rgba(17, 39, 82, 0.06); }
+    .comment-item { padding: 12px 14px; border-radius: var(--radius-sm); transition: var(--transition); }
+    .comment-item:hover { background: rgba(17, 39, 82, 0.02); }
+    .comment-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 6px; }
+    .comment-author { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .comment-time { font-size: 12px; color: var(--warm-dark); opacity: 0.35; }
+    .comment-text { font-size: 15px; line-height: 1.65; color: var(--warm-dark); opacity: 0.75; margin-bottom: 6px; }
+    .comment-actions { display: flex; gap: 1rem; align-items: center; }
+    .comment-action {
+      font-size: 12px;
+      color: var(--warm-dark);
+      opacity: 0.35;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      border: none;
+      background: none;
+      padding: 2px 6px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+    .comment-action:hover { opacity: 1; color: var(--bright-blue); background: rgba(18, 151, 224, 0.06); }
+    .comment-action.upvoted { color: var(--bright-blue); opacity: 1; }
+    .collapse-btn { cursor: pointer; color: var(--warm-dark); opacity: 0.4; font-size: 12px; border: none; background: none; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+    .collapse-btn:hover { opacity: 1; color: var(--bright-blue); }
+    .collapsed-indicator { font-size: 13px; color: var(--warm-dark); opacity: 0.4; padding: 8px 14px; cursor: pointer; font-style: italic; }
+
+    /* Reply Input */
+    .reply-input-wrap { margin: 8px 0 8px 14px; display: flex; gap: 0.5rem; }
+    .reply-input {
+      flex: 1;
+      border: 1.5px solid rgba(17, 39, 82, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      color: var(--warm-dark);
+      outline: none;
+      resize: none;
+      min-height: 36px;
+      transition: var(--transition);
+      background: var(--white);
+    }
+    .reply-input:focus { border-color: var(--bright-blue); box-shadow: 0 0 0 3px rgba(18, 151, 224, 0.08); }
+    .reply-submit {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: var(--navy);
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .reply-submit:hover { background: var(--bright-blue); }
+    .reply-cancel {
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: transparent;
+      color: var(--warm-dark);
+      opacity: 0.5;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* ========================================
+       CREATE POST MODAL
+       ======================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 26, 58, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 640px;
+      box-shadow: var(--warm-shadow-lg), 0 0 0 1px var(--warm-border);
+      animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--warm-border);
+    }
+    .modal-title {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0;
+    }
+    .modal-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(17, 39, 82, 0.05);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--navy);
+      transition: var(--transition);
+    }
+    .modal-close:hover { background: rgba(17, 39, 82, 0.1); }
+    .modal-body { padding: 28px; }
+    .form-group { margin-bottom: 22px; }
+    .form-label { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 8px; display: block; text-transform: uppercase; letter-spacing: 0.08em; }
+    .form-input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid rgba(17, 39, 82, 0.08);
+      border-radius: var(--radius-sm);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      color: var(--warm-dark);
+      outline: none;
+      transition: var(--transition);
+      background: var(--white);
+    }
+    .form-input:focus { border-color: var(--bright-blue); box-shadow: 0 0 0 3px rgba(18, 151, 224, 0.08); }
+    .form-input::placeholder { color: var(--warm-dark); opacity: 0.25; }
+    .form-textarea { min-height: 140px; resize: vertical; }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23112752' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .anon-toggle { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: rgba(17, 39, 82, 0.025); border-radius: var(--radius-sm); border: 1px solid rgba(17, 39, 82, 0.04); }
+    .toggle-switch { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; inset: 0; background: rgba(17, 39, 82, 0.12); border-radius: 24px; cursor: pointer; transition: var(--transition); }
+    .toggle-slider::before { content: ''; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: var(--transition); box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+    .toggle-switch input:checked + .toggle-slider { background: var(--bright-blue); }
+    .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+    .anon-label { font-size: 14px; color: var(--warm-dark); }
+    .anon-label span { display: block; font-size: 12px; color: var(--warm-dark); opacity: 0.4; margin-top: 2px; }
+    .modal-footer { padding: 16px 28px 28px; display: flex; justify-content: flex-end; gap: 0.75rem; }
+
+    /* ========================================
+       SIDEBAR
+       ======================================== */
+    .sidebar-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--warm-shadow-sm);
+      border: 1px solid var(--warm-border);
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-card-accent {
+      height: 3px;
+      background: linear-gradient(90deg, var(--bright-blue), var(--green));
+    }
+    .sidebar-card-inner {
+      padding: 24px;
+    }
+    .sidebar-title {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .sidebar-title i { color: var(--bright-blue); font-size: 14px; }
+    .sidebar-desc { font-size: 14px; line-height: 1.65; color: var(--warm-dark); opacity: 0.55; margin-bottom: 16px; }
+    .sidebar-rules { list-style: none; }
+    .sidebar-rules li {
+      font-size: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(17, 39, 82, 0.04);
+      color: var(--warm-dark);
+      display: flex;
+      gap: 0.75rem;
+      line-height: 1.5;
+      align-items: flex-start;
+    }
+    .sidebar-rules li:last-child { border-bottom: none; }
+    .sidebar-rules .rule-num {
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--white);
+      min-width: 22px;
+      height: 22px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .trending-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .trending-tag {
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(17, 39, 82, 0.04);
+      color: var(--navy);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+    .trending-tag:hover { background: rgba(18, 151, 224, 0.1); color: var(--bright-blue); border-color: rgba(18, 151, 224, 0.15); }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      padding: 3rem 0 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .footer p { font-size: 14px; color: rgba(255,255,255,0.35); }
+    .footer a { color: var(--light-blue); }
+    .footer a:hover { color: var(--green); }
+
+    /* Empty state */
+    .empty-state { text-align: center; padding: 4rem 2rem; color: var(--warm-dark); opacity: 0.4; }
+    .empty-state i { font-size: 48px; margin-bottom: 1rem; }
+    .empty-state h3 { color: var(--navy); margin-bottom: 0.5rem; opacity: 1; }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 1068px) {
+      .feed-sidebar { display: none; }
+      .feed-main { max-width: 100%; }
+    }
+    @media (max-width: 734px) {
+      .lp-hero-title { font-size: 42px; }
+      .lp-hero-subtitle { font-size: 17px; }
+      .lp-hero { padding: 6.5rem 0 2.5rem; }
+      .lp-hero-logo { max-width: 380px; margin-bottom: 16px; }
+      .lp-hero-stats { flex-direction: column; gap: 0; align-items: center; }
+      .lp-stat { padding: 14px 40px; width: 240px; }
+      .lp-stat:first-child { border-radius: 16px 16px 0 0; }
+      .lp-stat:last-child { border-radius: 0 0 16px 16px; }
+      .lp-stat:not(:last-child) { border-right: 1px solid rgba(255, 255, 255, 0.06); border-bottom: none; }
+      .filter-inner { flex-direction: column; align-items: stretch; }
+      .category-filters { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+      .post-title { font-size: 17px; }
+      .post-vote { padding: 16px 8px; min-width: 44px; }
+      .post-body { padding: 16px 16px 16px 10px; }
+      .post-expanded { padding-left: 52px; }
+      .nav-menu {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 4px 12px rgba(17, 39, 82, 0.08);
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--transition);
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--warm-border);
+      }
+      .nav-menu.active { transform: translateY(0); opacity: 1; pointer-events: all; }
+      .nav-item { margin: 0; }
+      .nav-link { display: block; padding: 0.75rem 1.5rem; }
+      .hamburger { display: block; }
+      .modal { margin: 1rem; max-height: calc(100vh - 2rem); }
+      .lp-hero-badge { font-size: 11px; padding: 6px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <img src="img/logo7.png" alt="Eatpol" style="height:28px;">
+        Eatpol
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="index.html#plan" class="nav-link">Your plan</a></li>
+        <li class="nav-item"><a href="request_pilot.html" class="nav-link">Request a Pilot</a></li>
+        <li class="nav-item"><a href="eathnos.html" class="nav-link active">EATθNOS</a></li>
+        <li class="nav-item"><a href="index.html#faq" class="nav-link">FAQ</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">About us</a></li>
+        <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="document.getElementById('navMenu').classList.toggle('active'); this.classList.toggle('active');">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="lp-hero">
+  <div class="hero-grid"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-fade"></div>
+  <div class="container lp-hero-content">
+    <img src="Eathnos.svg" alt="EATθNOS" class="lp-hero-logo">
+    <div class="lp-hero-badge"><i class="fas fa-seedling"></i> Food Innovation Community</div>
+    <h1 class="lp-hero-title">EATθNOS</h1>
+    <p class="lp-hero-subtitle">Share tips, ask questions, and learn from fellow innovators launching products people love.</p>
+    <button class="btn btn-primary" onclick="openModal()">
+      <i class="fas fa-pen" style="margin-right:8px;"></i><span>Start a Discussion</span>
+    </button>
+    <div class="lp-hero-stats" id="heroStats">
+      <div class="lp-stat">
+        <div class="lp-stat-number" id="statPosts">0</div>
+        <div class="lp-stat-label">Discussions</div>
+      </div>
+      <div class="lp-stat">
+        <div class="lp-stat-number" id="statComments">0</div>
+        <div class="lp-stat-label">Comments</div>
+      </div>
+      <div class="lp-stat">
+        <div class="lp-stat-number" id="statMembers">0</div>
+        <div class="lp-stat-label">Innovators</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Bar -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-inner">
+      <div class="category-filters" id="categoryFilters">
+        <button class="cat-pill active" data-cat="all">All</button>
+        <button class="cat-pill" data-cat="product-dev">Product Dev</button>
+        <button class="cat-pill" data-cat="marketing">Marketing</button>
+        <button class="cat-pill" data-cat="consumer-testing">Consumer Testing</button>
+        <button class="cat-pill" data-cat="packaging">Packaging</button>
+        <button class="cat-pill" data-cat="regulatory">Regulatory</button>
+        <button class="cat-pill" data-cat="general">General</button>
+      </div>
+      <div class="sort-tabs" id="sortTabs">
+        <button class="sort-tab active" data-sort="trending">Trending</button>
+        <button class="sort-tab" data-sort="recent">Recent</button>
+        <button class="sort-tab" data-sort="discussed">Most Discussed</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feed -->
+<div class="container">
+  <div class="feed-layout">
+    <div class="feed-main" id="feed"></div>
+
+    <!-- Sidebar -->
+    <aside class="feed-sidebar">
+      <div class="sidebar-card reveal">
+        <div class="sidebar-card-accent"></div>
+        <div class="sidebar-card-inner">
+          <div class="sidebar-title"><i class="fas fa-rocket"></i> About EATθNOS</div>
+          <p class="sidebar-desc">A community for food innovators to share knowledge about product development, marketing strategies, consumer testing, and everything related to launching food products.</p>
+          <button class="btn btn-primary" style="width:100%; font-size:14px; padding:10px 20px;" onclick="openModal()">
+            <i class="fas fa-pen" style="margin-right:6px;"></i><span>Start a Discussion</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-card reveal">
+        <div class="sidebar-card-accent"></div>
+        <div class="sidebar-card-inner">
+          <div class="sidebar-title"><i class="fas fa-shield-alt"></i> Community Guidelines</div>
+          <ul class="sidebar-rules">
+            <li><span class="rule-num">1</span> Be respectful and constructive</li>
+            <li><span class="rule-num">2</span> Share real experiences, not promotions</li>
+            <li><span class="rule-num">3</span> Protect confidential business info</li>
+            <li><span class="rule-num">4</span> Give credit where it's due</li>
+            <li><span class="rule-num">5</span> Keep discussions relevant to food innovation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sidebar-card reveal">
+        <div class="sidebar-card-accent"></div>
+        <div class="sidebar-card-inner">
+          <div class="sidebar-title"><i class="fas fa-fire"></i> Trending Topics</div>
+          <div class="trending-tags">
+            <span class="trending-tag">plant-based</span>
+            <span class="trending-tag">consumer panels</span>
+            <span class="trending-tag">EU regulations</span>
+            <span class="trending-tag">AI testing</span>
+            <span class="trending-tag">Gen Z</span>
+            <span class="trending-tag">sustainable packaging</span>
+            <span class="trending-tag">sensory analysis</span>
+            <span class="trending-tag">pricing strategy</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- Create Post Modal -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">Start a Discussion</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-input" id="postTitle" placeholder="What's on your mind?" maxlength="200">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Details</label>
+        <textarea class="form-input form-textarea" id="postBody" placeholder="Share your experience, question, or insight..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select class="form-input form-select" id="postCategory">
+          <option value="general">General</option>
+          <option value="product-dev">Product Development</option>
+          <option value="marketing">Marketing</option>
+          <option value="consumer-testing">Consumer Testing</option>
+          <option value="packaging">Packaging</option>
+          <option value="regulatory">Regulatory</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" id="postAuthor" placeholder="Enter your name or leave blank for anonymous">
+      </div>
+      <div class="anon-toggle">
+        <label class="toggle-switch">
+          <input type="checkbox" id="anonToggle">
+          <span class="toggle-slider"></span>
+        </label>
+        <div class="anon-label">
+          Post anonymously
+          <span>Your identity will be hidden from others</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal()" style="padding:10px 24px; font-size:14px;">Cancel</button>
+      <button class="btn btn-primary" onclick="submitPost()" style="padding:10px 24px; font-size:14px;">
+        <i class="fas fa-paper-plane" style="margin-right:6px;"></i><span>Post</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 Eatpol. All rights reserved. | <a href="privacy_policy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+  </div>
+</footer>
+
+<script>
+// =========================================================
+// EATθNOS — Client-Side Community Forum
+// =========================================================
+
+const CATEGORIES = {
+  'product-dev': { label: 'Product Dev', class: 'cat-product-dev' },
+  'marketing': { label: 'Marketing', class: 'cat-marketing' },
+  'consumer-testing': { label: 'Consumer Testing', class: 'cat-consumer-testing' },
+  'packaging': { label: 'Packaging', class: 'cat-packaging' },
+  'regulatory': { label: 'Regulatory', class: 'cat-regulatory' },
+  'general': { label: 'General', class: 'cat-general' }
+};
+
+// --- Seed Data ---
+const SEED_POSTS = [
+  {
+    id: 'seed1', title: 'How we reduced our product development cycle by 40%',
+    body: 'After years of slow iteration, we restructured our development process around rapid prototyping and early consumer feedback loops. Instead of waiting for a "perfect" formulation, we started testing MVPs (minimum viable products) with small panels of 30-50 consumers within the first 2 weeks.\n\nThe key changes:\n1. Parallel workstreams for formulation and packaging\n2. Weekly micro-tests with 10 consumers instead of quarterly panels of 200\n3. Using AI tools for sentiment analysis on open-ended feedback\n4. Cutting internal approval gates from 5 to 2\n\nThe result? We went from 18 months to 11 months average time-to-market. Happy to share more details if anyone is interested.',
+    category: 'product-dev', author: 'Sarah M.', anonymous: false, upvotes: 47, upvotedBy: [],
+    createdAt: new Date(Date.now() - 2 * 86400000).toISOString(),
+    comments: [
+      { id: 'c1', author: 'Marco R.', text: 'This is brilliant. We\'ve been stuck at 14+ months. The parallel workstreams idea is something I want to pitch to our R&D lead. Did you face resistance internally?', upvotes: 12, upvotedBy: [], createdAt: new Date(Date.now() - 1.5 * 86400000).toISOString(), replies: [
+        { id: 'c1r1', author: 'Sarah M.', text: 'Definitely some pushback from quality. The key was showing that micro-tests actually caught issues earlier, so quality improved rather than degraded. Data speaks louder than opinions!', upvotes: 8, upvotedBy: [], createdAt: new Date(Date.now() - 1.2 * 86400000).toISOString(), replies: [] }
+      ]},
+      { id: 'c2', author: 'Anonymous Innovator', text: 'We tried something similar but struggled with statistical significance on small panels. How do you handle that?', upvotes: 5, upvotedBy: [], createdAt: new Date(Date.now() - 86400000).toISOString(), replies: [] }
+    ]
+  },
+  {
+    id: 'seed2', title: 'Best practices for in-home consumer testing panels',
+    body: 'I\'ve been running in-home consumer tests for 3 years now, and here are my top lessons:\n\n- Recruit participants who actually buy the category (sounds obvious, but many panels include non-buyers)\n- Keep surveys under 10 minutes — response quality drops dramatically after that\n- Include at least one open-ended question about their honest first impression\n- Use photo/video capture to see real usage context\n- Follow up within 48 hours while the experience is fresh\n- Always include a benchmark product for comparison\n\nTools like Eatpol\'s platform have been a game-changer for automating the analysis part. What practices have worked for others?',
+    category: 'consumer-testing', author: 'Dr. Lisa Chen', anonymous: false, upvotes: 63, upvotedBy: [],
+    createdAt: new Date(Date.now() - 5 * 86400000).toISOString(),
+    comments: [
+      { id: 'c3', author: 'James P.', text: 'The 10-minute rule is golden. We shortened our questionnaire from 25 mins to 8 and the quality of responses improved significantly. Less is more.', upvotes: 15, upvotedBy: [], createdAt: new Date(Date.now() - 4 * 86400000).toISOString(), replies: [] },
+      { id: 'c4', author: 'Anonymous Innovator', text: 'How do you handle product shipping for in-home tests? Especially temperature-sensitive items?', upvotes: 9, upvotedBy: [], createdAt: new Date(Date.now() - 3.5 * 86400000).toISOString(), replies: [
+        { id: 'c4r1', author: 'Dr. Lisa Chen', text: 'Great question. We use insulated packaging with gel packs for chilled products and overnight shipping. For frozen products, we partner with local distributors. It adds cost but the data quality makes it worthwhile.', upvotes: 7, upvotedBy: [], createdAt: new Date(Date.now() - 3 * 86400000).toISOString(), replies: [] }
+      ]}
+    ]
+  },
+  {
+    id: 'seed3', title: 'Navigating EU Novel Food regulations — our experience',
+    body: 'We just went through the Novel Food authorization process for a new ingredient and it took us 22 months. Here\'s what we learned:\n\n1. Start the safety dossier early — it\'s the biggest bottleneck\n2. Engage with EFSA informally before the formal submission\n3. Budget for toxicology studies (€150k-300k depending on complexity)\n4. Get legal counsel specialized in EU food law, not general food regulatory\n5. The "traditional use" pathway can be faster if you have evidence of consumption history in third countries\n\nThe process is complex but navigable if you plan ahead. Don\'t underestimate the timeline — 18-24 months is realistic for most applications.',
+    category: 'regulatory', author: 'Anonymous Innovator', anonymous: true, upvotes: 31, upvotedBy: [],
+    createdAt: new Date(Date.now() - 7 * 86400000).toISOString(),
+    comments: [
+      { id: 'c5', author: 'Elena V.', text: 'Thank you for sharing this. The budget numbers are really helpful for our planning. Did you use a regulatory consultant or handle it in-house?', upvotes: 6, upvotedBy: [], createdAt: new Date(Date.now() - 6 * 86400000).toISOString(), replies: [] }
+    ]
+  },
+  {
+    id: 'seed4', title: 'What packaging materials work best for plant-based snacks?',
+    body: 'We\'re developing a line of plant-based protein bars and trying to decide on packaging. Currently evaluating:\n\n- Flow wrap (BOPP) — cheapest, good barrier, not recyclable in most areas\n- Compostable films — on-brand but barrier properties are still poor for moisture-sensitive products\n- Mono-material PE pouches — recyclable, decent barrier with coatings\n- Paper-based wrappers with thin PE liner — looks premium, partially recyclable\n\nWe want to balance shelf life (minimum 9 months), sustainability messaging, and cost. What have others found works in practice?',
+    category: 'packaging', author: 'Tom B.', anonymous: false, upvotes: 28, upvotedBy: [],
+    createdAt: new Date(Date.now() - 3 * 86400000).toISOString(),
+    comments: [
+      { id: 'c6', author: 'Anonymous Innovator', text: 'We went with mono-PE for our granola bars. Good recyclability story, decent shelf life (~10 months), and cost is only about 15% more than BOPP. The sustainability angle actually helped with retailer listings.', upvotes: 11, upvotedBy: [], createdAt: new Date(Date.now() - 2.5 * 86400000).toISOString(), replies: [] },
+      { id: 'c7', author: 'Priya K.', text: 'Don\'t overlook the consumer perception angle. We tested 3 packaging types with consumers and paper-based scored highest on "premium" and "sustainable" perception, even though the actual environmental impact was similar to mono-PE.', upvotes: 14, upvotedBy: [], createdAt: new Date(Date.now() - 2 * 86400000).toISOString(), replies: [] }
+    ]
+  },
+  {
+    id: 'seed5', title: 'Marketing a functional beverage to Gen Z — lessons learned',
+    body: 'We launched a nootropic-infused sparkling water targeting 18-25 year olds. Here\'s what actually worked vs. what we expected:\n\nWhat worked:\n- TikTok > Instagram for awareness (3x engagement rate)\n- Micro-influencers (5k-50k followers) outperformed macro-influencers 2:1 on conversion\n- Sampling at university events and co-working spaces\n- Transparent ingredient storytelling (they Google everything)\n\nWhat didn\'t work:\n- Facebook ads (basically zero traction with this demographic)\n- Celebrity endorsement (too expensive, low authenticity perception)\n- "Science-heavy" messaging (they want benefits, not mechanism)\n- Traditional PR/media placements\n\nOur CAC dropped 60% when we shifted budget from traditional to creator-led marketing.',
+    category: 'marketing', author: 'Alex Rivera', anonymous: false, upvotes: 52, upvotedBy: [],
+    createdAt: new Date(Date.now() - 4 * 86400000).toISOString(),
+    comments: [
+      { id: 'c8', author: 'Nina S.', text: 'The micro-influencer insight is spot-on. We found the same with our kombucha brand. Authenticity beats reach every time with Gen Z.', upvotes: 18, upvotedBy: [], createdAt: new Date(Date.now() - 3.5 * 86400000).toISOString(), replies: [
+        { id: 'c8r1', author: 'Alex Rivera', text: 'Exactly. And the cost per engagement is a fraction. We now have an always-on program with about 40 micro-creators. The content they produce is also way more authentic than anything our agency made.', upvotes: 9, upvotedBy: [], createdAt: new Date(Date.now() - 3 * 86400000).toISOString(), replies: [] }
+      ]},
+      { id: 'c9', author: 'Anonymous Innovator', text: 'Curious about the sampling strategy. How did you measure conversion from sampling events to repeat purchase?', upvotes: 7, upvotedBy: [], createdAt: new Date(Date.now() - 2.5 * 86400000).toISOString(), replies: [] }
+    ]
+  },
+  {
+    id: 'seed6', title: 'Anyone tried AI-powered sensory analysis tools?',
+    body: 'Our company is evaluating whether to invest in AI-powered sensory analysis tools versus traditional trained panels. We\'ve been using a 12-person trained panel for years, but the cost and time are becoming prohibitive.\n\nI\'ve seen a few options:\n- Electronic tongue/nose devices with ML interpretation\n- Consumer panel + NLP analysis of open-ended responses\n- Predictive formulation tools that estimate sensory profiles from ingredient data\n\nHas anyone actually implemented any of these? What was the accuracy compared to trained panels? We\'re especially interested in the NLP approach since it could scale better.\n\nAny recommendations or warnings?',
+    category: 'general', author: 'David K.', anonymous: false, upvotes: 35, upvotedBy: [],
+    createdAt: new Date(Date.now() - 6 * 86400000).toISOString(),
+    comments: [
+      { id: 'c10', author: 'Anonymous Innovator', text: 'We tested the Eatpol approach with NLP analysis on consumer responses. Very impressed — it identified texture issues that even our trained panel missed because consumers describe things differently than experts. Highly recommend exploring it.', upvotes: 13, upvotedBy: [], createdAt: new Date(Date.now() - 5 * 86400000).toISOString(), replies: [] },
+      { id: 'c11', author: 'Prof. Anna W.', text: 'From an academic perspective, the hybrid approach works best. Use AI/NLP for screening and trend identification, but keep a small trained panel for critical go/no-go decisions. The tools complement each other.', upvotes: 21, upvotedBy: [], createdAt: new Date(Date.now() - 4.5 * 86400000).toISOString(), replies: [] }
+    ]
+  },
+  {
+    id: 'seed7', title: 'Tips for writing effective consumer test questionnaires',
+    body: 'After designing 100+ consumer questionnaires, here are my hard-won tips:\n\n1. Lead with overall liking BEFORE attribute questions (avoid anchoring bias)\n2. Use unipolar scales for intensity, bipolar for hedonic questions\n3. Include a purchase intent question with price context\n4. Limit attributes to 8-10 max (beyond that, fatigue kills data quality)\n5. Randomize attribute order between respondents\n6. Use "just right" scales for optimization studies\n7. Include one attention check question (e.g., "select strongly agree")\n8. End with an open-ended "anything else?" — you\'ll be surprised what you learn\n\nThe biggest mistake I see is trying to answer too many research questions in one test. Focus on 2-3 key objectives max.',
+    category: 'consumer-testing', author: 'Rachel T.', anonymous: false, upvotes: 44, upvotedBy: [],
+    createdAt: new Date(Date.now() - 8 * 86400000).toISOString(),
+    comments: [
+      { id: 'c12', author: 'Marcus L.', text: 'Point 1 is so important and often overlooked. We used to put taste and texture before overall liking, and it consistently inflated scores because respondents would think harder about positives.', upvotes: 10, upvotedBy: [], createdAt: new Date(Date.now() - 7 * 86400000).toISOString(), replies: [] }
+    ]
+  },
+  {
+    id: 'seed8', title: 'How to price a premium plant-based product in a competitive market',
+    body: 'We\'re launching a premium oat-based dessert range and struggling with pricing. The production cost is about 35% higher than dairy equivalents, and we need to decide between:\n\nA) Price at parity with premium dairy — absorb the cost hit, aim for volume\nB) Price at 20-30% premium — justify through quality/sustainability messaging\nC) Price at 40%+ premium — ultra-premium positioning, smaller but loyal customer base\n\nOur consumer research shows willingness-to-pay is highest in urban areas (30-45 age group), but price sensitivity increases dramatically outside major cities.\n\nWhat pricing strategies have worked for others in the plant-based space?',
+    category: 'marketing', author: 'Anonymous Innovator', anonymous: true, upvotes: 38, upvotedBy: [],
+    createdAt: new Date(Date.now() - 1 * 86400000).toISOString(),
+    comments: [
+      { id: 'c13', author: 'Sophie D.', text: 'We went with option B for our plant-based cheese and it worked well. The key was having a strong "reason to believe" for the premium — for us it was locally sourced ingredients and zero-waste production. Consumers will pay more if the story is authentic.', upvotes: 16, upvotedBy: [], createdAt: new Date(Date.now() - 0.5 * 86400000).toISOString(), replies: [
+        { id: 'c13r1', author: 'Anonymous Innovator', text: 'That\'s really helpful, thanks Sophie. Did you see any resistance from retailers on the shelf price?', upvotes: 3, upvotedBy: [], createdAt: new Date(Date.now() - 0.3 * 86400000).toISOString(), replies: [
+          { id: 'c13r2', author: 'Sophie D.', text: 'Initially yes, but we offered an introductory promotion (buy one get one 50% off) for the first month which helped with velocity. After that, the repeat purchase rate justified the shelf space.', upvotes: 8, upvotedBy: [], createdAt: new Date(Date.now() - 0.2 * 86400000).toISOString(), replies: [] }
+        ]}
+      ]}
+    ]
+  }
+];
+
+// --- State ---
+let state = { posts: [], currentFilter: 'all', currentSort: 'trending', expandedPost: null };
+
+function loadState() {
+  const saved = localStorage.getItem('eathnos_data');
+  if (saved) {
+    state.posts = JSON.parse(saved);
+  } else {
+    state.posts = JSON.parse(JSON.stringify(SEED_POSTS));
+    saveState();
+  }
+}
+
+function saveState() {
+  localStorage.setItem('eathnos_data', JSON.stringify(state.posts));
+}
+
+// --- Helpers ---
+function timeAgo(dateStr) {
+  const seconds = Math.floor((Date.now() - new Date(dateStr).getTime()) / 1000);
+  if (seconds < 60) return 'just now';
+  const mins = Math.floor(seconds / 60);
+  if (mins < 60) return mins + 'm ago';
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return hours + 'h ago';
+  const days = Math.floor(hours / 24);
+  if (days < 30) return days + 'd ago';
+  return Math.floor(days / 30) + 'mo ago';
+}
+
+function countAllComments(comments) {
+  let count = 0;
+  for (const c of comments) {
+    count++;
+    if (c.replies) count += countAllComments(c.replies);
+  }
+  return count;
+}
+
+function generateId() {
+  return 'p' + Date.now() + Math.random().toString(36).substr(2, 6);
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// --- Render ---
+function getFilteredPosts() {
+  let posts = state.posts;
+  if (state.currentFilter !== 'all') {
+    posts = posts.filter(p => p.category === state.currentFilter);
+  }
+  posts = [...posts];
+  switch (state.currentSort) {
+    case 'trending':
+      posts.sort((a, b) => {
+        const scoreA = a.upvotes + countAllComments(a.comments) * 2;
+        const scoreB = b.upvotes + countAllComments(b.comments) * 2;
+        return scoreB - scoreA;
+      });
+      break;
+    case 'recent':
+      posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      break;
+    case 'discussed':
+      posts.sort((a, b) => countAllComments(b.comments) - countAllComments(a.comments));
+      break;
+  }
+  return posts;
+}
+
+function renderFeed() {
+  const feed = document.getElementById('feed');
+  const posts = getFilteredPosts();
+
+  if (posts.length === 0) {
+    feed.innerHTML = '<div class="empty-state"><i class="fas fa-comments"></i><h3>No discussions yet</h3><p>Be the first to start a conversation!</p></div>';
+    updateStats();
+    return;
+  }
+
+  feed.innerHTML = posts.map(post => renderPostCard(post)).join('');
+  updateStats();
+}
+
+function renderPostCard(post) {
+  const cat = CATEGORIES[post.category] || CATEGORIES.general;
+  const commentCount = countAllComments(post.comments);
+  const isExpanded = state.expandedPost === post.id;
+  const authorDisplay = post.anonymous ? 'Anonymous Innovator' : escapeHtml(post.author);
+  const avatarClass = post.anonymous ? 'post-author-avatar anonymous' : 'post-author-avatar';
+  const avatarLetter = post.anonymous ? '?' : post.author.charAt(0).toUpperCase();
+
+  return `
+    <div class="post-card" data-category="${post.category}" id="post-${post.id}">
+      <div class="post-card-inner">
+        <div class="post-vote">
+          <button class="vote-btn ${post.upvotedBy.includes('me') ? 'upvoted' : ''}" onclick="event.stopPropagation(); upvotePost('${post.id}')">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+          <span class="vote-count">${post.upvotes}</span>
+        </div>
+        <div class="post-body" onclick="togglePost('${post.id}')">
+          <span class="post-category ${cat.class}">${cat.label}</span>
+          <h3 class="post-title">${escapeHtml(post.title)}</h3>
+          ${!isExpanded ? `<p class="post-preview">${escapeHtml(post.body)}</p>` : ''}
+          <div class="post-meta">
+            <div class="post-meta-item">
+              <span class="${avatarClass}">${avatarLetter}</span>
+              ${authorDisplay}
+            </div>
+            <div class="post-meta-item"><i class="far fa-clock"></i> ${timeAgo(post.createdAt)}</div>
+            <div class="post-meta-item"><i class="far fa-comment"></i> ${commentCount} comment${commentCount !== 1 ? 's' : ''}</div>
+          </div>
+        </div>
+      </div>
+      <div class="post-expanded ${isExpanded ? 'show' : ''}">
+        ${isExpanded ? renderExpandedContent(post) : ''}
+      </div>
+    </div>
+  `;
+}
+
+function renderExpandedContent(post) {
+  const commentCount = countAllComments(post.comments);
+  return `
+    <div class="post-full-text">${escapeHtml(post.body).replace(/\n/g, '<br>')}</div>
+    <div class="comment-input-wrap">
+      <textarea class="comment-input" id="comment-input-${post.id}" placeholder="Share your thoughts..." rows="1" oninput="this.style.height='auto'; this.style.height=this.scrollHeight+'px';"></textarea>
+      <button class="comment-submit" onclick="submitComment('${post.id}')">Reply</button>
+    </div>
+    <div class="comments-section">
+      <div class="comments-header"><i class="far fa-comments"></i> ${commentCount} Comment${commentCount !== 1 ? 's' : ''}</div>
+      ${post.comments.map(c => renderComment(c, post.id, 0)).join('')}
+    </div>
+  `;
+}
+
+function renderComment(comment, postId, depth) {
+  const authorDisplay = comment.author === 'Anonymous Innovator' ? 'Anonymous Innovator' : escapeHtml(comment.author);
+  const avatarClass = comment.author === 'Anonymous Innovator' ? 'post-author-avatar anonymous' : 'post-author-avatar';
+  const avatarLetter = comment.author === 'Anonymous Innovator' ? '?' : comment.author.charAt(0).toUpperCase();
+
+  const repliesHtml = comment.replies && comment.replies.length > 0
+    ? `<div class="comment-thread">${comment.replies.map(r => renderComment(r, postId, depth + 1)).join('')}</div>`
+    : '';
+
+  return `
+    <div class="comment" id="comment-${comment.id}">
+      <div class="comment-item">
+        <div class="comment-header">
+          <span class="${avatarClass}" style="width:18px;height:18px;font-size:9px;">${avatarLetter}</span>
+          <span class="comment-author">${authorDisplay}</span>
+          <span class="comment-time">${timeAgo(comment.createdAt)}</span>
+        </div>
+        <p class="comment-text">${escapeHtml(comment.text).replace(/\n/g, '<br>')}</p>
+        <div class="comment-actions">
+          <button class="comment-action ${comment.upvotedBy && comment.upvotedBy.includes('me') ? 'upvoted' : ''}" onclick="upvoteComment('${postId}', '${comment.id}')">
+            <i class="fas fa-arrow-up"></i> ${comment.upvotes}
+          </button>
+          <button class="comment-action" onclick="showReply('${postId}', '${comment.id}')">
+            <i class="fas fa-reply"></i> Reply
+          </button>
+        </div>
+        <div id="reply-form-${comment.id}" style="display:none;">
+          <div class="reply-input-wrap">
+            <textarea class="reply-input" id="reply-input-${comment.id}" placeholder="Write a reply..." rows="1" oninput="this.style.height='auto'; this.style.height=this.scrollHeight+'px';"></textarea>
+            <button class="reply-submit" onclick="submitReply('${postId}', '${comment.id}')">Reply</button>
+            <button class="reply-cancel" onclick="document.getElementById('reply-form-${comment.id}').style.display='none'">Cancel</button>
+          </div>
+        </div>
+      </div>
+      ${repliesHtml}
+    </div>
+  `;
+}
+
+// --- Actions ---
+function togglePost(postId) {
+  state.expandedPost = state.expandedPost === postId ? null : postId;
+  renderFeed();
+  if (state.expandedPost) {
+    setTimeout(() => {
+      const el = document.getElementById('post-' + postId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
+}
+
+function upvotePost(postId) {
+  const post = state.posts.find(p => p.id === postId);
+  if (!post) return;
+  const idx = post.upvotedBy.indexOf('me');
+  if (idx > -1) {
+    post.upvotedBy.splice(idx, 1);
+    post.upvotes--;
+  } else {
+    post.upvotedBy.push('me');
+    post.upvotes++;
+  }
+  saveState();
+  renderFeed();
+}
+
+function findComment(comments, commentId) {
+  for (const c of comments) {
+    if (c.id === commentId) return c;
+    if (c.replies) {
+      const found = findComment(c.replies, commentId);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+
+function upvoteComment(postId, commentId) {
+  const post = state.posts.find(p => p.id === postId);
+  if (!post) return;
+  const comment = findComment(post.comments, commentId);
+  if (!comment) return;
+  if (!comment.upvotedBy) comment.upvotedBy = [];
+  const idx = comment.upvotedBy.indexOf('me');
+  if (idx > -1) {
+    comment.upvotedBy.splice(idx, 1);
+    comment.upvotes--;
+  } else {
+    comment.upvotedBy.push('me');
+    comment.upvotes++;
+  }
+  saveState();
+  renderFeed();
+}
+
+function showReply(postId, commentId) {
+  const form = document.getElementById('reply-form-' + commentId);
+  if (form) {
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    if (form.style.display === 'block') {
+      const input = document.getElementById('reply-input-' + commentId);
+      if (input) input.focus();
+    }
+  }
+}
+
+function submitComment(postId) {
+  const input = document.getElementById('comment-input-' + postId);
+  if (!input || !input.value.trim()) return;
+  const post = state.posts.find(p => p.id === postId);
+  if (!post) return;
+
+  post.comments.push({
+    id: generateId(),
+    author: 'You',
+    text: input.value.trim(),
+    upvotes: 0,
+    upvotedBy: [],
+    createdAt: new Date().toISOString(),
+    replies: []
+  });
+  saveState();
+  renderFeed();
+}
+
+function submitReply(postId, commentId) {
+  const input = document.getElementById('reply-input-' + commentId);
+  if (!input || !input.value.trim()) return;
+  const post = state.posts.find(p => p.id === postId);
+  if (!post) return;
+  const comment = findComment(post.comments, commentId);
+  if (!comment) return;
+  if (!comment.replies) comment.replies = [];
+
+  comment.replies.push({
+    id: generateId(),
+    author: 'You',
+    text: input.value.trim(),
+    upvotes: 0,
+    upvotedBy: [],
+    createdAt: new Date().toISOString(),
+    replies: []
+  });
+  saveState();
+  renderFeed();
+}
+
+// --- Modal ---
+function openModal() {
+  document.getElementById('createModal').classList.add('show');
+  document.getElementById('postTitle').focus();
+}
+
+function closeModal() {
+  document.getElementById('createModal').classList.remove('show');
+  document.getElementById('postTitle').value = '';
+  document.getElementById('postBody').value = '';
+  document.getElementById('postAuthor').value = '';
+  document.getElementById('anonToggle').checked = false;
+}
+
+function submitPost() {
+  const title = document.getElementById('postTitle').value.trim();
+  const body = document.getElementById('postBody').value.trim();
+  const category = document.getElementById('postCategory').value;
+  const authorName = document.getElementById('postAuthor').value.trim();
+  const isAnon = document.getElementById('anonToggle').checked;
+
+  if (!title) { document.getElementById('postTitle').focus(); return; }
+  if (!body) { document.getElementById('postBody').focus(); return; }
+
+  state.posts.unshift({
+    id: generateId(),
+    title,
+    body,
+    category,
+    author: isAnon ? 'Anonymous Innovator' : (authorName || 'Anonymous Innovator'),
+    anonymous: isAnon || !authorName,
+    upvotes: 0,
+    upvotedBy: [],
+    createdAt: new Date().toISOString(),
+    comments: []
+  });
+
+  saveState();
+  closeModal();
+  state.currentSort = 'recent';
+  document.querySelectorAll('.sort-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector('.sort-tab[data-sort="recent"]').classList.add('active');
+  renderFeed();
+}
+
+// --- Filters & Sort ---
+document.getElementById('categoryFilters').addEventListener('click', function(e) {
+  if (e.target.classList.contains('cat-pill')) {
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+    e.target.classList.add('active');
+    state.currentFilter = e.target.dataset.cat;
+    state.expandedPost = null;
+    renderFeed();
+  }
+});
+
+document.getElementById('sortTabs').addEventListener('click', function(e) {
+  if (e.target.classList.contains('sort-tab')) {
+    document.querySelectorAll('.sort-tab').forEach(t => t.classList.remove('active'));
+    e.target.classList.add('active');
+    state.currentSort = e.target.dataset.sort;
+    renderFeed();
+  }
+});
+
+// --- Stats with counter animation ---
+function animateCounter(el, target) {
+  const duration = 800;
+  const start = performance.now();
+  const from = 0;
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(from + (target - from) * eased);
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function updateStats() {
+  const totalPosts = state.posts.length;
+  let totalComments = 0;
+  const authors = new Set();
+  state.posts.forEach(p => {
+    totalComments += countAllComments(p.comments);
+    authors.add(p.author);
+    function addCommentAuthors(comments) {
+      comments.forEach(c => {
+        authors.add(c.author);
+        if (c.replies) addCommentAuthors(c.replies);
+      });
+    }
+    addCommentAuthors(p.comments);
+  });
+
+  const statPosts = document.getElementById('statPosts');
+  const statComments = document.getElementById('statComments');
+  const statMembers = document.getElementById('statMembers');
+
+  if (!statPosts._animated) {
+    animateCounter(statPosts, totalPosts);
+    animateCounter(statComments, totalComments);
+    animateCounter(statMembers, authors.size);
+    statPosts._animated = true;
+  } else {
+    statPosts.textContent = totalPosts;
+    statComments.textContent = totalComments;
+    statMembers.textContent = authors.size;
+  }
+}
+
+// --- Scroll reveal for sidebar ---
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// --- Close modal on overlay click ---
+document.getElementById('createModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// --- Close modal on Escape ---
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// --- Init ---
+loadState();
+renderFeed();
+</script>
+
+</body>
+</html>
