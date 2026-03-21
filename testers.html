@@ -1430,8 +1430,8 @@
             document.getElementById('loadingSpinner').style.display = 'block';
             document.getElementById('submitBtn').disabled = true;
 
-            // Let Netlify Forms handle the submission
-            // The form will submit normally and redirect to index.html with success parameter
+            // Submit the form to Netlify
+            this.submit();
         });
         
         // Show/hide delivery address (street) based on participation type
