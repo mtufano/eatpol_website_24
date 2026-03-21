@@ -890,11 +890,16 @@
             </div>
             
             <div class="form-container">
-                <div class="success-message" id="successMessage" style="background: #e8f5e9; border: 1px solid #4caf50; color: #2e7d32; padding: 1rem; border-radius: 10px; margin-bottom: 1rem; display: none; text-align: center;">
-                    <i class="fas fa-check-circle"></i> Registration successful! We'll contact you soon.
+                <div class="success-message" id="successMessage" style="display: none; text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(0, 191, 99, 0.06), rgba(18, 151, 224, 0.06)); border: 1.5px solid rgba(0, 191, 99, 0.2); border-radius: 20px; margin-bottom: 2rem;">
+                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #00bf63, #1297e0); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <h3 style="font-family: 'Fraunces', Georgia, serif; color: #112752; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 600;">You're in!</h3>
+                    <p style="color: #5a5a6e; font-size: 1rem; line-height: 1.6; max-width: 480px; margin: 0 auto 0.5rem; opacity: 1;">We'll contact you when a study is available in your area. In the meantime, keep an eye on your inbox.</p>
+                    <p style="color: #8a92a6; font-size: 0.85rem; opacity: 1;">Questions? Reach us at <a href="mailto:info@eatpol.com" style="color: #1297e0;">info@eatpol.com</a></p>
                 </div>
-                
-                <form id="testerForm" name="tester-registration" method="POST" data-netlify="true" action="/?tester=success" class="contact-form">
+
+                <form id="testerForm" name="tester-registration" method="POST" data-netlify="true" action="/testers.html?success=1" class="contact-form">
                     <!-- Netlify Forms - no CSRF token needed -->
                     
                     <input type="hidden" name="program_type" value="standard">
@@ -1514,6 +1519,18 @@
         
         // JavaScript for mobile menu toggle and smooth scrolling
         document.addEventListener('DOMContentLoaded', function() {
+            // Show success message if redirected after form submission
+            if (new URLSearchParams(window.location.search).get('success') === '1') {
+                const form = document.getElementById('testerForm');
+                const successMsg = document.getElementById('successMessage');
+                if (form) form.style.display = 'none';
+                if (successMsg) {
+                    successMsg.style.display = 'block';
+                    // Scroll to the success message
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
             // Initialize Apple-style features
             initScrollAnimations();
             //initParallax();//
