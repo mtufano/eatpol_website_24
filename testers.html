@@ -10,7 +10,9 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Leaflet CSS - Load before custom styles -->
@@ -26,162 +28,174 @@
             --light-blue: #b8daef;
             --white: #ffffff;
             --navy: #112752;
+            --cream: #f6f9fc;
+            --warm-dark: #112752;
+            --sand: #eaf2fa;
+            --warm-border: rgba(17, 39, 82, 0.07);
+            --warm-shadow-sm: 0 1px 3px rgba(17, 39, 82, 0.04), 0 1px 2px rgba(17, 39, 82, 0.06);
+            --warm-shadow: 0 4px 16px rgba(17, 39, 82, 0.08), 0 1px 3px rgba(17, 39, 82, 0.04);
+            --warm-shadow-lg: 0 20px 60px rgba(17, 39, 82, 0.15), 0 4px 16px rgba(17, 39, 82, 0.06);
             --gradient-primary: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
-            --gradient-secondary: linear-gradient(135deg, var(--medium-blue), var(--light-blue));
-            --gradient-cta: linear-gradient(135deg, var(--green), var(--bright-blue));
-            --shadow: 0 4px 16px rgba(17, 39, 82, 0.15);
-            --transition: all 0.3s ease;
+            --gradient-cta: linear-gradient(135deg, var(--bright-blue), var(--green));
+            --shadow: var(--warm-shadow);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.15s ease;
+            --radius: 14px;
+            --radius-sm: 10px;
+            --radius-pill: 980px;
         }
-        
-        * {
+
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(180deg, #f8f9fa 0%, #e8f4f8 50%, #f0f8ff 100%);
+            color: var(--warm-dark);
+            background-color: var(--cream);
             overflow-x: hidden;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle at 1px 1px, rgba(17, 39, 82, 0.025) 1px, transparent 0);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         h1, h2, h3, h4, h5, h6 {
-            color: var(--dark-blue);
+            font-family: 'Fraunces', serif;
+            color: var(--navy);
             margin-bottom: 1rem;
             font-weight: 600;
         }
-        
+
         p {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--warm-dark);
+            opacity: 0.85;
         }
-        
+
         a {
             color: var(--bright-blue);
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         a:hover {
-            color: var(--dark-blue);
+            color: var(--green);
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
         }
+
+        .overline { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bright-blue); margin-bottom: 12px; display: block; }
         
         .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius-pill);
+            font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: var(--transition);
             border: none;
             outline: none;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(18, 151, 224, 0.25);
             position: relative;
             overflow: hidden;
-            font-family: 'Roboto', sans-serif;
         }
-        
-        .btn::before {
+        .btn-primary::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.5s;
+            inset: 0;
+            background: linear-gradient(135deg, var(--green), var(--bright-blue));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
-            color: var(--white);
-            box-shadow: 0 8px 25px rgba(18, 151, 224, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(18, 151, 224, 0.4);
-            color: var(--white);
-            background: linear-gradient(135deg, #0e7cc0, var(--dark-blue));
-        }
-        
-        .btn-primary:active {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(18, 151, 224, 0.3);
-        }
-        
+        .btn-primary span { position: relative; z-index: 1; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 191, 99, 0.3); color: var(--white); }
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-primary:active { transform: translateY(0) scale(0.98); }
         .btn-secondary {
-            background: var(--white);
+            background: transparent;
             color: var(--bright-blue);
-            border: 2px solid var(--bright-blue);
+            border: 2px solid rgba(18, 151, 224, 0.3);
         }
-        
         .btn-secondary:hover {
-            background: var(--bright-blue);
+            border-color: transparent;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
             color: var(--white);
+            transform: translateY(-1px);
         }
         
         /* Header */
         .header {
-            background: var(--white);
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(17, 39, 82, 0.06);
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            inset: 0 0 auto 0;
             z-index: 1000;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
+        .header--scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 1px 8px rgba(17, 39, 82, 0.06);
         }
-        
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; }
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-            text-transform: uppercase;
             display: flex;
             align-items: center;
-        }
-        
-        .logo span {
-            color: var(--bright-blue);
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-item {
-            margin-left: 2rem;
-        }
-        
-        .nav-link {
+            gap: 0.6rem;
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--navy);
+            text-decoration: none;
+        }
+        .logo:hover { color: var(--bright-blue); }
+        .logo-img { height: 40px; width: auto; border-radius: 8px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; }
+        .nav-item { margin-left: 1.5rem; }
+        .nav-link {
+            font-family: 'Outfit', sans-serif;
+            color: var(--warm-dark);
             font-weight: 500;
+            font-size: 15px;
             position: relative;
             padding-bottom: 0.25rem;
+            text-decoration: none;
         }
-        
         .nav-link::after {
             content: '';
             position: absolute;
@@ -191,31 +205,22 @@
             height: 2px;
             background: var(--bright-blue);
             transition: var(--transition);
+            border-radius: 1px;
         }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        .nav-link.active {
-            color: var(--bright-blue);
-        }
-        
-        /* Mobile Navigation */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            transition: var(--transition);
-            background-color: var(--navy);
-        }
+        .nav-link:hover { color: var(--bright-blue); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: var(--bright-blue); font-weight: 600; }
+        .hamburger { display: none; cursor: pointer; padding: 10px; margin: -10px; }
+        .bar { display: block; width: 22px; height: 2px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); border-radius: 2px; }
+        .nav-dropdown { position: relative; margin-left: 1.5rem; list-style: none; }
+        .nav-dropdown-toggle { color: var(--warm-dark); font-weight: 500; font-size: 15px; cursor: pointer; display: flex; align-items: center; gap: 4px; padding-bottom: 0.25rem; transition: var(--transition); }
+        .chevron { font-size: 10px; transition: transform 0.25s ease; margin-left: 2px; }
+        .nav-dropdown:hover .nav-dropdown-toggle { color: var(--bright-blue); }
+        .nav-dropdown:hover .chevron { transform: rotate(180deg); }
+        .nav-dropdown-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(4px); min-width: 180px; background: rgba(255, 255, 255, 0.98); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border: 1px solid rgba(17, 39, 82, 0.08); border-radius: var(--radius-sm); box-shadow: 0 8px 32px rgba(17, 39, 82, 0.12); padding: 6px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease; z-index: 1001; list-style: none; }
+        .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown-menu li a { display: block; padding: 9px 16px; font-size: 14px; font-weight: 500; color: var(--warm-dark); border-radius: 7px; transition: var(--transition-fast); text-decoration: none; }
+        .nav-dropdown-menu li a:hover { background: rgba(18, 151, 224, 0.08); color: var(--bright-blue); }
         
         /* Hero Section - FIXED: Removed parallax */
         .hero {
@@ -280,12 +285,12 @@
         }
         
         .hero-title .highlight {
-            background: linear-gradient(135deg, #ff6b6b, #feca57, #48cae4, #ff9f43);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 4s ease infinite;
+            color: #ffffff;
+            -webkit-text-fill-color: #ffffff;
+            text-decoration: underline;
+            text-decoration-color: #feca57;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 4px;
         }
         
         @keyframes gradientShift {
@@ -321,28 +326,18 @@
         
         /* Content Sections */
         .section {
-            padding: 5rem 0;
+            padding: clamp(48px, 6vw, 80px) 0;
             position: relative;
             z-index: 1;
         }
-        
         .section-title {
-            font-size: 2.5rem;
+            font-family: 'Fraunces', serif;
+            font-size: clamp(32px, 4vw, 44px);
+            line-height: 1.15;
             text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-cta);
-            border-radius: 2px;
+            margin-bottom: 2rem;
+            color: var(--navy);
+            font-weight: 600;
         }
         
         /* Map Section - FIXED: Made completely static */
@@ -439,15 +434,13 @@
         
         /* Benefits and other sections */
         .tester-benefits {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
+            background: var(--white);
+            border-radius: var(--radius);
             padding: 3rem 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--warm-shadow);
             text-align: center;
-            margin-bottom: 4rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--warm-border);
         }
         
         .tester-benefits h3 {
@@ -473,38 +466,18 @@
             flex: 1;
             min-width: 250px;
             max-width: 300px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: var(--cream);
             padding: 2rem 1.5rem;
-            border-radius: 20px;
+            border-radius: var(--radius);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid var(--warm-border);
+            transition: var(--transition);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .benefit-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: all 0.5s;
-        }
-        
-        .benefit-item:hover::before {
-            left: 100%;
-        }
-        
         .benefit-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-4px);
+            box-shadow: var(--warm-shadow-lg);
+            background: var(--white);
         }
         
         .benefit-icon {
@@ -521,6 +494,7 @@
             animation: none;
         }
         
+        .benefit-svg { width: 5rem; height: 5rem; }
         .benefit-title {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
@@ -528,25 +502,13 @@
         
         /* Form Styles */
         .form-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: clamp(28px, 4vw, 48px);
+            box-shadow: var(--warm-shadow);
+            border: 1px solid var(--warm-border);
             position: relative;
             overflow: hidden;
-        }
-        
-        .form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
         }
         
         .form-grid {
@@ -568,27 +530,21 @@
         
         .form-control {
             width: 100%;
-            padding: 1rem 1.2rem;
-            border: 2px solid rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
-            font-family: 'Roboto', sans-serif;
+            padding: 11px 14px;
+            border: 1.5px solid rgba(17, 39, 82, 0.12);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+            background: var(--white);
+            font-size: 15px;
+            font-family: 'Outfit', sans-serif;
+            color: var(--navy);
         }
-        
         .form-control:focus {
             outline: none;
             border-color: var(--bright-blue);
-            box-shadow: 0 0 0 4px rgba(18, 151, 224, 0.1);
-            background: rgba(255, 255, 255, 0.95);
-            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px rgba(18, 151, 224, 0.08);
         }
-        
-        .form-control:hover:not(:focus) {
-            border-color: rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 0.9);
-        }
+        .form-control::placeholder { color: rgba(17, 39, 82, 0.3); }
         
         .form-group-full {
             grid-column: 1 / -1;
@@ -618,38 +574,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--bright-blue), var(--dark-blue));
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
             color: var(--white);
-            border-radius: 50%;
-            font-size: 1.5rem;
+            border-radius: 16px;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 8px 25px rgba(18, 151, 224, 0.3);
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 4px 16px rgba(18, 151, 224, 0.25);
+            transition: var(--transition);
         }
-        
-        .step-number::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.5s;
-        }
-        
         .step-item:hover .step-number {
-            transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(18, 151, 224, 0.4);
-        }
-        
-        .step-item:hover .step-number::before {
-            left: 100%;
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 191, 99, 0.3);
         }
         
         .step-title {
@@ -657,50 +596,35 @@
             margin-bottom: 1rem;
         }
         
+        /* FAQ */
+        .faq-section { background: var(--sand); }
+        .faq-container { max-width: 720px; }
+
+        details { background: var(--white); border-radius: var(--radius); border: 1px solid var(--warm-border); box-shadow: var(--warm-shadow-sm); margin-bottom: 12px; transition: var(--transition); }
+        details[open] { box-shadow: var(--warm-shadow); }
+        summary { font-family: 'Outfit', sans-serif; font-size: 17px; font-weight: 600; color: var(--navy); padding: 22px 28px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '+'; font-family: 'Outfit', sans-serif; font-size: 20px; color: var(--stone); transition: var(--transition); flex-shrink: 0; margin-left: 16px; }
+        details[open] summary::after { content: '\2212'; color: var(--navy); }
+        summary::-webkit-details-marker { display: none; }
+        details p { font-size: 16px; color: var(--warm-dark); opacity: 0.8; padding: 0 28px 22px; margin: 0; line-height: 1.7; }
+
         /* Footer */
-        .footer {
-            background: var(--navy);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-heading {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-link {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-link a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: var(--transition);
-        }
-        
-        .footer-link a:hover {
-            color: var(--bright-blue);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
+        .footer { background: var(--navy); color: rgba(255,255,255,0.65); padding: 3rem 0 1.5rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-heading { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; margin-bottom: 0.8rem; }
+        .footer-links { list-style: none; }
+        .footer-link { margin-bottom: 0.4rem; font-size: 14px; }
+        .footer-link a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-link a:hover { color: var(--green); }
+        .footer-link i { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; color: rgba(255,255,255,0.6); transition: var(--transition); }
+        .footer-link i:hover { background: var(--bright-blue); color: white; }
+        .footer-social { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
+        .footer-collab { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-collab-label { color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; }
+        .footer-collab-logo { height: 36px; width: auto; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-bottom p { font-family: 'Outfit', sans-serif; font-size: 12px; color: rgba(255,255,255,0.4); }
+        .footer p { font-size: 14px; color: rgba(255,255,255,0.6); opacity: 1; }
         
         /* Animations */
         @keyframes spin {
@@ -742,18 +666,15 @@
         
         /* Glass Card */
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: var(--white);
+            border: 1px solid var(--warm-border);
+            box-shadow: var(--warm-shadow-sm);
+            border-radius: var(--radius);
+            transition: var(--transition);
         }
-        
         .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5);
+            transform: translateY(-4px);
+            box-shadow: var(--warm-shadow-lg);
         }
         
         /* Success message styles */
@@ -855,16 +776,20 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img">
+                <a href="index.html" class="logo">
+                    <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img" />
+                    Eatpol
+                </a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html#plan" class="nav-link">Your Plan</a></li>
-                    <li class="nav-item"><a href="index.html#faq" class="nav-link">FAQ</a></li>
-                    <li class="nav-item"><a href="index.html#privacy" class="nav-link">Privacy & Ethics</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link active">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </div>
             </nav>
         </div>
@@ -876,10 +801,10 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">Become a <span class="highlight">Food Tester</span></h1>
-                    <p class="hero-subtitle">Get paid to eat and help shape the products of the future while enjoying delicious meals! 🍽️✨</p>
+                    <p class="hero-subtitle">Get paid to share your opinion in a quick interview, or receive food at home and test it in your own kitchen.</p>
                     <div class="hero-cta">
-                        <a href="#signup" class="btn btn-primary">Sign Up Now</a>
-                        <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
+                        <a href="#signup" class="btn btn-primary"><span>Join as a Tester</span></a>
+                        <a href="#how-it-works" class="btn btn-primary"><span>How it works</span></a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -891,141 +816,66 @@
 
 
 
-    <!-- Tester Benefits Section -->
+    <!-- Two Ways to Participate -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Why Become a Food Tester?</h2>
-            
-            <div class="tester-benefits glass-card">
-                <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">Get Paid to Eat! 🍽️</h3>
-                <p style="font-size: 1.3rem; margin-bottom: 2rem;">We're looking for food testers to help shape the foods of the future!</p>
-                
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h4 class="benefit-title">Free Dinner</h4>
-                        <p>Enjoy a meal on us - sample innovative food products</p>
+            <h2 class="section-title">Two ways to participate</h2>
+
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="img/vox.svg" alt="Vox" class="benefit-svg">
                     </div>
-                    
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-euro-sign"></i>
-                        </div>
-                        <h4 class="benefit-title">Get Paid</h4>
-                        <p>Receive compensation for your time and feedback</p>
-                    </div>
-                    
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h4 class="benefit-title">Simple Task</h4>
-                        <p>Just eat in front of a camera - privacy ensured with AI facial masking</p>
-                    </div>
+                    <h4 class="benefit-title">Vox — Quick Interview</h4>
+                    <p>Share your opinion about food products in a short video interview from home. Takes about 15 minutes.</p>
                 </div>
-                
-                <p style="margin-top: 2rem; font-weight: 600;">Help food companies create products people love!</p>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <img src="img/Domus.svg" alt="Domus" class="benefit-svg">
+                    </div>
+                    <h4 class="benefit-title">Vox + Domus — Full Test</h4>
+                    <p>Receive food samples at your door, prepare and eat them in your kitchen while recording. Plus a short interview.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="benefit-title">Privacy First</h4>
+                    <p>Your face is automatically masked by AI. All data is GDPR compliant, encrypted, and never shared.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="section how-it-works" style="background-color: #f5f8fa;">
+    <section id="how-it-works" class="section" style="background-color: var(--sand);">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            
+            <h2 class="section-title">How it works</h2>
+
             <div class="steps-container">
                 <div class="step-item">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Sign Up</h3>
-                    <p>Fill out the form below with your details to join our tester community.</p>
+                    <h3 class="step-title">We match you to a test</h3>
+                    <p>After you sign up, we'll invite you when a test fits your profile and location. For Domus tests, food samples arrive at your door.</p>
                 </div>
-                
+
                 <div class="step-item">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Receive Food Samples</h3>
-                    <p>We'll ship food samples directly to your door along with a QR code and simple instructions.</p>
+                    <h3 class="step-title">Record your experience</h3>
+                    <p>Use your phone to record a short interview (Vox) or your full cooking and eating experience at home (Domus). Our AI masks your face automatically.</p>
                 </div>
-                
+
                 <div class="step-item">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Prepare & Eat</h3>
-                    <p>Cook (if needed) and eat the food while recording yourself. Our AI ensures your privacy with facial masking.</p>
-                </div>
-                
-                <div class="step-item">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Get Paid</h3>
-                    <p>After completing the test, you'll receive compensation for your participation. It's that simple!</p>
+                    <h3 class="step-title">Get paid</h3>
+                    <p>Once your test is submitted, you receive payment within a few business days. That's it.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Community Manager Program Section -->
-    <section class="section" style="background: linear-gradient(135deg, var(--bright-blue) 0%, var(--green) 100%); color: white; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(255,255,255,0.1) 0%, transparent 50%); animation: float 8s ease-in-out infinite;"></div>
-        <div class="container" style="position: relative; z-index: 2;">
-            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; padding: 3rem 2.5rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.2); animation: scaleIn 0.8s ease-out;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌍</div>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Community Manager Program</h2>
-                    <p style="font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.95;">Lead the food testing revolution in your region</p>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; color: var(--green); margin-bottom: 1rem;">💰</div>
-                            <h3 style="color: white; margin-bottom: 0.5rem;">Higher Earnings</h3>
-                            <p style="opacity: 0.9; font-size: 0.95rem;">Earn €50-€150 per coordinated test + tester bonuses</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; color: var(--green); margin-bottom: 1rem;">👥</div>
-                            <h3 style="color: white; margin-bottom: 0.5rem;">Build Community</h3>
-                            <p style="opacity: 0.9; font-size: 0.95rem;">Connect food innovators and testers in your area</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; color: var(--green); margin-bottom: 1rem;">🎓</div>
-                            <h3 style="color: white; margin-bottom: 0.5rem;">Professional Training</h3>
-                            <p style="opacity: 0.9; font-size: 0.95rem;">Complete our certification program & gain expertise</p>
-                        </div>
-                    </div>
-                    
-                    <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 1.5rem; margin: 2rem 0;">
-                        <h3 style="color: white; margin-bottom: 1rem;">What You'll Do:</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left;">
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <i class="fas fa-check-circle" style="color: var(--green);"></i>
-                                <span style="font-size: 0.95rem;">Recruit local testers</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <i class="fas fa-check-circle" style="color: var(--green);"></i>
-                                <span style="font-size: 0.95rem;">Coordinate test logistics</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <i class="fas fa-check-circle" style="color: var(--green);"></i>
-                                <span style="font-size: 0.95rem;">Quality assurance</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <i class="fas fa-check-circle" style="color: var(--green);"></i>
-                                <span style="font-size: 0.95rem;">Regional partnerships</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem;">
-                        <strong>Ready to become a food innovation leader?</strong><br>
-                        Select "Community Manager Program" in the registration form below!
-                    </p>
-                    
-                    <a href="#signup" style="background: var(--green); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,191,99,0.3);">
-                        Apply Now <i class="fas fa-arrow-down" style="margin-left: 0.5rem;"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Sign Up Form Section -->
     <section id="signup" class="section">
@@ -1047,79 +897,40 @@
                 <form id="testerForm" name="tester-registration" method="POST" data-netlify="true" action="/?tester=success" class="contact-form">
                     <!-- Netlify Forms - no CSRF token needed -->
                     
-                    <!-- Program Selection -->
-                    <h3 style="color: var(--dark-blue); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--light-blue);">Program Selection</h3>
-                    
-                    <div class="form-group form-group-full" style="margin-bottom: 2rem;">
-                        <label class="form-label">I want to apply for: <span style="color: var(--bright-blue);">*</span></label>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                            <div style="border: 2px solid var(--light-blue); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s;" onclick="selectProgram('standard')" id="standardOption">
-                                <input type="radio" id="standardProgram" name="program_type" value="standard" style="margin-bottom: 0.5rem;" required>
-                                <label for="standardProgram" style="cursor: pointer; font-weight: 600; color: var(--dark-blue);">
-                                    🍽️ Standard Tester Program
-                                </label>
-                                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #666;">Earn €10-€15 per test, receive food samples at home</p>
-                            </div>
-                            
-                            <div style="border: 2px solid var(--bright-blue); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s; background: linear-gradient(135deg, rgba(18,151,224,0.05), rgba(27,72,171,0.05));" onclick="selectProgram('manager')" id="managerOption">
-                                <input type="radio" id="managerProgram" name="program_type" value="community_manager" style="margin-bottom: 0.5rem;" required>
-                                <label for="managerProgram" style="cursor: pointer; font-weight: 600; color: var(--dark-blue);">
-                                    🌍 Community Manager Program
-                                    <span style="background: var(--green); color: white; padding: 0.2rem 0.5rem; border-radius: 12px; font-size: 0.75rem; margin-left: 0.5rem;">PREMIUM</span>
-                                </label>
-                                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #666;">Lead regional testing, earn €50-€150 per coordinated test + bonuses</p>
-                            </div>
-                        </div>
-                        <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please select a program</span>
-                    </div>
-                    
-                    <!-- Community Manager Additional Info -->
-                    <div id="managerFields" style="display: none; background: #f0f8ff; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--light-blue);">
-                        <h4 style="color: var(--dark-blue); margin-bottom: 1rem;">Community Manager Program - Additional Information</h4>
-                        
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="experience" class="form-label">Previous experience in community management, sales, or recruitment?</label>
-                                <select id="experience" name="management_experience" class="form-control">
-                                    <option value="">Select experience level</option>
-                                    <option value="none">No experience</option>
-                                    <option value="some">Some experience (1-2 years)</option>
-                                    <option value="experienced">Experienced (3-5 years)</option>
-                                    <option value="expert">Expert (5+ years)</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="availability" class="form-label">Time availability per week</label>
-                                <select id="availability" name="time_availability" class="form-control">
-                                    <option value="">Select availability</option>
-                                    <option value="5-10">5-10 hours/week</option>
-                                    <option value="10-20">10-20 hours/week</option>
-                                    <option value="20-30">20-30 hours/week</option>
-                                    <option value="30+">30+ hours/week</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="motivation" class="form-label">Why do you want to become a Community Manager? (Optional)</label>
-                            <textarea id="motivation" name="manager_motivation" class="form-control" rows="3" placeholder="Share your motivation and vision for building a food testing community in your region..." style="resize: vertical;"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="networkSize" class="form-label">How many people could you potentially recruit in your network?</label>
-                            <select id="networkSize" name="network_size" class="form-control">
-                                <option value="">Select network size</option>
-                                <option value="5-15">5-15 people</option>
-                                <option value="15-30">15-30 people</option>
-                                <option value="30-50">30-50 people</option>
-                                <option value="50+">50+ people</option>
-                            </select>
+                    <input type="hidden" name="program_type" value="standard">
+
+                    <!-- Participation Preference -->
+                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">What interests you?</h3>
+
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label class="form-label">I'd like to participate in: <span style="color: var(--bright-blue);">*</span></label>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 12px 16px; border: 1.5px solid var(--warm-border); border-radius: 10px; transition: all 0.2s;">
+                                <input type="radio" name="participation_type" value="vox_only" required style="width: 18px; height: 18px; margin-top: 2px; cursor: pointer;">
+                                <div>
+                                    <strong style="color: var(--navy);">Vox — Interviews only</strong>
+                                    <span style="display: block; font-size: 13px; color: var(--navy); opacity: 0.6;">Quick video interviews from home (~15 min)</span>
+                                </div>
+                            </label>
+                            <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 12px 16px; border: 1.5px solid var(--warm-border); border-radius: 10px; transition: all 0.2s;">
+                                <input type="radio" name="participation_type" value="vox_and_domus" style="width: 18px; height: 18px; margin-top: 2px; cursor: pointer;">
+                                <div>
+                                    <strong style="color: var(--navy);">Vox + Domus — Interviews & home testing</strong>
+                                    <span style="display: block; font-size: 13px; color: var(--navy); opacity: 0.6;">Receive food samples, test at home, plus interviews</span>
+                                </div>
+                            </label>
+                            <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 12px 16px; border: 1.5px solid var(--warm-border); border-radius: 10px; transition: all 0.2s;">
+                                <input type="radio" name="participation_type" value="both" style="width: 18px; height: 18px; margin-top: 2px; cursor: pointer;">
+                                <div>
+                                    <strong style="color: var(--navy);">Both — I'm open to either</strong>
+                                    <span style="display: block; font-size: 13px; color: var(--navy); opacity: 0.6;">Get matched to whatever tests are available in your area</span>
+                                </div>
+                            </label>
                         </div>
                     </div>
-                    
+
                     <!-- Personal Information -->
-                    <h3 style="color: var(--dark-blue); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--light-blue);">Personal Information</h3>
+                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Personal Information</h3>
                     
                     <div class="form-grid">
                         <div class="form-group">
@@ -1147,11 +958,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="birthDate" class="form-label">Date of Birth (DD/MM/YYYY) <span style="color: var(--bright-blue);">*</span></label>
-                            <input type="text" id="birthDate" name="birth_date" class="form-control" 
-                                   placeholder="DD/MM/YYYY" 
-                                   pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/([12][0-9]{3})$" 
-                                   maxlength="10" required>
+                            <label for="birthDate" class="form-label">Date of Birth <span style="color: var(--bright-blue);">*</span></label>
+                            <input type="date" id="birthDate" name="birth_date" class="form-control" required>
                             <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter a valid date (DD/MM/YYYY) and you must be 18 or older</span>
                         </div>
                         
@@ -1166,32 +974,18 @@
                         </div>
                     </div>
                     
-                    <!-- Address Information -->
-                    <h3 style="color: var(--dark-blue); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--light-blue);">Delivery Address</h3>
-                    
+                    <!-- Location Information (always required) -->
+                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Location</h3>
+
                     <div class="form-grid">
-                        <div class="form-group form-group-full">
-                            <label for="streetAddress" class="form-label">Street Address <span style="color: var(--bright-blue);">*</span></label>
-                            <input type="text" id="streetAddress" name="street_address" class="form-control" required>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter your street address</span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="city" class="form-label">City <span style="color: var(--bright-blue);">*</span></label>
-                            <input type="text" id="city" name="city" class="form-control" required>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter your city</span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="postalCode" class="form-label">Postal Code <span style="color: var(--bright-blue);">*</span></label>
-                            <input type="text" id="postalCode" name="postal_code" class="form-control" required>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter your postal code</span>
-                        </div>
-                        
                         <div class="form-group">
                             <label for="country" class="form-label">Country <span style="color: var(--bright-blue);">*</span></label>
                             <select id="country" name="country" class="form-control" required>
                                 <option value="">Select Country</option>
+                                <option value="Netherlands" selected>Netherlands</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Germany">Germany</option>
+                                <option disabled>──────────</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -1205,7 +999,6 @@
                                 <option value="Bahrain">Bahrain</option>
                                 <option value="Bangladesh">Bangladesh</option>
                                 <option value="Belarus">Belarus</option>
-                                <option value="Belgium">Belgium</option>
                                 <option value="Belize">Belize</option>
                                 <option value="Benin">Benin</option>
                                 <option value="Bhutan">Bhutan</option>
@@ -1251,7 +1044,6 @@
                                 <option value="Gabon">Gabon</option>
                                 <option value="Gambia">Gambia</option>
                                 <option value="Georgia">Georgia</option>
-                                <option value="Germany">Germany</option>
                                 <option value="Ghana">Ghana</option>
                                 <option value="Greece">Greece</option>
                                 <option value="Grenada">Grenada</option>
@@ -1308,7 +1100,6 @@
                                 <option value="Namibia">Namibia</option>
                                 <option value="Nauru">Nauru</option>
                                 <option value="Nepal">Nepal</option>
-                                <option value="Netherlands">Netherlands</option>
                                 <option value="New Zealand">New Zealand</option>
                                 <option value="Nicaragua">Nicaragua</option>
                                 <option value="Niger">Niger</option>
@@ -1381,12 +1172,32 @@
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </select>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please select your country</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city" class="form-label">City <span style="color: var(--bright-blue);">*</span></label>
+                            <input type="text" id="city" name="city" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postalCode" class="form-label">Postal Code <span style="color: var(--bright-blue);">*</span></label>
+                            <input type="text" id="postalCode" name="postal_code" class="form-control" required>
                         </div>
                     </div>
-                    
+
+                    <!-- Delivery Address (shown only for Domus/Both) -->
+                    <div id="addressSection" style="display: none;">
+                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Delivery Address</h3>
+                    <div class="form-grid">
+                        <div class="form-group form-group-full">
+                            <label for="streetAddress" class="form-label">Street Address <span style="color: var(--bright-blue);">*</span></label>
+                            <input type="text" id="streetAddress" name="street_address" class="form-control">
+                        </div>
+                    </div>
+                    </div>
+
                     <!-- Dietary Information -->
-                    <h3 style="color: var(--dark-blue); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--light-blue);">Dietary Information</h3>
+                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Dietary Information</h3>
                     
                     <label class="form-label">Dietary Restrictions (check all that apply):</label>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-top: 0.5rem; margin-bottom: 1.5rem;">
@@ -1465,8 +1276,8 @@
                     </div>
                     
                     <div style="text-align: center; margin-top: 2rem;">
-                        <button type="submit" class="btn btn-primary" id="submitBtn" style="padding: 1rem 3rem; font-size: 1.1rem; font-weight: 600;">
-                            <i class="fas fa-user-plus"></i> Complete Registration
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="padding: 14px 40px; font-size: 16px;">
+                            <span>Sign Up & Start Earning</span>
                         </button>
                     </div>
                 </form>
@@ -1475,70 +1286,86 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section" style="background-color: #f5f8fa;">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">How often will I be asked to test food?</h3>
-                    <p>Testing frequency depends on your location and our current projects. Most testers participate in 1-3 tests per month.</p>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">How much will I get paid?</h3>
-                    <p>Compensation varies by test complexity, but typically ranges from €10-€20 per test, plus you get to enjoy free food!</p>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">What happens to my video recording?</h3>
-                    <p>Your privacy is our priority. We use AI facial masking technology to anonymize your identity while still capturing your reactions. Videos are analyzed by our AI and securely stored according to GDPR regulations.</p>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Do I need any special equipment?</h3>
-                    <p>Just a smartphone with a camera and internet connection. We'll provide simple instructions for setting up your recording.</p>
-                </div>
-            </div>
+    <section class="section faq-section" id="faq">
+        <div class="container faq-container">
+            <h2 class="section-title">FAQs</h2>
+
+            <details>
+                <summary>What's the difference between Vox and Domus?</summary>
+                <p>Vox is a short video interview (~15 min) where you share your opinion about food products. Domus is a full in-home test — we ship food samples to your door and you record your cooking and eating experience. You can sign up for one or both.</p>
+            </details>
+
+            <details>
+                <summary>How often will I be asked to test?</summary>
+                <p>It depends on your location and our current projects. Most testers participate in 1&ndash;3 tests per month. You can always decline if a test doesn't suit you.</p>
+            </details>
+
+            <details>
+                <summary>How much will I get paid?</summary>
+                <p>Compensation varies depending on the type and complexity of the test. You'll always know the amount before you accept a test.</p>
+            </details>
+
+            <details>
+                <summary>What happens to my video recording?</summary>
+                <p>Your face is automatically masked by AI. Videos are analyzed by our system and securely stored in compliance with GDPR. We never share raw footage.</p>
+            </details>
+
+            <details>
+                <summary>Do I need special equipment?</summary>
+                <p>Just a smartphone with a camera and internet connection. We provide simple setup instructions inside the app.</p>
+            </details>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3 class="footer-heading">About Eatpol</h3>
-                    <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. Our AI‑driven consumer testing technology helps food companies launch products people love. <br> KvK: 98066269</p>
-          <div style="display:flex; gap:.6rem; margin-top: .8rem;">
-            <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@eatpol_" class="footer-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/@eatpol" class="footer-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/people/Eatpol/61579980764718/" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h3 class="footer-heading">About Eatpol</h3>
+            <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+            <div class="footer-social">
+              <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@eatpol_" class="footer-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.youtube.com/@eatpol" class="footer-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.facebook.com/people/Eatpol/61579980764718/" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
           </div>
-                </div>
-                <div class="footer-col">
-                    <h3 class="footer-heading">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html#plan">Your Plan</a></li>
-                        <li class="footer-link"><a href="index.html#pricing">Packages</a></li>
-                        <li class="footer-link"><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3 class="footer-heading">Contact Info</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, Wageningen, the Netherlands</li>
-                        <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
-                        <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
-            </div>
+          <div>
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links">
+              <li class="footer-link"><a href="index.html">Home</a></li>
+              <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
+              <li class="footer-link"><a href="eathnos.html">Community</a></li>
+              <li class="footer-link"><a href="team.html">About Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-heading">Contact Info</h3>
+            <ul class="footer-links">
+              <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+              <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
+              <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-heading">Legal</h3>
+            <ul class="footer-links">
+              <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
+              <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <div class="footer-collab">
+            <span class="footer-collab-label">In collaboration with</span>
+            <img src="img/ufw.png" alt="Wageningen University & Research" class="footer-collab-logo">
+            <img src="img/oostnl.svg" alt="Oost NL" class="footer-collab-logo">
+          </div>
+          <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script>
@@ -1564,24 +1391,17 @@
                 }
             });
             
-            // Validate date format and age (must be 18+)
+            // Validate date and age (must be 18+)
             const birthDateInput = document.getElementById('birthDate').value;
-            const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/([12][0-9]{3})$/;
-            
-            if (dateRegex.test(birthDateInput)) {
-                // Parse DD/MM/YYYY format
-                const parts = birthDateInput.split('/');
-                const birthDate = new Date(parts[2], parts[1] - 1, parts[0]); // Year, Month (0-indexed), Day
+            if (birthDateInput) {
+                const birthDate = new Date(birthDateInput);
                 const today = new Date();
                 const age = Math.floor((today - birthDate) / (365.25 * 24 * 60 * 60 * 1000));
-                
+
                 if (age < 18 || isNaN(age)) {
                     document.getElementById('birthDate').closest('.form-group').querySelector('.error-message').style.display = 'block';
                     isValid = false;
                 }
-            } else {
-                document.getElementById('birthDate').closest('.form-group').querySelector('.error-message').style.display = 'block';
-                isValid = false;
             }
             
             // Validate email format
@@ -1604,6 +1424,21 @@
             // The form will submit normally and redirect to index.html with success parameter
         });
         
+        // Show/hide delivery address (street) based on participation type
+        document.querySelectorAll('input[name="participation_type"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const addressSection = document.getElementById('addressSection');
+                const streetField = document.getElementById('streetAddress');
+                if (this.value === 'vox_only') {
+                    addressSection.style.display = 'none';
+                    streetField.removeAttribute('required');
+                } else {
+                    addressSection.style.display = 'block';
+                    streetField.setAttribute('required', '');
+                }
+            });
+        });
+
         // Generate CSRF token
         function generateToken() {
             return Math.random().toString(36).substr(2) + Date.now().toString(36);
@@ -1611,41 +1446,6 @@
         
         // Set CSRF token
         document.getElementById('csrfToken').value = generateToken();
-        
-        // Program selection functionality
-        function selectProgram(type) {
-            const standardOption = document.getElementById('standardOption');
-            const managerOption = document.getElementById('managerOption');
-            const managerFields = document.getElementById('managerFields');
-            const standardRadio = document.getElementById('standardProgram');
-            const managerRadio = document.getElementById('managerProgram');
-            
-            if (type === 'standard') {
-                standardRadio.checked = true;
-                managerRadio.checked = false;
-                standardOption.style.borderColor = 'var(--bright-blue)';
-                standardOption.style.background = 'rgba(18,151,224,0.05)';
-                managerOption.style.borderColor = 'var(--light-blue)';
-                managerOption.style.background = 'linear-gradient(135deg, rgba(18,151,224,0.05), rgba(27,72,171,0.05))';
-                managerFields.style.display = 'none';
-            } else {
-                managerRadio.checked = true;
-                standardRadio.checked = false;
-                managerOption.style.borderColor = 'var(--green)';
-                managerOption.style.background = 'linear-gradient(135deg, rgba(0,191,99,0.1), rgba(18,151,224,0.05))';
-                standardOption.style.borderColor = 'var(--light-blue)';
-                standardOption.style.background = 'white';
-                managerFields.style.display = 'block';
-                
-                // Smooth scroll to show manager fields
-                setTimeout(() => {
-                    managerFields.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-            }
-        }
-        
-        // Make selectProgram function globally accessible
-        window.selectProgram = selectProgram;
         
         // Apple-style scroll animations
         function initScrollAnimations() {

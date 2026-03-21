@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions | Vox, Domus & Eatpol Studio — AI Consumer Testing</title>
+    <meta name="description" content="Explore Eatpol's three solutions: Vox AI consumer interviews, Domus in-home product testing, and Eatpol Studio analytics dashboard. Real insights in 2 weeks.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://eatpol.com/solutions.html">
+
+    <!-- Favicons -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Solutions | Vox, Domus & Eatpol Studio">
+    <meta property="og:description" content="AI consumer interviews, in-home product testing, and an analytics dashboard — all in one platform.">
+    <meta property="og:url" content="https://eatpol.com/solutions.html">
+    <meta property="og:image" content="https://eatpol.com/img/logo7.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/apple-inspired.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQCFR791TG"></script>
+    <script>
+        function initializeAnalytics() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BQCFR791TG', { 'anonymize_ip': true, 'cookie_expires': 63072000, 'cookie_flags': 'SameSite=None;Secure' });
+        }
+        if (localStorage.getItem('cookieConsent') === 'accepted') { initializeAnalytics(); }
+    </script>
+
+    <style>
+        /* ── Design Tokens ── */
+        :root {
+            /* Brand palette */
+            --bright-blue: #1297e0;
+            --green: #00bf63;
+            --dark-blue: #1b48ab;
+            --medium-blue: #6990cd;
+            --light-blue: #b8daef;
+            --white: #ffffff;
+            --navy: #112752;
+            --cream: #f6f9fc;
+            --sand: #eaf2fa;
+            --warm-dark: #112752;
+            --text-secondary: #5a5a6e;
+
+            /* Borders & shadows (from tokens) */
+            --warm-border: rgba(17, 39, 82, 0.07);
+            --warm-shadow-sm: 0 1px 3px rgba(17, 39, 82, 0.04), 0 1px 2px rgba(17, 39, 82, 0.06);
+            --warm-shadow: 0 4px 16px rgba(17, 39, 82, 0.08), 0 1px 3px rgba(17, 39, 82, 0.04);
+            --warm-shadow-lg: 0 20px 60px rgba(17, 39, 82, 0.15), 0 4px 16px rgba(17, 39, 82, 0.06);
+
+            /* Motion */
+            --ease-default: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-springy: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.3s var(--ease-default);
+            --transition-fast: all 0.15s ease;
+
+            /* Radii (from tokens) */
+            --radius: 14px;
+            --radius-sm: 10px;
+            --radius-lg: 20px;
+            --radius-pill: 980px;
+
+            /* Product accents */
+            --vox-accent: #1b48ab;
+            --vox-accent-light: rgba(27, 72, 171, 0.08);
+            --domus-accent: #00bf63;
+            --domus-accent-light: rgba(0, 191, 99, 0.08);
+            --studio-accent: #1297e0;
+            --studio-accent-light: rgba(18, 151, 224, 0.08);
+        }
+
+        /* ── Reset & Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--warm-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle at 1px 1px, rgba(17, 39, 82, 0.025) 1px, transparent 0);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; color: var(--navy); margin-bottom: 1rem; font-weight: 600; }
+        p { margin-bottom: 1.25rem; font-size: 17px; line-height: 1.7; color: var(--warm-dark); opacity: 0.85; }
+        a { color: var(--bright-blue); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--green); }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+        .overline { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bright-blue); margin-bottom: 12px; display: block; }
+
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 32px; border-radius: var(--radius-pill);
+            font-family: 'Outfit', sans-serif; font-weight: 600; text-align: center;
+            cursor: pointer; transition: var(--transition); border: none; outline: none;
+            font-size: 15px; letter-spacing: 0.02em;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: var(--white); box-shadow: 0 4px 16px rgba(18, 151, 224, 0.25);
+            position: relative; overflow: hidden;
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, var(--green), var(--bright-blue));
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .btn-primary span { position: relative; z-index: 1; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 191, 99, 0.3); color: var(--white); }
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-secondary {
+            background: transparent; color: var(--bright-blue); border: 2px solid rgba(18, 151, 224, 0.3);
+        }
+        .btn-secondary:hover {
+            border-color: transparent; background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: var(--white); transform: translateY(-1px);
+        }
+
+        /* ── Header ── */
+        .header {
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(17, 39, 82, 0.06);
+            position: fixed; inset: 0 0 auto 0; z-index: 1000;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .header--scrolled { background: rgba(255, 255, 255, 0.92); box-shadow: 0 1px 8px rgba(17, 39, 82, 0.06); }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; }
+        .logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+        .logo:hover { color: var(--bright-blue); }
+        .logo-img { height: 40px; width: auto; border-radius: 8px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; }
+        .nav-item { margin-left: 1.5rem; }
+        .nav-link {
+            font-family: 'Outfit', sans-serif; color: var(--warm-dark); font-weight: 500;
+            font-size: 15px; position: relative; padding-bottom: 0.25rem;
+        }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--bright-blue); transition: var(--transition); border-radius: 1px; }
+        .nav-link:hover { color: var(--bright-blue); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: var(--navy); font-weight: 600; }
+        .hamburger { display: none; cursor: pointer; padding: 10px; margin: -10px; }
+        .bar { display: block; width: 22px; height: 2px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); border-radius: 2px; }
+
+        /* ── Hero ── */
+        .sol-hero {
+            padding: clamp(7rem, 10vw, 9rem) 0 clamp(3rem, 5vw, 5rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #ffffff 0%, var(--sand) 100%);
+        }
+        .sol-hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(18, 151, 224, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .sol-hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .sol-hero-overline {
+            font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--bright-blue);
+            margin-bottom: 16px; display: block;
+            opacity: 0; animation: fadeUp 0.5s var(--ease-springy) 0.1s forwards;
+        }
+        .sol-hero-title {
+            font-family: 'Fraunces', Georgia, serif; font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.12; font-weight: 700; letter-spacing: -0.02em;
+            color: var(--navy); margin-bottom: 1.25rem;
+            opacity: 0; animation: fadeUp 0.6s var(--ease-springy) 0.2s forwards;
+        }
+        .sol-hero-sub {
+            font-size: 18px; line-height: 1.7; color: var(--text-secondary); opacity: 0;
+            max-width: 540px; margin: 0 auto 2.5rem;
+            animation: fadeUp 0.6s var(--ease-springy) 0.35s forwards;
+        }
+        .sol-hero-diagram {
+            max-width: 520px; margin: 0 auto 2.5rem;
+            opacity: 0; animation: fadeUp 0.7s var(--ease-springy) 0.45s forwards;
+        }
+        .sol-hero-diagram img { width: 100%; height: auto; filter: drop-shadow(0 8px 24px rgba(17, 39, 82, 0.08)); }
+        .sol-hero-cta {
+            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+            opacity: 0; animation: fadeUp 0.6s var(--ease-springy) 0.55s forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Product Nav Pills ── */
+        .sol-nav {
+            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+            margin-bottom: 0; padding: 2rem 0;
+            background: var(--cream);
+            position: relative; z-index: 100;
+            border-bottom: 1px solid var(--warm-border);
+        }
+        .sol-nav-pill {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 12px 28px; border-radius: var(--radius-pill);
+            font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+            color: var(--warm-dark); background: var(--white);
+            border: 1.5px solid var(--warm-border); text-decoration: none;
+            transition: var(--transition); box-shadow: var(--warm-shadow-sm);
+        }
+        .sol-nav-pill:hover { transform: translateY(-2px); box-shadow: var(--warm-shadow); color: var(--navy); }
+        .sol-nav-pill img { height: 22px; width: auto; }
+        .sol-nav-pill--vox:hover { border-color: var(--dark-blue); color: var(--dark-blue); }
+        .sol-nav-pill--domus:hover { border-color: var(--domus-accent); color: var(--domus-accent); }
+        .sol-nav-pill--studio:hover { border-color: var(--studio-accent); color: var(--studio-accent); }
+
+        /* ── Product Section (shared) ── */
+        .sol-product {
+            padding: clamp(5rem, 7vw, 8rem) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .sol-product + .sol-product {
+            border-top: none;
+        }
+        /* Subtle section divider */
+        .sol-product::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(80%, 600px);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--warm-border), transparent);
+        }
+        .sol-product:last-of-type::after { display: none; }
+
+        /* Product Header */
+        .sol-product-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 3.5rem;
+        }
+        .sol-product-logo {
+            height: 96px;
+            width: auto;
+            margin-bottom: 0.5rem;
+        }
+        .sol-product-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 16px; border-radius: 6px;
+            font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .sol-product-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--bright-blue);
+            margin-bottom: 20px;
+        }
+        .sol-product-title {
+            font-family: 'Fraunces', Georgia, serif; font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.15; font-weight: 700; letter-spacing: -0.02em;
+            color: var(--navy); margin-bottom: 1.25rem;
+        }
+        .sol-product-sub {
+            font-size: 18px; line-height: 1.7; color: var(--text-secondary);
+            max-width: 560px; margin: 0 auto;
+        }
+
+        /* Product Layout: side-by-side */
+        .sol-row {
+            display: flex;
+            align-items: center;
+            gap: clamp(3rem, 5vw, 5rem);
+            margin-bottom: 4rem;
+        }
+        .sol-row:last-child { margin-bottom: 0; }
+        .sol-row > .sol-video-wrap {
+            flex: 0 0 auto;
+        }
+        .sol-row > .sol-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .sol-row--reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* ── Video container (proper aspect-ratio, no crop hacks) ── */
+        .sol-video-wrap {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--warm-shadow-lg);
+            background: var(--navy);
+            width: 460px;
+            flex-shrink: 0;
+        }
+        .sol-video-wrap video, .sol-video-wrap img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        /* Portrait video: constrain aspect + scale to crop baked-in black bars */
+        .sol-video-wrap--portrait {
+            width: 320px;
+            aspect-ratio: 9 / 14;
+        }
+        /* Scale only Vox videos to crop baked-in black pillarbox bars */
+        .sol-product--vox .sol-video-wrap--portrait video {
+            transform: scale(1.5);
+            transform-origin: center center;
+        }
+        .sol-video-label {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: white;
+            background: rgba(0, 0, 0, 0.45);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+        }
+        .sol-video-label::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        /* Content block */
+        .sol-content h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(24px, 2.5vw, 28px);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+        .sol-content p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .sol-content p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Feature chips */
+        .sol-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--warm-border);
+        }
+        .sol-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12.5px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .sol-chip i { font-size: 9px; }
+        .sol-chip:hover { transform: translateY(-1px); }
+
+        /* Studio video row: larger video */
+        .sol-row--video-wide > .sol-video-wrap {
+            width: 740px;
+        }
+
+        /* ── Domus video mosaic ── */
+        .domus-mosaic {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        .domus-mosaic-top {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .domus-mosaic-main {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--navy);
+            box-shadow: 0 12px 40px rgba(0, 191, 99, 0.08), 0 4px 12px rgba(17, 39, 82, 0.06);
+        }
+        .domus-mosaic-main video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .domus-mosaic-side {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--navy);
+            box-shadow: var(--warm-shadow);
+        }
+        .domus-mosaic-side video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .domus-mosaic-bottom {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--navy);
+            box-shadow: var(--warm-shadow);
+            aspect-ratio: 16 / 5;
+        }
+        .domus-mosaic-bottom video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Domus text: two columns below mosaic */
+        .domus-text {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: clamp(2rem, 4vw, 3.5rem);
+            align-items: start;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .domus-text h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(24px, 2.5vw, 28px);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+        .domus-text p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .domus-text-chips {
+            padding-top: 6px;
+        }
+        .domus-text-chips .sol-features {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .domus-mosaic-top { grid-template-columns: 1fr; }
+            .domus-mosaic-bottom { aspect-ratio: 16 / 9; }
+            .domus-text { grid-template-columns: 1fr; }
+        }
+
+        /* Product-specific accents */
+        .sol-product--vox { background: linear-gradient(180deg, var(--cream) 0%, rgba(27, 72, 171, 0.03) 100%); }
+        .sol-product--vox .sol-product-badge { background: var(--vox-accent-light); color: var(--vox-accent); }
+        .sol-product--vox .sol-chip { background: var(--vox-accent-light); color: var(--vox-accent); }
+        .sol-product--vox .sol-video-wrap { box-shadow: 0 20px 60px rgba(27, 72, 171, 0.1), 0 4px 16px rgba(17, 39, 82, 0.05); }
+
+        .sol-product--domus { background: linear-gradient(180deg, var(--cream) 0%, rgba(0, 191, 99, 0.03) 100%); }
+        .sol-product--domus .sol-product-badge { background: var(--domus-accent-light); color: var(--domus-accent); }
+        .sol-product--domus .sol-chip { background: var(--domus-accent-light); color: #059669; }
+        .sol-product--domus .sol-video-wrap,
+        .sol-product--domus .domus-mosaic-main,
+        .sol-product--domus .domus-mosaic-side,
+        .sol-product--domus .domus-mosaic-bottom { box-shadow: 0 16px 48px rgba(0, 191, 99, 0.08), 0 4px 16px rgba(17, 39, 82, 0.05); }
+
+        .sol-product--studio { background: linear-gradient(180deg, var(--cream) 0%, rgba(18, 151, 224, 0.03) 100%); }
+        .sol-product--studio .sol-product-badge { background: var(--studio-accent-light); color: var(--studio-accent); }
+        .sol-product--studio .sol-chip { background: var(--studio-accent-light); color: var(--studio-accent); }
+        .sol-product--studio .sol-video-wrap { box-shadow: 0 20px 60px rgba(18, 151, 224, 0.1), 0 4px 16px rgba(17, 39, 82, 0.05); }
+
+        /* ── Video Grid (for multi-video sections) ── */
+        .sol-video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .sol-video-grid-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--warm-shadow);
+            background: var(--navy);
+            transition: var(--transition);
+        }
+        .sol-video-grid-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--warm-shadow-lg);
+        }
+        .sol-video-grid-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .sol-video-grid-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 14px 16px;
+            background: linear-gradient(0deg, rgba(17, 39, 82, 0.75) 0%, transparent 100%);
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .sol-video-grid-label i { margin-right: 6px; }
+
+        /* Duo grid: portrait + landscape side by side */
+        .sol-video-grid--duo {
+            grid-template-columns: 1fr 1.6fr;
+            align-items: stretch;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .sol-video-grid-item--portrait,
+        .sol-video-grid-item--landscape {
+            display: flex;
+            align-items: stretch;
+        }
+        .sol-video-grid-item--portrait video,
+        .sol-video-grid-item--landscape video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .sol-video-grid--duo { grid-template-columns: 1fr; }
+            .sol-video-grid-item--portrait video { max-height: 480px; }
+        }
+
+        /* ── Studio Section (dark) ── */
+        .sol-product--studio-dark {
+            background: var(--navy);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .sol-product--studio-dark::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(18, 151, 224, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(0, 191, 99, 0.05) 0%, transparent 50%),
+                repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.015) 39px, rgba(255,255,255,0.015) 40px),
+                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.015) 39px, rgba(255,255,255,0.015) 40px);
+            pointer-events: none;
+        }
+        .sol-product--studio-dark::after { display: none; }
+        .sol-product--studio-dark .sol-product-title { color: white; }
+        .sol-product--studio-dark .sol-product-sub { color: rgba(255, 255, 255, 0.65); }
+        .sol-product--studio-dark .sol-content h3 { color: white; }
+        .sol-product--studio-dark .sol-content p { color: rgba(255, 255, 255, 0.65); }
+        .sol-product--studio-dark .sol-product-badge { background: rgba(18, 151, 224, 0.15); color: #60bfff; }
+        .sol-product--studio-dark .sol-chip { background: rgba(18, 151, 224, 0.12); color: #60bfff; }
+        .sol-product--studio-dark .sol-features { border-top-color: rgba(255, 255, 255, 0.08); }
+        .sol-product--studio-dark .sol-video-wrap {
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius);
+        }
+
+        /* ── Agent Prompt Examples ── */
+        .sol-agent-prompts {
+            margin-top: 1.5rem;
+        }
+        .sol-agent-prompt {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 13px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition);
+        }
+        .sol-agent-prompt:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .sol-agent-prompt i {
+            color: var(--green);
+            font-size: 12px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ── CTA Band ── */
+        .sol-cta-band {
+            padding: clamp(5rem, 7vw, 7rem) 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 191, 99, 0.04) 0%, rgba(18, 151, 224, 0.06) 100%);
+            position: relative;
+        }
+        .sol-cta-band::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--warm-border), transparent);
+        }
+        .sol-cta-title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+        .sol-cta-sub {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* ── Scroll reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s var(--ease-springy), transform 0.7s var(--ease-springy);
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s var(--ease-springy), transform 0.7s var(--ease-springy); }
+        .reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s var(--ease-springy), transform 0.7s var(--ease-springy); }
+        .reveal-left.is-visible, .reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+
+        /* ── Footer ── */
+        .footer {
+            background: var(--navy); color: rgba(255,255,255,0.7);
+            padding: clamp(3rem, 4vw, 4rem) 0 2rem;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem; margin-bottom: 2rem;
+        }
+        .footer-heading { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; margin-bottom: 0.8rem; }
+        .footer p { color: rgba(255,255,255,0.6); font-size: 14px; }
+        .footer-links { list-style: none; }
+        .footer-link { margin-bottom: 0.5rem; }
+        .footer-link a, .footer-link { color: rgba(255,255,255,0.6); font-size: 14px; transition: var(--transition); text-decoration: none; }
+        .footer-link a:hover { color: white; }
+        .footer-link i { margin-right: 6px; font-size: 13px; }
+        .footer-social { display: flex; gap: 12px; margin-top: 1rem; }
+        .footer-social a { color: rgba(255,255,255,0.5); font-size: 16px; transition: var(--transition); }
+        .footer-social a:hover { color: white; }
+        .footer-bottom { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 13px; margin: 0; }
+        .footer-collab { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-collab-label { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+        .footer-collab-logo { height: 36px; width: auto; }
+
+        /* ── Consultation Banner ── */
+        .consultation-banner {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: var(--radius-pill);
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 28px rgba(18, 151, 224, 0.35);
+            z-index: 999;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .consultation-banner.is-visible { opacity: 1; transform: translateY(0); }
+        .consultation-banner:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0, 191, 99, 0.4); color: white; }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .sol-row { flex-direction: column; gap: 2rem; }
+            .sol-row--reverse { flex-direction: column; }
+            .sol-video-wrap, .sol-video-wrap--portrait,
+            .sol-row--video-wide > .sol-video-wrap { width: 100%; max-width: 480px; aspect-ratio: auto; }
+            .sol-video-wrap--portrait { max-width: 360px; aspect-ratio: 9 / 14; }
+            .domus-mosaic { max-width: 100%; }
+            .sol-nav { top: 56px; padding: 1.5rem 0; }
+        }
+        @media (max-width: 768px) {
+            .hamburger { display: flex; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1001; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+            .nav-menu {
+                position: fixed; left: -100%; top: 60px; flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.98);
+                -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+                width: 100%; text-align: center; transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); padding: 2rem 0; gap: 0;
+            }
+            .nav-menu.active { left: 0; }
+            .nav-item { margin: 0.8rem 0; margin-left: 0; }
+            .sol-hero { padding: 7rem 0 3rem; }
+            .sol-hero-title { font-size: clamp(30px, 8vw, 40px); }
+            .sol-video-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-social { justify-content: center; }
+            .sol-nav { flex-direction: column; align-items: center; gap: 8px; }
+            .consultation-banner { bottom: 16px; right: 16px; font-size: 13px; padding: 12px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img" />
+                    Eatpol
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link active">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="sol-hero">
+        <div class="container">
+            <div class="sol-hero-content">
+                <span class="sol-hero-overline">Our Solutions</span>
+                <h1 class="sol-hero-title">Listen. Observe. Analyze.</h1>
+                <p class="sol-hero-sub">Three products that give you the full picture of how consumers experience your food product &mdash; from first impression to last bite.</p>
+            </div>
+            <div class="sol-hero-diagram">
+                <img src="img/npd-cycle_loop_once.gif" alt="New product development cycle powered by Eatpol">
+            </div>
+            <div class="sol-hero-cta">
+                <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
+                <a href="#vox" class="btn btn-secondary">Explore the products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Navigation -->
+    <nav class="sol-nav" id="solNav">
+        <a href="#vox" class="sol-nav-pill sol-nav-pill--vox">
+            <img src="img/vox.svg" alt="Vox"> Vox
+        </a>
+        <a href="#domus" class="sol-nav-pill sol-nav-pill--domus">
+            <img src="img/Domus.svg" alt="Domus"> Domus
+        </a>
+        <a href="#studio" class="sol-nav-pill sol-nav-pill--studio">
+            <i class="fas fa-chart-bar"></i> Eatpol Studio
+        </a>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- VOX — AI Consumer Interviews               -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="sol-product sol-product--vox" id="vox">
+        <div class="container">
+            <div class="sol-product-header reveal">
+                <img src="img/vox.svg" alt="Vox Logo" class="sol-product-logo">
+                <div class="sol-product-label">Vox</div>
+                <h2 class="sol-product-title">Hear what consumers <em>really</em> think</h2>
+                <p class="sol-product-sub">AI-moderated video interviews that capture beliefs, expectations, and purchase intent &mdash; before your product ever reaches the shelf.</p>
+            </div>
+
+            <!-- Row 1: Demo video + description -->
+            <div class="sol-row">
+                <div class="sol-video-wrap sol-video-wrap--portrait reveal-left">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/vox_demo2.mp4" type="video/mp4">
+                    </video>
+                    <span class="sol-video-label">Live demo</span>
+                </div>
+                <div class="sol-content reveal-right">
+                    <h3>AI-powered conversations at scale</h3>
+                    <p>Vox conducts in-depth consumer interviews using an AI moderator that adapts in real time. No scheduling hassles, no interviewer bias &mdash; just honest, natural conversations.</p>
+                    <p>Consumers answer from home, on their own time. Results are automatically transcribed, analyzed, and themed for your dashboard.</p>
+                    <div class="sol-features">
+                        <span class="sol-chip"><i class="fas fa-check"></i> Purchase drivers</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Brand perception</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Expectation mapping</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Competitor benchmarking</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Consumer language</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Results in 2 days</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Use case -->
+            <div class="sol-row sol-row--reverse">
+                <div class="sol-video-wrap sol-video-wrap--portrait reveal-right">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/vox_demo2.mp4" type="video/mp4">
+                    </video>
+                    <span class="sol-video-label">Consumer interview</span>
+                </div>
+                <div class="sol-content reveal-left">
+                    <h3>Understand the "why" behind purchase decisions</h3>
+                    <p>Traditional surveys tell you <em>what</em> consumers rate. Vox tells you <em>why</em> they buy, what they expect, and what language they use to describe your product to others.</p>
+                    <p>Use these insights to sharpen positioning, validate claims, and build messaging that resonates with your target audience.</p>
+                    <div class="sol-features">
+                        <span class="sol-chip"><i class="fas fa-check"></i> First impressions</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Usage occasions</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Price sensitivity</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Packaging feedback</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- DOMUS — In-Home Product Testing             -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="sol-product sol-product--domus" id="domus">
+        <div class="container">
+            <div class="sol-product-header reveal">
+                <img src="img/Domus.svg" alt="Domus Logo" class="sol-product-logo">
+                <div class="sol-product-label">Domus</div>
+                <h2 class="sol-product-title">See how consumers <em>actually</em> use your product</h2>
+                <p class="sol-product-sub">Video-captured in-home testing with detailed action analysis, audio transcription, and sentiment tracking &mdash; in real kitchens with real people.</p>
+            </div>
+
+            <!-- Row 1: Demo video + description -->
+            <div class="sol-row">
+                <div class="sol-video-wrap sol-video-wrap--portrait reveal-left">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/website_preparation.mp4" type="video/mp4">
+                    </video>
+                    <span class="sol-video-label">In-home test</span>
+                </div>
+                <div class="sol-content reveal-right">
+                    <h3>Real kitchens. Real behavior. Real insights.</h3>
+                    <p>Domus captures the full product journey on video: how consumers prepare, cook, eat, and store your product at home. Our AI generates detailed step-by-step action descriptions, transcribes audio, and analyzes sentiment.</p>
+                    <p>No sensory booths. No artificial settings. Just authentic consumer behavior in the environment where food decisions actually happen.</p>
+                    <div class="sol-features">
+                        <span class="sol-chip"><i class="fas fa-check"></i> Step-by-step action analysis</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Audio transcription</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Sentiment analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Second demo + description -->
+            <div class="sol-row sol-row--reverse">
+                <div class="sol-video-wrap sol-video-wrap--portrait reveal-right">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/website_preparation.mp4" type="video/mp4">
+                    </video>
+                    <span class="sol-video-label">Consumer test</span>
+                </div>
+                <div class="sol-content reveal-left">
+                    <h3>Uncover friction points surveys miss</h3>
+                    <p>See exactly where consumers hesitate, improvise, or struggle. Domus reveals the gap between how you designed your product and how people actually use it &mdash; from packaging to plating.</p>
+                    <div class="sol-features">
+                        <span class="sol-chip"><i class="fas fa-check"></i> Friction detection</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Usage context</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Results in 2 weeks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- EATPOL STUDIO — AI Analytics Dashboard      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="sol-product sol-product--studio-dark" id="studio">
+        <div class="container">
+            <div class="sol-product-header reveal">
+                <div class="sol-product-badge"><i class="fas fa-chart-bar"></i> Eatpol Studio</div>
+                <h2 class="sol-product-title">Your results, one dashboard</h2>
+                <p class="sol-product-sub">Eatpol Studio brings all your Vox and Domus data together in one place &mdash; with AI-powered analysis you can query in plain language.</p>
+            </div>
+
+            <!-- Row 1: Dashboard screenshot + description -->
+            <div class="sol-row">
+                <div class="sol-video-wrap reveal-left">
+                    <img src="img/eatpol_studio_screen.png" alt="Eatpol Studio dashboard showing consumer insights and product recommendations">
+                </div>
+                <div class="sol-content reveal-right">
+                    <h3>From raw data to clear decisions</h3>
+                    <p>Every interview and in-home test feeds directly into your Studio dashboard. See transcripts, behavioral patterns, and AI-generated recommendations &mdash; all organized by product and study.</p>
+                    <p>No more static PDF reports. Explore your data, filter by segment, and share findings with your team in real time.</p>
+                    <div class="sol-features">
+                        <span class="sol-chip"><i class="fas fa-check"></i> Real-time results</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Behavioral coding</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> AI recommendations</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> Team sharing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Eatpol Studio AI + demo video -->
+            <div class="sol-row sol-row--reverse sol-row--video-wide">
+                <div class="sol-video-wrap reveal-right">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/Studio_demo.mp4" type="video/mp4">
+                    </video>
+                    <span class="sol-video-label">Eatpol Studio</span>
+                </div>
+                <div class="sol-content reveal-left">
+                    <h3>Ask your data anything</h3>
+                    <p>Eatpol Studio includes an AI assistant grounded in your own study data and relevant category context. Ask questions in plain language and get evidence-based answers instantly.</p>
+                    <div class="sol-agent-prompts">
+                        <div class="sol-agent-prompt">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>What should we change before launch?</span>
+                        </div>
+                        <div class="sol-agent-prompt">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>What is still uncertain before scaling?</span>
+                        </div>
+                        <div class="sol-agent-prompt">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>How does our product compare to consumer expectations?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Band -->
+    <section class="sol-cta-band">
+        <div class="container reveal">
+            <h2 class="sol-cta-title">Ready to see your product through consumers' eyes?</h2>
+            <p class="sol-cta-sub">Book a free assessment call. We'll recommend the right combination of Vox, Domus, and Studio for your goals.</p>
+            <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-heading">About Eatpol</h3>
+                    <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+                    <div class="footer-social">
+                        <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@eatpol_" class="footer-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@eatpol" class="footer-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/people/Eatpol/61579980764718/" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="index.html">Home</a></li>
+                        <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
+                        <li class="footer-link"><a href="eathnos.html">Community</a></li>
+                        <li class="footer-link"><a href="team.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+                        <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
+                        <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Legal</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-collab">
+                    <span class="footer-collab-label">In collaboration with</span>
+                    <img src="img/ufw.png" alt="Wageningen University & Research" class="footer-collab-logo">
+                    <img src="img/oostnl.svg" alt="Oost NL" class="footer-collab-logo">
+                </div>
+                <p>&copy; 2026 Eatpol. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Consultation Banner -->
+    <a href="assessment.html" class="consultation-banner" id="consultationBanner">
+        <i class="fas fa-clipboard-check"></i> Free Assessment
+    </a>
+
+    <script>
+        // Mobile nav toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', hamburger.classList.contains('active'));
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll behavior
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            header.classList.toggle('header--scrolled', y > 40);
+            lastScroll = y;
+        }, { passive: true });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // Consultation banner: show after scrolling 400px
+        const banner = document.getElementById('consultationBanner');
+        window.addEventListener('scroll', () => {
+            banner.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+
+        // Smooth scroll for nav pills
+        document.querySelectorAll('.sol-nav-pill, a[href="#vox"]').forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(pill.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.sol-nav')?.offsetHeight || 0;
+                    const headerHeight = header.offsetHeight || 0;
+                    const top = target.getBoundingClientRect().top + window.scrollY - navHeight - headerHeight - 16;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Pause videos not in viewport for performance
+        const videos = document.querySelectorAll('video');
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play().catch(() => {});
+                } else {
+                    entry.target.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+        videos.forEach(v => videoObserver.observe(v));
+    </script>
+</body>
+</html>

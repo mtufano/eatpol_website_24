@@ -3,1476 +3,1107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Launch Readiness Assessment | Eatpol</title>
+    <title>Get Your Free Assessment | In-Home Consumer Testing | Eatpol</title>
+    <meta name="description" content="Get a free assessment for AI-driven, in-home consumer testing. Validate your food product with real consumers before going to market. Results in 2 weeks.">
+
+    <!-- Favicons -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bright-blue: #1297e0;
+            --green: #00bf63;
+            --dark-blue: #1b48ab;
+            --medium-blue: #6990cd;
+            --light-blue: #b8daef;
+            --white: #ffffff;
+            --navy: #112752;
+            --cream: #f6f9fc;
+            --warm-dark: #112752;
+            --sand: #eaf2fa;
+            --warm-border: rgba(17, 39, 82, 0.07);
+            --warm-shadow-sm: 0 1px 3px rgba(17, 39, 82, 0.04), 0 1px 2px rgba(17, 39, 82, 0.06);
+            --warm-shadow: 0 4px 16px rgba(17, 39, 82, 0.08), 0 1px 3px rgba(17, 39, 82, 0.04);
+            --warm-shadow-lg: 0 20px 60px rgba(17, 39, 82, 0.15), 0 4px 16px rgba(17, 39, 82, 0.06);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.15s ease;
+            --radius: 14px;
+            --radius-sm: 10px;
+            --radius-pill: 980px;
         }
-        
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f7;
+            color: var(--warm-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle at 1px 1px, rgba(17, 39, 82, 0.025) 1px, transparent 0);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 0;
         }
-        
-        .assessment-header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #1297e0, #00bf63);
-            color: white;
-            border-radius: 20px;
-            margin-bottom: 40px;
+        h1, h2, h3 { font-family: 'Fraunces', serif; color: var(--navy); margin-bottom: 1rem; font-weight: 600; }
+        p { margin-bottom: 1.25rem; font-size: 17px; line-height: 1.7; color: var(--warm-dark); opacity: 0.85; }
+        a { color: var(--bright-blue); text-decoration: none; transition: var(--transition); }
+        a:hover { color: var(--green); }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+        .overline { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bright-blue); margin-bottom: 12px; display: block; }
+
+        /* ── Header ── */
+        .header {
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(17, 39, 82, 0.06);
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 1000;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .assessment-header h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
+        .header--scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 1px 8px rgba(17, 39, 82, 0.06);
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 0; }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
             font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
         }
-        
-        .assessment-header p {
-            font-size: 20px;
-            opacity: 0.95;
-        }
-        
-        .step-indicator {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 10px;
-        }
-        
-        .step {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: #666;
-            transition: all 0.3s ease;
-        }
-        
-        .step.active {
-            background: #1297e0;
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        .step.completed {
-            background: #00bf63;
-            color: white;
-        }
-        
-        .question-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            display: none;
-        }
-        
-        .question-card.active {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .question-title {
-            font-size: 24px;
-            margin-bottom: 8px;
-            color: #1a1a1a;
-            font-weight: 600;
-        }
-        
-        .question-subtitle {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
+        .logo:hover { color: var(--bright-blue); }
+        .logo-img { height: 40px; width: auto; border-radius: 8px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; }
+        .nav-item { margin-left: 1.5rem; }
+        .nav-link {
+            font-family: 'Outfit', sans-serif;
+            color: var(--warm-dark);
             font-weight: 500;
-            color: #333;
+            font-size: 15px;
+            position: relative;
+            padding-bottom: 0.25rem;
+            text-decoration: none;
         }
-        
-        .input-group input,
-        .input-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bright-blue);
+            transition: var(--transition);
+            border-radius: 1px;
         }
-        
-        .input-group input:focus,
-        .input-group textarea:focus {
-            outline: none;
-            border-color: #1297e0;
-        }
-        
-        .options-grid {
-            display: grid;
-            gap: 12px;
-        }
-        
-        .option.multi-select {
+        .nav-link:hover { color: var(--bright-blue); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: var(--bright-blue); font-weight: 600; }
+        .hamburger { display: none; cursor: pointer; padding: 10px; margin: -10px; }
+        .bar { display: block; width: 22px; height: 2px; margin: 5px auto; transition: var(--transition); background-color: var(--navy); border-radius: 2px; }
+        .nav-dropdown { position: relative; margin-left: 1.5rem; list-style: none; }
+        .nav-dropdown-toggle {
+            color: var(--warm-dark);
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 4px;
+            padding-bottom: 0.25rem;
+            transition: var(--transition);
         }
-        
-        .checkbox-icon {
-            font-size: 20px;
-            color: #1297e0;
-            flex-shrink: 0;
+        .chevron { font-size: 10px; transition: transform 0.25s ease; margin-left: 2px; }
+        .nav-dropdown:hover .nav-dropdown-toggle { color: var(--bright-blue); }
+        .nav-dropdown:hover .chevron { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            min-width: 180px;
+            background: rgba(255, 255, 255, 0.98);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(17, 39, 82, 0.08);
+            border-radius: var(--radius-sm);
+            box-shadow: 0 8px 32px rgba(17, 39, 82, 0.12);
+            padding: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 1001;
+            list-style: none;
         }
-        
-        .option.multi-select.selected {
-            background: linear-gradient(135deg, rgba(18, 151, 224, 0.1), rgba(0, 191, 99, 0.1));
-            border-color: #1297e0;
-            color: #1a1a1a;
+        .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(-50%) translateY(0);
         }
-        
-        .option-text {
-            flex: 1;
+        .nav-dropdown-menu li a {
+            display: block;
+            padding: 9px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--warm-dark);
+            border-radius: 7px;
+            transition: var(--transition-fast);
+            text-decoration: none;
         }
-        
-        .option {
-            padding: 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
+        .nav-dropdown-menu li a:hover {
+            background: rgba(18, 151, 224, 0.08);
+            color: var(--bright-blue);
         }
-        
-        .option:hover {
-            border-color: #1297e0;
-            transform: translateX(4px);
-        }
-        
-        .option.selected {
-            background: linear-gradient(135deg, #1297e0, #00bf63);
-            color: white;
-            border-color: transparent;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-        }
-        
-        .btn {
-            padding: 14px 28px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #1297e0, #00bf63);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(18, 151, 224, 0.3);
-        }
-        
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: scale(1);
-        }
-        
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
-        
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-        
-        .progress-bar {
-            height: 6px;
-            background: #e0e0e0;
-            border-radius: 3px;
-            margin-bottom: 30px;
+
+        /* ── Hero ── */
+        .quote-hero {
+            padding: clamp(6rem, 9vw, 8rem) 0 clamp(2rem, 3vw, 3rem);
+            text-align: center;
+            position: relative;
+            background: var(--white);
             overflow: hidden;
         }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(135deg, #1297e0, #00bf63);
-            border-radius: 3px;
-            transition: width 0.3s ease;
+        .quote-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -80px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 191, 99, 0.06) 0%, transparent 70%);
+            pointer-events: none;
         }
-        
-        .results-container {
-            display: none;
-            animation: fadeIn 0.5s ease;
+        .quote-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(18, 151, 224, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .results-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .score-display {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
+        .quote-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(36px, 5vw, 52px);
+            line-height: 1.12;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: var(--navy);
             position: relative;
         }
-        
-        .score-circle {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(#00bf63 0deg, #1297e0 180deg, #e0e0e0 180deg);
+        .quote-hero .highlight-gradient {
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .quote-hero p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--navy);
+            max-width: 480px;
+            margin: 0 auto;
+            opacity: 0.7;
+            position: relative;
+        }
+        .hero-trust-badges {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
             position: relative;
         }
-        
-        .score-inner {
-            width: 160px;
-            height: 160px;
-            background: white;
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--navy);
+            opacity: 0.5;
+        }
+        .trust-badge i {
+            color: var(--green);
+            font-size: 12px;
+        }
+
+        /* ── Form ── */
+        .form-section {
+            padding: clamp(48px, 6vw, 72px) 0;
+            background: var(--cream);
+        }
+        .form-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 3rem;
+            align-items: start;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: clamp(28px, 4vw, 48px);
+            border: 1px solid var(--warm-border);
+            box-shadow: var(--warm-shadow);
+        }
+        .form-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        .sidebar-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px;
+            border: 1px solid var(--warm-border);
+            box-shadow: var(--warm-shadow-sm);
+            margin-bottom: 1rem;
+        }
+        .sidebar-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        .sidebar-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--warm-dark);
+            opacity: 0.8;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        .sidebar-item:last-child { margin-bottom: 0; }
+        .sidebar-card--highlight {
+            background: linear-gradient(145deg, rgba(0, 191, 99, 0.04) 0%, rgba(18, 151, 224, 0.06) 100%);
+            border-color: rgba(0, 191, 99, 0.18);
+        }
+        .sidebar-item i {
+            color: var(--green);
+            font-size: 12px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        .sidebar-quote {
+            font-family: 'Fraunces', serif;
+            font-size: 16px;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+        .sidebar-attribution {
+            font-size: 13px;
+            color: var(--warm-dark);
+            opacity: 0.6;
+            margin: 0;
+        }
+
+        .form-section-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bright-blue);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(18, 151, 224, 0.1);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .form-group-row .form-group { margin-bottom: 0; }
+        .form-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+            display: block;
+        }
+        .form-label .optional {
+            font-weight: 400;
+            color: #8a9ab5;
+            font-size: 12px;
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 11px 14px;
+            font-size: 15px;
+            font-family: 'Outfit', sans-serif;
+            border: 1.5px solid rgba(17, 39, 82, 0.12);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+            background: var(--white);
+            color: var(--navy);
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--bright-blue);
+            box-shadow: 0 0 0 3px rgba(18, 151, 224, 0.08);
+        }
+        .form-input::placeholder { color: rgba(17, 39, 82, 0.3); }
+        .form-textarea { min-height: 90px; resize: vertical; }
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235b6b8a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+            cursor: pointer;
+        }
+        .divider {
+            height: 1px;
+            background: rgba(17, 39, 82, 0.06);
+            margin: 28px 0;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: white;
+            border: none;
+            border-radius: var(--radius-pill);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--green), var(--bright-blue));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .submit-btn span { position: relative; z-index: 1; }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 191, 99, 0.3);
+        }
+        .submit-btn:hover::before { opacity: 1; }
+        .submit-btn:active { transform: translateY(0) scale(0.98); }
+        .privacy-note {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--warm-dark);
+            opacity: 0.5;
+            line-height: 1.5;
+        }
+        .privacy-note a { color: var(--bright-blue); font-weight: 500; }
+        /* ── Step Indicators ── */
+        .step-indicators {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 8px;
+        }
+        .step-dot {
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
+            background: rgba(17, 39, 82, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(17, 39, 82, 0.35);
+            transition: var(--transition);
+        }
+        .step-dot.active {
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            color: white;
+        }
+        .step-dot.done {
+            background: var(--green);
+            color: white;
+        }
+        .step-line {
+            width: 60px;
+            height: 2px;
+            background: rgba(17, 39, 82, 0.08);
+            transition: background 0.4s ease;
+        }
+        .step-line.active {
+            background: linear-gradient(90deg, var(--green), var(--bright-blue));
+        }
+        .step-labels {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 28px;
+        }
+        .step-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(17, 39, 82, 0.35);
+            transition: color 0.3s ease;
+        }
+        .step-label.active {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* ── Step 2 ── */
+        .step2-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--bright-blue);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+        }
+        .back-btn:hover {
+            background: rgba(18, 151, 224, 0.08);
+        }
+        .back-btn i { font-size: 12px; }
+        .step2-user-info {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            color: var(--warm-dark);
+            opacity: 0.6;
+        }
+        @media (max-width: 480px) {
+            .confirmation-details { flex-direction: column; gap: 0.5rem; }
+            .booking-btn { width: 100%; }
+        }
+        /* ── Step 2: Confirmed + Booking Frame ── */
+        .step2-confirmed {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .confirmed-check {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--green), var(--bright-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+        .confirmed-check i { font-size: 18px; color: white; }
+        .confirmed-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .confirmed-text {
+            font-size: 14px;
+            color: var(--warm-dark);
+            opacity: 0.6;
+            margin: 0;
+        }
+
+        .booking-frame {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--warm-border);
+            margin-bottom: 1rem;
+        }
+        .bookings-iframe {
+            border: 0;
+            display: block;
+            min-height: 650px;
+        }
+        .frame-fallback {
+            position: absolute;
+            inset: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            background: var(--sand);
+            z-index: 1;
+            padding: 2rem;
+            transition: opacity 0.5s ease;
         }
-        
-        .score-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #1a1a1a;
+        .frame-fallback.loaded {
+            opacity: 0;
+            pointer-events: none;
         }
-        
-        .score-label {
-            font-size: 16px;
-            color: #666;
-        }
-        
-        .risk-badge {
-            display: inline-block;
-            padding: 8px 24px;
-            border-radius: 24px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .risk-high {
-            background: #ffebee;
-            color: #c62828;
-        }
-        
-        .risk-moderate {
-            background: #fff3e0;
-            color: #ef6c00;
-        }
-        
-        .risk-low {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-        
-        .risk-ready {
-            background: linear-gradient(135deg, #00bf63, #1297e0);
-            color: white;
-        }
-        
-        .results-title {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-        
-        .insights-list {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .insight-item {
-            display: flex;
-            align-items: start;
-            margin-bottom: 20px;
-            gap: 15px;
-        }
-        
-        .insight-number {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #1297e0, #00bf63);
-            color: white;
+        .fallback-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
-            flex-shrink: 0;
+            margin-bottom: 1rem;
         }
-        
-        .insight-text {
-            flex: 1;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, rgba(18, 151, 224, 0.1), rgba(0, 191, 99, 0.1));
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .cta-title {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: #1a1a1a;
-        }
-        
-        .cta-description {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .lead-magnet {
-            background: white;
-            border: 2px solid #1297e0;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-        
-        .lead-magnet-title {
-            font-size: 20px;
-            color: #1297e0;
-            margin-bottom: 10px;
-        }
-        
-        .lead-magnet-list {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        
-        .lead-magnet-list li {
-            padding: 8px 0;
-            color: #666;
-        }
-        
-        .lead-magnet-list li:before {
-            content: "✓ ";
-            color: #00bf63;
-            font-weight: 600;
-            margin-right: 8px;
-        }
-        
-        .error-message {
-            color: #c62828;
+        .fallback-icon i { font-size: 16px; color: white; }
+        .frame-fallback p {
             font-size: 14px;
-            margin-top: 8px;
-            display: none;
+            color: var(--warm-dark);
+            opacity: 0.6;
+            margin-bottom: 1.5rem;
         }
-        
-        .contact-summary {
-            background: #f5f5f7;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
+        .booking-btn {
+            display: inline-flex;
+            width: auto;
+            padding: 14px 36px;
+            font-size: 16px;
+            text-decoration: none;
         }
-        
-        .contact-summary h3 {
-            color: #1a1a1a;
-            margin-bottom: 12px;
+        .booking-btn-icon { margin-right: 8px; font-size: 14px; }
+
+        .confirmation-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
-        
-        .contact-summary p {
-            color: #666;
-            margin-bottom: 8px;
+        .confirmation-detail {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--navy);
+            opacity: 0.45;
+        }
+        .confirmation-detail i { font-size: 12px; color: var(--green); }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--bright-blue);
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        .back-link:hover { opacity: 1; }
+        .back-link i { font-size: 11px; }
+        @media (max-width: 480px) {
+            .confirmation-details { flex-direction: column; gap: 0.5rem; }
+            .booking-btn { width: 100%; }
+        }
+
+        .btn-arrow-icon { margin-left: 6px; font-size: 13px; }
+
+        /* ── Optional collapsible section ── */
+        .optional-section {
+            margin-bottom: 24px;
+            border: 1px solid rgba(17, 39, 82, 0.06);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+        .optional-section.is-open {
+            border-color: rgba(18, 151, 224, 0.15);
+        }
+        .optional-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: rgba(18, 151, 224, 0.03);
+            border: none;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--bright-blue);
+            transition: background 0.2s ease;
+        }
+        .optional-toggle:hover {
+            background: rgba(18, 151, 224, 0.06);
+        }
+        .optional-chevron {
+            font-size: 11px;
+            transition: transform 0.3s ease;
+            color: var(--bright-blue);
+        }
+        .optional-section.is-open .optional-chevron {
+            transform: rotate(180deg);
+        }
+        .optional-fields {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            padding: 0 18px;
+        }
+        .optional-section.is-open .optional-fields {
+            max-height: 400px;
+            padding: 18px 18px 8px;
+        }
+        .step-hidden { display: none; }
+
+        .sidebar-icon { margin-right: 6px; font-size: 13px; }
+        .sidebar-icon--blue { color: var(--bright-blue); }
+        .sidebar-icon--green { color: var(--green); }
+
+        /* ── Footer ── */
+        .footer { background: var(--navy); color: rgba(255,255,255,0.65); padding: 3rem 0 1.5rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-heading { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: white; margin-bottom: 0.8rem; }
+        .footer-links { list-style: none; }
+        .footer-link { margin-bottom: 0.4rem; font-size: 14px; }
+        .footer-link a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        .footer-link a:hover { color: var(--green); }
+        .footer-link i { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; color: rgba(255,255,255,0.6); transition: var(--transition); }
+        .footer-link i:hover { background: var(--bright-blue); color: white; }
+        .footer-social { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
+        .footer-collab { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-collab-label { color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; }
+        .footer-collab-logo { height: 36px; width: auto; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-bottom p { font-family: 'Outfit', sans-serif; font-size: 12px; color: rgba(255,255,255,0.4); margin: 0; }
+        .footer p { font-size: 14px; }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .form-layout { grid-template-columns: 1fr; }
+            .form-sidebar { position: static; }
+        }
+        @media (max-width: 768px) {
+            .quote-hero { padding: 6rem 0 2rem; }
+            .quote-hero h1 { font-size: 32px; }
+            .form-card { padding: 24px 20px; }
+            .form-group-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-trust-badges { flex-direction: column; gap: 0.5rem; }
+            .hamburger { display: flex; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1001; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+            .nav-menu { position: fixed; left: -100%; top: 0; flex-direction: column; background-color: rgba(255,255,255,0.98); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); width: 100%; height: 100vh; text-align: center; transition: 0.3s; padding: 5rem 0 2rem; gap: 0; }
+            .nav-menu.active { left: 0; }
+            .nav-item { margin: 0.8rem 0; margin-left: 0; }
+            .nav-dropdown { margin-left: 0; margin: 0.8rem 0; }
+            .nav-dropdown-menu { position: static; opacity: 1; pointer-events: auto; transform: none; box-shadow: none; background: transparent; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0; }
+            .nav-dropdown.open .nav-dropdown-menu { max-height: 200px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Landing Section -->
-        <div id="landingSection">
-            <div class="assessment-header">
-                <h1>Is your product ready for a successful launch?</h1>
-                <p>Take this 3-minute assessment to identify hidden risks in your food product and get a personalized testing roadmap</p>
-            </div>
-            
-            <div style="background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px;">
-                <h2 style="font-size: 24px; margin-bottom: 20px; color: #1a1a1a;">Discover your testing blind spots</h2>
-                <p style="color: #666; margin-bottom: 20px;">This assessment will measure and improve three critical areas:</p>
-                
-                <div style="display: grid; gap: 16px; margin-bottom: 30px;">
-                    <div style="display: flex; gap: 12px; align-items: start;">
-                        <div style="width: 40px; height: 40px; background: #e8f5e9; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <span style="font-size: 20px;">🎯</span>
-                        </div>
-                        <div>
-                            <strong style="color: #1a1a1a;">Product-Market Fit</strong>
-                            <p style="color: #666; font-size: 14px; margin-top: 4px;">How well your product aligns with real consumer behavior</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 12px; align-items: start;">
-                        <div style="width: 40px; height: 40px; background: #e3f2fd; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <span style="font-size: 20px;">🔬</span>
-                        </div>
-                        <div>
-                            <strong style="color: #1a1a1a;">Testing Readiness</strong>
-                            <p style="color: #666; font-size: 14px; margin-top: 4px;">Whether your current testing approach captures authentic feedback</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 12px; align-items: start;">
-                        <div style="width: 40px; height: 40px; background: #fff3e0; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <span style="font-size: 20px;">⚠️</span>
-                        </div>
-                        <div>
-                            <strong style="color: #1a1a1a;">Launch Risk Score</strong>
-                            <p style="color: #666; font-size: 14px; margin-top: 4px;">Hidden failure points in texture, usability, or concept</p>
-                        </div>
-                    </div>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img" />
+                    Eatpol
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </div>
-                
-                <button class="btn btn-primary" style="width: 100%;" onclick="startAssessment()">
-                    Start Free Assessment →
-                </button>
-            </div>
-            
-            <div style="background: white; border-radius: 16px; padding: 20px; border-left: 4px solid #1297e0;">
-                <p style="color: #666; font-size: 14px;">
-                    <strong style="color: #1a1a1a;">Created by Eatpol</strong><br>
-                    Wageningen University spin-off •
-                </p>
-            </div>
+            </nav>
         </div>
-        
-        <!-- Assessment Section -->
-        <div id="assessmentSection" style="display: none;">
-            <div class="step-indicator" id="stepIndicator"></div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressBar" style="width: 0%;"></div>
-            </div>
-            
-            <!-- Contact Information -->
-            <div class="question-card active" data-step="1">
-                <h2 class="question-title">Let's start with your information</h2>
-                <p class="question-subtitle">We'll use this to send your personalized assessment results</p>
-                
-                <div class="input-group">
-                    <label for="firstName">First Name *</label>
-                    <input type="text" id="firstName" required>
-                    <span class="error-message">Please enter your first name</span>
-                </div>
-                
-                <div class="input-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" required>
-                    <span class="error-message">Please enter a valid email address</span>
-                </div>
-                
-                <div class="input-group">
-                    <label for="company">Company Name *</label>
-                    <input type="text" id="company" required>
-                    <span class="error-message">Please enter your company name</span>
-                </div>
-                
-                <div class="input-group">
-                    <label for="phone">Phone Number (Optional)</label>
-                    <input type="tel" id="phone">
-                </div>
-                
-                <div class="button-group">
-                    <button class="btn btn-primary" onclick="nextQuestion(1)">Continue →</button>
-                </div>
-            </div>
-            
-            <!-- Questions will be dynamically added here -->
-            <div id="questionsContainer"></div>
-        </div>
-        
-        <!-- Results Section -->
-        <div id="resultsSection" class="results-container"></div>
+    </header>
 
-        <!-- Hidden Netlify Form for Assessment Submission -->
-        <form name="product-assessment" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-            <input type="text" name="First_Name" />
-            <input type="email" name="Email" />
-            <input type="text" name="Company" />
-            <input type="tel" name="Phone" />
-            <input type="number" name="Score" />
-            <input type="text" name="Risk_Level" />
-            <input type="text" name="Plant_Based" />
-            <input type="text" name="Recommended_Package" />
-            <textarea name="Assessment_Data"></textarea>
-        </form>
-    </div>
+    <!-- Hero -->
+    <section class="quote-hero">
+        <div class="container">
+            <span class="overline">Free assessment</span>
+            <h1>Let's talk about <span class="highlight-gradient">your product</span></h1>
+            <p>Book a 30-minute intro call. We'll discuss your product and follow up with a tailored proposal.</p>
+            <div class="hero-trust-badges">
+                <span class="trust-badge"><i class="fas fa-check-circle"></i> No commitment</span>
+                <span class="trust-badge"><i class="fas fa-check-circle"></i> Results in 2 weeks</span>
+                <span class="trust-badge"><i class="fas fa-check-circle"></i> GDPR compliant</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-layout">
+                <div class="form-card">
+                    <!-- Step indicators -->
+                    <div class="step-indicators">
+                        <div class="step-dot active" id="stepDot1"><span>1</span></div>
+                        <div class="step-line" id="stepLine"></div>
+                        <div class="step-dot" id="stepDot2"><span>2</span></div>
+                    </div>
+                    <div class="step-labels">
+                        <span class="step-label active" id="stepLabel1">Your details</span>
+                        <span class="step-label" id="stepLabel2">Book a call</span>
+                    </div>
+
+                    <!-- Step 1: Your details -->
+                    <div id="step1">
+                        <div class="form-section-label">Takes 30 seconds</div>
+
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="First_Name" class="form-input" placeholder="Jane" autocomplete="given-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="Last_Name" class="form-input" placeholder="de Vries" autocomplete="family-name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Work Email *</label>
+                            <input type="email" id="email" name="Email" class="form-input" placeholder="you@company.com" autocomplete="email" required>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label class="form-label" for="company">Company *</label>
+                                <input type="text" id="company" name="Company" class="form-input" autocomplete="organization" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="position">Role <span class="optional">(optional)</span></label>
+                                <input type="text" id="position" name="Position" class="form-input" placeholder="e.g. Head of R&D">
+                            </div>
+                        </div>
+
+                        <!-- Optional project context — collapsible -->
+                        <div class="optional-section">
+                            <button type="button" class="optional-toggle" id="optionalToggle" onclick="toggleOptional()">
+                                <span>Help us prepare for your call</span>
+                                <i class="fas fa-chevron-down optional-chevron" id="optionalChevron"></i>
+                            </button>
+                            <div class="optional-fields" id="optionalFields">
+                                <div class="form-group-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="productType">Product type</label>
+                                        <select id="productType" name="Product_Type" class="form-select">
+                                            <option value="" disabled selected>Select a category</option>
+                                            <option value="Snack / Bar">Snack / Bar</option>
+                                            <option value="Beverage">Beverage</option>
+                                            <option value="Ready Meal / Frozen Meal">Ready Meal / Frozen Meal</option>
+                                            <option value="Plant-based Alternative">Plant-based Alternative</option>
+                                            <option value="Dairy or Dairy-alternative">Dairy or Dairy-alternative</option>
+                                            <option value="Meat or Fish Product">Meat or Fish Product</option>
+                                            <option value="Bakery / Pastry">Bakery / Pastry</option>
+                                            <option value="Ingredient / Cooking Aid">Ingredient / Cooking Aid</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="productStage">Product stage</label>
+                                        <select id="productStage" name="Product_Stage" class="form-select">
+                                            <option value="" disabled selected>Select</option>
+                                            <option value="Concept">Concept / Early idea</option>
+                                            <option value="Prototype">Prototype ready</option>
+                                            <option value="Market-ready">Market-ready</option>
+                                            <option value="Already launched">Already launched</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="comments">Anything else?</label>
+                                    <textarea id="comments" name="Comments" class="form-input form-textarea" placeholder="Your goals, target market, or questions..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="submit-btn" id="toStep2Btn" onclick="goToStep2()">
+                            <span>Continue — pick a time <i class="fas fa-arrow-right btn-arrow-icon"></i></span>
+                        </button>
+
+                        <p class="privacy-note">
+                            By continuing, you agree to our <a href="privacy_policy.html">Privacy Policy</a>.
+                        </p>
+                    </div>
+
+                    <!-- Step 2: Book a call -->
+                    <div id="step2" class="step-hidden">
+                        <div class="step2-confirmed">
+                            <div class="confirmed-check"><i class="fas fa-check"></i></div>
+                            <h3 class="confirmed-title">Details saved</h3>
+                            <p class="confirmed-text">Now pick a time that works for you.</p>
+                        </div>
+                        <div class="booking-frame">
+                            <iframe
+                                id="bookingsFrame"
+                                src="about:blank"
+                                width="100%"
+                                height="650"
+                                frameborder="0"
+                                scrolling="yes"
+                                class="bookings-iframe"
+                                title="Book a call with Eatpol"
+                                allow="clipboard-write"
+                                sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
+                            ></iframe>
+                            <div class="frame-fallback" id="frameFallback">
+                                <div class="fallback-icon"><i class="fas fa-external-link-alt"></i></div>
+                                <p>Calendar loading...</p>
+                                <a href="https://outlook.office.com/bookwithme/user/cf1db0f04bcd44da8fb665192f4e745e@eatpol.com/meetingtype/saDsWlVX7k-HJzRmCIpbtw2?anonymous&ep=mlink"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="submit-btn booking-btn">
+                                    <span><i class="fas fa-calendar-alt booking-btn-icon"></i> Open booking calendar</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="confirmation-details">
+                            <div class="confirmation-detail"><i class="fas fa-clock"></i> 30 minutes</div>
+                            <div class="confirmation-detail"><i class="fas fa-video"></i> Microsoft Teams</div>
+                            <div class="confirmation-detail"><i class="fas fa-ban"></i> No commitment</div>
+                        </div>
+                        <button type="button" class="back-link" onclick="goToStep1()">
+                            <i class="fas fa-arrow-left"></i> Edit your details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="form-sidebar">
+                    <div class="sidebar-card sidebar-card--highlight">
+                        <h3><i class="fas fa-gift sidebar-icon sidebar-icon--green"></i> What you'll get</h3>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Personalized testing plan tailored to your product</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Clear cost estimate — no hidden fees</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Timeline and expected deliverables</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Sample dashboard walkthrough</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Expert advice on study design</div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-clock sidebar-icon sidebar-icon--blue"></i> What happens next</h3>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Book a 30-min intro call at a time that suits you</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> We discuss your product and goals</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> You receive a tailored proposal within 2 business days</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Results in your Eatpol Studio dashboard in 2 weeks</div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-shield-alt sidebar-icon sidebar-icon--green"></i> Your data is safe</h3>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> GDPR compliant</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> No spam, ever</div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> Information used only to prepare your proposal</div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-heading">About Eatpol</h3>
+                    <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+                    <div class="footer-social">
+                        <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@eatpol_" class="footer-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@eatpol" class="footer-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/people/Eatpol/61579980764718/" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="index.html">Home</a></li>
+                        <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
+                        <li class="footer-link"><a href="eathnos.html">Community</a></li>
+                        <li class="footer-link"><a href="team.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+                        <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
+                        <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Legal</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-collab">
+                    <span class="footer-collab-label">In collaboration with</span>
+                    <img src="img/ufw.png" alt="Wageningen University & Research" class="footer-collab-logo">
+                    <img src="img/oostnl.svg" alt="Oost NL" class="footer-collab-logo">
+                </div>
+                <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Assessment data structure
-        const assessmentData = {
-            contact: {},
-            answers: {},
-            currentStep: 1,
-            totalSteps: 16 // 1 contact + 15 questions
-        };
-        
-        // Questions data
-        const questions = [
-            {
-                id: 'q1',
-                type: 'best-practice',
-                title: 'Do you currently test products in real home environments?',
-                subtitle: 'This captures authentic consumer behavior vs. artificial lab settings',
-                options: [
-                    { value: 'extensive', text: 'Yes, extensively', points: 10 },
-                    { value: 'sometimes', text: 'Sometimes', points: 6 },
-                    { value: 'labs', text: 'No, we use labs/booths', points: 2 },
-                    { value: 'unsure', text: 'Not sure', points: 0 }
-                ]
-            },
-            {
-                id: 'q2',
-                type: 'best-practice',
-                title: 'Do you capture the complete consumer journey?',
-                subtitle: 'From preparation to storage, not just consumption',
-                options: [
-                    { value: 'all', text: 'Yes, all stages', points: 10 },
-                    { value: 'some', text: 'Some stages', points: 6 },
-                    { value: 'consumption', text: 'Only consumption', points: 3 },
-                    { value: 'none', text: 'No systematic capture', points: 0 }
-                ]
-            },
-            {
-                id: 'q3',
-                type: 'best-practice',
-                title: 'Do you test with at least 30 households per product iteration?',
-                subtitle: 'Statistical significance requires adequate sample size',
-                options: [
-                    { value: '30plus', text: 'Yes, 30+', points: 10 },
-                    { value: '15-29', text: '15-29 households', points: 6 },
-                    { value: 'less15', text: 'Less than 15', points: 3 },
-                    { value: 'none', text: 'No consumer testing', points: 0 }
-                ]
-            },
-            {
-                id: 'q4',
-                type: 'best-practice',
-                title: 'Do you use AI/video analysis to capture non-verbal feedback?',
-                subtitle: 'Facial expressions and behaviors reveal what surveys miss',
-                options: [
-                    { value: 'advanced', text: 'Yes, advanced systems', points: 10 },
-                    { value: 'basic', text: 'Basic video recording', points: 5 },
-                    { value: 'audio', text: 'Audio only', points: 2 },
-                    { value: 'none', text: 'No recording', points: 0 }
-                ]
-            },
-            {
-                id: 'q5',
-                type: 'best-practice',
-                title: 'For plant-based products, do you measure texture acceptance quantitatively?',
-                subtitle: 'Texture is the #1 failure point for plant-based foods',
-                options: [
-                    { value: 'instruments', text: 'Yes, with instruments', points: 10 },
-                    { value: 'subjective', text: 'Subjective ratings only', points: 5 },
-                    { value: 'notapplicable', text: 'Not applicable', points: 10 },
-                    { value: 'none', text: 'No texture testing', points: 0 }
-                ]
-            },
-            {
-                id: 'q6',
-                type: 'best-practice',
-                title: 'Do you test packaging usability in real-world conditions?',
-                subtitle: 'Poor packaging can kill even great products',
-                options: [
-                    { value: 'systematic', text: 'Yes, systematically', points: 10 },
-                    { value: 'sometimes', text: 'Sometimes', points: 6 },
-                    { value: 'rarely', text: 'Rarely', points: 2 },
-                    { value: 'never', text: 'Never', points: 0 }
-                ]
-            },
-            {
-                id: 'q7',
-                type: 'best-practice',
-                title: 'Do you capture emotional responses during consumption?',
-                subtitle: 'Emotions drive 95% of purchase decisions',
-                options: [
-                    { value: 'facial', text: 'Yes, with facial coding', points: 10 },
-                    { value: 'survey', text: 'Survey questions only', points: 5 },
-                    { value: 'notes', text: 'Observation notes', points: 3 },
-                    { value: 'none', text: 'No emotion tracking', points: 0 }
-                ]
-            },
-            {
-                id: 'q8',
-                type: 'best-practice',
-                title: 'Do you test multiple iterations before launch?',
-                subtitle: 'Successful products average 12 iterations',
-                options: [
-                    { value: '10plus', text: '10+ iterations', points: 10 },
-                    { value: '5-9', text: '5-9 iterations', points: 7 },
-                    { value: '2-4', text: '2-4 iterations', points: 4 },
-                    { value: 'single', text: 'Single version only', points: 0 }
-                ]
-            },
-            {
-                id: 'q9',
-                type: 'best-practice',
-                title: 'Do you benchmark against competitor products?',
-                subtitle: 'Relative performance predicts market success',
-                options: [
-                    { value: 'always', text: 'Always', points: 10 },
-                    { value: 'sometimes', text: 'Sometimes', points: 6 },
-                    { value: 'rarely', text: 'Rarely', points: 2 },
-                    { value: 'never', text: 'Never', points: 0 }
-                ]
-            },
-            {
-                id: 'q10',
-                type: 'best-practice',
-                title: 'Do you get actionable insights within 2 weeks of testing?',
-                subtitle: 'Speed enables rapid iteration and improvement',
-                options: [
-                    { value: 'week1', text: 'Yes, within 1 week', points: 10 },
-                    { value: 'weeks2', text: '1-2 weeks', points: 7 },
-                    { value: 'weeks4', text: '2-4 weeks', points: 3 },
-                    { value: 'month', text: 'Over a month', points: 0 }
-                ]
-            },
-            {
-                id: 'q11',
-                type: 'qualifying',
-                title: 'What types of products are you working on?',
-                subtitle: 'Select all that apply - this helps us customize our recommendations',
-                multiSelect: true,
-                options: [
-                    { value: 'plantbased', text: 'Plant-based alternatives', points: 0 },
-                    { value: 'snacks', text: 'Snacks or confectionery', points: 0 },
-                    { value: 'beverage', text: 'Beverages', points: 0 },
-                    { value: 'prepared', text: 'Prepared meals or convenience foods', points: 0 },
-                    { value: 'dairy', text: 'Dairy or dairy alternatives', points: 0 },
-                    { value: 'ingredients', text: 'Food ingredients/additives', points: 0 },
-                    { value: 'other', text: 'Other food category', points: 0 }
-                ]
-            },
-            {
-                id: 'q12',
-                type: 'qualifying',
-                title: "What's your primary challenge for the next 90 days?",
-                subtitle: 'We\'ll focus our recommendations on this area',
-                options: [
-                    { value: 'texture', text: 'Texture optimization (especially plant-based)', points: 0 },
-                    { value: 'concept', text: 'Concept validation before investment', points: 0 },
-                    { value: 'usage', text: 'Understanding usage problems', points: 0 },
-                    { value: 'risk', text: 'Reducing product failure risk', points: 0 },
-                    { value: 'competition', text: 'Competing with established brands', points: 0 }
-                ]
-            },
-            {
-                id: 'q13',
-                type: 'qualifying',
-                title: "What's preventing product success currently?",
-                subtitle: 'Select all that apply - understanding your obstacles helps us provide better solutions',
-                multiSelect: true,
-                options: [
-                    { value: 'artificial', text: 'Artificial testing environments', points: 0 },
-                    { value: 'slow', text: 'Slow, expensive testing cycles', points: 0 },
-                    { value: 'data', text: 'Missing emotional/behavioral data', points: 0 },
-                    { value: 'texture', text: 'Poor texture acceptance', points: 0 },
-                    { value: 'unclear', text: 'Unclear consumer preferences', points: 0 }
-                ]
-            },
-            {
-                id: 'q14',
-                type: 'qualifying',
-                title: 'Which testing solutions would help you most?',
-                subtitle: 'Select all that interest you - we\'ll tailor our recommendations',
-                multiSelect: true,
-                options: [
-                    { value: 'texture', text: 'Texture optimization & bite/chew modeling', points: 0 },
-                    { value: 'inhome', text: 'In-home consumer behavior testing', points: 0 },
-                    { value: 'concept', text: 'AI-moderated concept testing', points: 0 },
-                    { value: 'emotion', text: 'Emotional response & facial coding', points: 0 },
-                    { value: 'benchmark', text: 'Competitive benchmarking', points: 0 },
-                    { value: 'packaging', text: 'Packaging usability testing', points: 0 },
-                    { value: 'rapid', text: 'Rapid iteration testing (< 1 week)', points: 0 }
-                ]
-            },
-            {
-                id: 'q15',
-                type: 'qualifying',
-                title: 'What are your main concerns about current testing?',
-                subtitle: 'Select all that apply - this helps us address your specific pain points',
-                multiSelect: true,
-                options: [
-                    { value: 'cost', text: 'Testing is too expensive', points: 0 },
-                    { value: 'time', text: 'Takes too long to get results', points: 0 },
-                    { value: 'artificial', text: 'Lab results don\'t match real-world usage', points: 0 },
-                    { value: 'sample', text: 'Hard to find the right test participants', points: 0 },
-                    { value: 'insights', text: 'Data doesn\'t provide actionable insights', points: 0 },
-                    { value: 'texture', text: 'Can\'t optimize texture properly', points: 0 },
-                    { value: 'emotion', text: 'Missing emotional/behavioral feedback', points: 0 },
-                    { value: 'none', text: 'None of the above', points: 0 }
-                ]
+        // Mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Header scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                header.classList.add('header--scrolled');
+            } else {
+                header.classList.remove('header--scrolled');
             }
-        ];
-        
-        function startAssessment() {
-            document.getElementById('landingSection').style.display = 'none';
-            document.getElementById('assessmentSection').style.display = 'block';
-            initializeStepIndicator();
-            updateProgress();
+        }, { passive: true });
+
+        // Toggle optional fields
+        function toggleOptional() {
+            document.querySelector('.optional-section').classList.toggle('is-open');
         }
-        
-        function initializeStepIndicator() {
-            const stepIndicator = document.getElementById('stepIndicator');
-            for (let i = 1; i <= 16; i++) {
-                const step = document.createElement('div');
-                step.className = 'step';
-                step.textContent = i;
-                if (i === 1) step.classList.add('active');
-                stepIndicator.appendChild(step);
-            }
-        }
-        
-        function validateContactForm() {
+
+        // Step navigation
+        function goToStep2() {
             const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
             const email = document.getElementById('email').value.trim();
             const company = document.getElementById('company').value.trim();
-            
-            let isValid = true;
-            
-            if (!firstName) {
-                document.querySelector('#firstName + .error-message').style.display = 'block';
-                isValid = false;
-            } else {
-                document.querySelector('#firstName + .error-message').style.display = 'none';
+
+            if (!firstName || !lastName || !email || !company) {
+                alert('Please fill in all required fields.');
+                return;
             }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email)) {
-                document.querySelector('#email + .error-message').style.display = 'block';
-                isValid = false;
-            } else {
-                document.querySelector('#email + .error-message').style.display = 'none';
+
+            // Email validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
             }
-            
-            if (!company) {
-                document.querySelector('#company + .error-message').style.display = 'block';
-                isValid = false;
-            } else {
-                document.querySelector('#company + .error-message').style.display = 'none';
-            }
-            
-            return isValid;
+
+            // Update UI
+            document.getElementById('step1').classList.add('step-hidden');
+            document.getElementById('step2').classList.remove('step-hidden');
+            document.getElementById('stepDot1').classList.remove('active');
+            document.getElementById('stepDot1').classList.add('done');
+            document.getElementById('stepDot2').classList.add('active');
+            document.getElementById('stepLine').classList.add('active');
+            document.getElementById('stepLabel1').classList.remove('active');
+            document.getElementById('stepLabel2').classList.add('active');
+            document.getElementById('step2UserInfo').textContent = firstName + ' · ' + company;
+
+            // Load bookings iframe
+            loadBookings();
+
+            // Scroll to top of form
+            document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        
-        function nextQuestion(currentStep) {
-            if (currentStep === 1) {
-                if (!validateContactForm()) return;
-                
-                assessmentData.contact = {
-                    firstName: document.getElementById('firstName').value,
-                    email: document.getElementById('email').value,
-                    company: document.getElementById('company').value,
-                    phone: document.getElementById('phone').value
-                };
-                
-                // Generate question cards
-                generateQuestionCards();
-            } else {
-                // Save answer
-                const questionIndex = currentStep - 2;
-                const question = questions[questionIndex];
-                
-                if (question.multiSelect) {
-                    // Handle multi-select questions
-                    const selectedOptions = document.querySelectorAll(`.question-card[data-step="${currentStep}"] .option.selected`);
-                    if (selectedOptions.length === 0 && currentStep < 16) {
-                        alert('Please select at least one option to continue');
-                        return;
-                    }
-                    const selections = [];
-                    selectedOptions.forEach(opt => {
-                        selections.push({
-                            value: opt.dataset.value,
-                            text: opt.querySelector('.option-text').textContent,
-                            points: parseInt(opt.dataset.points) || 0
-                        });
-                    });
-                    assessmentData.answers[question.id] = selections;
-                } else {
-                    // Handle single-select questions
-                    const selectedOption = document.querySelector(`.question-card[data-step="${currentStep}"] .option.selected`);
-                    if (!selectedOption && currentStep < 16) {
-                        alert('Please select an option to continue');
-                        return;
-                    }
-                    if (selectedOption) {
-                        assessmentData.answers[question.id] = {
-                            value: selectedOption.dataset.value,
-                            points: parseInt(selectedOption.dataset.points) || 0
-                        };
-                    }
-                }
-            }
-            
-            // Hide current card
-            document.querySelector(`.question-card[data-step="${currentStep}"]`).classList.remove('active');
-            
-            // Update step indicators
-            document.querySelectorAll('.step')[currentStep - 1].classList.add('completed');
-            document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
-            
-            if (currentStep < 16) {
-                // Show next card
-                setTimeout(() => {
-                    document.querySelector(`.question-card[data-step="${currentStep + 1}"]`).classList.add('active');
-                    document.querySelectorAll('.step')[currentStep].classList.add('active');
-                }, 300);
-                
-                assessmentData.currentStep = currentStep + 1;
-                updateProgress();
-            } else {
-                // Show results
-                showResults();
-            }
-        }
-        
-        function previousQuestion(currentStep) {
-            if (currentStep > 1) {
-                document.querySelector(`.question-card[data-step="${currentStep}"]`).classList.remove('active');
-                document.querySelectorAll('.step')[currentStep - 1].classList.remove('active');
-                document.querySelectorAll('.step')[currentStep - 2].classList.remove('completed');
-                document.querySelectorAll('.step')[currentStep - 2].classList.add('active');
-                
-                setTimeout(() => {
-                    document.querySelector(`.question-card[data-step="${currentStep - 1}"]`).classList.add('active');
-                }, 300);
-                
-                assessmentData.currentStep = currentStep - 1;
-                updateProgress();
-            }
-        }
-        
-        function generateQuestionCards() {
-            const container = document.getElementById('questionsContainer');
-            
-            questions.forEach((question, index) => {
-                const stepNumber = index + 2; // +2 because contact form is step 1
-                const card = document.createElement('div');
-                card.className = 'question-card';
-                card.setAttribute('data-step', stepNumber);
-                
-                let cardHTML = `
-                    <h3 style="font-size: 24px; margin: 16px 0; color: #1a1a1a;">${question.title}</h3>
-                    <p class="question-subtitle">${question.subtitle}</p>
-                `;
-                
-                if (question.multiSelect) {
-                    // Multi-select with checkboxes
-                    cardHTML += '<div class="options-grid">';
-                    question.options.forEach(option => {
-                        cardHTML += `
-                            <div class="option multi-select" onclick="selectMultiOption(${stepNumber}, this)" data-value="${option.value}" data-points="${option.points}">
-                                <span class="checkbox-icon">☐</span>
-                                <span class="option-text">${option.text}</span>
-                            </div>
-                        `;
-                    });
-                    cardHTML += '</div>';
-                    cardHTML += '<p style="color: #666; font-size: 14px; margin-top: 12px;">✓ Select all that apply</p>';
-                } else {
-                    // Single select
-                    cardHTML += '<div class="options-grid">';
-                    question.options.forEach(option => {
-                        cardHTML += `
-                            <div class="option" onclick="selectOption(${stepNumber}, this)" data-value="${option.value}" data-points="${option.points}">
-                                ${option.text}
-                            </div>
-                        `;
-                    });
-                    cardHTML += '</div>';
-                }
-                
-                cardHTML += `
-                    <div class="button-group">
-                        ${stepNumber > 2 ? `<button class="btn btn-secondary" onclick="previousQuestion(${stepNumber})">← Back</button>` : ''}
-                        <button class="btn btn-primary" onclick="nextQuestion(${stepNumber})">${stepNumber === 16 ? 'Get Results' : 'Next →'}</button>
-                    </div>
-                `;
-                
-                card.innerHTML = cardHTML;
-                container.appendChild(card);
+
+        // ── Bookings iframe loader ──
+        const BOOKINGS_URL = 'https://outlook.office.com/bookwithme/user/cf1db0f04bcd44da8fb665192f4e745e@eatpol.com/meetingtype/saDsWlVX7k-HJzRmCIpbtw2?anonymous&ep=mlink';
+
+        function loadBookings() {
+            const frame = document.getElementById('bookingsFrame');
+            const fallback = document.getElementById('frameFallback');
+
+            // Try to load iframe
+            frame.src = BOOKINGS_URL;
+
+            // If iframe loads, hide fallback
+            frame.addEventListener('load', function() {
+                fallback.classList.add('loaded');
             });
-        }
-        
-        function selectOption(step, element) {
-            // Remove selected class from other options
-            document.querySelectorAll(`.question-card[data-step="${step}"] .option`).forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            // Add selected class to clicked option
-            element.classList.add('selected');
-        }
-        
-        function selectMultiOption(step, element) {
-            const isNoneOption = element.dataset.value === 'none';
-            const questionCard = document.querySelector(`.question-card[data-step="${step}"]`);
-            
-            if (isNoneOption) {
-                // If "None of the above" is clicked, deselect all other options
-                questionCard.querySelectorAll('.option').forEach(opt => {
-                    if (opt !== element) {
-                        opt.classList.remove('selected');
-                        const checkbox = opt.querySelector('.checkbox-icon');
-                        if (checkbox) checkbox.textContent = '☐';
-                    }
-                });
-            } else {
-                // If any other option is clicked, deselect "None of the above"
-                const noneOption = questionCard.querySelector('.option[data-value="none"]');
-                if (noneOption && noneOption.classList.contains('selected')) {
-                    noneOption.classList.remove('selected');
-                    const noneCheckbox = noneOption.querySelector('.checkbox-icon');
-                    if (noneCheckbox) noneCheckbox.textContent = '☐';
+
+            // If blocked by CSP, show fallback button after timeout
+            setTimeout(function() {
+                if (!fallback.classList.contains('loaded')) {
+                    fallback.querySelector('p').textContent = 'Click below to open the booking calendar.';
                 }
-            }
-            
-            // Toggle selected class for the clicked option
-            element.classList.toggle('selected');
-            
-            // Update checkbox icon
-            const checkboxIcon = element.querySelector('.checkbox-icon');
-            if (element.classList.contains('selected')) {
-                checkboxIcon.textContent = '☑';
-            } else {
-                checkboxIcon.textContent = '☐';
-            }
+            }, 3000);
         }
-        
-        function updateProgress() {
-            const progress = (assessmentData.currentStep / assessmentData.totalSteps) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-        }
-        
-        function calculateScore() {
-            let totalPoints = 0;
-            let maxPoints = 0;
-            
-            // Only calculate for best-practice questions (q1-q10)
-            for (let i = 1; i <= 10; i++) {
-                const answer = assessmentData.answers[`q${i}`];
-                if (answer) {
-                    totalPoints += answer.points;
-                    maxPoints += 10; // Each best-practice question is worth max 10 points
-                }
-            }
-            
-            return Math.round((totalPoints / maxPoints) * 100);
-        }
-        
-        function getRiskLevel(score) {
-            if (score <= 30) return 'high';
-            if (score <= 60) return 'moderate';
-            if (score <= 80) return 'low';
-            return 'ready';
-        }
-        
-        function showResults() {
-            document.getElementById('assessmentSection').style.display = 'none';
-            const resultsSection = document.getElementById('resultsSection');
-            resultsSection.style.display = 'block';
 
-            const score = calculateScore();
-            const riskLevel = getRiskLevel(score);
+        function goToStep1() {
+            document.getElementById('step2').classList.add('step-hidden');
+            document.getElementById('step1').classList.remove('step-hidden');
+            document.getElementById('stepDot2').classList.remove('active');
+            document.getElementById('stepDot1').classList.remove('done');
+            document.getElementById('stepDot1').classList.add('active');
+            document.getElementById('stepLine').classList.remove('active');
+            document.getElementById('stepLabel2').classList.remove('active');
+            document.getElementById('stepLabel1').classList.add('active');
 
-            // Check if user is developing plant-based products
-            const isPlantBased = assessmentData.answers.q11 &&
-                                 assessmentData.answers.q11.some(answer => answer.value === 'plantbased');
-
-            let resultsHTML = `
-                <div class="results-header">
-                    <div class="score-display">
-                        <div class="score-circle" style="background: conic-gradient(${score > 60 ? '#00bf63' : score > 30 ? '#ef6c00' : '#c62828'} 0deg ${score * 3.6}deg, #e0e0e0 ${score * 3.6}deg);">
-                            <div class="score-inner">
-                                <div class="score-number">${score}%</div>
-                                <div class="score-label">Overall Score</div>
-                            </div>
-                        </div>
-                    </div>
-            `;
-
-            // Calculate failure probability (inverse of score)
-            const failureProbability = 100 - score;
-
-            // Dynamic content based on score
-            if (riskLevel === 'high') {
-                resultsHTML += `
-                    <span class="risk-badge risk-high">HIGH RISK</span>
-                    <h2 class="results-title">Your product faces a ${failureProbability}% failure probability</h2>
-                    <p style="color: #666; max-width: 600px; margin: 0 auto;">Before you invest further, let's identify exactly where your product breaks down in real-world conditions.</p>
-                </div>
-
-                <div class="insights-list">
-                    <h3 style="margin-bottom: 20px;">Critical Gaps Identified</h3>
-                    <div class="insight-item">
-                        <div class="insight-number">1</div>
-                        <div class="insight-text">
-                            <strong>Missing real-world validation</strong><br>
-                            Lab testing misses 65% of usage issues that emerge in consumers' actual homes
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">2</div>
-                        <div class="insight-text">
-                            <strong>No behavioral data capture</strong><br>
-                            What consumers say differs dramatically from what they actually do
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">3</div>
-                        <div class="insight-text">
-                            <strong>Unquantified texture performance</strong><br>
-                            ${isPlantBased ? 'For plant-based products, texture is the #1 reason consumers reject alternatives' : 'Texture drives satisfaction but remains unmeasured in your current approach'}
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px;">
-                    <h3 style="font-size: 24px; margin-bottom: 24px; color: #1a1a1a;">Recommended: Foundation Testing Package</h3>
-
-                    <div style="display: grid; gap: 20px; margin-bottom: 24px;">
-                        <div style="border-left: 4px solid #1297e0; padding-left: 16px;">
-                            <strong style="color: #1297e0; font-size: 18px;">DOMUS</strong>
-                            <p style="color: #666; margin-top: 8px;">Full journey vision analytics that track the complete in-home experience—from unboxing to preparation, cooking, consumption, and storage—revealing usability issues that kill products post-launch.</p>
-                        </div>
-
-                        ${isPlantBased ? `
-                        <div style="border-left: 4px solid #00bf63; padding-left: 16px;">
-                            <strong style="color: #00bf63; font-size: 18px;">TEXTURA</strong>
-                            <p style="color: #666; margin-top: 8px;">Bite & chew analysis platform that transforms texture from your biggest risk into your competitive advantage. Our proprietary model quantifies mouthfeel, helping plant-based brands achieve the texture consumers actually crave.</p>
-                        </div>
-                        ` : `
-                        <div style="border-left: 4px solid #00bf63; padding-left: 16px;">
-                            <strong style="color: #00bf63; font-size: 18px;">VOX</strong>
-                            <p style="color: #666; margin-top: 8px;">AI-powered consumer intelligence that captures authentic purchase drivers anywhere consumers are. Our AI moderator conducts natural conversations through a mobile app, revealing the "why" behind decisions.</p>
-                        </div>
-                        `}
-                    </div>
-
-                    <p style="color: #1a1a1a; font-size: 16px; margin-bottom: 8px;"><strong>Why this combination:</strong></p>
-                    <p style="color: #666; margin-bottom: 0;">You need immediate visibility into real consumer behavior before investing further. ${isPlantBased ? 'DOMUS captures usage journey failures while TEXTURA quantifies texture acceptance—the #1 plant-based failure point.' : 'DOMUS reveals where your product breaks down in real-world conditions while VOX uncovers purchase barriers and concept weaknesses.'}</p>
-                </div>
-
-                <div class="cta-section">
-                    <h3 class="cta-title">Schedule Your Strategy Call</h3>
-                    <p class="cta-description">30-minute diagnostic with an Eatpol testing specialist. We'll walk through your specific product challenges and create a custom testing roadmap. This call could save you from a €500K+ failed launch.</p>
-                    <button class="btn btn-primary" onclick="scheduleCall()">Book Your Strategy Call →</button>
-                </div>
-                `;
-            } else if (riskLevel === 'moderate') {
-                resultsHTML += `
-                    <span class="risk-badge risk-moderate">MODERATE RISK</span>
-                    <h2 class="results-title">Solid foundation, but missing precision insights</h2>
-                    <p style="color: #666; max-width: 600px; margin: 0 auto;">You're ahead of most competitors. Now let's add the precision that drives 34% higher purchase intent.</p>
-                </div>
-
-                <div class="insights-list">
-                    <h3 style="margin-bottom: 20px;">Key Improvement Areas</h3>
-                    <div class="insight-item">
-                        <div class="insight-number">1</div>
-                        <div class="insight-text">
-                            <strong>Testing captures basics but misses emotional drivers</strong><br>
-                            AI-powered emotion and conversation analysis reveals purchase intent traditional surveys miss
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">2</div>
-                        <div class="insight-text">
-                            <strong>${isPlantBased ? 'Texture remains unquantified' : 'Missing behavioral precision'}</strong><br>
-                            ${isPlantBased ? 'Plant-based texture is the #1 consumer rejection point—bite and chew analysis quantifies what subjective ratings cannot' : 'Quantitative behavioral data separates good products from market leaders'}
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">3</div>
-                        <div class="insight-text">
-                            <strong>Slower iteration than successful launches</strong><br>
-                            Leading brands average 10+ iterations—rapid testing enables this speed without budget explosion
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px;">
-                    <h3 style="font-size: 24px; margin-bottom: 24px; color: #1a1a1a;">Recommended: Optimization Testing Package</h3>
-
-                    <div style="display: grid; gap: 20px; margin-bottom: 24px;">
-                        ${isPlantBased ? `
-                        <div style="border-left: 4px solid #00bf63; padding-left: 16px;">
-                            <strong style="color: #00bf63; font-size: 18px;">TEXTURA</strong>
-                            <p style="color: #666; margin-top: 8px;">Bite & chew analysis that transforms texture from your biggest risk into your competitive advantage. Quantify mouthfeel precision to help your plant-based brand achieve the texture consumers crave.</p>
-                        </div>
-                        ` : ''}
-
-                        <div style="border-left: 4px solid #1297e0; padding-left: 16px;">
-                            <strong style="color: #1297e0; font-size: 18px;">VOX</strong>
-                            <p style="color: #666; margin-top: 8px;">AI-powered consumer intelligence that captures authentic purchase drivers. Natural mobile conversations reveal emotional and rational drivers your current surveys cannot access.</p>
-                        </div>
-
-                        ${!isPlantBased ? `
-                        <div style="border-left: 4px solid #00bf63; padding-left: 16px;">
-                            <strong style="color: #00bf63; font-size: 18px;">TEXTURA</strong>
-                            <p style="color: #666; margin-top: 8px;">Bite & chew analysis platform that quantifies texture and mouthfeel satisfaction—turning subjective feedback into actionable product improvements.</p>
-                        </div>
-                        ` : ''}
-                    </div>
-
-                    <p style="color: #1a1a1a; font-size: 16px; margin-bottom: 8px;"><strong>Why this combination:</strong></p>
-                    <p style="color: #666; margin-bottom: 0;">You're testing, but not capturing the nuanced data that separates good from great. ${isPlantBased ? 'TEXTURA quantifies texture acceptance (the #1 plant-based failure point) while VOX adds emotional and purchase intent data your surveys miss.' : 'TEXTURA adds quantitative precision to texture performance while VOX layers emotional intelligence on top of your existing data.'}</p>
-                </div>
-
-                <div class="cta-section">
-                    <h3 class="cta-title">Schedule Your Strategy Call</h3>
-                    <p class="cta-description">30-minute diagnostic with an Eatpol testing specialist. Get a custom roadmap showing how to convert your basic testing into predictive intelligence.</p>
-                    <button class="btn btn-primary" onclick="scheduleCall()">Book Your Strategy Call →</button>
-                </div>
-                `;
-            } else if (riskLevel === 'low') {
-                resultsHTML += `
-                    <span class="risk-badge risk-low">LOW RISK</span>
-                    <h2 class="results-title">Strong testing foundation—ready for competitive edge</h2>
-                    <p style="color: #666; max-width: 600px; margin: 0 auto;">You're in the top 20%. Let's put you in the top 5% with the testing stack Fortune 500 brands use.</p>
-                </div>
-
-                <div class="insights-list">
-                    <h3 style="margin-bottom: 20px;">Competitive Edge Opportunities</h3>
-                    <div class="insight-item">
-                        <div class="insight-number">1</div>
-                        <div class="insight-text">
-                            <strong>Accelerate insight velocity</strong><br>
-                            Get actionable results in 7 days instead of 4 weeks—enabling 5x more iteration cycles
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">2</div>
-                        <div class="insight-text">
-                            <strong>${isPlantBased ? 'Quantify texture precision' : 'Add behavioral precision layers'}</strong><br>
-                            ${isPlantBased ? 'Bite and chew analysis has helped plant-based brands increase satisfaction scores by 28% through texture optimization' : 'Multi-modal AI analysis (vision + conversation + texture) extracts 3x more insights from the same tests'}
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">3</div>
-                        <div class="insight-text">
-                            <strong>Capture complete consumer journey</strong><br>
-                            Full in-home tracking reveals preparation, storage, and repeat usage patterns competitors miss
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px;">
-                    <h3 style="font-size: 24px; margin-bottom: 24px; color: #1a1a1a;">Recommended: Competitive Edge Package</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Full suite of enterprise-grade consumer intelligence</p>
-
-                    <div style="display: grid; gap: 20px; margin-bottom: 24px;">
-                        <div style="border-left: 4px solid #1297e0; padding-left: 16px;">
-                            <strong style="color: #1297e0; font-size: 18px;">DOMUS</strong>
-                            <p style="color: #666; margin-top: 8px;">Vision analytics tracking the complete in-home journey—from unboxing through preparation, cooking, consumption, and storage.</p>
-                        </div>
-
-                        <div style="border-left: 4px solid #00bf63; padding-left: 16px;">
-                            <strong style="color: #00bf63; font-size: 18px;">TEXTURA ${isPlantBased ? '(Critical for plant-based)' : ''}</strong>
-                            <p style="color: #666; margin-top: 8px;">Bite & chew analysis quantifying texture and mouthfeel satisfaction${isPlantBased ? '—essential for plant-based products where texture drives acceptance' : ' with precision that subjective ratings cannot achieve'}.</p>
-                        </div>
-
-                        <div style="border-left: 4px solid #ef6c00; padding-left: 16px;">
-                            <strong style="color: #ef6c00; font-size: 18px;">VOX</strong>
-                            <p style="color: #666; margin-top: 8px;">AI-moderated mobile conversations capturing purchase drivers and emotional responses in natural settings.</p>
-                        </div>
-                    </div>
-
-                    <p style="color: #1a1a1a; font-size: 16px; margin-bottom: 8px;"><strong>Why the full suite:</strong></p>
-                    <p style="color: #666; margin-bottom: 0;">You understand testing excellence—now build a proprietary consumer intelligence infrastructure. DOMUS accelerates insights (7 days vs 4 weeks), ${isPlantBased ? 'TEXTURA quantifies your #1 risk factor (texture), ' : 'TEXTURA adds quantitative texture precision, '}and VOX layers emotional intelligence across the complete journey.</p>
-                </div>
-
-                <div class="cta-section">
-                    <h3 class="cta-title">Schedule Your Strategy Call</h3>
-                    <p class="cta-description">30-minute diagnostic with an Eatpol testing specialist. Explore how enterprise-grade testing infrastructure creates sustainable competitive advantages.</p>
-                    <button class="btn btn-primary" onclick="scheduleCall()">Book Your Strategy Call →</button>
-                </div>
-                `;
-            } else { // ready
-                resultsHTML += `
-                    <span class="risk-badge risk-ready">LAUNCH READY</span>
-                    <h2 class="results-title">World-class testing—ready for predictive advantage</h2>
-                    <p style="color: #666; max-width: 600px; margin: 0 auto;">You're in the top 5%. Now let's build predictive models that forecast market performance before competitors launch.</p>
-                </div>
-
-                <div class="insights-list">
-                    <h3 style="margin-bottom: 20px;">Strategic Partnership Opportunities</h3>
-                    <div class="insight-item">
-                        <div class="insight-number">1</div>
-                        <div class="insight-text">
-                            <strong>Ready for predictive AI modeling</strong><br>
-                            Forecast market performance before launch with 89% accuracy using custom-trained models
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">2</div>
-                        <div class="insight-text">
-                            <strong>Build proprietary consumer intelligence</strong><br>
-                            ${isPlantBased ? 'Plant-based texture models trained on your product category create defensible competitive moats' : 'Category-specific behavioral models become proprietary assets competitors cannot replicate'}
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <div class="insight-number">3</div>
-                        <div class="insight-text">
-                            <strong>Scale testing excellence across product lines</strong><br>
-                            Leverage your testing maturity to accelerate portfolio innovation
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px;">
-                    <h3 style="font-size: 24px; margin-bottom: 24px; color: #1a1a1a;">Recommended: Strategic Partnership</h3>
-                    <p style="color: #666; margin-bottom: 20px;">Full platform access with custom AI model development</p>
-
-                    <div style="display: grid; gap: 20px; margin-bottom: 24px;">
-                        <div style="border-left: 4px solid #1297e0; padding-left: 16px;">
-                            <strong style="color: #1297e0; font-size: 18px;">DOMUS</strong>
-                            <p style="color: #666; margin-top: 8px;">Complete in-home journey analytics with custom tracking configured for your category-specific usage patterns.</p>
-                        </div>
-
-                        <div style="border-left: 4px solid #00bf63; padding-left: 16px;">
-                            <strong style="color: #00bf63; font-size: 18px;">TEXTURA ${isPlantBased ? '(Custom models)' : ''}</strong>
-                            <p style="color: #666; margin-top: 8px;">${isPlantBased ? 'Custom bite and chew models trained specifically on your plant-based formulations—creating proprietary texture intelligence' : 'Custom texture analysis models trained on your product category for unmatched precision'}.</p>
-                        </div>
-
-                        <div style="border-left: 4px solid #ef6c00; padding-left: 16px;">
-                            <strong style="color: #ef6c00; font-size: 18px;">VOX</strong>
-                            <p style="color: #666; margin-top: 8px;">AI conversation models fine-tuned for your brand voice and category-specific purchase drivers.</p>
-                        </div>
-
-                        <div style="border-left: 4px solid #6990cd; padding-left: 16px;">
-                            <strong style="color: #6990cd; font-size: 18px;">PREDICTIVE MODELING</strong>
-                            <p style="color: #666; margin-top: 8px;">Custom AI models forecasting market performance with 89% accuracy based on your product portfolio data.</p>
-                        </div>
-                    </div>
-
-                    <p style="color: #1a1a1a; font-size: 16px; margin-bottom: 8px;"><strong>Why strategic partnership:</strong></p>
-                    <p style="color: #666; margin-bottom: 0;">Your testing maturity enables advanced AI applications. Custom model training on your products creates proprietary consumer intelligence infrastructure—${isPlantBased ? 'including plant-based texture models that competitors cannot access' : 'category-specific behavioral models that become strategic assets'}.</p>
-                </div>
-
-                <div class="cta-section">
-                    <h3 class="cta-title">Schedule Your Strategy Call</h3>
-                    <p class="cta-description">30-minute diagnostic with an Eatpol testing specialist. Explore strategic partnership opportunities including custom AI model development and predictive analytics.</p>
-                    <button class="btn btn-primary" onclick="scheduleCall()">Book Your Strategy Call →</button>
-                </div>
-                `;
-            }
-            
-            // Add contact summary
-            resultsHTML += `
-                <div class="contact-summary">
-                    <h3>Your Assessment Details</h3>
-                    <p><strong>Name:</strong> ${assessmentData.contact.firstName}</p>
-                    <p><strong>Company:</strong> ${assessmentData.contact.company}</p>
-                    <p><strong>Email:</strong> ${assessmentData.contact.email}</p>
-                    ${assessmentData.contact.phone ? `<p><strong>Phone:</strong> ${assessmentData.contact.phone}</p>` : ''}
-                </div>
-            `;
-            
-            resultsSection.innerHTML = resultsHTML;
-            
-            // Log results for testing
-            console.log('Assessment Results:', {
-                contact: assessmentData.contact,
-                score: score,
-                riskLevel: riskLevel,
-                answers: assessmentData.answers
-            });
-        }
-        
-        // CTA Functions
-        async function scheduleCall() {
-            const score = calculateScore();
-            const riskLevel = getRiskLevel(score);
-            const isPlantBased = assessmentData.answers.q11 &&
-                                assessmentData.answers.q11.some(answer => answer.value === 'plantbased');
-
-            // Determine recommended package
-            let recommendedPackage = 'Custom Package';
-            if (riskLevel === 'high') {
-                recommendedPackage = isPlantBased ? 'Foundation Package (DOMUS + TEXTURA)' : 'Foundation Package (DOMUS + VOX)';
-            } else if (riskLevel === 'moderate') {
-                recommendedPackage = isPlantBased ? 'Optimization Package (TEXTURA + VOX)' : 'Optimization Package (VOX + TEXTURA)';
-            } else if (riskLevel === 'low') {
-                recommendedPackage = 'Competitive Edge Package (Full Suite)';
-            } else if (riskLevel === 'ready') {
-                recommendedPackage = 'Strategic Partnership (Custom Models)';
-            }
-
-            // Prepare form data for Netlify Forms
-            const formData = new FormData();
-            formData.append('form-name', 'product-assessment');
-            formData.append('First_Name', assessmentData.contact.firstName);
-            formData.append('Email', assessmentData.contact.email);
-            formData.append('Company', assessmentData.contact.company);
-            formData.append('Phone', assessmentData.contact.phone || '');
-            formData.append('Score', score + '%');
-            formData.append('Risk_Level', riskLevel.toUpperCase());
-            formData.append('Plant_Based', isPlantBased ? 'YES' : 'NO');
-            formData.append('Recommended_Package', recommendedPackage);
-
-            // Format all assessment data as readable text
-            let assessmentText = `ASSESSMENT COMPLETED: ${new Date().toLocaleString()}\n\n`;
-            assessmentText += `CONTACT INFORMATION:\n`;
-            assessmentText += `Name: ${assessmentData.contact.firstName}\n`;
-            assessmentText += `Email: ${assessmentData.contact.email}\n`;
-            assessmentText += `Company: ${assessmentData.contact.company}\n`;
-            if (assessmentData.contact.phone) assessmentText += `Phone: ${assessmentData.contact.phone}\n`;
-            assessmentText += `\nASSESSMENT RESULTS:\n`;
-            assessmentText += `Overall Score: ${score}%\n`;
-            assessmentText += `Risk Level: ${riskLevel.toUpperCase()}\n`;
-            assessmentText += `Plant-Based Product: ${isPlantBased ? 'YES' : 'NO'}\n`;
-            assessmentText += `Recommended Package: ${recommendedPackage}\n`;
-            assessmentText += `\nBEST PRACTICE QUESTIONS (Scored):\n`;
-
-            const questionTitles = {
-                q1: 'Real home environment testing',
-                q2: 'Complete consumer journey capture',
-                q3: 'Sample size (30+ households)',
-                q4: 'AI/video analysis for non-verbal feedback',
-                q5: 'Texture acceptance measurement',
-                q6: 'Packaging usability testing',
-                q7: 'Emotional response capture',
-                q8: 'Multiple iterations before launch',
-                q9: 'Competitor benchmarking',
-                q10: 'Speed of insights (< 2 weeks)'
-            };
-
-            for (let i = 1; i <= 10; i++) {
-                const qId = `q${i}`;
-                const answer = assessmentData.answers[qId];
-                if (answer) {
-                    assessmentText += `${questionTitles[qId]}: ${answer.value} (${answer.points}/10 pts)\n`;
-                }
-            }
-
-            assessmentText += `\nQUALIFYING QUESTIONS:\n`;
-
-            // Q11: Product types
-            if (assessmentData.answers.q11) {
-                assessmentText += `Product Types:\n`;
-                assessmentData.answers.q11.forEach(item => {
-                    assessmentText += `  - ${item.text}\n`;
-                });
-            }
-
-            // Q12: Primary challenge
-            if (assessmentData.answers.q12) {
-                assessmentText += `Primary Challenge (90 days): ${assessmentData.answers.q12.value}\n`;
-            }
-
-            // Q13: Success obstacles
-            if (assessmentData.answers.q13) {
-                assessmentText += `Success Obstacles:\n`;
-                assessmentData.answers.q13.forEach(item => {
-                    assessmentText += `  - ${item.text}\n`;
-                });
-            }
-
-            // Q14: Interested solutions
-            if (assessmentData.answers.q14) {
-                assessmentText += `Interested Solutions:\n`;
-                assessmentData.answers.q14.forEach(item => {
-                    assessmentText += `  - ${item.text}\n`;
-                });
-            }
-
-            // Q15: Testing concerns
-            if (assessmentData.answers.q15) {
-                assessmentText += `Testing Concerns:\n`;
-                assessmentData.answers.q15.forEach(item => {
-                    assessmentText += `  - ${item.text}\n`;
-                });
-            }
-
-            formData.append('Assessment_Data', assessmentText);
-
-            // Log to console for debugging
-            console.log('Assessment Complete - Submitting to Netlify Forms');
-
-            try {
-                // Submit to Netlify Forms
-                const response = await fetch('/', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    console.log('Assessment data submitted successfully to Netlify');
-
-                    // Redirect to Calendly booking page
-                    window.location.href = 'https://calendly.com/jromberg-eatpol/30min';
-                } else {
-                    console.error('Netlify Forms submission failed:', response.status);
-                    alert('Your assessment was completed, but there was an issue submitting it. Please email us directly at info@eatpol.com with your information.');
-                }
-            } catch (error) {
-                console.error('Network error:', error);
-                alert('There was a connection error. Please email us directly at info@eatpol.com with your assessment details.');
-            }
+            document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     </script>
 </body>

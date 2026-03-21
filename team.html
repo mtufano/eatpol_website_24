@@ -16,20 +16,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Apple-inspired CSS -->
     <link rel="stylesheet" href="css/apple-inspired.css">
 
     <style>
-        /* Team-specific custom styles */
-        .logo img {
-            height: 40px;
-            width: auto;
-            border-radius: 6px;
-        }
-
+        /* Team-specific custom styles — using Eatpol design tokens */
         .team-section-divider {
             margin: 4rem 0 3rem;
             text-align: center;
@@ -40,25 +34,30 @@
         }
 
         .team-section-divider h2 {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 36px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #00bf63, #1297e0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 0.5rem;
-            font-weight: 800;
+            font-weight: 600;
         }
 
         .team-section-divider p {
-            font-size: 1.1rem;
-            color: var(--medium-blue);
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #5a5a6e;
             max-width: 700px;
             margin: 0 auto 2rem;
         }
 
         /* Add gradient to section backgrounds */
         .section:nth-child(odd) {
-            background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%);
         }
 
         .team-grid {
@@ -69,13 +68,13 @@
         }
 
         .team-card {
-            background: var(--white);
-            border-radius: 20px;
+            background: #ffffff;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(17, 39, 82, 0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 1px 3px rgba(17, 39, 82, 0.04), 0 1px 2px rgba(17, 39, 82, 0.06);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(17, 39, 82, 0.07);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -89,14 +88,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--bright-blue), var(--green));
+            background: linear-gradient(90deg, #1297e0, #00bf63);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
         }
 
         .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 16px 48px rgba(18, 151, 224, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(17, 39, 82, 0.15), 0 4px 16px rgba(17, 39, 82, 0.06);
         }
 
         .team-card:hover::before {
@@ -106,12 +105,12 @@
         .team-photo {
             width: 100%;
             height: 300px;
-            background: linear-gradient(135deg, var(--medium-blue), var(--light-blue));
+            background: linear-gradient(135deg, #6990cd, #b8daef);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            color: var(--white);
+            color: #ffffff;
             position: relative;
             overflow: hidden;
         }
@@ -127,33 +126,37 @@
         }
 
         .team-info {
-            padding: 2rem 1.5rem;
+            padding: 24px 28px;
             display: flex;
             flex-direction: column;
             flex: 1;
         }
 
         .team-name {
-            font-size: 1.5rem;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 22px;
+            line-height: 1.25;
             margin-bottom: 0.5rem;
-            color: var(--navy);
-            font-weight: 700;
+            color: #112752;
+            font-weight: 600;
         }
 
         .team-role {
-            font-size: 1rem;
-            color: var(--bright-blue);
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 11px;
+            line-height: 1;
+            color: #1297e0;
             font-weight: 600;
             margin-bottom: 1.25rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
+            letter-spacing: 0.14em;
         }
 
         .team-bio {
-            font-size: 0.95rem;
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
             line-height: 1.6;
-            color: #666;
+            color: #5a5a6e;
             margin-bottom: 1.5rem;
             flex: 1;
         }
@@ -170,41 +173,46 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 9999px;
             background: rgba(18, 151, 224, 0.1);
-            color: var(--bright-blue);
+            color: #1297e0;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .social-icon:hover {
-            background: linear-gradient(135deg, var(--bright-blue), var(--green));
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(18, 151, 224, 0.3);
+            background: linear-gradient(135deg, #1297e0, #00bf63);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(18, 151, 224, 0.25);
         }
 
-        /* Add call-to-action section */
+        /* Call-to-action section */
         .team-cta {
-            background: linear-gradient(135deg, var(--bright-blue) 0%, var(--green) 100%);
+            background: linear-gradient(135deg, #1297e0 0%, #00bf63 100%);
             padding: 4rem 2rem;
-            border-radius: 24px;
+            border-radius: 20px;
             text-align: center;
             margin: 4rem auto;
             max-width: 900px;
-            box-shadow: 0 20px 60px rgba(18, 151, 224, 0.2);
+            box-shadow: 0 20px 60px rgba(17, 39, 82, 0.15), 0 4px 16px rgba(17, 39, 82, 0.06);
         }
 
         .team-cta h2 {
-            color: var(--white);
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Fraunces', Georgia, serif;
+            color: #ffffff;
+            font-size: 36px;
+            line-height: 1.2;
+            font-weight: 600;
+            letter-spacing: -0.01em;
             margin-bottom: 1rem;
         }
 
         .team-cta p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.2rem;
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 18px;
+            line-height: 1.7;
             margin-bottom: 2rem;
             max-width: 600px;
             margin-left: auto;
@@ -212,54 +220,60 @@
         }
 
         .btn-white {
-            background: var(--white);
-            color: var(--bright-blue);
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            background: #ffffff;
+            color: #1297e0;
             padding: 14px 32px;
             border-radius: 980px;
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 15px;
+            letter-spacing: 0.02em;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .btn-white:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            color: var(--bright-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 191, 99, 0.3);
+            color: #1297e0;
         }
 
         /* Company Bio Section */
         .company-bio {
-            background: var(--white);
+            background: #ffffff;
             padding: 4rem 2rem;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(17, 39, 82, 0.08);
+            box-shadow: 0 4px 16px rgba(17, 39, 82, 0.08), 0 1px 3px rgba(17, 39, 82, 0.04);
             max-width: 900px;
             margin: 0 auto;
-            border-left: 4px solid var(--bright-blue);
+            border-left: 4px solid #1297e0;
         }
 
         .company-bio h2 {
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 36px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #00bf63, #1297e0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-weight: 800;
+            font-weight: 600;
             margin-bottom: 1.5rem;
         }
 
         .company-bio p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #4a5568;
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #5a5a6e;
             margin-bottom: 1.25rem;
         }
 
         .company-bio strong {
-            color: var(--navy);
+            color: #112752;
             font-weight: 600;
         }
 
@@ -277,9 +291,11 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 44px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #00bf63, #1297e0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -288,8 +304,9 @@
         }
 
         .stat-label {
-            font-size: 0.95rem;
-            color: var(--medium-blue);
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            color: #5a5a6e;
             font-weight: 500;
         }
 
@@ -304,7 +321,7 @@
             }
 
             .company-bio h2 {
-                font-size: 1.8rem;
+                font-size: 28px;
             }
         }
 
@@ -317,13 +334,13 @@
         }
 
         .value-card {
-            background: var(--white);
-            border-radius: 20px;
+            background: #ffffff;
+            border-radius: 14px;
             padding: 2.5rem 2rem;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(17, 39, 82, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 1px 3px rgba(17, 39, 82, 0.04), 0 1px 2px rgba(17, 39, 82, 0.06);
+            border: 1px solid rgba(17, 39, 82, 0.07);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
         }
@@ -335,14 +352,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--bright-blue), var(--green));
+            background: linear-gradient(90deg, #1297e0, #00bf63);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
         }
 
         .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(18, 151, 224, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(17, 39, 82, 0.15), 0 4px 16px rgba(17, 39, 82, 0.06);
         }
 
         .value-card:hover::before {
@@ -352,27 +369,30 @@
         .value-icon {
             width: 64px;
             height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(18, 151, 224, 0.1), rgba(76, 175, 80, 0.1));
+            border-radius: 9999px;
+            background: linear-gradient(135deg, rgba(18, 151, 224, 0.1), rgba(0, 191, 99, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
             font-size: 1.5rem;
-            color: var(--bright-blue);
+            color: #1297e0;
         }
 
         .value-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--navy);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 22px;
+            line-height: 1.25;
+            font-weight: 600;
+            color: #112752;
             margin-bottom: 1rem;
         }
 
         .value-card p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            color: #4a5568;
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #5a5a6e;
         }
 
         @media (max-width: 768px) {
@@ -399,22 +419,86 @@
         /* Hero adjustments for team page */
         .hero {
             padding: 10rem 0 2rem;
-            background: linear-gradient(135deg, #f8fbfd 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 58px;
+            line-height: 1.12;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #00bf63, #1297e0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--navy);
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #112752;
             opacity: 0.8;
+        }
+
+        /* 2-card grid centering */
+        .team-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero credibility badge */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            border: 1px solid rgba(17, 39, 82, 0.07);
+            border-radius: 980px;
+            padding: 8px 20px 8px 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(17, 39, 82, 0.04), 0 1px 2px rgba(17, 39, 82, 0.06);
+        }
+
+        .hero-badge img {
+            height: 28px;
+            width: auto;
+        }
+
+        .hero-badge span {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #5a5a6e;
+        }
+
+        /* Hero CTA button */
+        .hero-cta {
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            display: inline-block;
+            background: linear-gradient(135deg, #1297e0, #00bf63);
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 980px;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 16px rgba(18, 151, 224, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 191, 99, 0.3);
+            color: #ffffff;
         }
 
         /* Responsive adjustments */
@@ -436,11 +520,23 @@
             }
 
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 15px;
+            }
+
+            .hero-badge {
+                padding: 6px 14px 6px 8px;
+            }
+
+            .hero-badge img {
+                height: 22px;
+            }
+
+            .hero-badge span {
+                font-size: 11px;
             }
 
             .team-photo {
@@ -455,15 +551,14 @@
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <img src="img/logo_100x100.png" alt="Eatpol Logo" />
+                    <img src="img/logo_100x100.png" alt="Eatpol Logo" class="logo-img" />
                     Eatpol
                 </a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html#guide" class="nav-link">Our method</a></li>
-                    <li class="nav-item"><a href="index.html#plan" class="nav-link">Your plan</a></li>
-                    <li class="nav-item"><a href="request_pilot.html" class="nav-link">Request a Pilot</a></li>
-                    <li class="nav-item"><a href="eathnos.html" class="nav-link">EATθNOS</a></li>
-                    <li class="nav-item"><a href="index.html#faq" class="nav-link">FAQ</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
                     <li class="nav-item"><a href="team.html" class="nav-link active">About Us</a></li>
                     <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
                 </ul>
@@ -480,12 +575,157 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Spin-off of Wageningen University & Research</span>
+                </div>
                 <h1 class="hero-title">About Us</h1>
+                <p class="hero-subtitle">Food scientists, AI engineers, and business builders on a mission to eliminate failed product launches.</p>
+                <div class="hero-cta">
+                    <a href="assessment.html" class="btn-primary">Get Your Free Assessment</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
+    <!-- Our Story Section (moved up — strongest conversion hook) -->
+    <section class="section section-bio">
+        <div class="container">
+            <div class="company-bio">
+                <h2>Our Story</h2>
+                <p>
+                    Michele, a Ph.D. in <strong>AI and computer vision</strong> from <strong>Wageningen University</strong>, developed software to measure eating behavior from video—tracking bites and chews, under Guido Camps’ supervision.
+                </p>
+                <p>
+                    Partnering with <strong>Wageningen Impact Catalyst</strong>, the technology evolved to tackle a major industry problem: 85% of food product launches fail, costing billions.
+                </p>
+                <p>
+                    In fall 2025, <strong>Jakob</strong> and <strong>Simbiat</strong> joined the team, bringing Eatpol to market as a consumer testing service that delivers real-world insights straight from people’s kitchens.
+                </p>
+                <p>
+                    Based in <strong>Wageningen, the Netherlands</strong>, Eatpol helps leading food brands understand their consumers better and launch products people love.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <div class="team-section-divider">
+                <h2>Team</h2>
+                <p>Meet the people building the future of AI-powered consumer testing</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Co-Founder 1 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/michele.jpg" alt="Michele Tufano" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Michele Tufano, Ph.D.</h3>
+                        <p class="team-role">Co-Founder, CEO</p>
+                        <p class="team-bio">Michele built the AI that analyzes real eating behavior from video — the core technology behind Eatpol’s ability to predict product success before launch. His research at Wageningen University bridges computer vision and food science to give brands data they can’t get anywhere else.</p>
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/in/micheletufano/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:mtufano@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Co-Founder 2 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/jakob.jpg" alt="Jakob Romberg" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Jakob Romberg, MSc</h3>
+                        <p class="team-role">Co-Founder, COO</p>
+                        <p class="team-bio">Jakob works directly with food brands to design testing programs that fit their launch timeline — typically delivering actionable consumer insights within 2 weeks. He brings a sharp eye for product-market fit and commercial strategy to every engagement.</p>
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/in/jakob-romberg-7769b3157/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:jromberg@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern 1 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/Riccardo.jpg" alt="Riccardo Rampin" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Riccardo Rampin</h3>
+                        <p class="team-role">Intern — Marketing</p>
+                        <p class="team-bio">Riccardo supports Eatpol’s marketing efforts, helping to grow brand awareness and communicate the value of AI-powered consumer testing to the food industry.</p>
+                        <div class="team-social">
+                            <a href="mailto:riccardo.rampin@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intern 2 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/kamila.jpg" alt="Kamila Gelyastan" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Kamila Gelyastan</h3>
+                        <p class="team-role">Intern — Sales</p>
+                        <p class="team-bio">Kamila supports the sales team, connecting with food brands and helping them discover how Eatpol’s consumer testing platform can de-risk their product launches.</p>
+                        <div class="team-social">
+                            <a href="mailto:kamila.gelyastan@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisory Board Section -->
+    <section class="section advisory-section">
+        <div class="container">
+            <div class="team-section-divider">
+                <h2>Advisory Board</h2>
+                <p>Industry experts and thought leaders guiding our strategic direction</p>
+            </div>
+
+            <div class="team-grid team-grid-2">
+                <!-- Advisor 1 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/guido.jpg" alt="Guido Camps" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Guido Camps</h3>
+                        <p class="team-role">Advisory Board Member</p>
+                        <p class="team-bio">Associate Professor at Wageningen University and Eatpol’s scientific advisor. Guido’s research in eating behavior and AI ensures our technology stays grounded in peer-reviewed science.</p>
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/in/guidocamps/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advisor 2 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="img/simbi.jpg" alt="Simbiat Oladoja" />
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Simbiat Oladoja, MSc</h3>
+                        <p class="team-role">Advisor <br> Marketing and Consumer Insights</p>
+                        <p class="team-bio">Food scientist, nutritionist, and consumer behavior expert with advanced degrees from Maastricht University and the University of Edinburgh. Simbiat translates scientific insights into practical, sustainable food solutions that resonate with real consumers.</p>
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/in/simbiatoladoja/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:soladoja@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section (moved after team — credibility before values) -->
     <section class="section">
         <div class="container">
             <div class="team-section-divider">
@@ -514,156 +754,20 @@
                     <div class="value-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Ambitious Ownership & Excellence</h3>
+                    <h3>Ambition & Excellence</h3>
                     <p>We act proactively and take full responsibility for outcomes, pursuing bold goals with high standards and a continuous drive to improve.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Co-Founders Section -->
-    <section class="section">
-        <div class="container">
-            <div class="team-section-divider">
-                <h2>Co-Founders</h2>
-                <p>Meet the visionary leaders building the future of AI-powered consumer testing</p>
-            </div>
-
-            <div class="team-grid">
-                <!-- Co-Founder 1 -->
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="img/michele.jpg" alt="Michele Tufano" />
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Michele Tufano, Ph.D.</h3>
-                        <p class="team-role">Founder, Director <br> Product Development</p>
-                        <p class="team-bio">Michele is leveraging AI and computer vision to drive full-stack product development that captures real consumer behavior. Expert in AI-driven solutions for food innovation, combining research and technology to make product launches more effective and data-driven.</p>
-                        <div class="team-social">
-                            <a href="https://www.linkedin.com/in/micheletufano/" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="mailto:mtufano@eatpol.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Co-Founder 2 -->
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="img/simbi.jpg" alt="Simbiat Oladoja" />
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Simbiat Oladoja, MSc</h3>
-                        <p class="team-role">Co-Founder <br> Marketing and Consumer Insights</p>
-                        <p class="team-bio">Simbiat is a food scientist, nutritionist, and consumer behavior expert with advanced degrees from Maastricht University and the University of Edinburgh. She leads Eatpol’s strategy, turning scientific insights into practical, sustainable, and healthier food solutions.</p>
-                        <div class="team-social">
-                            <a href="https://www.linkedin.com/in/simbiatoladoja/" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="mailto:soladoja@eatpol.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Co-Founder 3 -->
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="img/jakob.jpg" alt="Jakob Romberg" />
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Jakob Romberg, MSc</h3>
-                        <p class="team-role">Co-Founder <br> Business development and Sales</p>
-                        <p class="team-bio">Jakob is driving growth, commercial strategy, and product-market fit for food and CPG brands. With a background in business development, sales, and marketing, he turns ideas into traction and scalable results.</p>
-                        <div class="team-social">
-                            <a href="https://www.linkedin.com/in/jakob-romberg-7769b3157/" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="mailto:jromberg@eatpol.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Advisory Board Section -->
-    <section class="section advisory-section">
-        <div class="container">
-            <div class="team-section-divider">
-                <h2>Advisory Board</h2>
-                <p>Industry experts and thought leaders guiding our strategic direction</p>
-            </div>
-
-            <div class="team-grid">
-                <!-- Advisor 1 -->
-                <div class="team-card">
-                    <div class="team-photo">
-                        <img src="img/guido.jpg" alt="Guido Camps" />
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Dr. Guido Camps</h3>
-                        <p class="team-role">Advisory Board Member</p>
-                        <p class="team-bio">Guido, Associate Professor at Wageningen University, is Eatpol's scientific advisor, applying AI to capture real consumer behavior for smarter product launches.</p>
-                        <div class="team-social">
-                            <a href="https://www.linkedin.com/in/guidocamps/" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Advisor 2 -->
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">To Be Announced</h3>
-                        <p class="team-role">Advisory Board Member</p>
-                        <p class="team-bio">We are expanding our advisory board with distinguished experts in food science, consumer behavior, and sustainable nutrition. Stay tuned for announcements.</p>
-                        <div class="team-social">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Advisor 3 -->
-                <div class="team-card">
-                    <div class="team-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">To Be Announced</h3>
-                        <p class="team-role">Advisory Board Member</p>
-                        <p class="team-bio">We are expanding our advisory board with distinguished experts in food science, consumer behavior, and sustainable nutrition. Stay tuned for announcements.</p>
-                        <div class="team-social">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Company Bio Section -->
-    <section class="section section-bio">
-        <div class="container">
-            <div class="company-bio">
-                <h2>Our Story</h2>
-                <p>
-                    Michele, a Ph.D. in <strong>AI and computer vision</strong> from <strong>Wageningen University</strong>, developed software to measure eating behavior from video—tracking bites and chews, under Guido Camps’ supervision.
-                </p>
-                <p>
-                    Partnering with <strong>Wageningen Impact Catalyst</strong>, the technology evolved to tackle a major industry problem: 85% of food product launches fail, costing billions.
-                </p>
-                <p>
-                    In fall 2025, <strong>Jakob</strong> and <strong>Simbiat</strong> joined the team, bringing Eatpol to market as a consumer testing service that delivers real-world insights straight from people’s kitchens.
-                </p>
-                <p>
-                    Based in <strong>Wageningen, the Netherlands</strong>, Eatpol helps leading food brands understand their consumers better and launch products people love.
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-
     <!-- Call to Action Section -->
     <section class="section section-cta">
         <div class="container">
             <div class="team-cta">
-                <h2>Ready to Launch Your Next Success?</h2>
-                <p>Work with our team to bring real consumer insights into your product development process.</p>
-                <a href="index.html#plan" class="btn-white">Get Started Today</a>
+                <h2>Ready to Launch With Confidence?</h2>
+                <p>85% of food product launches fail. Our team helps you beat those odds with real consumer data — before you commit to production.</p>
+                <a href="assessment.html" class="btn-white">Get Your Free Assessment</a>
             </div>
         </div>
     </section>
@@ -686,14 +790,15 @@
                 <div>
                     <h3 class="footer-heading">Quick Links</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html#plan">Your Plan</a></li>
-                        <li class="footer-link"><a href="index.html#guide">Our Method</a></li>
-                        <li class="footer-link"><a href="team.html">Team</a></li>
+                        <li class="footer-link"><a href="index.html">Home</a></li>
+                        <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
+                        <li class="footer-link"><a href="eathnos.html">Community</a></li>
+                        <li class="footer-link"><a href="team.html">About Us</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="footer-heading">Contact Info</h3>
-                    <ul class="footer-links">
+                    <ul class="footer-links contact-info">
                         <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
                         <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
                         <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
@@ -719,23 +824,44 @@
     </footer>
 
     <script>
-        // JavaScript for mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
+        // Mobile Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
             });
-            
-            // Close mobile menu when clicking on a nav link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
+        });
+
+        // Interactive Header on Scroll
+        const header = document.querySelector('.header');
+        let lastScrollY = 0;
+        let ticking = false;
+        function updateHeader() {
+            const scrollY = window.scrollY;
+            if (scrollY > 60) {
+                header.classList.add('header--scrolled');
+            } else {
+                header.classList.remove('header--scrolled');
+            }
+            if (scrollY > lastScrollY && scrollY > 200) {
+                header.classList.add('header--hidden');
+            } else {
+                header.classList.remove('header--hidden');
+            }
+            lastScrollY = scrollY;
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
         });
     </script>
 </body>
