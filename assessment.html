@@ -565,7 +565,9 @@
         .bookings-iframe {
             border: 0;
             display: block;
-            min-height: 650px;
+            min-height: 680px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
         .frame-fallback {
             position: absolute;
@@ -896,22 +898,15 @@
                                 id="bookingsFrame"
                                 src="about:blank"
                                 width="100%"
-                                height="650"
+                                height="680"
                                 frameborder="0"
                                 scrolling="yes"
                                 class="bookings-iframe"
                                 title="Book a call with Eatpol"
-                                allow="clipboard-write"
                             ></iframe>
                             <div class="frame-fallback" id="frameFallback">
-                                <div class="fallback-icon"><i class="fas fa-external-link-alt"></i></div>
-                                <p>Calendar loading...</p>
-                                <a href="https://outlook.office.com/bookwithme/user/cf1db0f04bcd44da8fb665192f4e745e@eatpol.com/meetingtype/saDsWlVX7k-HJzRmCIpbtw2?anonymous&ep=mlink"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="submit-btn booking-btn">
-                                    <span><i class="fas fa-calendar-alt booking-btn-icon"></i> Open booking calendar</span>
-                                </a>
+                                <div class="fallback-icon"><i class="fas fa-calendar-alt"></i></div>
+                                <p>Loading calendar...</p>
                             </div>
                         </div>
                         <div class="confirmation-details">
@@ -1063,34 +1058,36 @@
             document.getElementById('stepLabel2').classList.add('active');
             document.getElementById('step2UserInfo').textContent = firstName + ' · ' + company;
 
-            // Load bookings iframe
+            // Load bookings
             loadBookings();
 
             // Scroll to top of form
             document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // ── Bookings iframe loader ──
-        const BOOKINGS_URL = 'https://outlook.office.com/bookwithme/user/cf1db0f04bcd44da8fb665192f4e745e@eatpol.com/meetingtype/saDsWlVX7k-HJzRmCIpbtw2?anonymous&ep=mlink';
+        // ── Bookings loader ──
+        const BOOKINGS_URL = 'https://outlook.office365.com/ous/bookwithme/user/cf1db0f04bcd44da8fb665192f4e745e@eatpol.com/meetingtype/saDsWlVX7k-HJzRmCIpbtw2?anonymous&ep=mLinkFromTile&isanonymous=true';
 
         function loadBookings() {
             const frame = document.getElementById('bookingsFrame');
             const fallback = document.getElementById('frameFallback');
 
-            // Try to load iframe
             frame.src = BOOKINGS_URL;
 
-            // If iframe loads, hide fallback
             frame.addEventListener('load', function() {
-                fallback.classList.add('loaded');
+                fallback.style.display = 'none';
+                frame.style.opacity = '1';
             });
 
-            // If blocked by CSP, show fallback button after timeout
+            // If iframe fails to load, show fallback button after 4s
             setTimeout(function() {
-                if (!fallback.classList.contains('loaded')) {
-                    fallback.querySelector('p').textContent = 'Click below to open the booking calendar.';
+                if (fallback.style.display !== 'none') {
+                    fallback.innerHTML = '<div class="fallback-icon"><i class="fas fa-calendar-alt"></i></div>' +
+                        '<p>Calendar couldn\'t load inline.</p>' +
+                        '<a href="' + BOOKINGS_URL + '" target="_blank" rel="noopener noreferrer" class="submit-btn booking-btn">' +
+                        '<span><i class="fas fa-calendar-alt booking-btn-icon"></i> Open booking calendar</span></a>';
                 }
-            }, 3000);
+            }, 4000);
         }
 
         function goToStep1() {

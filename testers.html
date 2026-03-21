@@ -1444,8 +1444,9 @@
             return Math.random().toString(36).substr(2) + Date.now().toString(36);
         }
         
-        // Set CSRF token
-        document.getElementById('csrfToken').value = generateToken();
+        // Set CSRF token (if element exists)
+        const csrfEl = document.getElementById('csrfToken');
+        if (csrfEl) csrfEl.value = generateToken();
         
         // Apple-style scroll animations
         function initScrollAnimations() {
