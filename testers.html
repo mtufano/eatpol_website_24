@@ -963,9 +963,16 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="birthDate" class="form-label">Date of Birth <span style="color: var(--bright-blue);">*</span></label>
-                            <input type="text" id="birthDate" name="birth_date" class="form-control" placeholder="DD/MM/YYYY" maxlength="10" required inputmode="numeric">
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter a valid date (DD/MM/YYYY) and you must be 18 or older</span>
+                            <label for="ageRange" class="form-label">Age Range <span style="color: var(--bright-blue);">*</span></label>
+                            <select id="ageRange" name="age_range" class="form-control" required>
+                                <option value="" disabled selected>Select your age range</option>
+                                <option value="18-24">18–24</option>
+                                <option value="25-34">25–34</option>
+                                <option value="35-44">35–44</option>
+                                <option value="45-54">45–54</option>
+                                <option value="55-64">55–64</option>
+                                <option value="65+">65+</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
@@ -1396,29 +1403,6 @@
                 }
             });
             
-            // Validate date (DD/MM/YYYY) and age (must be 18+)
-            const birthDateRaw = document.getElementById('birthDate').value.trim();
-            const dateParts = birthDateRaw.split('/');
-            if (birthDateRaw && dateParts.length === 3) {
-                const day = parseInt(dateParts[0], 10);
-                const month = parseInt(dateParts[1], 10) - 1;
-                const year = parseInt(dateParts[2], 10);
-                const birthDate = new Date(year, month, day);
-                const today = new Date();
-                const isValidDate = birthDate.getDate() === day && birthDate.getMonth() === month && year > 1900;
-                let age = today.getFullYear() - birthDate.getFullYear();
-                const monthDiff = today.getMonth() - birthDate.getMonth();
-                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) age--;
-
-                if (!isValidDate || age < 18 || isNaN(age)) {
-                    document.getElementById('birthDate').closest('.form-group').querySelector('.error-message').style.display = 'block';
-                    isValid = false;
-                }
-            } else if (birthDateRaw) {
-                document.getElementById('birthDate').closest('.form-group').querySelector('.error-message').style.display = 'block';
-                isValid = false;
-            }
-            
             // Validate email format
             const email = document.getElementById('email').value;
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -1553,23 +1537,6 @@
             initFloatingIcons();
             initFormInteractions();
             
-            // Auto-format birth date as DD/MM/YYYY
-            const birthDateField = document.getElementById('birthDate');
-            if (birthDateField) {
-                birthDateField.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    if (value.length > 8) value = value.substring(0, 8);
-                    let formatted = '';
-                    if (value.length > 0) formatted = value.substring(0, Math.min(2, value.length));
-                    if (value.length > 2) formatted += '/' + value.substring(2, Math.min(4, value.length));
-                    if (value.length > 4) formatted += '/' + value.substring(4, 8);
-                    e.target.value = formatted;
-                });
-
-                birthDateField.addEventListener('focus', function() {
-                    this.closest('.form-group').querySelector('.error-message').style.display = 'none';
-                });
-            }
             // Mobile menu toggle
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
