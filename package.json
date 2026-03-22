@@ -1,0 +1,23 @@
+{
+  "name": "eatpol_website_24",
+  "version": "1.0.0",
+  "main": "fix-redirect.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtufano/eatpol_website_24.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtufano/eatpol_website_24/issues"
+  },
+  "homepage": "https://github.com/mtufano/eatpol_website_24#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}
