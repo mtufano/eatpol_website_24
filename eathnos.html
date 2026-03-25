@@ -1286,112 +1286,50 @@ const CATEGORIES = {
   'general': { label: 'General', class: 'cat-general' }
 };
 
-// --- Seed Data ---
-const SEED_POSTS = [
-  {
-    id: 'seed1', title: 'How we reduced our product development cycle by 40%',
-    body: 'After years of slow iteration, we restructured our development process around rapid prototyping and early consumer feedback loops. Instead of waiting for a "perfect" formulation, we started testing MVPs (minimum viable products) with small panels of 30-50 consumers within the first 2 weeks.\n\nThe key changes:\n1. Parallel workstreams for formulation and packaging\n2. Weekly micro-tests with 10 consumers instead of quarterly panels of 200\n3. Using AI tools for sentiment analysis on open-ended feedback\n4. Cutting internal approval gates from 5 to 2\n\nThe result? We went from 18 months to 11 months average time-to-market. Happy to share more details if anyone is interested.',
-    category: 'product-dev', author: 'Sarah M.', anonymous: false, upvotes: 47, upvotedBy: [],
-    createdAt: new Date(Date.now() - 2 * 86400000).toISOString(),
-    comments: [
-      { id: 'c1', author: 'Marco R.', text: 'This is brilliant. We\'ve been stuck at 14+ months. The parallel workstreams idea is something I want to pitch to our R&D lead. Did you face resistance internally?', upvotes: 12, upvotedBy: [], createdAt: new Date(Date.now() - 1.5 * 86400000).toISOString(), replies: [
-        { id: 'c1r1', author: 'Sarah M.', text: 'Definitely some pushback from quality. The key was showing that micro-tests actually caught issues earlier, so quality improved rather than degraded. Data speaks louder than opinions!', upvotes: 8, upvotedBy: [], createdAt: new Date(Date.now() - 1.2 * 86400000).toISOString(), replies: [] }
-      ]},
-      { id: 'c2', author: 'Anonymous Innovator', text: 'We tried something similar but struggled with statistical significance on small panels. How do you handle that?', upvotes: 5, upvotedBy: [], createdAt: new Date(Date.now() - 86400000).toISOString(), replies: [] }
-    ]
-  },
-  {
-    id: 'seed2', title: 'Best practices for in-home consumer testing panels',
-    body: 'I\'ve been running in-home consumer tests for 3 years now, and here are my top lessons:\n\n- Recruit participants who actually buy the category (sounds obvious, but many panels include non-buyers)\n- Keep surveys under 10 minutes — response quality drops dramatically after that\n- Include at least one open-ended question about their honest first impression\n- Use photo/video capture to see real usage context\n- Follow up within 48 hours while the experience is fresh\n- Always include a benchmark product for comparison\n\nTools like Eatpol\'s platform have been a game-changer for automating the analysis part. What practices have worked for others?',
-    category: 'consumer-testing', author: 'Dr. Lisa Chen', anonymous: false, upvotes: 63, upvotedBy: [],
-    createdAt: new Date(Date.now() - 5 * 86400000).toISOString(),
-    comments: [
-      { id: 'c3', author: 'James P.', text: 'The 10-minute rule is golden. We shortened our questionnaire from 25 mins to 8 and the quality of responses improved significantly. Less is more.', upvotes: 15, upvotedBy: [], createdAt: new Date(Date.now() - 4 * 86400000).toISOString(), replies: [] },
-      { id: 'c4', author: 'Anonymous Innovator', text: 'How do you handle product shipping for in-home tests? Especially temperature-sensitive items?', upvotes: 9, upvotedBy: [], createdAt: new Date(Date.now() - 3.5 * 86400000).toISOString(), replies: [
-        { id: 'c4r1', author: 'Dr. Lisa Chen', text: 'Great question. We use insulated packaging with gel packs for chilled products and overnight shipping. For frozen products, we partner with local distributors. It adds cost but the data quality makes it worthwhile.', upvotes: 7, upvotedBy: [], createdAt: new Date(Date.now() - 3 * 86400000).toISOString(), replies: [] }
-      ]}
-    ]
-  },
-  {
-    id: 'seed3', title: 'Navigating EU Novel Food regulations — our experience',
-    body: 'We just went through the Novel Food authorization process for a new ingredient and it took us 22 months. Here\'s what we learned:\n\n1. Start the safety dossier early — it\'s the biggest bottleneck\n2. Engage with EFSA informally before the formal submission\n3. Budget for toxicology studies (€150k-300k depending on complexity)\n4. Get legal counsel specialized in EU food law, not general food regulatory\n5. The "traditional use" pathway can be faster if you have evidence of consumption history in third countries\n\nThe process is complex but navigable if you plan ahead. Don\'t underestimate the timeline — 18-24 months is realistic for most applications.',
-    category: 'regulatory', author: 'Anonymous Innovator', anonymous: true, upvotes: 31, upvotedBy: [],
-    createdAt: new Date(Date.now() - 7 * 86400000).toISOString(),
-    comments: [
-      { id: 'c5', author: 'Elena V.', text: 'Thank you for sharing this. The budget numbers are really helpful for our planning. Did you use a regulatory consultant or handle it in-house?', upvotes: 6, upvotedBy: [], createdAt: new Date(Date.now() - 6 * 86400000).toISOString(), replies: [] }
-    ]
-  },
-  {
-    id: 'seed4', title: 'What packaging materials work best for plant-based snacks?',
-    body: 'We\'re developing a line of plant-based protein bars and trying to decide on packaging. Currently evaluating:\n\n- Flow wrap (BOPP) — cheapest, good barrier, not recyclable in most areas\n- Compostable films — on-brand but barrier properties are still poor for moisture-sensitive products\n- Mono-material PE pouches — recyclable, decent barrier with coatings\n- Paper-based wrappers with thin PE liner — looks premium, partially recyclable\n\nWe want to balance shelf life (minimum 9 months), sustainability messaging, and cost. What have others found works in practice?',
-    category: 'packaging', author: 'Tom B.', anonymous: false, upvotes: 28, upvotedBy: [],
-    createdAt: new Date(Date.now() - 3 * 86400000).toISOString(),
-    comments: [
-      { id: 'c6', author: 'Anonymous Innovator', text: 'We went with mono-PE for our granola bars. Good recyclability story, decent shelf life (~10 months), and cost is only about 15% more than BOPP. The sustainability angle actually helped with retailer listings.', upvotes: 11, upvotedBy: [], createdAt: new Date(Date.now() - 2.5 * 86400000).toISOString(), replies: [] },
-      { id: 'c7', author: 'Priya K.', text: 'Don\'t overlook the consumer perception angle. We tested 3 packaging types with consumers and paper-based scored highest on "premium" and "sustainable" perception, even though the actual environmental impact was similar to mono-PE.', upvotes: 14, upvotedBy: [], createdAt: new Date(Date.now() - 2 * 86400000).toISOString(), replies: [] }
-    ]
-  },
-  {
-    id: 'seed5', title: 'Marketing a functional beverage to Gen Z — lessons learned',
-    body: 'We launched a nootropic-infused sparkling water targeting 18-25 year olds. Here\'s what actually worked vs. what we expected:\n\nWhat worked:\n- TikTok > Instagram for awareness (3x engagement rate)\n- Micro-influencers (5k-50k followers) outperformed macro-influencers 2:1 on conversion\n- Sampling at university events and co-working spaces\n- Transparent ingredient storytelling (they Google everything)\n\nWhat didn\'t work:\n- Facebook ads (basically zero traction with this demographic)\n- Celebrity endorsement (too expensive, low authenticity perception)\n- "Science-heavy" messaging (they want benefits, not mechanism)\n- Traditional PR/media placements\n\nOur CAC dropped 60% when we shifted budget from traditional to creator-led marketing.',
-    category: 'marketing', author: 'Alex Rivera', anonymous: false, upvotes: 52, upvotedBy: [],
-    createdAt: new Date(Date.now() - 4 * 86400000).toISOString(),
-    comments: [
-      { id: 'c8', author: 'Nina S.', text: 'The micro-influencer insight is spot-on. We found the same with our kombucha brand. Authenticity beats reach every time with Gen Z.', upvotes: 18, upvotedBy: [], createdAt: new Date(Date.now() - 3.5 * 86400000).toISOString(), replies: [
-        { id: 'c8r1', author: 'Alex Rivera', text: 'Exactly. And the cost per engagement is a fraction. We now have an always-on program with about 40 micro-creators. The content they produce is also way more authentic than anything our agency made.', upvotes: 9, upvotedBy: [], createdAt: new Date(Date.now() - 3 * 86400000).toISOString(), replies: [] }
-      ]},
-      { id: 'c9', author: 'Anonymous Innovator', text: 'Curious about the sampling strategy. How did you measure conversion from sampling events to repeat purchase?', upvotes: 7, upvotedBy: [], createdAt: new Date(Date.now() - 2.5 * 86400000).toISOString(), replies: [] }
-    ]
-  },
-  {
-    id: 'seed6', title: 'Anyone tried AI-powered sensory analysis tools?',
-    body: 'Our company is evaluating whether to invest in AI-powered sensory analysis tools versus traditional trained panels. We\'ve been using a 12-person trained panel for years, but the cost and time are becoming prohibitive.\n\nI\'ve seen a few options:\n- Electronic tongue/nose devices with ML interpretation\n- Consumer panel + NLP analysis of open-ended responses\n- Predictive formulation tools that estimate sensory profiles from ingredient data\n\nHas anyone actually implemented any of these? What was the accuracy compared to trained panels? We\'re especially interested in the NLP approach since it could scale better.\n\nAny recommendations or warnings?',
-    category: 'general', author: 'David K.', anonymous: false, upvotes: 35, upvotedBy: [],
-    createdAt: new Date(Date.now() - 6 * 86400000).toISOString(),
-    comments: [
-      { id: 'c10', author: 'Anonymous Innovator', text: 'We tested the Eatpol approach with NLP analysis on consumer responses. Very impressed — it identified texture issues that even our trained panel missed because consumers describe things differently than experts. Highly recommend exploring it.', upvotes: 13, upvotedBy: [], createdAt: new Date(Date.now() - 5 * 86400000).toISOString(), replies: [] },
-      { id: 'c11', author: 'Prof. Anna W.', text: 'From an academic perspective, the hybrid approach works best. Use AI/NLP for screening and trend identification, but keep a small trained panel for critical go/no-go decisions. The tools complement each other.', upvotes: 21, upvotedBy: [], createdAt: new Date(Date.now() - 4.5 * 86400000).toISOString(), replies: [] }
-    ]
-  },
-  {
-    id: 'seed7', title: 'Tips for writing effective consumer test questionnaires',
-    body: 'After designing 100+ consumer questionnaires, here are my hard-won tips:\n\n1. Lead with overall liking BEFORE attribute questions (avoid anchoring bias)\n2. Use unipolar scales for intensity, bipolar for hedonic questions\n3. Include a purchase intent question with price context\n4. Limit attributes to 8-10 max (beyond that, fatigue kills data quality)\n5. Randomize attribute order between respondents\n6. Use "just right" scales for optimization studies\n7. Include one attention check question (e.g., "select strongly agree")\n8. End with an open-ended "anything else?" — you\'ll be surprised what you learn\n\nThe biggest mistake I see is trying to answer too many research questions in one test. Focus on 2-3 key objectives max.',
-    category: 'consumer-testing', author: 'Rachel T.', anonymous: false, upvotes: 44, upvotedBy: [],
-    createdAt: new Date(Date.now() - 8 * 86400000).toISOString(),
-    comments: [
-      { id: 'c12', author: 'Marcus L.', text: 'Point 1 is so important and often overlooked. We used to put taste and texture before overall liking, and it consistently inflated scores because respondents would think harder about positives.', upvotes: 10, upvotedBy: [], createdAt: new Date(Date.now() - 7 * 86400000).toISOString(), replies: [] }
-    ]
-  },
-  {
-    id: 'seed8', title: 'How to price a premium plant-based product in a competitive market',
-    body: 'We\'re launching a premium oat-based dessert range and struggling with pricing. The production cost is about 35% higher than dairy equivalents, and we need to decide between:\n\nA) Price at parity with premium dairy — absorb the cost hit, aim for volume\nB) Price at 20-30% premium — justify through quality/sustainability messaging\nC) Price at 40%+ premium — ultra-premium positioning, smaller but loyal customer base\n\nOur consumer research shows willingness-to-pay is highest in urban areas (30-45 age group), but price sensitivity increases dramatically outside major cities.\n\nWhat pricing strategies have worked for others in the plant-based space?',
-    category: 'marketing', author: 'Anonymous Innovator', anonymous: true, upvotes: 38, upvotedBy: [],
-    createdAt: new Date(Date.now() - 1 * 86400000).toISOString(),
-    comments: [
-      { id: 'c13', author: 'Sophie D.', text: 'We went with option B for our plant-based cheese and it worked well. The key was having a strong "reason to believe" for the premium — for us it was locally sourced ingredients and zero-waste production. Consumers will pay more if the story is authentic.', upvotes: 16, upvotedBy: [], createdAt: new Date(Date.now() - 0.5 * 86400000).toISOString(), replies: [
-        { id: 'c13r1', author: 'Anonymous Innovator', text: 'That\'s really helpful, thanks Sophie. Did you see any resistance from retailers on the shelf price?', upvotes: 3, upvotedBy: [], createdAt: new Date(Date.now() - 0.3 * 86400000).toISOString(), replies: [
-          { id: 'c13r2', author: 'Sophie D.', text: 'Initially yes, but we offered an introductory promotion (buy one get one 50% off) for the first month which helped with velocity. After that, the repeat purchase rate justified the shelf space.', upvotes: 8, upvotedBy: [], createdAt: new Date(Date.now() - 0.2 * 86400000).toISOString(), replies: [] }
-        ]}
-      ]}
-    ]
+// --- API Configuration ---
+const API_BASE = 'https://lt0v3d1wy8.execute-api.eu-west-3.amazonaws.com/prod';
+
+// Persistent anonymous user ID for upvotes/comments
+function getWebUserId() {
+  let uid = localStorage.getItem('eathnos_user_id');
+  if (!uid) {
+    uid = 'web-' + Date.now() + '-' + Math.random().toString(36).substr(2, 8);
+    localStorage.setItem('eathnos_user_id', uid);
   }
-];
+  return uid;
+}
+const WEB_USER_ID = getWebUserId();
 
 // --- State ---
-let state = { posts: [], currentFilter: 'all', currentSort: 'trending', expandedPost: null };
+let state = { posts: [], currentFilter: 'all', currentSort: 'trending', expandedPost: null, loading: false };
 
-function loadState() {
-  const saved = localStorage.getItem('eathnos_data');
-  if (saved) {
-    state.posts = JSON.parse(saved);
-  } else {
-    state.posts = JSON.parse(JSON.stringify(SEED_POSTS));
-    saveState();
+async function loadState() {
+  state.loading = true;
+  const feed = document.getElementById('feed');
+  // Safe: only static strings used here, no user input
+  if (feed) feed.innerHTML = '<div class="empty-state"><i class="fas fa-spinner fa-spin"></i><h3>Loading discussions\u2026</h3></div>';
+  try {
+    const resp = await fetch(API_BASE + '/api/eathnos/posts');
+    if (!resp.ok) throw new Error('API error: ' + resp.status);
+    const data = await resp.json();
+    state.posts = (data.posts || []).map(p => ({
+      ...p,
+      upvotes: p.upvotes || 0,
+      upvotedBy: p.upvotedBy || [],
+      comments: (p.comments || []).map(c => ({
+        ...c,
+        upvotes: 0,
+        upvotedBy: [],
+        replies: []
+      }))
+    }));
+  } catch (err) {
+    console.error('Failed to load posts:', err);
+    state.posts = [];
+    // Safe: only static strings used here, no user input
+    if (feed) feed.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><h3>Could not load discussions</h3><p>Please try again later.</p></div>';
   }
-}
-
-function saveState() {
-  localStorage.setItem('eathnos_data', JSON.stringify(state.posts));
+  state.loading = false;
 }
 
 // --- Helpers ---
@@ -1408,12 +1346,7 @@ function timeAgo(dateStr) {
 }
 
 function countAllComments(comments) {
-  let count = 0;
-  for (const c of comments) {
-    count++;
-    if (c.replies) count += countAllComments(c.replies);
-  }
-  return count;
+  return comments ? comments.length : 0;
 }
 
 function generateId() {
@@ -1477,7 +1410,7 @@ function renderPostCard(post) {
     <div class="post-card" data-category="${post.category}" id="post-${post.id}">
       <div class="post-card-inner">
         <div class="post-vote">
-          <button class="vote-btn ${post.upvotedBy.includes('me') ? 'upvoted' : ''}" onclick="event.stopPropagation(); upvotePost('${post.id}')">
+          <button class="vote-btn ${post.upvotedBy.includes(WEB_USER_ID) ? 'upvoted' : ''}" onclick="event.stopPropagation(); upvotePost('${post.id}')">
             <i class="fas fa-arrow-up"></i>
           </button>
           <span class="vote-count">${post.upvotes}</span>
@@ -1522,13 +1455,10 @@ function renderComment(comment, postId, depth) {
   const authorDisplay = comment.author === 'Anonymous Innovator' ? 'Anonymous Innovator' : escapeHtml(comment.author);
   const avatarClass = comment.author === 'Anonymous Innovator' ? 'post-author-avatar anonymous' : 'post-author-avatar';
   const avatarLetter = comment.author === 'Anonymous Innovator' ? '?' : comment.author.charAt(0).toUpperCase();
-
-  const repliesHtml = comment.replies && comment.replies.length > 0
-    ? `<div class="comment-thread">${comment.replies.map(r => renderComment(r, postId, depth + 1)).join('')}</div>`
-    : '';
+  const safeCommentId = escapeHtml(comment.id);
 
   return `
-    <div class="comment" id="comment-${comment.id}">
+    <div class="comment" id="comment-${safeCommentId}">
       <div class="comment-item">
         <div class="comment-header">
           <span class="${avatarClass}" style="width:18px;height:18px;font-size:9px;">${avatarLetter}</span>
@@ -1536,23 +1466,7 @@ function renderComment(comment, postId, depth) {
           <span class="comment-time">${timeAgo(comment.createdAt)}</span>
         </div>
         <p class="comment-text">${escapeHtml(comment.text).replace(/\n/g, '<br>')}</p>
-        <div class="comment-actions">
-          <button class="comment-action ${comment.upvotedBy && comment.upvotedBy.includes('me') ? 'upvoted' : ''}" onclick="upvoteComment('${postId}', '${comment.id}')">
-            <i class="fas fa-arrow-up"></i> ${comment.upvotes}
-          </button>
-          <button class="comment-action" onclick="showReply('${postId}', '${comment.id}')">
-            <i class="fas fa-reply"></i> Reply
-          </button>
-        </div>
-        <div id="reply-form-${comment.id}" style="display:none;">
-          <div class="reply-input-wrap">
-            <textarea class="reply-input" id="reply-input-${comment.id}" placeholder="Write a reply..." rows="1" oninput="this.style.height='auto'; this.style.height=this.scrollHeight+'px';"></textarea>
-            <button class="reply-submit" onclick="submitReply('${postId}', '${comment.id}')">Reply</button>
-            <button class="reply-cancel" onclick="document.getElementById('reply-form-${comment.id}').style.display='none'">Cancel</button>
-          </div>
-        </div>
       </div>
-      ${repliesHtml}
     </div>
   `;
 }
@@ -1569,100 +1483,49 @@ function togglePost(postId) {
   }
 }
 
-function upvotePost(postId) {
+async function upvotePost(postId) {
   const post = state.posts.find(p => p.id === postId);
   if (!post) return;
-  const idx = post.upvotedBy.indexOf('me');
-  if (idx > -1) {
-    post.upvotedBy.splice(idx, 1);
-    post.upvotes--;
-  } else {
-    post.upvotedBy.push('me');
-    post.upvotes++;
-  }
-  saveState();
-  renderFeed();
-}
-
-function findComment(comments, commentId) {
-  for (const c of comments) {
-    if (c.id === commentId) return c;
-    if (c.replies) {
-      const found = findComment(c.replies, commentId);
-      if (found) return found;
-    }
-  }
-  return null;
-}
-
-function upvoteComment(postId, commentId) {
-  const post = state.posts.find(p => p.id === postId);
-  if (!post) return;
-  const comment = findComment(post.comments, commentId);
-  if (!comment) return;
-  if (!comment.upvotedBy) comment.upvotedBy = [];
-  const idx = comment.upvotedBy.indexOf('me');
-  if (idx > -1) {
-    comment.upvotedBy.splice(idx, 1);
-    comment.upvotes--;
-  } else {
-    comment.upvotedBy.push('me');
-    comment.upvotes++;
-  }
-  saveState();
-  renderFeed();
-}
-
-function showReply(postId, commentId) {
-  const form = document.getElementById('reply-form-' + commentId);
-  if (form) {
-    form.style.display = form.style.display === 'none' ? 'block' : 'none';
-    if (form.style.display === 'block') {
-      const input = document.getElementById('reply-input-' + commentId);
-      if (input) input.focus();
-    }
+  try {
+    const resp = await fetch(API_BASE + '/api/eathnos/posts/' + encodeURIComponent(postId) + '/upvote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: WEB_USER_ID })
+    });
+    if (!resp.ok) throw new Error('Upvote failed');
+    const data = await resp.json();
+    post.upvotes = data.upvotes;
+    post.upvotedBy = data.upvoted ? [WEB_USER_ID] : [];
+    renderFeed();
+  } catch (err) {
+    console.error('Upvote error:', err);
   }
 }
 
-function submitComment(postId) {
+// Comment upvotes and nested replies not supported by API — removed
+
+async function submitComment(postId) {
   const input = document.getElementById('comment-input-' + postId);
   if (!input || !input.value.trim()) return;
-  const post = state.posts.find(p => p.id === postId);
-  if (!post) return;
+  const text = input.value.trim();
+  input.value = '';
+  input.disabled = true;
 
-  post.comments.push({
-    id: generateId(),
-    author: 'You',
-    text: input.value.trim(),
-    upvotes: 0,
-    upvotedBy: [],
-    createdAt: new Date().toISOString(),
-    replies: []
-  });
-  saveState();
-  renderFeed();
-}
-
-function submitReply(postId, commentId) {
-  const input = document.getElementById('reply-input-' + commentId);
-  if (!input || !input.value.trim()) return;
-  const post = state.posts.find(p => p.id === postId);
-  if (!post) return;
-  const comment = findComment(post.comments, commentId);
-  if (!comment) return;
-  if (!comment.replies) comment.replies = [];
-
-  comment.replies.push({
-    id: generateId(),
-    author: 'You',
-    text: input.value.trim(),
-    upvotes: 0,
-    upvotedBy: [],
-    createdAt: new Date().toISOString(),
-    replies: []
-  });
-  saveState();
-  renderFeed();
+  try {
+    const resp = await fetch(API_BASE + '/api/eathnos/posts/' + encodeURIComponent(postId) + '/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text, author: 'Community Member', userId: WEB_USER_ID })
+    });
+    if (!resp.ok) throw new Error('Comment failed');
+    await loadState();
+    state.expandedPost = postId;
+    renderFeed();
+  } catch (err) {
+    console.error('Comment error:', err);
+    input.value = text;
+  }
+  input.disabled = false;
 }
 
 // --- Modal ---
@@ -1680,34 +1543,8 @@ function closeModal() {
 }
 
 function submitPost() {
-  const title = document.getElementById('postTitle').value.trim();
-  const body = document.getElementById('postBody').value.trim();
-  const category = document.getElementById('postCategory').value;
-  const authorName = document.getElementById('postAuthor').value.trim();
-  const isAnon = document.getElementById('anonToggle').checked;
-
-  if (!title) { document.getElementById('postTitle').focus(); return; }
-  if (!body) { document.getElementById('postBody').focus(); return; }
-
-  state.posts.unshift({
-    id: generateId(),
-    title,
-    body,
-    category,
-    author: isAnon ? 'Anonymous Innovator' : (authorName || 'Anonymous Innovator'),
-    anonymous: isAnon || !authorName,
-    upvotes: 0,
-    upvotedBy: [],
-    createdAt: new Date().toISOString(),
-    comments: []
-  });
-
-  saveState();
+  alert('New discussions can only be created by administrators. Please contact the Eatpol team to suggest a topic.');
   closeModal();
-  state.currentSort = 'recent';
-  document.querySelectorAll('.sort-tab').forEach(t => t.classList.remove('active'));
-  document.querySelector('.sort-tab[data-sort="recent"]').classList.add('active');
-  renderFeed();
 }
 
 // --- Filters & Sort ---
@@ -1752,13 +1589,7 @@ function updateStats() {
   state.posts.forEach(p => {
     totalComments += countAllComments(p.comments);
     authors.add(p.author);
-    function addCommentAuthors(comments) {
-      comments.forEach(c => {
-        authors.add(c.author);
-        if (c.replies) addCommentAuthors(c.replies);
-      });
-    }
-    addCommentAuthors(p.comments);
+    (p.comments || []).forEach(c => authors.add(c.author));
   });
 
   const statPosts = document.getElementById('statPosts');
@@ -1800,8 +1631,10 @@ document.addEventListener('keydown', function(e) {
 });
 
 // --- Init ---
-loadState();
-renderFeed();
+(async () => {
+  await loadState();
+  renderFeed();
+})();
 </script>
 
 </body>
