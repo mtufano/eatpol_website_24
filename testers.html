@@ -958,7 +958,41 @@
                         
                         <div class="form-group">
                             <label for="phone" class="form-label">Phone Number <span style="color: var(--bright-blue);">*</span></label>
-                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+31 6 12345678" required>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <select id="phoneCountryCode" name="phone_country_code" class="form-control" style="width: 120px; flex-shrink: 0;" required>
+                                    <option value="+31" selected>🇳🇱 +31</option>
+                                    <option value="+32">🇧🇪 +32</option>
+                                    <option value="+49">🇩🇪 +49</option>
+                                    <option value="+33">🇫🇷 +33</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+39">🇮🇹 +39</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+351">🇵🇹 +351</option>
+                                    <option value="+43">🇦🇹 +43</option>
+                                    <option value="+41">🇨🇭 +41</option>
+                                    <option value="+46">🇸🇪 +46</option>
+                                    <option value="+45">🇩🇰 +45</option>
+                                    <option value="+47">🇳🇴 +47</option>
+                                    <option value="+358">🇫🇮 +358</option>
+                                    <option value="+48">🇵🇱 +48</option>
+                                    <option value="+420">🇨🇿 +420</option>
+                                    <option value="+36">🇭🇺 +36</option>
+                                    <option value="+40">🇷🇴 +40</option>
+                                    <option value="+30">🇬🇷 +30</option>
+                                    <option value="+353">🇮🇪 +353</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+91">🇮🇳 +91</option>
+                                    <option value="+86">🇨🇳 +86</option>
+                                    <option value="+81">🇯🇵 +81</option>
+                                    <option value="+82">🇰🇷 +82</option>
+                                    <option value="+55">🇧🇷 +55</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                    <option value="+90">🇹🇷 +90</option>
+                                    <option value="+84">🇻🇳 +84</option>
+                                </select>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="6 12345678" required style="flex: 1;">
+                            </div>
                             <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter your phone number</span>
                         </div>
                         
@@ -1420,6 +1454,10 @@
             document.getElementById('submitBtn').disabled = true;
 
             const formData = new FormData(this);
+            // Combine country code + phone number into a single phone field
+            const countryCode = document.getElementById('phoneCountryCode').value;
+            const phoneNumber = document.getElementById('phone').value.trim();
+            formData.set('phone', countryCode + ' ' + phoneNumber);
             const form = this;
 
             fetch('/', {
@@ -1452,6 +1490,24 @@
                     streetField.setAttribute('required', '');
                 }
             });
+        });
+
+        // Auto-select phone country code when country changes
+        const COUNTRY_TO_PHONE = {
+            'Netherlands': '+31', 'Belgium': '+32', 'Germany': '+49', 'France': '+33',
+            'United Kingdom': '+44', 'Italy': '+39', 'Spain': '+34', 'Portugal': '+351',
+            'Austria': '+43', 'Switzerland': '+41', 'Sweden': '+46', 'Denmark': '+45',
+            'Norway': '+47', 'Finland': '+358', 'Poland': '+48', 'Czech Republic': '+420',
+            'Hungary': '+36', 'Romania': '+40', 'Greece': '+30', 'Ireland': '+353',
+            'United States': '+1', 'India': '+91', 'China': '+86', 'Japan': '+81',
+            'South Korea': '+82', 'Brazil': '+55', 'Mexico': '+52', 'Australia': '+61',
+            'Turkey': '+90', 'Vietnam': '+84'
+        };
+        document.getElementById('country').addEventListener('change', function() {
+            const code = COUNTRY_TO_PHONE[this.value];
+            if (code) {
+                document.getElementById('phoneCountryCode').value = code;
+            }
         });
 
         // Generate CSRF token
