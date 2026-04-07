@@ -1139,6 +1139,128 @@
     .band-dark .btn-primary { background: linear-gradient(135deg, var(--green), var(--bright-blue)); color: var(--white); box-shadow: 0 4px 16px rgba(0,191,99,0.25); }
     .band-dark .btn-primary:hover { box-shadow: 0 8px 28px rgba(0,191,99,0.35); transform: translateY(-2px); }
 
+    /* ── Testimonial ── */
+    .testimonial-section {
+      background: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 10% 90%, rgba(18, 151, 224, 0.06), transparent),
+        radial-gradient(ellipse 50% 60% at 90% 20%, rgba(0, 191, 99, 0.05), transparent);
+      pointer-events: none;
+    }
+    .testimonial-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-overline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bright-blue);
+      text-align: center;
+      margin-bottom: 2rem;
+      display: block;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 56px);
+      border: 1px solid var(--warm-border);
+      box-shadow: var(--warm-shadow);
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: clamp(24px, 4vw, 56px);
+      right: clamp(24px, 4vw, 56px);
+      height: 3px;
+      background: linear-gradient(90deg, var(--bright-blue), var(--green));
+      border-radius: 0 0 3px 3px;
+    }
+    .testimonial-quote-mark {
+      font-family: 'Fraunces', serif;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--bright-blue);
+      opacity: 0.15;
+      position: absolute;
+      top: clamp(16px, 2vw, 28px);
+      left: clamp(20px, 3vw, 40px);
+      user-select: none;
+    }
+    .testimonial-text {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(17px, 2.2vw, 20px);
+      line-height: 1.65;
+      color: var(--navy);
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      opacity: 0.92;
+    }
+    .testimonial-text strong {
+      font-weight: 600;
+      font-style: normal;
+      color: var(--bright-blue);
+    }
+    .testimonial-attribution {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--warm-border);
+    }
+    .testimonial-author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .testimonial-author {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+    }
+    .testimonial-role {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+    .testimonial-logo {
+      height: 28px;
+      width: auto;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .testimonial-logo:hover {
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      .testimonial-attribution {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .testimonial-logo {
+        height: 24px;
+      }
+    }
+
     /* ── Privacy & Ethics ── */
     .privacy-section { background: var(--cream); }
     .privacy-card { text-align: center; }
@@ -1336,7 +1458,7 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1 class="hero-title">Launch products<br>people love</h1>
-          <p class="hero-subtitle"><span>Test with real consumers in their homes. Get actionable insights in 2 weeks.</span></p>
+          <p class="hero-subtitle"><span>Test with real consumers in their homes. Get actionable insights in 1 week.</span></p>
           <div class="hero-cta">
             <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
             <a href="#guide" class="btn btn-secondary">See how it works</a>
@@ -1474,7 +1596,7 @@
     <div class="container">
       <div class="persona-header">
         <span class="overline">What you get</span>
-        <h2 class="section-title">Insights for every team in 2 weeks</h2>
+        <h2 class="section-title">Insights for every team in 1 week</h2>
         <p class="section-subtitle">A single in-home study delivers the evidence R&D, Marketing, and Business need — from kickoff to results in your dashboard.</p>
       </div>
 
@@ -1511,11 +1633,31 @@
           <h3 class="persona-headline">Launch faster with less risk</h3>
           <p class="persona-desc">Get a clear go / no-go signal before committing to production. Cut months off your timeline with evidence-based decisions.</p>
           <ul class="persona-list">
-            <li><span class="check"><i class="fas fa-check"></i></span>Results in 2 weeks, not months</li>
+            <li><span class="check"><i class="fas fa-check"></i></span>Results in 1 week, not months</li>
             <li><span class="check"><i class="fas fa-check"></i></span>Reduced launch failure risk with real-world data</li>
             <li><span class="check"><i class="fas fa-check"></i></span>Side-by-side competitor benchmarking</li>
             <li><span class="check"><i class="fas fa-check"></i></span>Iterate 10x faster than legacy methods</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="section testimonial-section reveal">
+    <div class="container testimonial-inner">
+      <span class="testimonial-overline">Client Story</span>
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">&ldquo;</span>
+        <p class="testimonial-text">
+          Validating product claims, real-life usage, packaging, and flavors before launch was a constant challenge. Traditional testing gave us a score, not a direction. Eatpol was completely different! Seeing how consumers actually use our products at home gave us insights we could act on. We brought them into a retailer conversation and <strong>walked out with an extra SKU at Albert Heijn</strong>. We call it <strong>Eatpol proof</strong>.
+        </p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-author-info">
+            <span class="testimonial-author">Annick van de Laak</span>
+            <span class="testimonial-role">Creative Concept Designer at QSTA</span>
+          </div>
+          <img src="img/qsta_logo.png" alt="QSTA" class="testimonial-logo">
         </div>
       </div>
     </div>
@@ -1579,7 +1721,7 @@
       </details>
       <details>
         <summary>How fast are results?</summary>
-        <p>From kickoff to results in 2 weeks. Consumer interviews (Vox) can be completed in as little as 2 days. In-home product testing (Domus) runs in parallel. Results appear in your Eatpol Studio dashboard as soon as testing wraps.</p>
+        <p>From kickoff to results in 1 week. Consumer interviews (Vox) can be completed in as little as 2 days. In-home product testing (Domus) runs in parallel. Results appear in your Eatpol Studio dashboard as soon as testing wraps.</p>
       </details>
       <details>
         <summary>Can we compare against competitors?</summary>
