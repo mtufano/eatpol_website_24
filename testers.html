@@ -920,8 +920,9 @@
 
                 <form id="testerForm" name="tester-registration" method="POST" data-netlify="true" action="/testers.html?success=1" class="contact-form">
                     <!-- Netlify Forms - no CSRF token needed -->
-                    
+
                     <input type="hidden" name="program_type" value="standard">
+                    <input type="hidden" name="referred_by" id="referredBy" value="">
 
                     <!-- Participation Preference -->
                     <h3 style="color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);" data-i18n="testers.form.interest.heading">What interests you?</h3>
@@ -1428,6 +1429,23 @@
 
     <script src="js/i18n.js"></script>
     <script>
+        // Capture referral code from URL: ?ref=EATPOL-XXXXXX
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const ref = params.get('ref');
+            if (ref) {
+                document.getElementById('referredBy').value = ref;
+                // Also store in localStorage so it persists across page reloads
+                try { localStorage.setItem('eatpol_referred_by', ref); } catch(e) {}
+            } else {
+                // Check localStorage fallback (user may have navigated away and back)
+                try {
+                    const stored = localStorage.getItem('eatpol_referred_by');
+                    if (stored) document.getElementById('referredBy').value = stored;
+                } catch(e) {}
+            }
+        })();
+
         // Form validation and submission
         document.getElementById('testerForm').addEventListener('submit', function(e) {
             e.preventDefault();

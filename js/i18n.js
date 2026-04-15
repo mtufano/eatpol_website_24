@@ -122,7 +122,7 @@
 
     // ── Hero ──
     'hero.title': {
-      en: 'Launch products<br>people love',
+      en: 'Launch Products<br>People Love',
       ar: 'أطلق منتجات<br>يحبها الناس',
       zh: '推出人们<br>喜爱的产品',
       nl: 'Lanceer producten<br>waar mensen van houden',
@@ -819,16 +819,16 @@
       ko: '바헤닝언 대학교에서 식품 과학 박사학위 취득. AI 연구 배경 보유.'
     },
     'team.jakob.role': {
-      en: 'Co-Founder, COO',
-      nl: 'Medeoprichter, COO',
-      de: 'Mitgründer, COO',
-      it: 'Co-fondatore, COO',
-      fr: 'Cofondateur, COO',
-      ar: 'شريك مؤسس، الرئيس التشغيلي',
-      zh: '联合创始人，首席运营官',
-      es: 'Cofundador, COO',
-      ja: 'CTO & 共同創業者',
-      ko: 'CTO & 공동 창업자'
+      en: 'Co-Founder, CCO',
+      nl: 'Medeoprichter, CCO',
+      de: 'Mitgründer, CCO',
+      it: 'Co-fondatore, CCO',
+      fr: 'Cofondateur, CCO',
+      ar: 'شريك مؤسس، CCO',
+      zh: '联合创始人，CCO',
+      es: 'Cofundador, CCO',
+      ja: '共同創業者、CCO',
+      ko: '공동 창업자, CCO'
     },
     'team.jakob.bio': {
       en: 'Jakob works directly with food brands to design testing programs that fit their launch timeline — typically delivering actionable consumer insights within 2 weeks. He brings a sharp eye for product-market fit and commercial strategy to every engagement.',
