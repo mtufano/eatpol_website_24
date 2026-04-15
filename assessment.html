@@ -6,6 +6,19 @@
     <title>Get Your Free Assessment | In-Home Consumer Testing | Eatpol</title>
     <meta name="description" content="Get a free assessment for AI-driven, in-home consumer testing. Validate your food product with real consumers before going to market. Results in 2 weeks.">
 
+    <!-- hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="en" href="https://eatpol.com/assessment.html" />
+    <link rel="alternate" hreflang="ar" href="https://eatpol.com/assessment.html?lang=ar" />
+    <link rel="alternate" hreflang="zh" href="https://eatpol.com/assessment.html?lang=zh" />
+    <link rel="alternate" hreflang="nl" href="https://eatpol.com/assessment.html?lang=nl" />
+    <link rel="alternate" hreflang="it" href="https://eatpol.com/assessment.html?lang=it" />
+    <link rel="alternate" hreflang="de" href="https://eatpol.com/assessment.html?lang=de" />
+    <link rel="alternate" hreflang="es" href="https://eatpol.com/assessment.html?lang=es" />
+    <link rel="alternate" hreflang="fr" href="https://eatpol.com/assessment.html?lang=fr" />
+    <link rel="alternate" hreflang="ja" href="https://eatpol.com/assessment.html?lang=ja" />
+    <link rel="alternate" hreflang="ko" href="https://eatpol.com/assessment.html?lang=ko" />
+    <link rel="alternate" hreflang="x-default" href="https://eatpol.com/assessment.html" />
+
     <!-- Favicons -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -40,6 +53,14 @@
             --radius-sm: 10px;
             --radius-pill: 980px;
         }
+
+        /* RTL */
+        [dir="rtl"] body { text-align: right; }
+        [dir="rtl"] .nav { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-menu { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-item { margin-left: 0; margin-right: 1.5rem; }
+        [dir="rtl"] .footer-grid { direction: rtl; }
+        [dir="rtl"] .audience-clarifier-text { text-align: right; }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -251,6 +272,60 @@
         .trust-badge i {
             color: var(--green);
             font-size: 12px;
+        }
+
+        /* ── Audience Clarifier ── */
+        .audience-clarifier {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1.75rem;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, rgba(18,151,224,0.05) 0%, rgba(0,191,99,0.05) 100%);
+            border: 1.5px solid rgba(18,151,224,0.12);
+            border-radius: var(--radius-pill);
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        .audience-clarifier-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .audience-clarifier-icon i {
+            font-size: 11px;
+            color: white;
+        }
+        .audience-clarifier-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--navy);
+            line-height: 1.4;
+            text-align: left;
+        }
+        .audience-clarifier-text strong {
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .audience-clarifier-text a {
+            color: var(--bright-blue);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: rgba(18,151,224,0.3);
+            text-underline-offset: 2px;
+        }
+        .audience-clarifier-text a:hover {
+            color: var(--green);
+            text-decoration-color: rgba(0,191,99,0.5);
         }
 
         /* ── Form ── */
@@ -785,12 +860,12 @@
                     Eatpol
                 </a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
-                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
-                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
-                    <li class="nav-item"><a href="team.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link" data-i18n="nav.solutions">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link" data-i18n="nav.community">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link" data-i18n="nav.tester">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link" data-i18n="nav.about">About Us</a></li>
+                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link" data-i18n="nav.login">Login</a></li>
                 </ul>
                 <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -802,13 +877,20 @@
     <!-- Hero -->
     <section class="quote-hero">
         <div class="container">
-            <span class="overline">Free assessment</span>
-            <h1>Let's talk about <span class="highlight-gradient">your product</span></h1>
-            <p>Book a 30-minute intro call. We'll discuss your product and follow up with a tailored proposal.</p>
+            <span class="overline" data-i18n="assess.overline">Free assessment</span>
+            <h1 data-i18n="assess.title">Let's talk about <span class="highlight-gradient">your product</span></h1>
+            <p data-i18n="assess.subtitle">Book a 30-minute intro call. We'll discuss your product and follow up with a tailored proposal.</p>
             <div class="hero-trust-badges">
-                <span class="trust-badge"><i class="fas fa-check-circle"></i> No commitment</span>
-                <span class="trust-badge"><i class="fas fa-check-circle"></i> Results in 2 weeks</span>
-                <span class="trust-badge"><i class="fas fa-check-circle"></i> GDPR compliant</span>
+                <span class="trust-badge"><i class="fas fa-check-circle"></i> <span data-i18n="assess.badge1">No commitment</span></span>
+                <span class="trust-badge"><i class="fas fa-check-circle"></i> <span data-i18n="assess.badge2">Results in 2 weeks</span></span>
+                <span class="trust-badge"><i class="fas fa-check-circle"></i> <span data-i18n="assess.badge3">GDPR compliant</span></span>
+            </div>
+            <div class="audience-clarifier" data-i18n-container>
+                <div class="audience-clarifier-icon"><i class="fas fa-building"></i></div>
+                <div class="audience-clarifier-text" data-i18n="assess.clarifier">
+                    <strong>For food companies launching a product.</strong><br>
+                    Looking to become a food tester? <a href="testers.html">Sign up here instead</a>
+                </div>
             </div>
         </div>
     </section>
@@ -825,37 +907,37 @@
                         <div class="step-dot" id="stepDot2"><span>2</span></div>
                     </div>
                     <div class="step-labels">
-                        <span class="step-label active" id="stepLabel1">Your details</span>
-                        <span class="step-label" id="stepLabel2">Book a call</span>
+                        <span class="step-label active" id="stepLabel1" data-i18n="assess.step1.label">Your details</span>
+                        <span class="step-label" id="stepLabel2" data-i18n="assess.step2.label">Book a call</span>
                     </div>
 
                     <!-- Step 1: Your details -->
                     <div id="step1">
-                        <div class="form-section-label">Takes 30 seconds</div>
+                        <div class="form-section-label" data-i18n="assess.form.time">Takes 30 seconds</div>
 
                         <div class="form-group-row">
                             <div class="form-group">
-                                <label class="form-label" for="firstName">First Name *</label>
+                                <label class="form-label" for="firstName" data-i18n="assess.form.firstName">First Name *</label>
                                 <input type="text" id="firstName" name="First_Name" class="form-input" placeholder="Jane" autocomplete="given-name" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="lastName">Last Name *</label>
+                                <label class="form-label" for="lastName" data-i18n="assess.form.lastName">Last Name *</label>
                                 <input type="text" id="lastName" name="Last_Name" class="form-input" placeholder="de Vries" autocomplete="family-name" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="email">Work Email *</label>
+                            <label class="form-label" for="email" data-i18n="assess.form.email">Work Email *</label>
                             <input type="email" id="email" name="Email" class="form-input" placeholder="you@company.com" autocomplete="email" required>
                         </div>
 
                         <div class="form-group-row">
                             <div class="form-group">
-                                <label class="form-label" for="company">Company *</label>
+                                <label class="form-label" for="company" data-i18n="assess.form.company">Company *</label>
                                 <input type="text" id="company" name="Company" class="form-input" autocomplete="organization" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="position">Role <span class="optional">(optional)</span></label>
+                                <label class="form-label" for="position" data-i18n="assess.form.role">Role <span class="optional">(optional)</span></label>
                                 <input type="text" id="position" name="Position" class="form-input" placeholder="e.g. Head of R&D">
                             </div>
                         </div>
@@ -863,13 +945,13 @@
                         <!-- Optional project context — collapsible -->
                         <div class="optional-section">
                             <button type="button" class="optional-toggle" id="optionalToggle" onclick="toggleOptional()">
-                                <span>Help us prepare for your call</span>
+                                <span data-i18n="assess.form.optionalLabel">Help us prepare for your call</span>
                                 <i class="fas fa-chevron-down optional-chevron" id="optionalChevron"></i>
                             </button>
                             <div class="optional-fields" id="optionalFields">
                                 <div class="form-group-row">
                                     <div class="form-group">
-                                        <label class="form-label" for="productType">Product type</label>
+                                        <label class="form-label" for="productType" data-i18n="assess.form.productType">Product type</label>
                                         <select id="productType" name="Product_Type" class="form-select">
                                             <option value="" disabled selected>Select a category</option>
                                             <option value="Snack / Bar">Snack / Bar</option>
@@ -884,7 +966,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="productStage">Product stage</label>
+                                        <label class="form-label" for="productStage" data-i18n="assess.form.productStage">Product stage</label>
                                         <select id="productStage" name="Product_Stage" class="form-select">
                                             <option value="" disabled selected>Select</option>
                                             <option value="Concept">Concept / Early idea</option>
@@ -895,14 +977,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="comments">Anything else?</label>
+                                    <label class="form-label" for="comments" data-i18n="assess.form.comments">Anything else?</label>
                                     <textarea id="comments" name="Comments" class="form-input form-textarea" placeholder="Your goals, target market, or questions..."></textarea>
                                 </div>
                             </div>
                         </div>
 
                         <button type="button" class="submit-btn" id="toStep2Btn" onclick="goToStep2()">
-                            <span>Continue — pick a time <i class="fas fa-arrow-right btn-arrow-icon"></i></span>
+                            <span data-i18n="assess.form.submit">Continue — pick a time</span> <i class="fas fa-arrow-right btn-arrow-icon"></i>
                         </button>
 
                         <p class="privacy-note">
@@ -914,8 +996,8 @@
                     <div id="step2" class="step-hidden">
                         <div class="step2-confirmed">
                             <div class="confirmed-check"><i class="fas fa-check"></i></div>
-                            <h3 class="confirmed-title">Details saved</h3>
-                            <p class="confirmed-text">Now pick a time that works for you.</p>
+                            <h3 class="confirmed-title" data-i18n="assess.step2.confirmed">Details saved</h3>
+                            <p class="confirmed-text" data-i18n="assess.step2.pick">Now pick a time that works for you.</p>
                             <p id="step2UserInfo" style="font-size: 13px; opacity: 0.5; margin: 0;"></p>
                         </div>
                         <div class="booking-frame">
@@ -942,25 +1024,25 @@
                 <!-- Sidebar -->
                 <aside class="form-sidebar">
                     <div class="sidebar-card sidebar-card--highlight">
-                        <h3><i class="fas fa-gift sidebar-icon sidebar-icon--green"></i> What you'll get</h3>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Personalized testing plan tailored to your product</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Clear cost estimate — no hidden fees</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Timeline and expected deliverables</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Sample dashboard walkthrough</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Expert advice on study design</div>
+                        <h3><i class="fas fa-gift sidebar-icon sidebar-icon--green"></i> <span data-i18n="assess.sidebar.get">What you'll get</span></h3>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.get1">Personalized testing plan tailored to your product</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.get2">Clear cost estimate — no hidden fees</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.get3">Timeline and expected deliverables</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.get4">Sample dashboard walkthrough</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.get5">Expert advice on study design</span></div>
                     </div>
                     <div class="sidebar-card">
-                        <h3><i class="fas fa-clock sidebar-icon sidebar-icon--blue"></i> What happens next</h3>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Book a 30-min intro call at a time that suits you</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> We discuss your product and goals</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> You receive a tailored proposal within 2 business days</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Results in your Eatpol Studio dashboard in 2 weeks</div>
+                        <h3><i class="fas fa-clock sidebar-icon sidebar-icon--blue"></i> <span data-i18n="assess.sidebar.next">What happens next</span></h3>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.next1">Book a 30-min intro call at a time that suits you</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.next2">We discuss your product and goals</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.next3">You receive a tailored proposal within 2 business days</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.next4">Results in your Eatpol Studio dashboard in 2 weeks</span></div>
                     </div>
                     <div class="sidebar-card">
-                        <h3><i class="fas fa-shield-alt sidebar-icon sidebar-icon--green"></i> Your data is safe</h3>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> GDPR compliant</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> No spam, ever</div>
-                        <div class="sidebar-item"><i class="fas fa-check"></i> Information used only to prepare your proposal</div>
+                        <h3><i class="fas fa-shield-alt sidebar-icon sidebar-icon--green"></i> <span data-i18n="assess.sidebar.safe">Your data is safe</span></h3>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.safe1">GDPR compliant</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.safe2">No spam, ever</span></div>
+                        <div class="sidebar-item"><i class="fas fa-check"></i> <span data-i18n="assess.sidebar.safe3">Information used only to prepare your proposal</span></div>
                     </div>
                 </aside>
             </div>
@@ -972,8 +1054,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 class="footer-heading">About Eatpol</h3>
-                    <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+                    <h3 class="footer-heading" data-i18n="footer.about.title">About Eatpol</h3>
+                    <p data-i18n="footer.about.text">Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
                     <div class="footer-social">
                         <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -983,40 +1065,43 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Quick Links</h3>
+                    <h3 class="footer-heading" data-i18n="footer.links.title">Quick Links</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html">Home</a></li>
-                        <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
-                        <li class="footer-link"><a href="eathnos.html">Community</a></li>
-                        <li class="footer-link"><a href="team.html">About Us</a></li>
+                        <li class="footer-link"><a href="index.html" data-i18n="footer.link.home">Home</a></li>
+                        <li class="footer-link"><a href="testers.html" data-i18n="footer.link.tester">Become a Tester</a></li>
+                        <li class="footer-link"><a href="eathnos.html" data-i18n="footer.link.community">Community</a></li>
+                        <li class="footer-link"><a href="team.html" data-i18n="footer.link.about">About Us</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Contact Info</h3>
+                    <h3 class="footer-heading" data-i18n="footer.contact.title">Contact Info</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.contact.address">Bronland 10, 6708WH, Wageningen, the Netherlands</span></li>
                         <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
                         <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Legal</h3>
+                    <h3 class="footer-heading" data-i18n="footer.legal.title">Legal</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
-                        <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+                        <li class="footer-link"><a href="privacy_policy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="terms.html" data-i18n="footer.legal.terms">Terms & Conditions</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-collab">
-                    <span class="footer-collab-label">In collaboration with</span>
+                    <span class="footer-collab-label" data-i18n="footer.collab">In collaboration with</span>
                     <img src="img/ufw.png" alt="Wageningen University & Research" class="footer-collab-logo">
                     <img src="img/oostnl.svg" alt="Oost NL" class="footer-collab-logo">
                 </div>
-                <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
+                <p data-i18n="footer.rights">&copy; 2025 Eatpol. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- i18n Translation Engine -->
+    <script src="js/i18n.js"></script>
 
     <script>
         // Mobile menu

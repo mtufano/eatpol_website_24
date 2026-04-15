@@ -9,6 +9,19 @@
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://eatpol.com/" />
 
+  <!-- hreflang for multilingual SEO -->
+  <link rel="alternate" hreflang="en" href="https://eatpol.com/" />
+  <link rel="alternate" hreflang="ar" href="https://eatpol.com/?lang=ar" />
+  <link rel="alternate" hreflang="zh" href="https://eatpol.com/?lang=zh" />
+  <link rel="alternate" hreflang="nl" href="https://eatpol.com/?lang=nl" />
+  <link rel="alternate" hreflang="it" href="https://eatpol.com/?lang=it" />
+  <link rel="alternate" hreflang="de" href="https://eatpol.com/?lang=de" />
+  <link rel="alternate" hreflang="es" href="https://eatpol.com/?lang=es" />
+  <link rel="alternate" hreflang="fr" href="https://eatpol.com/?lang=fr" />
+  <link rel="alternate" hreflang="ja" href="https://eatpol.com/?lang=ja" />
+  <link rel="alternate" hreflang="ko" href="https://eatpol.com/?lang=ko" />
+  <link rel="alternate" hreflang="x-default" href="https://eatpol.com/" />
+
   <!-- Favicons -->
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -94,6 +107,18 @@
       --radius-sm: 10px;
       --radius-pill: 980px;
     }
+
+    /* ── RTL Support ── */
+    [dir="rtl"] body { text-align: right; }
+    [dir="rtl"] .nav { flex-direction: row-reverse; }
+    [dir="rtl"] .nav-menu { flex-direction: row-reverse; }
+    [dir="rtl"] .nav-item { margin-left: 0; margin-right: 1.5rem; }
+    [dir="rtl"] .nav-dropdown { margin-left: 0; margin-right: 1.5rem; }
+    [dir="rtl"] .footer-grid { direction: rtl; }
+    [dir="rtl"] .problem-layout { direction: rtl; }
+    [dir="rtl"] .hero-cta, [dir="rtl"] .solution-cta-group { flex-direction: row-reverse; }
+    [dir="rtl"] .persona-list li { text-align: right; }
+    [dir="rtl"] .method-steps { direction: rtl; }
 
     /* ── Reset & Base ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1431,12 +1456,12 @@
           Eatpol
         </a>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
-          <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
-          <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
-          <li class="nav-item"><a href="team.html" class="nav-link">About Us</a></li>
-          <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a></li>
+          <li class="nav-item"><a href="solutions.html" class="nav-link" data-i18n="nav.solutions">Solutions</a></li>
+          <li class="nav-item"><a href="eathnos.html" class="nav-link" data-i18n="nav.community">Community</a></li>
+          <li class="nav-item"><a href="testers.html" class="nav-link" data-i18n="nav.tester">Become a Tester</a></li>
+          <li class="nav-item"><a href="team.html" class="nav-link" data-i18n="nav.about">About Us</a></li>
+          <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link" data-i18n="nav.login">Login</a></li>
         </ul>
         <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
           <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -1457,13 +1482,13 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="hero-title">Launch products<br>people love</h1>
-          <p class="hero-subtitle"><span>Test with real consumers in their homes. Get actionable insights in 1 week.</span></p>
+          <h1 class="hero-title" data-i18n="hero.title">Launch products<br>people love</h1>
+          <p class="hero-subtitle"><span data-i18n="hero.subtitle">Test with real consumers in their homes. Get actionable insights in 1 week.</span></p>
           <div class="hero-cta">
-            <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
-            <a href="#guide" class="btn btn-secondary">See how it works</a>
+            <a href="assessment.html" class="btn btn-primary"><span data-i18n="hero.cta.assessment">Get Your Free Assessment</span></a>
+            <a href="#guide" class="btn btn-secondary" data-i18n="hero.cta.how">See how it works</a>
           </div>
-          <p class="hero-trust">Spin-off from <strong>Wageningen University & Research</strong></p>
+          <p class="hero-trust" data-i18n="hero.trust">Spin-off from <strong>Wageningen University &amp; Research</strong></p>
         </div>
       </div>
     </div>
@@ -1481,30 +1506,30 @@
               85%
               <span class="stat-fill">85%</span>
             </div>
-            <span class="problem-stat-label">Product failure rate</span>
-            <h2 class="problem-stat-headline">Why most product launches <em>fail</em></h2>
+            <span class="problem-stat-label" data-i18n="problem.label">Product failure rate</span>
+            <h2 class="problem-stat-headline" data-i18n="problem.headline">Why most product launches <em>fail</em></h2>
           </div>
           <div class="problem-copy-side reveal-right">
-            <p>
+            <p data-i18n="problem.p1">
               <strong>85% of new food products fail within 2 years</strong> <span class="cite">(Forbes)</span>. Not because the products are bad&mdash;but because they were tested in the wrong place, with the wrong tools.
             </p>
-            <p>
+            <p data-i18n="problem.p2">
               <strong>Sensory booths</strong> are sterile rooms where participants &ldquo;evaluate&rdquo;&mdash;not eat. They aren't cooking for their family or deciding what to buy. They circle a number on a <strong>questionnaire, collect their payment, and leave.</strong>
             </p>
-            <p>
+            <p data-i18n="problem.p3">
               That 1&ndash;10 taste score? It tells you what people <em>rate</em>. Not what they <em>buy</em>. Not what they <em>feel</em>. Not why they reach for your competitor&rsquo;s product instead.
             </p>
-            <p>
+            <p data-i18n="problem.p4">
               Real food decisions happen in kitchens, with emotions, in chaos. <strong>If you aren't testing there, you aren't really testing.</strong>
             </p>
             <div class="problem-images-row">
               <div class="problem-image-frame problem-image--small">
                 <img src="img/sensory_booth.png" alt="Sterile sensory booth — the old way" onerror="this.src='https://placehold.co/600x400/1a1a2e/444?text=Sensory+Booth'">
-                <span class="problem-image-label">Sensory booths</span>
+                <span class="problem-image-label" data-i18n="problem.img1.label">Sensory booths</span>
               </div>
               <div class="problem-image-frame problem-image--small">
                 <img src="img/product_evaluation.png" alt="Manual product evaluation questionnaire with a 1-10 rating scale" onerror="this.src='https://placehold.co/600x400/1a1a2e/444?text=Manual+Questionnaire'">
-                <span class="problem-image-label">Manual questionnaires</span>
+                <span class="problem-image-label" data-i18n="problem.img2.label">Manual questionnaires</span>
               </div>
             </div>
           </div>
@@ -1519,7 +1544,7 @@
           <div class="hinge-line"></div>
           <div class="hinge-badge">
             <i class="fas fa-arrow-down"></i>
-            <span>There is a better way</span>
+            <span data-i18n="hinge.text">There is a better way</span>
           </div>
           <div class="hinge-line"></div>
         </div>
@@ -1530,15 +1555,15 @@
     <section class="editorial-solution reveal">
       <div class="container">
         <div class="solution-layout">
-          <span class="solution-overline">The new standard</span>
-          <h2 class="solution-title">From losing market share to <span class="highlight-gradient">brand loyalty</span></h2>
-          <p class="solution-body">Real consumer feedback from your target customer's kitchen, directly to your dashboard. Test, iterate, and launch with confidence.</p>
+          <span class="solution-overline" data-i18n="solution.overline">The new standard</span>
+          <h2 class="solution-title" data-i18n="solution.title">From losing market share to <span class="highlight-gradient">brand loyalty</span></h2>
+          <p class="solution-body" data-i18n="solution.body">Real consumer feedback from your target customer's kitchen, directly to your dashboard. Test, iterate, and launch with confidence.</p>
           <div class="solution-callout">
-            <span class="solution-callout-text">Be in the 15% that succeed.</span>
+            <span class="solution-callout-text" data-i18n="solution.callout">Be in the 15% that succeed.</span>
           </div>
           <div class="solution-cta-group">
-            <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
-            <a href="#guide" class="btn btn-secondary">See how it works</a>
+            <a href="assessment.html" class="btn btn-primary"><span data-i18n="hero.cta.assessment">Get Your Free Assessment</span></a>
+            <a href="#guide" class="btn btn-secondary" data-i18n="hero.cta.how">See how it works</a>
           </div>
         </div>
       </div>
@@ -1550,41 +1575,41 @@
   <section class="section guide-section reveal" id="guide">
     <div class="container">
       <div class="guide-inner">
-        <span class="overline">Our Method</span>
+        <span class="overline" data-i18n="method.overline">Our Method</span>
         <a href="solutions.html" class="method-showcase reveal-scale">
           <img src="img/circle_index.svg" alt="Eatpol testing methodology — preparation, cooking, eating, storage" class="circle-diagram" id="circleDiagram">
           <div class="diagram-glow"></div>
           <span class="pulse-ring"></span>
-          <span class="showcase-cta">Explore Solutions <i class="fas fa-arrow-right"></i></span>
+          <span class="showcase-cta"><span data-i18n="method.cta.explore">Explore Solutions</span> <i class="fas fa-arrow-right"></i></span>
         </a>
         <div class="guide-cta">
-          <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
+          <a href="assessment.html" class="btn btn-primary"><span data-i18n="hero.cta.assessment">Get Your Free Assessment</span></a>
         </div>
         <div class="method-steps stagger-children">
           <div class="method-step">
             <div class="method-step-num"><span class="method-step-icon"><i class="fas fa-clipboard-list"></i></span></div>
-            <div class="method-step-title">Brief</div>
-            <p class="method-step-desc">Define your goals, target consumers, and products to test</p>
+            <div class="method-step-title" data-i18n="method.step1.title">Brief</div>
+            <p class="method-step-desc" data-i18n="method.step1.desc">Define your goals, target consumers, and products to test</p>
           </div>
           <div class="method-step">
             <div class="method-step-num"><span class="method-step-icon"><i class="fas fa-users"></i></span></div>
-            <div class="method-step-title">Recruit</div>
-            <p class="method-step-desc">We find and screen consumers from your target audience</p>
+            <div class="method-step-title" data-i18n="method.step2.title">Recruit</div>
+            <p class="method-step-desc" data-i18n="method.step2.desc">We find and screen consumers from your target audience</p>
           </div>
           <div class="method-step">
             <div class="method-step-num"><span class="method-step-icon"><i class="fas fa-home"></i></span></div>
-            <div class="method-step-title">Test in-home</div>
-            <p class="method-step-desc">Consumers test your product in their own kitchen, on video</p>
+            <div class="method-step-title" data-i18n="method.step3.title">Test in-home</div>
+            <p class="method-step-desc" data-i18n="method.step3.desc">Consumers test your product in their own kitchen, on video</p>
           </div>
           <div class="method-step">
             <div class="method-step-num"><span class="method-step-icon"><i class="fas fa-brain"></i></span></div>
-            <div class="method-step-title">AI Analysis</div>
-            <p class="method-step-desc">Emotions, behavior, and friction points analyzed automatically</p>
+            <div class="method-step-title" data-i18n="method.step4.title">AI Analysis</div>
+            <p class="method-step-desc" data-i18n="method.step4.desc">Emotions, behavior, and friction points analyzed automatically</p>
           </div>
           <div class="method-step">
             <div class="method-step-num"><span class="method-step-icon"><i class="fas fa-chart-bar"></i></span></div>
-            <div class="method-step-title">Dashboard</div>
-            <p class="method-step-desc">Results, recommendations, and insights in Eatpol Studio</p>
+            <div class="method-step-title" data-i18n="method.step5.title">Dashboard</div>
+            <p class="method-step-desc" data-i18n="method.step5.desc">Results, recommendations, and insights in Eatpol Studio</p>
           </div>
         </div>
       </div>
@@ -1595,48 +1620,48 @@
   <section id="plan" class="section persona-section reveal">
     <div class="container">
       <div class="persona-header">
-        <span class="overline">What you get</span>
-        <h2 class="section-title">Insights for every team in 1 week</h2>
-        <p class="section-subtitle">A single in-home study delivers the evidence R&D, Marketing, and Business need — from kickoff to results in your dashboard.</p>
+        <span class="overline" data-i18n="insights.overline">What you get</span>
+        <h2 class="section-title" data-i18n="insights.title">Insights for every team in 1 week</h2>
+        <p class="section-subtitle" data-i18n="insights.subtitle">A single in-home study delivers the evidence R&D, Marketing, and Business need — from kickoff to results in your dashboard.</p>
       </div>
 
       <div class="persona-grid stagger-children">
         <!-- R&D & Insights -->
         <div class="persona-card persona-card--rnd">
-          <div class="persona-tag"><i class="fas fa-flask"></i> R&D & Insights</div>
-          <h3 class="persona-headline">Understand the real consumer experience</h3>
-          <p class="persona-desc">Go beyond sensory scores. See how people actually prepare, cook, eat, and store your product — and what they feel while doing it.</p>
+          <div class="persona-tag"><i class="fas fa-flask"></i> <span data-i18n="rnd.tag">R&D & Insights</span></div>
+          <h3 class="persona-headline" data-i18n="rnd.headline">Understand the real consumer experience</h3>
+          <p class="persona-desc" data-i18n="rnd.desc">Go beyond sensory scores. See how people actually prepare, cook, eat, and store your product — and what they feel while doing it.</p>
           <ul class="persona-list">
-            <li><span class="check"><i class="fas fa-check"></i></span>AI consumer behavior tracking from in-home video</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Friction points traditional surveys miss</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Prioritized product improvement recommendations</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Behavioral evidence over stated preference</li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="rnd.li1">AI consumer behavior tracking from in-home video</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="rnd.li2">Friction points traditional surveys miss</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="rnd.li3">Prioritized product improvement recommendations</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="rnd.li4">Behavioral evidence over stated preference</span></li>
           </ul>
         </div>
 
         <!-- Marketing -->
         <div class="persona-card persona-card--marketing">
-          <div class="persona-tag"><i class="fas fa-bullhorn"></i> Marketing</div>
-          <h3 class="persona-headline">Sharpen your positioning with real data</h3>
-          <p class="persona-desc">Know why consumers pick your product off the shelf — and what words they use to describe it. Build messaging that resonates.</p>
+          <div class="persona-tag"><i class="fas fa-bullhorn"></i> <span data-i18n="mkt.tag">Marketing</span></div>
+          <h3 class="persona-headline" data-i18n="mkt.headline">Sharpen your positioning with real data</h3>
+          <p class="persona-desc" data-i18n="mkt.desc">Know why consumers pick your product off the shelf — and what words they use to describe it. Build messaging that resonates.</p>
           <ul class="persona-list">
-            <li><span class="check"><i class="fas fa-check"></i></span>Purchase drivers at the point of sale</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Brand perception & competitive benchmarking</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Consumer language for authentic copy</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Validated claims backed by behavior data</li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="mkt.li1">Purchase drivers at the point of sale</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="mkt.li2">Brand perception & competitive benchmarking</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="mkt.li3">Consumer language for authentic copy</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="mkt.li4">Validated claims backed by behavior data</span></li>
           </ul>
         </div>
 
         <!-- Business -->
         <div class="persona-card persona-card--business">
-          <div class="persona-tag"><i class="fas fa-chart-line"></i> Business</div>
-          <h3 class="persona-headline">Launch faster with less risk</h3>
-          <p class="persona-desc">Get a clear go / no-go signal before committing to production. Cut months off your timeline with evidence-based decisions.</p>
+          <div class="persona-tag"><i class="fas fa-chart-line"></i> <span data-i18n="biz.tag">Business</span></div>
+          <h3 class="persona-headline" data-i18n="biz.headline">Launch faster with less risk</h3>
+          <p class="persona-desc" data-i18n="biz.desc">Get a clear go / no-go signal before committing to production. Cut months off your timeline with evidence-based decisions.</p>
           <ul class="persona-list">
-            <li><span class="check"><i class="fas fa-check"></i></span>Results in 1 week, not months</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Reduced launch failure risk with real-world data</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Side-by-side competitor benchmarking</li>
-            <li><span class="check"><i class="fas fa-check"></i></span>Iterate 10x faster than legacy methods</li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="biz.li1">Results in 1 week, not months</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="biz.li2">Reduced launch failure risk with real-world data</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="biz.li3">Side-by-side competitor benchmarking</span></li>
+            <li><span class="check"><i class="fas fa-check"></i></span><span data-i18n="biz.li4">Iterate 10x faster than legacy methods</span></li>
           </ul>
         </div>
       </div>
@@ -1646,16 +1671,16 @@
   <!-- Testimonial -->
   <section class="section testimonial-section reveal">
     <div class="container testimonial-inner">
-      <span class="testimonial-overline">Client Story</span>
+      <span class="testimonial-overline" data-i18n="testimonial.overline">Client Story</span>
       <div class="testimonial-card">
         <span class="testimonial-quote-mark">&ldquo;</span>
-        <p class="testimonial-text">
+        <p class="testimonial-text" data-i18n="testimonial.text">
           Validating product claims, real-life usage, packaging, and flavors before launch was a constant challenge. Traditional testing gave us a score, not a direction. Eatpol was completely different! Seeing how consumers actually use our products at home gave us insights we could act on. We brought them into a retailer conversation and <strong>walked out with an extra SKU at Albert Heijn</strong>. We call it <strong>Eatpol proof</strong>.
         </p>
         <div class="testimonial-attribution">
           <div class="testimonial-author-info">
             <span class="testimonial-author">Annick van de Laak</span>
-            <span class="testimonial-role">Creative Concept Designer at QSTA</span>
+            <span class="testimonial-role" data-i18n="testimonial.role">Creative Concept Designer at QSTA</span>
           </div>
           <img src="img/qsta_logo.png" alt="QSTA" class="testimonial-logo">
         </div>
@@ -1666,17 +1691,17 @@
   <!-- Dark Band CTA -->
   <section class="section band-dark reveal">
     <div class="container band-dark-inner">
-      <h2 class="section-title">Every failed launch costs months and millions</h2>
-      <p>Replace opinion and assumption with real consumer behavior evidence. Find the issues before your customers do.</p>
-      <a href="assessment.html" class="btn btn-primary band-dark-cta"><span>Get Your Free Assessment</span></a>
+      <h2 class="section-title" data-i18n="band.title">Every failed launch costs months and millions</h2>
+      <p data-i18n="band.text">Replace opinion and assumption with real consumer behavior evidence. Find the issues before your customers do.</p>
+      <a href="assessment.html" class="btn btn-primary band-dark-cta"><span data-i18n="hero.cta.assessment">Get Your Free Assessment</span></a>
     </div>
   </section>
 
   <!-- Privacy & Ethics -->
   <section class="section privacy-section reveal" id="privacy">
     <div class="container">
-      <h2 class="section-title">Privacy & Ethics</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title" data-i18n="privacy.title">Privacy & Ethics</h2>
+      <p class="section-subtitle" data-i18n="privacy.subtitle">
         Your trust is our foundation. We handle data with the highest standards of privacy, security, and transparency.
       </p>
       <div class="feature-grid">
@@ -1684,24 +1709,24 @@
           <div class="privacy-icon">
             <i class="fas fa-file-contract"></i>
           </div>
-          <h3 class="privacy-title">Lawful basis</h3>
-          <p class="privacy-description">Consent-based data collection with clear purposes; opt-out at any time.</p>
+          <h3 class="privacy-title" data-i18n="privacy.lawful.title">Lawful basis</h3>
+          <p class="privacy-description" data-i18n="privacy.lawful.desc">Consent-based data collection with clear purposes; opt-out at any time.</p>
         </div>
 
         <div class="feature-card privacy-card">
           <div class="privacy-icon">
             <i class="fas fa-lock"></i>
           </div>
-          <h3 class="privacy-title">Security</h3>
-          <p class="privacy-description">Encrypted storage, strict access controls, and time-bound retention policies.</p>
+          <h3 class="privacy-title" data-i18n="privacy.security.title">Security</h3>
+          <p class="privacy-description" data-i18n="privacy.security.desc">Encrypted storage, strict access controls, and time-bound retention policies.</p>
         </div>
 
         <div class="feature-card privacy-card">
           <div class="privacy-icon">
             <i class="fas fa-eye"></i>
           </div>
-          <h3 class="privacy-title">Transparency</h3>
-          <p class="privacy-description">Participants see what is collected, why, and how it's used. Read our <a href="privacy_policy.html">Privacy Policy</a>.</p>
+          <h3 class="privacy-title" data-i18n="privacy.transparency.title">Transparency</h3>
+          <p class="privacy-description" data-i18n="privacy.transparency.desc">Participants see what is collected, why, and how it's used. Read our <a href="privacy_policy.html">Privacy Policy</a>.</p>
         </div>
       </div>
     </div>
@@ -1710,26 +1735,26 @@
   <!-- FAQ -->
   <section class="section reveal" id="faq">
     <div class="container">
-      <h2 class="section-title">FAQs</h2>
+      <h2 class="section-title" data-i18n="faq.title">FAQs</h2>
       <details>
-        <summary>How is privacy handled?</summary>
-        <p>Faces are auto-masked in videos; we store de-identified signals only and comply with GDPR. A Data Processing Agreement (DPA) is available on request.</p>
+        <summary data-i18n="faq.q1">How is privacy handled?</summary>
+        <p data-i18n="faq.a1">Faces are auto-masked in videos; we store de-identified signals only and comply with GDPR. A Data Processing Agreement (DPA) is available on request.</p>
       </details>
       <details>
-        <summary>Do we need special hardware?</summary>
-        <p>No &mdash; testers use their own phones. We provide simple setup guidance inside the app.</p>
+        <summary data-i18n="faq.q2">Do we need special hardware?</summary>
+        <p data-i18n="faq.a2">No &mdash; testers use their own phones. We provide simple setup guidance inside the app.</p>
       </details>
       <details>
-        <summary>How fast are results?</summary>
-        <p>From kickoff to results in 1 week. Consumer interviews (Vox) can be completed in as little as 2 days. In-home product testing (Domus) runs in parallel. Results appear in your Eatpol Studio dashboard as soon as testing wraps.</p>
+        <summary data-i18n="faq.q3">How fast are results?</summary>
+        <p data-i18n="faq.a3">From kickoff to results in 1 week. Consumer interviews (Vox) can be completed in as little as 2 days. In-home product testing (Domus) runs in parallel. Results appear in your Eatpol Studio dashboard as soon as testing wraps.</p>
       </details>
       <details>
-        <summary>Can we compare against competitors?</summary>
-        <p>Yes &mdash; include one or multiple competitor SKUs. We report relative performance and key drivers.</p>
+        <summary data-i18n="faq.q4">Can we compare against competitors?</summary>
+        <p data-i18n="faq.a4">Yes &mdash; include one or multiple competitor SKUs. We report relative performance and key drivers.</p>
       </details>
       <details>
-        <summary>What if samples require cooking?</summary>
-        <p>We capture preparation steps to connect outcomes with real-world usage and identify friction.</p>
+        <summary data-i18n="faq.q5">What if samples require cooking?</summary>
+        <p data-i18n="faq.a5">We capture preparation steps to connect outcomes with real-world usage and identify friction.</p>
       </details>
     </div>
   </section>
@@ -1739,8 +1764,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <h3 class="footer-heading">About Eatpol</h3>
-          <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+          <h3 class="footer-heading" data-i18n="footer.about.title">About Eatpol</h3>
+          <p data-i18n="footer.about.text">Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
           <div class="footer-social">
             <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1750,45 +1775,48 @@
           </div>
         </div>
         <div>
-          <h3 class="footer-heading">Quick Links</h3>
+          <h3 class="footer-heading" data-i18n="footer.links.title">Quick Links</h3>
           <ul class="footer-links">
-            <li class="footer-link"><a href="index.html">Home</a></li>
-            <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
-            <li class="footer-link"><a href="eathnos.html">Community</a></li>
-            <li class="footer-link"><a href="team.html">About Us</a></li>
+            <li class="footer-link"><a href="index.html" data-i18n="footer.link.home">Home</a></li>
+            <li class="footer-link"><a href="testers.html" data-i18n="footer.link.tester">Become a Tester</a></li>
+            <li class="footer-link"><a href="eathnos.html" data-i18n="footer.link.community">Community</a></li>
+            <li class="footer-link"><a href="team.html" data-i18n="footer.link.about">About Us</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="footer-heading">Contact Info</h3>
+          <h3 class="footer-heading" data-i18n="footer.contact.title">Contact Info</h3>
           <ul class="footer-links">
-            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.contact.address">Bronland 10, 6708WH, Wageningen, the Netherlands</span></li>
             <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
             <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
           </ul>
         </div>
         <div>
-          <h3 class="footer-heading">Legal</h3>
+          <h3 class="footer-heading" data-i18n="footer.legal.title">Legal</h3>
           <ul class="footer-links">
-            <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
-            <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+            <li class="footer-link"><a href="privacy_policy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+            <li class="footer-link"><a href="terms.html" data-i18n="footer.legal.terms">Terms & Conditions</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="footer-collab">
-          <span class="footer-collab-label">In collaboration with</span>
+          <span class="footer-collab-label" data-i18n="footer.collab">In collaboration with</span>
           <img src="img/ufw.png" alt="Wageningen University & Research" class="footer-collab-logo">
           <img src="img/oostnl.svg" alt="Oost NL" class="footer-collab-logo">
         </div>
-        <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
+        <p data-i18n="footer.rights">&copy; 2025 Eatpol. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- Fixed Consultation Banner -->
   <a href="assessment.html" class="consultation-banner" id="consultationBanner">
-    <i class="fas fa-clipboard-check"></i>Free Assessment
+    <i class="fas fa-clipboard-check"></i><span data-i18n="banner.text">Free Assessment</span>
   </a>
+
+  <!-- i18n Translation Engine -->
+  <script src="js/i18n.js"></script>
 
   <!-- Main Scripts -->
   <script>
@@ -1927,12 +1955,12 @@
   <div id="cookieBanner" class="cookie-banner">
     <div class="cookie-content">
       <div class="cookie-text">
-        <strong>We value your privacy</strong>
-        <p>We use cookies and Google Analytics to understand how you use our site and improve your experience. <a href="privacy_policy.html">Learn more</a></p>
+        <strong data-i18n="cookie.title">We value your privacy</strong>
+        <p data-i18n="cookie.text">We use cookies and Google Analytics to understand how you use our site and improve your experience. <a href="privacy_policy.html">Learn more</a></p>
       </div>
       <div class="cookie-buttons">
-        <button type="button" class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
-        <button type="button" class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept Cookies</button>
+        <button type="button" class="cookie-btn cookie-decline" onclick="declineCookies()" data-i18n="cookie.decline">Decline</button>
+        <button type="button" class="cookie-btn cookie-accept" onclick="acceptCookies()" data-i18n="cookie.accept">Accept Cookies</button>
       </div>
     </div>
   </div>

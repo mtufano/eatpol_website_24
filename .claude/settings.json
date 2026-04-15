@@ -1,5 +1,22 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(node -e \"require\\('./js/i18n.js'\\)\")",
+      "Bash(node --check js/i18n.js)",
+      "Bash(read key:*)",
+      "Bash(node -c js/i18n.js)",
+      "Bash(node -c /Users/micheletufano/eatpol_website_24/js/i18n.js)",
+      "Bash(node -c ./js/i18n.js)",
+      "Bash(node --check /Users/micheletufano/eatpol_website_24/js/i18n.js)",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(node -e ':*)",
+      "Read(//Users/michetetufano/eatpol_website_24/js/**)",
+      "Bash(python3 add_all_ja_ko.py)",
+      "Bash(python3 find_missing.py)",
+      "Bash(python3 add_ja_ko_pass2.py)",
+      "Bash(echo \"Syntax: $?\")"
+    ],
     "additionalDirectories": [
       "/dev"
     ]

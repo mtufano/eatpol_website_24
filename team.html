@@ -6,6 +6,19 @@
     <title>Our Team - Eatpol</title>
     <meta name="description" content="Meet the Eatpol team - innovative co-founders and advisory board members driving the future of AI-powered consumer testing for food products." />
 
+    <!-- Hreflang tags -->
+    <link rel="alternate" hreflang="en" href="https://eatpol.com/team.html" />
+    <link rel="alternate" hreflang="nl" href="https://eatpol.com/team.html" />
+    <link rel="alternate" hreflang="de" href="https://eatpol.com/team.html" />
+    <link rel="alternate" hreflang="it" href="https://eatpol.com/team.html" />
+    <link rel="alternate" hreflang="fr" href="https://eatpol.com/team.html" />
+    <link rel="alternate" hreflang="ar" href="https://eatpol.com/team.html" />
+    <link rel="alternate" hreflang="zh" href="https://eatpol.com/team.html" />
+    <link rel="alternate" hreflang="es" href="https://eatpol.com/team.html?lang=es" />
+    <link rel="alternate" hreflang="ja" href="https://eatpol.com/team.html?lang=ja" />
+    <link rel="alternate" hreflang="ko" href="https://eatpol.com/team.html?lang=ko" />
+    <link rel="alternate" hreflang="x-default" href="https://eatpol.com/team.html" />
+
     <!-- Favicon links -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -543,6 +556,13 @@
                 height: 250px;
             }
         }
+
+        /* RTL support */
+        [dir="rtl"] body { text-align: right; }
+        [dir="rtl"] .nav { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-menu { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-item { margin-left: 0; margin-right: 1.5rem; }
+        [dir="rtl"] .footer-grid { direction: rtl; }
     </style>
 </head>
 <body>
@@ -555,12 +575,12 @@
                     Eatpol
                 </a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
-                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
-                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
-                    <li class="nav-item"><a href="team.html" class="nav-link active">About Us</a></li>
-                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link" data-i18n="nav.solutions">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link" data-i18n="nav.community">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link" data-i18n="nav.tester">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link active" data-i18n="nav.about">About Us</a></li>
+                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link" data-i18n="nav.login">Login</a></li>
                 </ul>
                 <div class="hamburger" aria-label="Toggle navigation">
                     <span class="bar"></span>
@@ -576,12 +596,12 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span>Spin-off of Wageningen University & Research</span>
+                    <span data-i18n="team.hero.badge">Spin-off of Wageningen University & Research</span>
                 </div>
-                <h1 class="hero-title">About Us</h1>
-                <p class="hero-subtitle">Food scientists, AI engineers, and business builders on a mission to eliminate failed product launches.</p>
+                <h1 class="hero-title" data-i18n="team.hero.title">About Us</h1>
+                <p class="hero-subtitle" data-i18n="team.hero.subtitle">Food scientists, AI engineers, and business builders on a mission to eliminate failed product launches.</p>
                 <div class="hero-cta">
-                    <a href="assessment.html" class="btn-primary">Get Your Free Assessment</a>
+                    <a href="assessment.html" class="btn-primary" data-i18n="team.hero.cta">Get Your Free Assessment</a>
                 </div>
             </div>
         </div>
@@ -591,17 +611,17 @@
     <section class="section section-bio">
         <div class="container">
             <div class="company-bio">
-                <h2>Our Story</h2>
-                <p>
+                <h2 data-i18n="team.story.title">Our Story</h2>
+                <p data-i18n="team.story.p1">
                     Michele, a Ph.D. in <strong>AI and computer vision</strong> from <strong>Wageningen University</strong>, developed software to measure eating behavior from video—tracking bites and chews, under Guido Camps’ supervision.
                 </p>
-                <p>
+                <p data-i18n="team.story.p2">
                     Partnering with <strong>Wageningen Impact Catalyst</strong>, the technology evolved to tackle a major industry problem: 85% of food product launches fail, costing billions.
                 </p>
-                <p>
+                <p data-i18n="team.story.p3">
                     In fall 2025, <strong>Jakob</strong> and <strong>Simbiat</strong> joined the team, bringing Eatpol to market as a consumer testing service that delivers real-world insights straight from people’s kitchens.
                 </p>
-                <p>
+                <p data-i18n="team.story.p4">
                     Based in <strong>Wageningen, the Netherlands</strong>, Eatpol helps leading food brands understand their consumers better and launch products people love.
                 </p>
             </div>
@@ -612,8 +632,8 @@
     <section class="section">
         <div class="container">
             <div class="team-section-divider">
-                <h2>Team</h2>
-                <p>Meet the people building the future of AI-powered consumer testing</p>
+                <h2 data-i18n="team.section.title">Team</h2>
+                <p data-i18n="team.section.subtitle">Meet the people building the future of AI-powered consumer testing</p>
             </div>
 
             <div class="team-grid">
@@ -624,8 +644,8 @@
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Michele Tufano, Ph.D.</h3>
-                        <p class="team-role">Co-Founder, CEO</p>
-                        <p class="team-bio">Michele built the AI that analyzes real eating behavior from video — the core technology behind Eatpol’s ability to predict product success before launch. His research at Wageningen University bridges computer vision and food science to give brands data they can’t get anywhere else.</p>
+                        <p class="team-role" data-i18n="team.michele.role">Co-Founder, CEO</p>
+                        <p class="team-bio" data-i18n="team.michele.bio">Michele built the AI that analyzes real eating behavior from video — the core technology behind Eatpol’s ability to predict product success before launch. His research at Wageningen University bridges computer vision and food science to give brands data they can’t get anywhere else.</p>
                         <div class="team-social">
                             <a href="https://www.linkedin.com/in/micheletufano/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             <a href="mailto:mtufano@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -640,8 +660,8 @@
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Jakob Romberg, MSc</h3>
-                        <p class="team-role">Co-Founder, COO</p>
-                        <p class="team-bio">Jakob works directly with food brands to design testing programs that fit their launch timeline — typically delivering actionable consumer insights within 2 weeks. He brings a sharp eye for product-market fit and commercial strategy to every engagement.</p>
+                        <p class="team-role" data-i18n="team.jakob.role">Co-Founder, COO</p>
+                        <p class="team-bio" data-i18n="team.jakob.bio">Jakob works directly with food brands to design testing programs that fit their launch timeline — typically delivering actionable consumer insights within 2 weeks. He brings a sharp eye for product-market fit and commercial strategy to every engagement.</p>
                         <div class="team-social">
                             <a href="https://www.linkedin.com/in/jakob-romberg-7769b3157/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             <a href="mailto:jromberg@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -656,8 +676,8 @@
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Riccardo Rampin</h3>
-                        <p class="team-role">Intern — Marketing</p>
-                        <p class="team-bio">Riccardo supports Eatpol’s marketing efforts, helping to grow brand awareness and communicate the value of AI-powered consumer testing to the food industry.</p>
+                        <p class="team-role" data-i18n="team.riccardo.role">Intern — Marketing</p>
+                        <p class="team-bio" data-i18n="team.riccardo.bio">Riccardo supports Eatpol’s marketing efforts, helping to grow brand awareness and communicate the value of AI-powered consumer testing to the food industry.</p>
                         <div class="team-social">
                             <a href="mailto:riccardo.rampin@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -671,8 +691,8 @@
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Kamila Gelyastan</h3>
-                        <p class="team-role">Intern — Sales</p>
-                        <p class="team-bio">Kamila supports the sales team, connecting with food brands and helping them discover how Eatpol’s consumer testing platform can de-risk their product launches.</p>
+                        <p class="team-role" data-i18n="team.kamila.role">Intern — Sales</p>
+                        <p class="team-bio" data-i18n="team.kamila.bio">Kamila supports the sales team, connecting with food brands and helping them discover how Eatpol’s consumer testing platform can de-risk their product launches.</p>
                         <div class="team-social">
                             <a href="mailto:kamila.gelyastan@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         </div>
@@ -686,8 +706,8 @@
     <section class="section advisory-section">
         <div class="container">
             <div class="team-section-divider">
-                <h2>Advisory Board</h2>
-                <p>Industry experts and thought leaders guiding our strategic direction</p>
+                <h2 data-i18n="team.advisory.title">Advisory Board</h2>
+                <p data-i18n="team.advisory.subtitle">Industry experts and thought leaders guiding our strategic direction</p>
             </div>
 
             <div class="team-grid team-grid-2">
@@ -698,8 +718,8 @@
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Dr. Guido Camps</h3>
-                        <p class="team-role">Advisory Board Member</p>
-                        <p class="team-bio">Associate Professor at Wageningen University and Eatpol’s scientific advisor. Guido’s research in eating behavior and AI ensures our technology stays grounded in peer-reviewed science.</p>
+                        <p class="team-role" data-i18n="team.guido.role">Advisory Board Member</p>
+                        <p class="team-bio" data-i18n="team.guido.bio">Associate Professor at Wageningen University and Eatpol’s scientific advisor. Guido’s research in eating behavior and AI ensures our technology stays grounded in peer-reviewed science.</p>
                         <div class="team-social">
                             <a href="https://www.linkedin.com/in/guidocamps/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
@@ -713,8 +733,8 @@
                     </div>
                     <div class="team-info">
                         <h3 class="team-name">Simbiat Oladoja, MSc</h3>
-                        <p class="team-role">Advisor <br> Marketing and Consumer Insights</p>
-                        <p class="team-bio">Food scientist, nutritionist, and consumer behavior expert with advanced degrees from Maastricht University and the University of Edinburgh. Simbiat translates scientific insights into practical, sustainable food solutions that resonate with real consumers.</p>
+                        <p class="team-role" data-i18n="team.simbiat.role">Advisor <br> Marketing and Consumer Insights</p>
+                        <p class="team-bio" data-i18n="team.simbiat.bio">Food scientist, nutritionist, and consumer behavior expert with advanced degrees from Maastricht University and the University of Edinburgh. Simbiat translates scientific insights into practical, sustainable food solutions that resonate with real consumers.</p>
                         <div class="team-social">
                             <a href="https://www.linkedin.com/in/simbiatoladoja/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             <a href="mailto:soladoja@eatpol.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -729,8 +749,8 @@
     <section class="section">
         <div class="container">
             <div class="team-section-divider">
-                <h2>Our Values</h2>
-                <p>The principles that guide everything we do</p>
+                <h2 data-i18n="team.values.title">Our Values</h2>
+                <p data-i18n="team.values.subtitle">The principles that guide everything we do</p>
             </div>
 
             <div class="values-grid">
@@ -738,24 +758,24 @@
                     <div class="value-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>People First</h3>
-                    <p>We prioritize the wellbeing and happiness of our employees and the satisfaction of our clients, believing meaningful impact starts with people who are healthy, motivated, and fulfilled.</p>
+                    <h3 data-i18n="team.value1.title">People First</h3>
+                    <p data-i18n="team.value1.text">We prioritize the wellbeing and happiness of our employees and the satisfaction of our clients, believing meaningful impact starts with people who are healthy, motivated, and fulfilled.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Integrity</h3>
-                    <p>We seek truth and accuracy, communicate openly, and act with transparency. We hold ourselves accountable and earn trust by being reliable and honest in everything we do.</p>
+                    <h3 data-i18n="team.value2.title">Integrity</h3>
+                    <p data-i18n="team.value2.text">We seek truth and accuracy, communicate openly, and act with transparency. We hold ourselves accountable and earn trust by being reliable and honest in everything we do.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Ambition & Excellence</h3>
-                    <p>We act proactively and take full responsibility for outcomes, pursuing bold goals with high standards and a continuous drive to improve.</p>
+                    <h3 data-i18n="team.value3.title">Ambition & Excellence</h3>
+                    <p data-i18n="team.value3.text">We act proactively and take full responsibility for outcomes, pursuing bold goals with high standards and a continuous drive to improve.</p>
                 </div>
             </div>
         </div>
@@ -765,9 +785,9 @@
     <section class="section section-cta">
         <div class="container">
             <div class="team-cta">
-                <h2>Ready to Launch With Confidence?</h2>
-                <p>85% of food product launches fail. Our team helps you beat those odds with real consumer data — before you commit to production.</p>
-                <a href="assessment.html" class="btn-white">Get Your Free Assessment</a>
+                <h2 data-i18n="team.cta.title">Ready to Launch With Confidence?</h2>
+                <p data-i18n="team.cta.text">85% of food product launches fail. Our team helps you beat those odds with real consumer data — before you commit to production.</p>
+                <a href="assessment.html" class="btn-white" data-i18n="team.cta.btn">Get Your Free Assessment</a>
             </div>
         </div>
     </section>
@@ -777,8 +797,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 class="footer-heading">About Eatpol</h3>
-                    <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+                    <h3 class="footer-heading" data-i18n="footer.about.title">About Eatpol</h3>
+                    <p data-i18n="footer.about.text">Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
                     <div style="display:flex; gap:.6rem; margin-top: .8rem;">
                         <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -788,41 +808,42 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Quick Links</h3>
+                    <h3 class="footer-heading" data-i18n="footer.links.title">Quick Links</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html">Home</a></li>
-                        <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
-                        <li class="footer-link"><a href="eathnos.html">Community</a></li>
-                        <li class="footer-link"><a href="team.html">About Us</a></li>
+                        <li class="footer-link"><a href="index.html" data-i18n="footer.link.home">Home</a></li>
+                        <li class="footer-link"><a href="testers.html" data-i18n="footer.link.tester">Become a Tester</a></li>
+                        <li class="footer-link"><a href="eathnos.html" data-i18n="footer.link.community">Community</a></li>
+                        <li class="footer-link"><a href="team.html" data-i18n="footer.link.about">About Us</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Contact Info</h3>
+                    <h3 class="footer-heading" data-i18n="footer.contact.title">Contact Info</h3>
                     <ul class="footer-links contact-info">
-                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+                        <li class="footer-link" data-i18n="footer.contact.address"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
                         <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
                         <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Legal</h3>
+                    <h3 class="footer-heading" data-i18n="footer.legal.title">Legal</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
-                        <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+                        <li class="footer-link"><a href="privacy_policy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="terms.html" data-i18n="footer.legal.terms">Terms & Conditions</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                    <span style="color: rgba(255, 255, 255, 0.6); font-size: 0.85rem;">In collaboration with</span>
+                    <span style="color: rgba(255, 255, 255, 0.6); font-size: 0.85rem;" data-i18n="footer.collab">In collaboration with</span>
                     <img src="img/ufw.png" alt="Wageningen University & Research" style="height: 40px; width: auto;">
                     <img src="img/oostnl.svg" alt="Oost NL" style="height: 40px; width: auto;">
                 </div>
-                <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
+                <p data-i18n="footer.rights">&copy; 2025 Eatpol. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script>
         // Mobile Menu
         const hamburger = document.querySelector('.hamburger');

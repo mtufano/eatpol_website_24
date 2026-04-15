@@ -10,6 +10,18 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <!-- hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="en" href="https://eatpol.com/testers.html" />
+    <link rel="alternate" hreflang="ar" href="https://eatpol.com/testers.html?lang=ar" />
+    <link rel="alternate" hreflang="zh" href="https://eatpol.com/testers.html?lang=zh" />
+    <link rel="alternate" hreflang="nl" href="https://eatpol.com/testers.html?lang=nl" />
+    <link rel="alternate" hreflang="it" href="https://eatpol.com/testers.html?lang=it" />
+    <link rel="alternate" hreflang="de" href="https://eatpol.com/testers.html?lang=de" />
+    <link rel="alternate" hreflang="es" href="https://eatpol.com/testers.html?lang=es" />
+    <link rel="alternate" hreflang="fr" href="https://eatpol.com/testers.html?lang=fr" />
+    <link rel="alternate" hreflang="ja" href="https://eatpol.com/testers.html?lang=ja" />
+    <link rel="alternate" hreflang="ko" href="https://eatpol.com/testers.html?lang=ko" />
+    <link rel="alternate" hreflang="x-default" href="https://eatpol.com/testers.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -769,6 +781,13 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* RTL */
+        [dir="rtl"] body { text-align: right; }
+        [dir="rtl"] .nav { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-menu { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-item { margin-left: 0; margin-right: 1.5rem; }
+        [dir="rtl"] .footer-grid { direction: rtl; }
     </style>
 </head>
 <body>
@@ -781,12 +800,12 @@
                     Eatpol
                 </a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
-                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
-                    <li class="nav-item"><a href="testers.html" class="nav-link active">Become a Tester</a></li>
-                    <li class="nav-item"><a href="team.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link" data-i18n="nav.solutions">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link" data-i18n="nav.community">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link active" data-i18n="nav.tester">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link" data-i18n="nav.about">About Us</a></li>
+                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link" data-i18n="nav.login">Login</a></li>
                 </ul>
                 <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -800,11 +819,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">Become a <span class="highlight">Food Tester</span></h1>
-                    <p class="hero-subtitle">Get paid to share your opinion in a quick interview, or receive food at home and test it in your own kitchen.</p>
+                    <h1 class="hero-title" data-i18n="testers.hero.title">Become a <span class="highlight">Food Tester</span></h1>
+                    <p class="hero-subtitle" data-i18n="testers.hero.subtitle">Get paid to share your opinion in a quick interview, or receive food at home and test it in your own kitchen.</p>
                     <div class="hero-cta">
-                        <a href="#signup" class="btn btn-primary"><span>Join as a Tester</span></a>
-                        <a href="#how-it-works" class="btn btn-primary"><span>How it works</span></a>
+                        <a href="#signup" class="btn btn-primary"><span data-i18n="testers.hero.cta.join">Join as a Tester</span></a>
+                        <a href="#how-it-works" class="btn btn-primary"><span data-i18n="testers.hero.cta.how">How it works</span></a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -819,31 +838,31 @@
     <!-- Two Ways to Participate -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Two ways to participate</h2>
+            <h2 class="section-title" data-i18n="testers.ways.title">Two ways to participate</h2>
 
             <div class="benefits-list">
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <img src="img/vox.svg" alt="Vox" class="benefit-svg">
                     </div>
-                    <h4 class="benefit-title">Vox — Quick Interview</h4>
-                    <p>Share your opinion about food products in a short video interview from home. Takes about 15 minutes.</p>
+                    <h4 class="benefit-title" data-i18n="testers.ways.vox.title">Vox — Quick Interview</h4>
+                    <p data-i18n="testers.ways.vox.desc">Share your opinion about food products in a short video interview from home. Takes about 15 minutes.</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <img src="img/Domus.svg" alt="Domus" class="benefit-svg">
                     </div>
-                    <h4 class="benefit-title">Vox + Domus — Full Test</h4>
-                    <p>Receive food samples at your door, prepare and eat them in your kitchen while recording. Plus a short interview.</p>
+                    <h4 class="benefit-title" data-i18n="testers.ways.domus.title">Vox + Domus — Full Test</h4>
+                    <p data-i18n="testers.ways.domus.desc">Receive food samples at your door, prepare and eat them in your kitchen while recording. Plus a short interview.</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h4 class="benefit-title">Privacy First</h4>
-                    <p>Your face is automatically masked by AI. All data is GDPR compliant, encrypted, and never shared.</p>
+                    <h4 class="benefit-title" data-i18n="testers.ways.privacy.title">Privacy First</h4>
+                    <p data-i18n="testers.ways.privacy.desc">Your face is automatically masked by AI. All data is GDPR compliant, encrypted, and never shared.</p>
                 </div>
             </div>
         </div>
@@ -852,25 +871,25 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="section" style="background-color: var(--sand);">
         <div class="container">
-            <h2 class="section-title">How it works</h2>
+            <h2 class="section-title" data-i18n="testers.how.title">How it works</h2>
 
             <div class="steps-container">
                 <div class="step-item">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">We match you to a test</h3>
-                    <p>After you sign up, we'll invite you when a test fits your profile and location. For Domus tests, food samples arrive at your door.</p>
+                    <h3 class="step-title" data-i18n="testers.how.step1.title">We match you to a test</h3>
+                    <p data-i18n="testers.how.step1.desc">After you sign up, we'll invite you when a test fits your profile and location. For Domus tests, food samples arrive at your door.</p>
                 </div>
 
                 <div class="step-item">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Record your experience</h3>
-                    <p>Use your phone to record a short interview (Vox) or your full cooking and eating experience at home (Domus). Our AI masks your face automatically.</p>
+                    <h3 class="step-title" data-i18n="testers.how.step2.title">Record your experience</h3>
+                    <p data-i18n="testers.how.step2.desc">Use your phone to record a short interview (Vox) or your full cooking and eating experience at home (Domus). Our AI masks your face automatically.</p>
                 </div>
 
                 <div class="step-item">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Get paid</h3>
-                    <p>Once your test is submitted, you receive payment within a few business days. That's it.</p>
+                    <h3 class="step-title" data-i18n="testers.how.step3.title">Get paid</h3>
+                    <p data-i18n="testers.how.step3.desc">Once your test is submitted, you receive payment within a few business days. That's it.</p>
                 </div>
             </div>
         </div>
@@ -880,12 +899,12 @@
     <!-- Sign Up Form Section -->
     <section id="signup" class="section">
         <div class="container">
-            <h2 class="section-title">Join Our Tester Community</h2>
-            
+            <h2 class="section-title" data-i18n="testers.form.title">Join Our Tester Community</h2>
+
             <!-- Security Notice -->
-            <div class="security-notice" style="background: #e8f7ff; border-left: 4px solid var(--bright-blue); padding: 1rem; margin: 2rem auto; max-width: 800px; border-radius: 5px;">
+            <div class="security-notice" style="background: #e8f7ff; border-left: 4px solid var(--bright-blue); padding: 1rem; margin: 2rem auto; max-width: 800px; border-radius: 5px;" data-i18n="testers.form.security">
                 <i class="fas fa-lock" style="color: var(--bright-blue); margin-right: 0.5rem;"></i>
-                <strong>Your data is secure:</strong> We use bank-level encryption to protect your personal information. 
+                <strong>Your data is secure:</strong> We use bank-level encryption to protect your personal information.
                 Your data is stored in compliance with GDPR regulations.
             </div>
             
@@ -894,9 +913,9 @@
                     <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #00bf63, #1297e0); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
-                    <h3 style="font-family: 'Fraunces', Georgia, serif; color: #112752; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 600;">You're in!</h3>
-                    <p style="color: #5a5a6e; font-size: 1rem; line-height: 1.6; max-width: 480px; margin: 0 auto 0.5rem; opacity: 1;">We'll contact you when a study is available in your area. In the meantime, keep an eye on your inbox.</p>
-                    <p style="color: #8a92a6; font-size: 0.85rem; opacity: 1;">Questions? Reach us at <a href="mailto:info@eatpol.com" style="color: #1297e0;">info@eatpol.com</a></p>
+                    <h3 style="font-family: 'Fraunces', Georgia, serif; color: #112752; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 600;" data-i18n="testers.success.title">You're in!</h3>
+                    <p style="color: #5a5a6e; font-size: 1rem; line-height: 1.6; max-width: 480px; margin: 0 auto 0.5rem; opacity: 1;" data-i18n="testers.success.text">We'll contact you when a study is available in your area. In the meantime, keep an eye on your inbox.</p>
+                    <p style="color: #8a92a6; font-size: 0.85rem; opacity: 1;" data-i18n="testers.success.contact">Questions? Reach us at <a href="mailto:info@eatpol.com" style="color: #1297e0;">info@eatpol.com</a></p>
                 </div>
 
                 <form id="testerForm" name="tester-registration" method="POST" data-netlify="true" action="/testers.html?success=1" class="contact-form">
@@ -905,52 +924,52 @@
                     <input type="hidden" name="program_type" value="standard">
 
                     <!-- Participation Preference -->
-                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">What interests you?</h3>
+                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);" data-i18n="testers.form.interest.heading">What interests you?</h3>
 
                     <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label class="form-label">I'd like to participate in: <span style="color: var(--bright-blue);">*</span></label>
+                        <label class="form-label" data-i18n="testers.form.interest.label">I'd like to participate in: <span style="color: var(--bright-blue);">*</span></label>
                         <div role="radiogroup" aria-label="Participation type" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
                             <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 12px 16px; border: 1.5px solid var(--warm-border); border-radius: 10px; transition: all 0.2s;">
                                 <input type="radio" name="participation_type" value="vox_only" id="pt_vox_only" aria-label="Vox Interview Only" required style="width: 18px; height: 18px; margin-top: 2px; cursor: pointer;">
                                 <div>
-                                    <strong style="color: var(--navy);">Vox — Interviews only</strong>
-                                    <span style="display: block; font-size: 13px; color: var(--navy); opacity: 0.6;">Quick video interviews from home (~15 min)</span>
+                                    <strong style="color: var(--navy);" data-i18n="testers.form.radio.vox.title">Vox — Interviews only</strong>
+                                    <span style="display: block; font-size: 13px; color: var(--navy); opacity: 0.6;" data-i18n="testers.form.radio.vox.desc">Quick video interviews from home (~15 min)</span>
                                 </div>
                             </label>
                             <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; padding: 12px 16px; border: 1.5px solid var(--warm-border); border-radius: 10px; transition: all 0.2s;">
                                 <input type="radio" name="participation_type" value="vox_and_domus" id="pt_vox_and_domus" aria-label="Vox Interview and Domus Food Test" style="width: 18px; height: 18px; margin-top: 2px; cursor: pointer;">
                                 <div>
-                                    <strong style="color: var(--navy);">Vox + Domus — Interviews & home testing</strong>
-                                    <span style="display: block; font-size: 13px; color: var(--navy); opacity: 0.6;">Receive food samples, test at home, plus interviews</span>
+                                    <strong style="color: var(--navy);" data-i18n="testers.form.radio.domus.title">Vox + Domus — Interviews & home testing</strong>
+                                    <span style="display: block; font-size: 13px; color: var(--navy); opacity: 0.6;" data-i18n="testers.form.radio.domus.desc">Receive food samples, test at home, plus interviews</span>
                                 </div>
                             </label>
                         </div>
                     </div>
 
                     <!-- Personal Information -->
-                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Personal Information</h3>
+                    <h3 style="color: var(--navy); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);" data-i18n="testers.form.personal.heading">Personal Information</h3>
                     
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="firstName" class="form-label">First Name <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="firstName" class="form-label" data-i18n="testers.form.firstName.label">First Name <span style="color: var(--bright-blue);">*</span></label>
                             <input type="text" id="firstName" name="first_name" class="form-control" required>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter your first name</span>
+                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;" data-i18n="testers.form.firstName.error">Please enter your first name</span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="lastName" class="form-label">Last Name <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="lastName" class="form-label" data-i18n="testers.form.lastName.label">Last Name <span style="color: var(--bright-blue);">*</span></label>
                             <input type="text" id="lastName" name="last_name" class="form-control" required>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter your last name</span>
+                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;" data-i18n="testers.form.lastName.error">Please enter your last name</span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-label">Email Address <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="email" class="form-label" data-i18n="testers.form.email.label">Email Address <span style="color: var(--bright-blue);">*</span></label>
                             <input type="email" id="email" name="email" class="form-control" required>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter a valid email</span>
+                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;" data-i18n="testers.form.email.error">Please enter a valid email</span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="phone" class="form-label" data-i18n="testers.form.phone.label">Phone Number <span style="color: var(--bright-blue);">*</span></label>
                             <div style="display: flex; gap: 0.5rem;">
                                 <select id="phoneCountryCode" name="phone_country_code" class="form-control" style="width: 120px; flex-shrink: 0;" required>
                                     <option value="+31" selected>🇳🇱 +31</option>
@@ -986,13 +1005,13 @@
                                 </select>
                                 <input type="tel" id="phone" name="phone" class="form-control" placeholder="6 12345678" required style="flex: 1;">
                             </div>
-                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Please enter your phone number</span>
+                            <span class="error-message" style="color: #d32f2f; font-size: 0.85rem; margin-top: 0.25rem; display: none;" data-i18n="testers.form.phone.error">Please enter your phone number</span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="ageRange" class="form-label">Age Range <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="ageRange" class="form-label" data-i18n="testers.form.age.label">Age Range <span style="color: var(--bright-blue);">*</span></label>
                             <select id="ageRange" name="age_range" class="form-control" required>
-                                <option value="" disabled selected>Select your age range</option>
+                                <option value="" disabled selected data-i18n="testers.form.age.placeholder">Select your age range</option>
                                 <option value="18-24">18–24</option>
                                 <option value="25-34">25–34</option>
                                 <option value="35-44">35–44</option>
@@ -1003,24 +1022,24 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="gender" class="form-label">Gender</label>
+                            <label for="gender" class="form-label" data-i18n="testers.form.gender.label">Gender</label>
                             <select id="gender" name="gender" class="form-control">
-                                <option value="">Prefer not to say</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                                <option value="" data-i18n="testers.form.gender.prefer">Prefer not to say</option>
+                                <option value="male" data-i18n="testers.form.gender.male">Male</option>
+                                <option value="female" data-i18n="testers.form.gender.female">Female</option>
+                                <option value="other" data-i18n="testers.form.gender.other">Other</option>
                             </select>
                         </div>
                     </div>
                     
                     <!-- Location Information (always required) -->
-                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Location</h3>
+                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);" data-i18n="testers.form.location.heading">Location</h3>
 
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="country" class="form-label">Country <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="country" class="form-label" data-i18n="testers.form.country.label">Country <span style="color: var(--bright-blue);">*</span></label>
                             <select id="country" name="country" class="form-control" required>
-                                <option value="">Select Country</option>
+                                <option value="" data-i18n="testers.form.country.placeholder">Select Country</option>
                                 <option value="Netherlands" selected>Netherlands</option>
                                 <option value="Belgium">Belgium</option>
                                 <option value="Germany">Germany</option>
@@ -1214,96 +1233,96 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="city" class="form-label">City <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="city" class="form-label" data-i18n="testers.form.city.label">City <span style="color: var(--bright-blue);">*</span></label>
                             <input type="text" id="city" name="city" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="postalCode" class="form-label">Postal Code <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="postalCode" class="form-label" data-i18n="testers.form.postal.label">Postal Code <span style="color: var(--bright-blue);">*</span></label>
                             <input type="text" id="postalCode" name="postal_code" class="form-control" required>
                         </div>
                     </div>
 
                     <!-- Delivery Address (shown only for Vox + Domus) -->
                     <div id="addressSection" style="display: none;">
-                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Delivery Address</h3>
+                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);" data-i18n="testers.form.delivery.heading">Delivery Address</h3>
                     <div class="form-grid">
                         <div class="form-group form-group-full">
-                            <label for="streetAddress" class="form-label">Street Address <span style="color: var(--bright-blue);">*</span></label>
+                            <label for="streetAddress" class="form-label" data-i18n="testers.form.street.label">Street Address <span style="color: var(--bright-blue);">*</span></label>
                             <input type="text" id="streetAddress" name="street_address" class="form-control">
                         </div>
                     </div>
                     </div>
 
                     <!-- Dietary Information -->
-                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);">Dietary Information</h3>
-                    
-                    <label class="form-label">Dietary Restrictions (check all that apply):</label>
+                    <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--warm-border);" data-i18n="testers.form.dietary.heading">Dietary Information</h3>
+
+                    <label class="form-label" data-i18n="testers.form.dietary.label">Dietary Restrictions (check all that apply):</label>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-top: 0.5rem; margin-bottom: 1.5rem;">
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
                             <input type="checkbox" id="vegetarian" name="dietary_restrictions[]" value="vegetarian" style="width: 18px; height: 18px; cursor: pointer;">
-                            <label for="vegetarian" style="cursor: pointer;">Vegetarian</label>
+                            <label for="vegetarian" style="cursor: pointer;" data-i18n="testers.form.diet.vegetarian">Vegetarian</label>
                         </div>
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
                             <input type="checkbox" id="vegan" name="dietary_restrictions[]" value="vegan" style="width: 18px; height: 18px; cursor: pointer;">
-                            <label for="vegan" style="cursor: pointer;">Vegan</label>
+                            <label for="vegan" style="cursor: pointer;" data-i18n="testers.form.diet.vegan">Vegan</label>
                         </div>
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
                             <input type="checkbox" id="glutenFree" name="dietary_restrictions[]" value="gluten_free" style="width: 18px; height: 18px; cursor: pointer;">
-                            <label for="glutenFree" style="cursor: pointer;">Gluten-Free</label>
+                            <label for="glutenFree" style="cursor: pointer;" data-i18n="testers.form.diet.glutenFree">Gluten-Free</label>
                         </div>
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
                             <input type="checkbox" id="lactoseFree" name="dietary_restrictions[]" value="lactose_free" style="width: 18px; height: 18px; cursor: pointer;">
-                            <label for="lactoseFree" style="cursor: pointer;">Lactose-Free</label>
+                            <label for="lactoseFree" style="cursor: pointer;" data-i18n="testers.form.diet.lactoseFree">Lactose-Free</label>
                         </div>
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
                             <input type="checkbox" id="halal" name="dietary_restrictions[]" value="halal" style="width: 18px; height: 18px; cursor: pointer;">
-                            <label for="halal" style="cursor: pointer;">Halal</label>
+                            <label for="halal" style="cursor: pointer;" data-i18n="testers.form.diet.halal">Halal</label>
                         </div>
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
                             <input type="checkbox" id="kosher" name="dietary_restrictions[]" value="kosher" style="width: 18px; height: 18px; cursor: pointer;">
-                            <label for="kosher" style="cursor: pointer;">Kosher</label>
+                            <label for="kosher" style="cursor: pointer;" data-i18n="testers.form.diet.kosher">Kosher</label>
                         </div>
                     </div>
                     
                     <div class="form-group form-group-full">
-                        <label for="allergies" class="form-label">Food Allergies (comma-separated, e.g., nuts, dairy, shellfish)</label>
+                        <label for="allergies" class="form-label" data-i18n="testers.form.allergies.label">Food Allergies (comma-separated, e.g., nuts, dairy, shellfish)</label>
                         <textarea id="allergies" name="food_allergies" class="form-control" rows="3" placeholder="List any food allergies..." style="resize: vertical;"></textarea>
                     </div>
                     
                     <!-- Consent Section -->
                     <div style="background: #f9f9f9; border-radius: 10px; padding: 1.5rem; margin-top: 2rem;">
-                        <h3 style="color: var(--dark-blue); margin-bottom: 1rem;">Legal Consent</h3>
+                        <h3 style="color: var(--dark-blue); margin-bottom: 1rem;" data-i18n="testers.form.consent.heading">Legal Consent</h3>
                         
                         <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
                             <input type="checkbox" id="gdprConsent" name="gdpr_consent" value="1" required style="width: 18px; height: 18px; margin-top: 0.25rem; cursor: pointer;">
-                            <label for="gdprConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;">
-                                <strong>I consent to the processing of my personal data</strong> as described in the 
-                                <a href="privacy_policy.html" target="_blank" style="color: var(--bright-blue);">Privacy Policy</a>. I understand my data will be encrypted 
+                            <label for="gdprConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;" data-i18n="testers.form.consent.gdpr">
+                                <strong>I consent to the processing of my personal data</strong> as described in the
+                                <a href="privacy_policy.html" target="_blank" style="color: var(--bright-blue);">Privacy Policy</a>. I understand my data will be encrypted
                                 and stored securely. <span style="color: var(--bright-blue);">*</span>
                             </label>
                         </div>
                         
                         <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
                             <input type="checkbox" id="termsConsent" name="terms_consent" value="1" required style="width: 18px; height: 18px; margin-top: 0.25rem; cursor: pointer;">
-                            <label for="termsConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;">
-                                <strong>I accept the Terms and Conditions</strong> for food testers. I understand the risks involved 
-                                in food testing and accept them. Read the full 
+                            <label for="termsConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;" data-i18n="testers.form.consent.terms">
+                                <strong>I accept the Terms and Conditions</strong> for food testers. I understand the risks involved
+                                in food testing and accept them. Read the full
                                 <a href="terms.html" target="_blank" style="color: var(--bright-blue);">Terms and Conditions</a>. <span style="color: var(--bright-blue);">*</span>
                             </label>
                         </div>
                         
                         <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;">
                             <input type="checkbox" id="ageConsent" name="age_consent" value="1" required style="width: 18px; height: 18px; margin-top: 0.25rem; cursor: pointer;">
-                            <label for="ageConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;">
-                                <strong>I confirm that I am 18 years or older</strong> and legally able to participate in food testing. 
+                            <label for="ageConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;" data-i18n="testers.form.consent.age">
+                                <strong>I confirm that I am 18 years or older</strong> and legally able to participate in food testing.
                                 <span style="color: var(--bright-blue);">*</span>
                             </label>
                         </div>
                         
                         <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
                             <input type="checkbox" id="marketingConsent" name="marketing_consent" value="1" style="width: 18px; height: 18px; margin-top: 0.25rem; cursor: pointer;">
-                            <label for="marketingConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;">
+                            <label for="marketingConsent" style="flex: 1; font-size: 0.95rem; color: #555; line-height: 1.5; cursor: pointer;" data-i18n="testers.form.consent.marketing">
                                 I would like to receive updates about new testing opportunities via email (optional).
                             </label>
                         </div>
@@ -1311,12 +1330,12 @@
                     
                     <div class="loading" id="loadingSpinner" style="display: none; text-align: center; margin: 1rem 0;">
                         <div style="border: 3px solid var(--light-blue); border-top: 3px solid var(--bright-blue); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
-                        <p>Securing your registration...</p>
+                        <p data-i18n="testers.form.loading">Securing your registration...</p>
                     </div>
                     
                     <div style="text-align: center; margin-top: 2rem;">
                         <button type="submit" class="btn btn-primary" id="submitBtn" style="padding: 14px 40px; font-size: 16px;">
-                            <span>Sign Up & Start Earning</span>
+                            <span data-i18n="testers.form.submit">Sign Up & Start Earning</span>
                         </button>
                     </div>
                 </form>
@@ -1327,31 +1346,31 @@
     <!-- FAQ Section -->
     <section class="section faq-section" id="faq">
         <div class="container faq-container">
-            <h2 class="section-title">FAQs</h2>
+            <h2 class="section-title" data-i18n="testers.faq.title">FAQs</h2>
 
             <details>
-                <summary>What's the difference between Vox and Domus?</summary>
-                <p>Vox is a short video interview (~15 min) where you share your opinion about food products. Domus is a full in-home test — we ship food samples to your door and you record your cooking and eating experience. You can sign up for one or both.</p>
+                <summary data-i18n="testers.faq.q1">What's the difference between Vox and Domus?</summary>
+                <p data-i18n="testers.faq.a1">Vox is a short video interview (~15 min) where you share your opinion about food products. Domus is a full in-home test — we ship food samples to your door and you record your cooking and eating experience. You can sign up for one or both.</p>
             </details>
 
             <details>
-                <summary>How often will I be asked to test?</summary>
-                <p>It depends on your location and our current projects. Most testers participate in 1&ndash;3 tests per month. You can always decline if a test doesn't suit you.</p>
+                <summary data-i18n="testers.faq.q2">How often will I be asked to test?</summary>
+                <p data-i18n="testers.faq.a2">It depends on your location and our current projects. Most testers participate in 1&ndash;3 tests per month. You can always decline if a test doesn't suit you.</p>
             </details>
 
             <details>
-                <summary>How much will I get paid?</summary>
-                <p>Compensation varies depending on the type and complexity of the test. You'll always know the amount before you accept a test.</p>
+                <summary data-i18n="testers.faq.q3">How much will I get paid?</summary>
+                <p data-i18n="testers.faq.a3">Compensation varies depending on the type and complexity of the test. You'll always know the amount before you accept a test.</p>
             </details>
 
             <details>
-                <summary>What happens to my video recording?</summary>
-                <p>Your face is automatically masked by AI. Videos are analyzed by our system and securely stored in compliance with GDPR. We never share raw footage.</p>
+                <summary data-i18n="testers.faq.q4">What happens to my video recording?</summary>
+                <p data-i18n="testers.faq.a4">Your face is automatically masked by AI. Videos are analyzed by our system and securely stored in compliance with GDPR. We never share raw footage.</p>
             </details>
 
             <details>
-                <summary>Do I need special equipment?</summary>
-                <p>Just a smartphone with a camera and internet connection. We provide simple setup instructions inside the app.</p>
+                <summary data-i18n="testers.faq.q5">Do I need special equipment?</summary>
+                <p data-i18n="testers.faq.a5">Just a smartphone with a camera and internet connection. We provide simple setup instructions inside the app.</p>
             </details>
         </div>
     </section>
@@ -1361,8 +1380,8 @@
       <div class="container">
         <div class="footer-grid">
           <div>
-            <h3 class="footer-heading">About Eatpol</h3>
-            <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+            <h3 class="footer-heading" data-i18n="footer.about.title">About Eatpol</h3>
+            <p data-i18n="footer.about.text">Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
             <div class="footer-social">
               <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
               <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1372,16 +1391,16 @@
             </div>
           </div>
           <div>
-            <h3 class="footer-heading">Quick Links</h3>
+            <h3 class="footer-heading" data-i18n="footer.links.title">Quick Links</h3>
             <ul class="footer-links">
-              <li class="footer-link"><a href="index.html">Home</a></li>
-              <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
-              <li class="footer-link"><a href="eathnos.html">Community</a></li>
-              <li class="footer-link"><a href="team.html">About Us</a></li>
+              <li class="footer-link"><a href="index.html" data-i18n="nav.home">Home</a></li>
+              <li class="footer-link"><a href="testers.html" data-i18n="nav.tester">Become a Tester</a></li>
+              <li class="footer-link"><a href="eathnos.html" data-i18n="nav.community">Community</a></li>
+              <li class="footer-link"><a href="team.html" data-i18n="nav.about">About Us</a></li>
             </ul>
           </div>
           <div>
-            <h3 class="footer-heading">Contact Info</h3>
+            <h3 class="footer-heading" data-i18n="footer.contact.title">Contact Info</h3>
             <ul class="footer-links">
               <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
               <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
@@ -1389,24 +1408,25 @@
             </ul>
           </div>
           <div>
-            <h3 class="footer-heading">Legal</h3>
+            <h3 class="footer-heading" data-i18n="footer.legal.title">Legal</h3>
             <ul class="footer-links">
-              <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
-              <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+              <li class="footer-link"><a href="privacy_policy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+              <li class="footer-link"><a href="terms.html" data-i18n="footer.legal.terms">Terms & Conditions</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
           <div class="footer-collab">
-            <span class="footer-collab-label">In collaboration with</span>
+            <span class="footer-collab-label" data-i18n="footer.collab">In collaboration with</span>
             <img src="img/ufw.png" alt="Wageningen University & Research" class="footer-collab-logo">
             <img src="img/oostnl.svg" alt="Oost NL" class="footer-collab-logo">
           </div>
-          <p>&copy; 2025 Eatpol. All Rights Reserved.</p>
+          <p data-i18n="footer.rights">&copy; 2025 Eatpol. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script>
         // Form validation and submission
         document.getElementById('testerForm').addEventListener('submit', function(e) {

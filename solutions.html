@@ -8,6 +8,19 @@
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://eatpol.com/solutions.html">
 
+    <!-- hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="en" href="https://eatpol.com/solutions.html" />
+    <link rel="alternate" hreflang="ar" href="https://eatpol.com/solutions.html?lang=ar" />
+    <link rel="alternate" hreflang="zh" href="https://eatpol.com/solutions.html?lang=zh" />
+    <link rel="alternate" hreflang="nl" href="https://eatpol.com/solutions.html?lang=nl" />
+    <link rel="alternate" hreflang="it" href="https://eatpol.com/solutions.html?lang=it" />
+    <link rel="alternate" hreflang="de" href="https://eatpol.com/solutions.html?lang=de" />
+    <link rel="alternate" hreflang="es" href="https://eatpol.com/solutions.html?lang=es" />
+    <link rel="alternate" hreflang="fr" href="https://eatpol.com/solutions.html?lang=fr" />
+    <link rel="alternate" hreflang="ja" href="https://eatpol.com/solutions.html?lang=ja" />
+    <link rel="alternate" hreflang="ko" href="https://eatpol.com/solutions.html?lang=ko" />
+    <link rel="alternate" hreflang="x-default" href="https://eatpol.com/solutions.html" />
+
     <!-- Favicons -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -778,6 +791,12 @@
             .sol-nav { flex-direction: column; align-items: center; gap: 8px; }
             .consultation-banner { bottom: 16px; right: 16px; font-size: 13px; padding: 12px 20px; }
         }
+        /* ── RTL Support ── */
+        [dir="rtl"] body { text-align: right; }
+        [dir="rtl"] .nav { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-menu { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-item { margin-left: 0; margin-right: 1.5rem; }
+        [dir="rtl"] .footer-grid { direction: rtl; }
     </style>
 </head>
 <body>
@@ -790,12 +809,12 @@
                     Eatpol
                 </a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="solutions.html" class="nav-link active">Solutions</a></li>
-                    <li class="nav-item"><a href="eathnos.html" class="nav-link">Community</a></li>
-                    <li class="nav-item"><a href="testers.html" class="nav-link">Become a Tester</a></li>
-                    <li class="nav-item"><a href="team.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link">Login</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li class="nav-item"><a href="solutions.html" class="nav-link active" data-i18n="nav.solutions">Solutions</a></li>
+                    <li class="nav-item"><a href="eathnos.html" class="nav-link" data-i18n="nav.community">Community</a></li>
+                    <li class="nav-item"><a href="testers.html" class="nav-link" data-i18n="nav.tester">Become a Tester</a></li>
+                    <li class="nav-item"><a href="team.html" class="nav-link" data-i18n="nav.about">About Us</a></li>
+                    <li class="nav-item"><a href="https://studio.eatpol.com/" class="nav-link" data-i18n="nav.login">Login</a></li>
                 </ul>
                 <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -808,16 +827,16 @@
     <section class="sol-hero">
         <div class="container">
             <div class="sol-hero-content">
-                <span class="sol-hero-overline">Our Solutions</span>
-                <h1 class="sol-hero-title">Listen. Observe. Analyze.</h1>
-                <p class="sol-hero-sub">Three products that give you the full picture of how consumers experience your food product &mdash; from first impression to last bite.</p>
+                <span class="sol-hero-overline" data-i18n="solutions.hero.overline">Our Solutions</span>
+                <h1 class="sol-hero-title" data-i18n="solutions.hero.title">Listen. Observe. Analyze.</h1>
+                <p class="sol-hero-sub" data-i18n="solutions.hero.sub">Three products that give you the full picture of how consumers experience your food product &mdash; from first impression to last bite.</p>
             </div>
             <div class="sol-hero-diagram">
                 <img src="img/npd-cycle_loop_once.gif" alt="New product development cycle powered by Eatpol">
             </div>
             <div class="sol-hero-cta">
-                <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
-                <a href="#vox" class="btn btn-secondary">Explore the products</a>
+                <a href="assessment.html" class="btn btn-primary"><span data-i18n="solutions.hero.cta1">Get Your Free Assessment</span></a>
+                <a href="#vox" class="btn btn-secondary" data-i18n="solutions.hero.cta2">Explore the products</a>
             </div>
         </div>
     </section>
@@ -831,7 +850,7 @@
             <img src="img/Domus.svg" alt="Domus"> Domus
         </a>
         <a href="#studio" class="sol-nav-pill sol-nav-pill--studio">
-            <i class="fas fa-chart-bar"></i> Eatpol Studio
+            <i class="fas fa-chart-bar"></i> <span data-i18n="solutions.nav.studio">Eatpol Studio</span>
         </a>
     </nav>
 
@@ -843,8 +862,8 @@
             <div class="sol-product-header reveal">
                 <img src="img/vox.svg" alt="Vox Logo" class="sol-product-logo">
                 <div class="sol-product-label">Vox</div>
-                <h2 class="sol-product-title">Hear what consumers <em>really</em> think</h2>
-                <p class="sol-product-sub">AI-moderated video interviews that capture beliefs, expectations, and purchase intent &mdash; before your product ever reaches the shelf.</p>
+                <h2 class="sol-product-title" data-i18n="solutions.vox.title">Hear what consumers <em>really</em> think</h2>
+                <p class="sol-product-sub" data-i18n="solutions.vox.sub">AI-moderated video interviews that capture beliefs, expectations, and purchase intent &mdash; before your product ever reaches the shelf.</p>
             </div>
 
             <!-- Row 1: Demo video + description -->
@@ -853,19 +872,19 @@
                     <video autoplay muted loop playsinline>
                         <source src="videos/vox_demo1.mp4" type="video/mp4">
                     </video>
-                    <span class="sol-video-label">Live demo</span>
+                    <span class="sol-video-label" data-i18n="solutions.vox.label1">Live demo</span>
                 </div>
                 <div class="sol-content reveal-right">
-                    <h3>AI-powered conversations at scale</h3>
-                    <p>Vox conducts in-depth consumer interviews using an AI moderator that adapts in real time. No scheduling hassles, no interviewer bias &mdash; just honest, natural conversations.</p>
-                    <p>Consumers answer from home, on their own time. Results are automatically transcribed, analyzed, and themed for your dashboard.</p>
+                    <h3 data-i18n="solutions.vox.row1.title">AI-powered conversations at scale</h3>
+                    <p data-i18n="solutions.vox.row1.p1">Vox conducts in-depth consumer interviews using an AI moderator that adapts in real time. No scheduling hassles, no interviewer bias &mdash; just honest, natural conversations.</p>
+                    <p data-i18n="solutions.vox.row1.p2">Consumers answer from home, on their own time. Results are automatically transcribed, analyzed, and themed for your dashboard.</p>
                     <div class="sol-features">
-                        <span class="sol-chip"><i class="fas fa-check"></i> Purchase drivers</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Brand perception</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Expectation mapping</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Competitor benchmarking</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Consumer language</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Results in 2 days</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip1">Purchase drivers</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip2">Brand perception</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip3">Expectation mapping</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip4">Competitor benchmarking</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip5">Consumer language</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip6">Results in 2 days</span></span>
                     </div>
                 </div>
             </div>
@@ -876,17 +895,17 @@
                     <video autoplay muted loop playsinline>
                         <source src="videos/vox_demo2.mp4" type="video/mp4">
                     </video>
-                    <span class="sol-video-label">Consumer interview</span>
+                    <span class="sol-video-label" data-i18n="solutions.vox.label2">Consumer interview</span>
                 </div>
                 <div class="sol-content reveal-left">
-                    <h3>Understand the "why" behind purchase decisions</h3>
-                    <p>Traditional surveys tell you <em>what</em> consumers rate. Vox tells you <em>why</em> they buy, what they expect, and what language they use to describe your product to others.</p>
-                    <p>Use these insights to sharpen positioning, validate claims, and build messaging that resonates with your target audience.</p>
+                    <h3 data-i18n="solutions.vox.row2.title">Understand the "why" behind purchase decisions</h3>
+                    <p data-i18n="solutions.vox.row2.p1">Traditional surveys tell you <em>what</em> consumers rate. Vox tells you <em>why</em> they buy, what they expect, and what language they use to describe your product to others.</p>
+                    <p data-i18n="solutions.vox.row2.p2">Use these insights to sharpen positioning, validate claims, and build messaging that resonates with your target audience.</p>
                     <div class="sol-features">
-                        <span class="sol-chip"><i class="fas fa-check"></i> First impressions</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Usage occasions</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Price sensitivity</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Packaging feedback</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip7">First impressions</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip8">Usage occasions</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip9">Price sensitivity</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.vox.chip10">Packaging feedback</span></span>
                     </div>
                 </div>
             </div>
@@ -901,8 +920,8 @@
             <div class="sol-product-header reveal">
                 <img src="img/Domus.svg" alt="Domus Logo" class="sol-product-logo">
                 <div class="sol-product-label">Domus</div>
-                <h2 class="sol-product-title">See how consumers <em>actually</em> use your product</h2>
-                <p class="sol-product-sub">Video-captured in-home testing with detailed action analysis, audio transcription, and sentiment tracking &mdash; in real kitchens with real people.</p>
+                <h2 class="sol-product-title" data-i18n="solutions.domus.title">See how consumers <em>actually</em> use your product</h2>
+                <p class="sol-product-sub" data-i18n="solutions.domus.sub">Video-captured in-home testing with detailed action analysis, audio transcription, and sentiment tracking &mdash; in real kitchens with real people.</p>
             </div>
 
             <!-- Row 1: Demo video + description -->
@@ -911,16 +930,16 @@
                     <video autoplay muted loop playsinline>
                         <source src="videos/website_preparation.mp4" type="video/mp4">
                     </video>
-                    <span class="sol-video-label">In-home test</span>
+                    <span class="sol-video-label" data-i18n="solutions.domus.label1">In-home test</span>
                 </div>
                 <div class="sol-content reveal-right">
-                    <h3>Real kitchens. Real behavior. Real insights.</h3>
-                    <p>Domus captures the full product journey on video: how consumers prepare, cook, eat, and store your product at home. Our AI generates detailed step-by-step action descriptions, transcribes audio, and analyzes sentiment.</p>
-                    <p>No sensory booths. No artificial settings. Just authentic consumer behavior in the environment where food decisions actually happen.</p>
+                    <h3 data-i18n="solutions.domus.row1.title">Real kitchens. Real behavior. Real insights.</h3>
+                    <p data-i18n="solutions.domus.row1.p1">Domus captures the full product journey on video: how consumers prepare, cook, eat, and store your product at home. Our AI generates detailed step-by-step action descriptions, transcribes audio, and analyzes sentiment.</p>
+                    <p data-i18n="solutions.domus.row1.p2">No sensory booths. No artificial settings. Just authentic consumer behavior in the environment where food decisions actually happen.</p>
                     <div class="sol-features">
-                        <span class="sol-chip"><i class="fas fa-check"></i> Step-by-step action analysis</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Audio transcription</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Sentiment analysis</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.domus.chip1">Step-by-step action analysis</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.domus.chip2">Audio transcription</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.domus.chip3">Sentiment analysis</span></span>
                     </div>
                 </div>
             </div>
@@ -931,15 +950,15 @@
                     <video autoplay muted loop playsinline>
                         <source src="videos/domus_demo2.mp4" type="video/mp4">
                     </video>
-                    <span class="sol-video-label">Consumer test</span>
+                    <span class="sol-video-label" data-i18n="solutions.domus.label2">Consumer test</span>
                 </div>
                 <div class="sol-content reveal-left">
-                    <h3>Uncover friction points surveys miss</h3>
-                    <p>See exactly where consumers hesitate, improvise, or struggle. Domus reveals the gap between how you designed your product and how people actually use it &mdash; from packaging to plating.</p>
+                    <h3 data-i18n="solutions.domus.row2.title">Uncover friction points surveys miss</h3>
+                    <p data-i18n="solutions.domus.row2.p1">See exactly where consumers hesitate, improvise, or struggle. Domus reveals the gap between how you designed your product and how people actually use it &mdash; from packaging to plating.</p>
                     <div class="sol-features">
-                        <span class="sol-chip"><i class="fas fa-check"></i> Friction detection</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Usage context</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Results in 2 weeks</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.domus.chip4">Friction detection</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.domus.chip5">Usage context</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.domus.chip6">Results in 2 weeks</span></span>
                     </div>
                 </div>
             </div>
@@ -952,9 +971,9 @@
     <section class="sol-product sol-product--studio-dark" id="studio">
         <div class="container">
             <div class="sol-product-header reveal">
-                <div class="sol-product-badge"><i class="fas fa-chart-bar"></i> Eatpol Studio</div>
-                <h2 class="sol-product-title">Your results, one dashboard</h2>
-                <p class="sol-product-sub">Eatpol Studio brings all your Vox and Domus data together in one place &mdash; with AI-powered analysis you can query in plain language.</p>
+                <div class="sol-product-badge"><i class="fas fa-chart-bar"></i> <span data-i18n="solutions.nav.studio">Eatpol Studio</span></div>
+                <h2 class="sol-product-title" data-i18n="solutions.studio.title">Your results, one dashboard</h2>
+                <p class="sol-product-sub" data-i18n="solutions.studio.sub">Eatpol Studio brings all your Vox and Domus data together in one place &mdash; with AI-powered analysis you can query in plain language.</p>
             </div>
 
             <!-- Row 1: Dashboard screenshot + description -->
@@ -963,14 +982,14 @@
                     <img src="img/eatpol_studio_screen.png" alt="Eatpol Studio dashboard showing consumer insights and product recommendations">
                 </div>
                 <div class="sol-content reveal-right">
-                    <h3>From raw data to clear decisions</h3>
-                    <p>Every interview and in-home test feeds directly into your Studio dashboard. See transcripts, behavioral patterns, and AI-generated recommendations &mdash; all organized by product and study.</p>
-                    <p>No more static PDF reports. Explore your data, filter by segment, and share findings with your team in real time.</p>
+                    <h3 data-i18n="solutions.studio.row1.title">From raw data to clear decisions</h3>
+                    <p data-i18n="solutions.studio.row1.p1">Every interview and in-home test feeds directly into your Studio dashboard. See transcripts, behavioral patterns, and AI-generated recommendations &mdash; all organized by product and study.</p>
+                    <p data-i18n="solutions.studio.row1.p2">No more static PDF reports. Explore your data, filter by segment, and share findings with your team in real time.</p>
                     <div class="sol-features">
-                        <span class="sol-chip"><i class="fas fa-check"></i> Real-time results</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Behavioral coding</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> AI recommendations</span>
-                        <span class="sol-chip"><i class="fas fa-check"></i> Team sharing</span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.studio.chip1">Real-time results</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.studio.chip2">Behavioral coding</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.studio.chip3">AI recommendations</span></span>
+                        <span class="sol-chip"><i class="fas fa-check"></i> <span data-i18n="solutions.studio.chip4">Team sharing</span></span>
                     </div>
                 </div>
             </div>
@@ -981,23 +1000,23 @@
                     <video autoplay muted loop playsinline>
                         <source src="videos/eatpol_studio.mp4" type="video/mp4">
                     </video>
-                    <span class="sol-video-label">Eatpol Studio</span>
+                    <span class="sol-video-label" data-i18n="solutions.studio.label">Eatpol Studio</span>
                 </div>
                 <div class="sol-content reveal-left">
-                    <h3>Ask your data anything</h3>
-                    <p>Eatpol Studio includes an AI assistant grounded in your own study data and relevant category context. Ask questions in plain language and get evidence-based answers instantly.</p>
+                    <h3 data-i18n="solutions.studio.row2.title">Ask your data anything</h3>
+                    <p data-i18n="solutions.studio.row2.p1">Eatpol Studio includes an AI assistant grounded in your own study data and relevant category context. Ask questions in plain language and get evidence-based answers instantly.</p>
                     <div class="sol-agent-prompts">
                         <div class="sol-agent-prompt">
                             <i class="fas fa-comment-dots"></i>
-                            <span>What should we change before launch?</span>
+                            <span data-i18n="solutions.studio.prompt1">What should we change before launch?</span>
                         </div>
                         <div class="sol-agent-prompt">
                             <i class="fas fa-comment-dots"></i>
-                            <span>What is still uncertain before scaling?</span>
+                            <span data-i18n="solutions.studio.prompt2">What is still uncertain before scaling?</span>
                         </div>
                         <div class="sol-agent-prompt">
                             <i class="fas fa-comment-dots"></i>
-                            <span>How does our product compare to consumer expectations?</span>
+                            <span data-i18n="solutions.studio.prompt3">How does our product compare to consumer expectations?</span>
                         </div>
                     </div>
                 </div>
@@ -1008,9 +1027,9 @@
     <!-- CTA Band -->
     <section class="sol-cta-band">
         <div class="container reveal">
-            <h2 class="sol-cta-title">Ready to see your product through consumers' eyes?</h2>
-            <p class="sol-cta-sub">Book a free assessment call. We'll recommend the right combination of Vox, Domus, and Studio for your goals.</p>
-            <a href="assessment.html" class="btn btn-primary"><span>Get Your Free Assessment</span></a>
+            <h2 class="sol-cta-title" data-i18n="solutions.cta.title">Ready to see your product through consumers' eyes?</h2>
+            <p class="sol-cta-sub" data-i18n="solutions.cta.sub">Book a free assessment call. We'll recommend the right combination of Vox, Domus, and Studio for your goals.</p>
+            <a href="assessment.html" class="btn btn-primary"><span data-i18n="solutions.hero.cta1">Get Your Free Assessment</span></a>
         </div>
     </section>
 
@@ -1019,8 +1038,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 class="footer-heading">About Eatpol</h3>
-                    <p>Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
+                    <h3 class="footer-heading" data-i18n="footer.about.title">About Eatpol</h3>
+                    <p data-i18n="footer.about.text">Eatpol is a spin-off company from Wageningen University and Research founded in 2025. <br> KvK: 98066269</p>
                     <div class="footer-social">
                         <a href="https://nl.linkedin.com/company/eatpol-com" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/eatpol_/" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1030,46 +1049,47 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Quick Links</h3>
+                    <h3 class="footer-heading" data-i18n="footer.links.title">Quick Links</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html">Home</a></li>
-                        <li class="footer-link"><a href="testers.html">Become a Tester</a></li>
-                        <li class="footer-link"><a href="eathnos.html">Community</a></li>
-                        <li class="footer-link"><a href="team.html">About Us</a></li>
+                        <li class="footer-link"><a href="index.html" data-i18n="footer.link.home">Home</a></li>
+                        <li class="footer-link"><a href="testers.html" data-i18n="footer.link.tester">Become a Tester</a></li>
+                        <li class="footer-link"><a href="eathnos.html" data-i18n="footer.link.community">Community</a></li>
+                        <li class="footer-link"><a href="team.html" data-i18n="footer.link.about">About Us</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Contact Info</h3>
+                    <h3 class="footer-heading" data-i18n="footer.contact.title">Contact Info</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> Bronland 10, 6708WH, Wageningen, the Netherlands</li>
+                        <li class="footer-link"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.contact.address">Bronland 10, 6708WH, Wageningen, the Netherlands</span></li>
                         <li class="footer-link"><i class="fas fa-phone"></i> +31 (0) 611 61 22 01</li>
                         <li class="footer-link"><i class="fas fa-envelope"></i> info@eatpol.com</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="footer-heading">Legal</h3>
+                    <h3 class="footer-heading" data-i18n="footer.legal.title">Legal</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="privacy_policy.html">Privacy Policy</a></li>
-                        <li class="footer-link"><a href="terms.html">Terms & Conditions</a></li>
+                        <li class="footer-link"><a href="privacy_policy.html" data-i18n="footer.legal.privacy">Privacy Policy</a></li>
+                        <li class="footer-link"><a href="terms.html" data-i18n="footer.legal.terms">Terms & Conditions</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-collab">
-                    <span class="footer-collab-label">In collaboration with</span>
+                    <span class="footer-collab-label" data-i18n="footer.collab">In collaboration with</span>
                     <img src="img/ufw.png" alt="Wageningen University & Research" class="footer-collab-logo">
                     <img src="img/oostnl.svg" alt="Oost NL" class="footer-collab-logo">
                 </div>
-                <p>&copy; 2026 Eatpol. All Rights Reserved.</p>
+                <p data-i18n="footer.rights">&copy; 2026 Eatpol. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Fixed Consultation Banner -->
     <a href="assessment.html" class="consultation-banner" id="consultationBanner">
-        <i class="fas fa-clipboard-check"></i> Free Assessment
+        <i class="fas fa-clipboard-check"></i> <span data-i18n="solutions.banner">Free Assessment</span>
     </a>
 
+    <script src="js/i18n.js"></script>
     <script>
         // Mobile nav toggle
         const hamburger = document.querySelector('.hamburger');
